@@ -34,7 +34,7 @@ const signUp = document.getElementById('email-phone');
 const phoneLog = document.getElementById('phone-log');
 const emailLog = document.getElementById('email-log');
 
-const signYahoo = document.getElementById('signYahoo');
+const signGoogle = document.getElementById('signGoogle');
 
 const vpnButton = document.getElementsByClassName('vpn-section')[0];
 
@@ -66,9 +66,6 @@ fetch('https://ipapi.co/json/').then(function(response) { return response.json()
 const auth = firebase.auth();
 
 phoneLog.addEventListener('click', phoneShow);
-vpnButton.addEventListener('click', yahooShow);
-signYahoo.addEventListener('click', yahooShow);
-
 emailLog.addEventListener('click', emailShow);
 
 function phoneShow() {
@@ -99,18 +96,9 @@ function emailShow() {
 	mailField.setAttribute('placeHolder', 'Enter your Email...');
 
 	setTimeout(() => {
-		mailField.style.textAlign = 'right'; mailField.value = '@gmail.com';
-	}, 1800);
-}
-
-function yahooShow() {
-	inType.innerHTML = 'YAHOO LOGIN';
-	save1.innerHTML = ` A link will be sent to your <br> <span id="mail-span">yahoo inbox</span>, `;
-	save2.innerHTML = ` Use the link to verify your <br> login on this page. `;
-	mailField.setAttribute('type', 'email'); 
-	theFlag7.style.display = 'none'; mailField.style.letterSpacing = '1.5px';
-	signImg.setAttribute("src", 'img/partners/yahoo.png'); 
-	mailField.style.textAlign = 'right'; mailField.value = '@yahoo.com';
+		mailField.setAttribute('placeHolder', 'Email:.....@gmail.com');
+		// mailField.style.textAlign = 'right'; mailField.value = '@gmail.com';
+	}, 2400);
 }
 
 window.recaptchaVerifier = new firebase.auth.RecaptchaVerifier('recaptcha-container', {'size': 'invisible'});
@@ -190,6 +178,8 @@ const signInWithGoogle = () => {
 		setTimeout(() => { window.location.assign('home') }, 150);
 	});
 };
+vpnButton.addEventListener('click', signInWithGoogle);
+signGoogle.addEventListener('click', signInWithGoogle);
 
 
 
