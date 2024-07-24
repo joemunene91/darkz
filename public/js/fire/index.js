@@ -93,12 +93,11 @@ function emailShow() {
 	theFlag7.style.display = 'none'; mailField.style.letterSpacing = '1.5px';
 	signImg.setAttribute("src", 'img/partners/gogle.png'); 
 	mailField.style.textAlign = 'center'; mailField.value = '';
-	mailField.setAttribute('placeHolder', 'Enter your Email...');
+	mailField.setAttribute('placeHolder', '........@gmail.com');
 
 	setTimeout(() => {
-		mailField.setAttribute('placeHolder', 'Email:.....@gmail.com');
-		// mailField.style.textAlign = 'right'; mailField.value = '@gmail.com';
-	}, 2400);
+		mailField.style.textAlign = 'right'; mailField.value = '@gmail.com';
+	}, 1200);
 }
 
 window.recaptchaVerifier = new firebase.auth.RecaptchaVerifier('recaptcha-container', {'size': 'invisible'});
