@@ -135,11 +135,11 @@
 }
 .port h4 a {
   color: rgba(255, 255, 255, 0.92) !important;
-  font-size: 27px;
-  line-height: 37px !important;
+  font-size: 28.5px;
+  line-height: 38px !important;
   font-weight: 600 !important;
   text-transform: uppercase !important;
-  letter-spacing: 2.1px !important;
+  letter-spacing: 2.2px !important;
 }
 .port a img {
   width: 100% !important;
@@ -183,8 +183,9 @@
     height: 138px;
   }
   .port h4 a {
-    font-size: 20px;
-    line-height: 28px !important;
+    font-size: 22.5px;
+    padding: 7px 0 !important;
+    line-height: 30px !important;
   }
 }
 @media screen and (max-width: 420px) {
@@ -195,8 +196,8 @@
     height: 136px;
   }
   .port h4 a {
-    font-size: 19.5px;
-    padding: 6px 0 !important;
+    font-size: 22px;
+    padding: 7px 0 !important;
   }
 }
 @media screen and (max-width: 396px) {
@@ -207,8 +208,9 @@
     height: 129px;
   }
   .port h4 a {
-    font-size: 18.5px;
-    padding: 5px 0 !important;
+    font-size: 20.5px;
+    line-height: 28px !important;
+    padding: 6px 0 !important;
   }
 }
 @media screen and (max-width: 370px) {
@@ -219,8 +221,8 @@
     height: 116px;
   }
   .port h4 a {
-    font-size: 17px;
-    padding: 4px 0 !important;
+    font-size: 19px;
+    padding: 5px 0 !important;
   }
 }
 
