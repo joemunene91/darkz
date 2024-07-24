@@ -186,6 +186,7 @@ body {
 .btn7.gold7{
 	background: yellow;
 	color: #121d33;
+	font-size: 24px !important;
 }
 .btn7.gold7:hover{
 	color: aqua;
