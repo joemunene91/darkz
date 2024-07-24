@@ -140,6 +140,7 @@
   font-weight: 600 !important;
   text-transform: uppercase !important;
   letter-spacing: 2.2px !important;
+  white-space: nowrap !important;
 }
 .port a img {
   width: 100% !important;
@@ -180,7 +181,7 @@
     margin: 15px 0px !important;
   }
   .port a img {
-    height: 138px;
+    height: 137px;
   }
   .port h4 a {
     font-size: 22px;
@@ -193,10 +194,10 @@
     margin: 21px 0px !important;
   }
   .port a img {
-    height: 136px;
+    height: 135px;
   }
   .port h4 a {
-    font-size: 21.5px;
+    font-size: 21px;
     padding: 7px 0 !important;
   }
 }
@@ -205,10 +206,10 @@
     margin: 21px 0px !important;
   }
   .port a img {
-    height: 129px;
+    height: 128px;
   }
   .port h4 a {
-    font-size: 20.5px;
+    font-size: 20px;
     line-height: 28px !important;
     padding: 6px 0 !important;
   }
@@ -235,7 +236,7 @@
 
 @media screen and (max-width: 574px) {
   .border {
-    margin: 60px auto !important;
+    margin:30px auto !important;
     border: 1.9px solid rgba(135, 206, 235, 0.2) !important;
    }
 }
@@ -343,20 +344,4 @@ blink {
   letter-spacing: 0.94px !important;
 }
 
-#vpn {
-  bottom: 53.5px !important;
-  letter-spacing: 1.35px !important;
-  font-size: 23.5px !important;
-  opacity: 0.85 !important;
-  padding: 7.5px 11.5px !important;
-
-  border: 1.35px solid rgb(31, 67, 87) !important;
-  background: rgb(164, 224, 232) !important;
-  box-shadow: 0 0 0 1px rgb(134, 213, 224) !important;
-}
-
-#vpn img {
-  width: 27.5px !important;
-  margin: -3px 2px -1px 2px !important;
-}
 

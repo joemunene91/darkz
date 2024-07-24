@@ -35,8 +35,7 @@ const phoneLog = document.getElementById('phone-log');
 const emailLog = document.getElementById('email-log');
 
 const signGoogle = document.getElementById('signGoogle');
-
-const vpnButton = document.getElementsByClassName('vpn-section')[0];
+const signYahoo = document.getElementById('signYahoo');
 
 const codeField = document.getElementById('code');
 const signInWithPhoneButton = document.getElementById('signInWithPhone');
@@ -68,6 +67,9 @@ const auth = firebase.auth();
 phoneLog.addEventListener('click', phoneShow);
 emailLog.addEventListener('click', emailShow);
 
+signGoogle.addEventListener('click', googleShow);
+signYahoo.addEventListener('click', yahooShow);
+
 function phoneShow() {
 	inType.innerHTML = 'PHONE LOGIN';
 	save1.innerHTML = ` A code will be sent to your <br> <span id="mail-span">phone number</span>, `;
@@ -91,10 +93,37 @@ function emailShow() {
 	save2.innerHTML = ` Use the link to verify your <br> login on this page. `;
 	mailField.setAttribute('type', 'email'); 
 	theFlag7.style.display = 'none'; mailField.style.letterSpacing = '1.5px';
+	signImg.setAttribute("src", 'img/partners/comm.png'); 
+
+	mailField.style.textAlign = 'center'; mailField.value = '';
+	mailField.setAttribute('placeHolder', 'Enter your Email...');
+}
+
+
+function googleShow() {
+	inType.innerHTML = 'GMAIL LOGIN';
+	save1.innerHTML = ` A link will be sent to your <br> <span id="mail-span">gmail inbox</span>, `;
+	save2.innerHTML = ` Use the link to verify your <br> login on this page. `;
+	mailField.setAttribute('type', 'email'); 
+	theFlag7.style.display = 'none'; mailField.style.letterSpacing = '1.5px';
 	signImg.setAttribute("src", 'img/partners/gogle.png'); 
 
-	mailField.style.textAlign = 'right'; mailField.value = '...@gmail.com';
+	mailField.style.textAlign = 'right'; mailField.value = ' @gmail.com';
 }
+
+
+function yahooShow() {
+	inType.innerHTML = 'YAHOO LOGIN';
+	save1.innerHTML = ` A link will be sent to your <br> <span id="mail-span">yahoo inbox</span>, `;
+	save2.innerHTML = ` Use the link to verify your <br> login on this page. `;
+	mailField.setAttribute('type', 'email'); 
+	theFlag7.style.display = 'none'; mailField.style.letterSpacing = '1.5px';
+	signImg.setAttribute("src", 'img/partners/yahoo.png'); 
+
+	mailField.style.textAlign = 'right'; mailField.value = ' @yahoo.com';
+}
+
+
 
 window.recaptchaVerifier = new firebase.auth.RecaptchaVerifier('recaptcha-container', {'size': 'invisible'});
 recaptchaVerifier.render().then(widgetId => { window.recaptchaWidgetId = widgetId; });
@@ -173,8 +202,7 @@ const signInWithGoogle = () => {
 		setTimeout(() => { window.location.assign('home') }, 150);
 	});
 };
-vpnButton.addEventListener('click', signInWithGoogle);
-signGoogle.addEventListener('click', signInWithGoogle);
+// signGoogle.addEventListener('click', signInWithGoogle);
 
 
 
