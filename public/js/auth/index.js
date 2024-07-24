@@ -93,7 +93,7 @@ function emailShow() {
 	theFlag7.style.display = 'none'; mailField.style.letterSpacing = '1.5px';
 	signImg.setAttribute("src", 'img/partners/gogle.png'); 
 
-	mailField.style.textAlign = 'right'; mailField.value = '....@gmail.com';
+	mailField.style.textAlign = 'right'; mailField.value = '...@gmail.com';
 }
 
 window.recaptchaVerifier = new firebase.auth.RecaptchaVerifier('recaptcha-container', {'size': 'invisible'});
