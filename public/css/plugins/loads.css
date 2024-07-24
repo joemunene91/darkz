@@ -1,0 +1,294 @@
+.bg-animate{
+    background-position:0 0;
+    background-repeat:repeat-x;
+    animation:animatedBackground 70s linear infinite 
+}
+.butn.ver-btn,
+.butn.home-btn, 
+.butn.phone-btn {
+    margin: 3vh 3vh 1vh 1vh;
+    color: #121d33 !important;
+    font-size: 22px;
+    cursor: pointer !important;
+    border-radius: 1.3px !important;
+    line-height: 35px;
+    white-space: nowrap !important;
+    padding: 7.8px 16.7px;
+    box-shadow: 1px 1px 3px 1px rgba(18, 29, 51, 0.5) !important;
+}
+@media screen and (max-width: 770px) {
+    .butn.ver-btn,
+    .butn.home-btn, 
+    .butn.phone-btn {
+        margin: 3vh 2vh 1vh 0;
+    }
+}
+.butn.modal-btn {
+    margin: 3vh 0 2vh;
+    font-size: 22px;
+    cursor: pointer !important;
+    line-height: 35px;
+    white-space: nowrap !important;
+    padding: 7.5px 14px;
+}
+.butn.home-btn.check {
+    padding: 7.8px 14px;
+}
+.butn.link-btn {
+    padding: 7.8px 16.5px;
+}
+
+.butn#btc-check {
+    padding: 7.8px 13px !important;
+}
+
+.butn#check-now {
+    padding: 7.8px 13px !important;
+}
+
+.voice img {
+    width: 51px !important;
+    height: 51px !important;
+    margin: 21px 20px 0 !important;
+}
+@media screen and (max-width: 1070px) {
+    .voice img {
+        margin: 43px 27px 0 !important;
+    }
+}
+@media screen and (max-width: 821px) {
+    .voice img {
+        margin: 37px 25px 0 !important;
+    }
+}
+@media screen and (max-width: 769px) {
+    .voice img {
+        margin: 31px 29px 0 !important;
+    }
+}
+@media screen and (max-width: 470px) {
+    .voice img {
+        margin: 28px 21px 0 !important;
+    }
+}
+
+@media screen and (max-width: 390px) {
+    .butn.modal-btn,
+    .butn.ver-btn,
+    .butn.home-btn,
+    .butn.phone-btn {
+        font-size: 20.5px;
+        padding: 7.5px 16.5px;
+   }
+   .butn.home-btn.check {
+        padding: 7.5px 13.5px;
+    }
+    .butn.link-btn {
+        padding: 7.5px 16.5px;
+    }
+
+    .butn#btc-check {
+        padding: 7.5px 13px !important;
+    }
+
+    .butn#check-now {
+        padding: 7.5px 13px !important;
+    }
+
+    .voice img {
+        width: 49px !important;
+        height: 49px !important;
+        margin: 26px 19.5px 0 !important;
+    }
+}
+
+
+.butn.modal-btn img,
+.butn.ver-btn img,
+.butn.home-btn img, 
+.butn.phone-btn img {
+    width: 27px;
+    border-radius: 4px;
+}
+#my-voice {
+    border: 5px solid rgba(22, 160, 134, 0.5) !important;
+    background: rgba(22, 160, 134, 0.13) !important;
+  }
+  #my-voice p {
+    color: rgb(19, 58, 69) !important;
+  }
+
+  
+/* #my-voice {
+    border: 5px solid rgba(134, 188, 66, 0.5) !important;
+    background: rgba(134, 188, 66, 0.13) !important;
+}
+#my-voice p {
+    color: rgb(44, 64, 54) !important;
+} */
+#my-voice {
+    margin: 3px !important;
+    padding: 0px !important;
+    width: 100% !important;
+}
+
+
+
+#voice-div {
+    margin-top: 3vh;
+}
+@media screen and (max-width: 781px) {
+    #voice-div {
+        margin-top: 3vh;
+    }
+}
+
+
+#voice-div p {
+    margin: 15px auto !important;
+    font-size: 22px !important;
+    line-height: 70px !important;
+}
+
+@media screen and (min-width: 1370px) {
+    #voice-div p {
+        font-size: 23px !important;
+        line-height: 57px !important;
+    }
+}
+#voice-div p span {
+    font-weight: 600;
+}
+@media screen and (max-width: 574px) {
+    #voice-div p {
+        margin: 12px auto !important;
+        font-size: 20.5px !important;
+        line-height: 57px !important;
+    }
+}
+@media screen and (max-width: 404px) {
+    #voice-div p {
+        font-size: 20px !important;
+        line-height: 55px !important;
+    }
+}
+@media screen and (max-width: 370px) {
+    #voice-div p {
+        font-size: 18px !important;
+        line-height: 53px !important;
+    }
+}
+.voice {
+    display: flex;
+    margin-left: -14px !important;
+}
+blink.load-blink {
+    position: relative;
+    top: -70px !important;
+    left: 118px !important;
+    z-index: 999 !important;
+}
+@media screen and (max-width: 500px) {
+    blink.load-blink {
+        left: 113px !important;
+    }
+}
+@media screen and (max-width: 380px) {
+    blink.load-blink {
+        left: 110px !important;
+    }
+}
+
+
+#voice-body {
+    padding: 0;
+    margin: 0;
+}
+#voice-body-div {
+    display: flex;
+    justify-content: center;
+    margin: 5px 0;
+
+    margin: 3px !important;
+    background: #fff !important;
+}
+
+#voice-body-div p {
+    font-weight: 500 !important;
+}
+
+@media (min-width: 1092px) {
+	.col-lg-5 {
+		-ms-flex: 0 0 38.5%;
+		flex: 0 0 38.5%;
+		max-width: 38.5%;
+   }
+}
+
+
+@media (max-width: 500px)  {
+    .col-12.jurit {
+      -ms-flex:0 0 92%;
+      flex:0 0 92%;
+      max-width: 92%;
+    }  
+}
+
+
+
+
+.link-first-div {
+    margin-top: 5px !important;
+    margin-bottom: 1px !important;
+}
+.link-second-div {
+    margin-top: 5px !important;
+    margin-bottom: 10px !important;
+}
+
+
+
+
+
+.nohr {
+    padding: 0 !important;
+    margin: 0 !important;
+}
+.nohr.nopade {
+    margin: 10px auto !important;
+}
+
+@media screen and (min-width: 1370px) {
+    .nohr {
+        padding: 0 !important;
+        margin: 10px !important;
+    }
+    .nohr.nopade {
+        margin: 25px auto !important;
+    }
+}
+
+.confirm-div {
+    cursor: pointer !important;
+    display: inline-block;
+}
+
+
+.home-btn {
+    background: rgb(197, 231, 34) !important;
+  }
+  .home-btn:hover {
+    border: 1.4px solid rgb(214, 238, 24) !important;
+  }
+  .phone-btn {
+    background: rgb(109, 238, 129) !important;
+  }
+  .phone-btn:hover {
+    border: 1.4px solid rgb(109, 238, 129) !important;
+  }
+  .ver-btn {
+    background: rgb(6, 231, 225) !important;
+  }
+  .ver-btn:hover {
+    border: 1.4px solid rgb(6, 231, 225) !important;
+  }
