@@ -48,9 +48,9 @@
 }
 @media screen and (max-width: 591px){
   .col-55 {
-    -ms-flex: 0 0 41%;
-    flex: 0 0 41%;
-    max-width: 41%;
+    -ms-flex: 0 0 40.5%;
+    flex: 0 0 40.5%;
+    max-width: 40.5%;
     margin: 3% auto !important;
 }
 }
@@ -181,10 +181,10 @@
     margin: 15px 0px !important;
   }
   .port a img {
-    height: 137px;
+    height: 136px;
   }
   .port h4 a {
-    font-size: 21px;
+    font-size: 20.5px;
     padding: 7px 0 !important;
     line-height: 30px !important;
   }
@@ -194,10 +194,10 @@
     margin: 21px 0px !important;
   }
   .port a img {
-    height: 135px;
+    height: 134px;
   }
   .port h4 a {
-    font-size: 20.5px;
+    font-size: 20px;
     padding: 7px 0 !important;
   }
 }
@@ -206,10 +206,10 @@
     margin: 21px 0px !important;
   }
   .port a img {
-    height: 128px;
+    height: 125px;
   }
   .port h4 a {
-    font-size: 19.5px;
+    font-size: 19px;
     line-height: 28px !important;
     padding: 6px 0 !important;
   }
@@ -237,7 +237,7 @@
 @media screen and (max-width: 574px) {
   .border {
     margin: 20px auto !important;
-    border: 1.9px solid rgba(135, 206, 235, 0.2) !important;
+    border: 1.9px solid rgba(135, 206, 235, 0.13) !important;
    }
 }
 #clients {
@@ -255,8 +255,8 @@
 }
 @media screen and (max-width: 591px){
   .banner-col {
-      margin-top: -60px !important;
-      margin-bottom: -15px !important;
+      margin-top: -64px !important;
+      margin-bottom: -12px !important;
   }
 }
   
