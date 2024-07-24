@@ -229,17 +229,17 @@
 
 
 .border{
-  border: 1.9px solid rgba(135, 206, 235, 0.1) !important;
+  border: 1.5px solid rgba(135, 206, 235, 0.15) !important;
   margin: 20px auto !important;
 }
 
 
-@media screen and (max-width: 574px) {
+/* @media screen and (max-width: 574px) {
   .border {
     margin: 20px auto !important;
-    border: 1.9px solid rgba(135, 206, 235, 0.13) !important;
+    border: 1.5px solid rgba(135, 206, 235, 0.15) !important;
    }
-}
+} */
 #clients {
   position: fixed !important;
   bottom: 3px !important;
