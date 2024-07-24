@@ -51,7 +51,7 @@
     -ms-flex: 0 0 40.5%;
     flex: 0 0 40.5%;
     max-width: 40.5%;
-    margin: 3% auto !important;
+    margin: 2.8% auto !important;
 }
 }
 @media (min-width: 767px) {
@@ -230,16 +230,10 @@
 
 .border{
   border: 1.5px solid rgba(135, 206, 235, 0.15) !important;
-  margin: 20px auto !important;
+  margin: 19px auto !important;
 }
 
 
-/* @media screen and (max-width: 574px) {
-  .border {
-    margin: 20px auto !important;
-    border: 1.5px solid rgba(135, 206, 235, 0.15) !important;
-   }
-} */
 #clients {
   position: fixed !important;
   bottom: 3px !important;
@@ -255,7 +249,7 @@
 }
 @media screen and (max-width: 591px){
   .banner-col {
-      margin-top: -64px !important;
+      margin-top: -60px !important;
       margin-bottom: -12px !important;
   }
 }
