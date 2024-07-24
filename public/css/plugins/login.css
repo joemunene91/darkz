@@ -278,7 +278,7 @@
   left: 0;
   top: 0;
   text-transform: uppercase;
-  font-size: 57px;
+  font-size: 54px;
 }
 .banner-words-wrapper b.is-visible {
   position: relative;
@@ -299,23 +299,23 @@
 }
 @media screen and (max-width: 767px) {
   .banner-words-wrapper b {
-      font-size: 39px;
+      font-size: 36px;
   }
 }
 @media screen and (max-width: 570px) {
   .banner-words-wrapper b {
-    font-size: 40px;
+    font-size: 37px;
   }
 }
 @media screen and (max-width: 397px) {
-.banner-words-wrapper b {
-  font-size: 38px;
-}
+  .banner-words-wrapper b {
+    font-size: 35px;
+  }
 }
 @media screen and (max-width: 370px) {
-.banner-words-wrapper b {
-  font-size: 36px;
-}
+  .banner-words-wrapper b {
+    font-size: 33px;
+  }
 }
 
 #style-switcher{
