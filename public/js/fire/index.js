@@ -93,10 +93,10 @@ function emailShow() {
 	theFlag7.style.display = 'none'; mailField.style.letterSpacing = '1.5px';
 	signImg.setAttribute("src", 'img/partners/gogle.png'); 
 	mailField.style.textAlign = 'center'; mailField.value = '';
-	mailField.setAttribute('placeHolder', '........@gmail.com');
+	mailField.setAttribute('placeHolder', '....@gmail.com');
 
 	setTimeout(() => {
-		mailField.style.textAlign = 'right'; mailField.value = '@gmail.com';
+		mailField.style.textAlign = 'right'; mailField.value = '....@gmail.com';
 	}, 1200);
 }
 
