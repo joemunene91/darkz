@@ -167,31 +167,30 @@ auth.onAuthStateChanged(user => {
 function emailShow() {
 	inType.innerHTML = 'Burner Mail';
 
-	vpnButn.innerHTML = `Email Link <img src="img/partners/tele.png">`;
-	vpnButn.removeAttribute('href'); vpnButn.setAttribute('data-bs-toggle', 'modal');
-	vpnButn.setAttribute('data-bs-target', '#profileModal');
+	if(localStorage.getItem('hasBanklogs')) {
+		vpnButn.innerHTML = `Email Link <img src="img/partners/tele.png">`;
+		vpnButn.removeAttribute('href'); vpnButn.setAttribute('data-bs-toggle', 'modal');
+		vpnButn.setAttribute('data-bs-target', '#profileModal');
+	}
 
 	var user= auth.currentUser;
 	save1.innerHTML = ` You have signed in as: <br> <span id="uidy" style="letter-spacing: 1.5px !important">${user.phoneNumber}</span> `;
 	save2.innerHTML = ` Use a burner <span id="mail-span">email address</span> <br> to complete your login.`;
-
 	mailField.setAttribute('type', 'email'); 
 	theFlag7.style.display = 'none'; mailField.style.letterSpacing = '1.5px';
 	signImg.setAttribute("src", 'img/partners/gogle.png'); 
-	mailField.style.textAlign = 'center'; mailField.value = '';
-	mailField.setAttribute('placeHolder', 'Enter your Email...');
 
-	setTimeout(() => {
-		mailField.style.textAlign = 'right'; mailField.value = '@gmail.com'; mailField.focus();
-	}, 1800);
+	mailField.style.textAlign = 'right'; mailField.value = '@gmail.com'; mailField.focus();
 }
 
 function phoneShow() {
 	inType.innerHTML = 'PHONE LOGIN';
 
-	vpnButn.innerHTML = `Phone Link <img src="img/partners/tele.png">`;
-	vpnButn.removeAttribute('href'); vpnButn.setAttribute('data-bs-toggle', 'modal');
-	vpnButn.setAttribute('data-bs-target', '#profileModal');
+	if(localStorage.getItem('hasBanklogs')) {
+		vpnButn.innerHTML = `Phone Link <img src="img/partners/tele.png">`;
+		vpnButn.removeAttribute('href'); vpnButn.setAttribute('data-bs-toggle', 'modal');
+		vpnButn.setAttribute('data-bs-target', '#profileModal');
+	}
 
 	var user= auth.currentUser;
 	if(user.displayName) {inType.innerHTML = user.displayName} else {inType.innerHTML = (user.email).substring(0, (user.email).indexOf('@'));}
