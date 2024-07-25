@@ -45,6 +45,9 @@ if(localStorage.getItem('banklogs') && ((JSON.parse(localStorage.getItem('banklo
     }
     updateCartTotal();
 
+    document.getElementById('home-row').style.display = 'none';
+    document.getElementById('qa-row').style.display = 'none';
+
     localStorage.setItem('hasBanklogs', true);
 
     for(var i = 0; i < items.length; i++) {
@@ -100,15 +103,15 @@ if(localStorage.getItem('banklogs') && ((JSON.parse(localStorage.getItem('banklo
     showingToast.removeAttribute('onclick');
     showingToast.addEventListener('click', showThis);
 
-    document.getElementsByClassName('huntington')[0].style.display = 'block';
-    document.getElementsByClassName('bankofamerica')[0].style.display = 'block';
-    document.getElementsByClassName('chime')[0].style.display = 'block';
-    document.getElementsByClassName('achtransfer')[0].style.display = 'block';
-    document.getElementsByClassName('wiretransfer')[0].style.display = 'block';
-    document.getElementsByClassName('navyfederal')[0].style.display = 'block';
-    document.getElementsByClassName('coinbase')[0].style.display = 'block';
-    document.getElementsByClassName('wellsfargo')[0].style.display = 'block';
-    document.getElementsByClassName('woodforest')[0].style.display = 'block';
+    // document.getElementsByClassName('huntington')[0].style.display = 'block';
+    // document.getElementsByClassName('bankofamerica')[0].style.display = 'block';
+    // document.getElementsByClassName('chime')[0].style.display = 'block';
+    // document.getElementsByClassName('achtransfer')[0].style.display = 'block';
+    // document.getElementsByClassName('wiretransfer')[0].style.display = 'block';
+    // document.getElementsByClassName('navyfederal')[0].style.display = 'block';
+    // document.getElementsByClassName('coinbase')[0].style.display = 'block';
+    // document.getElementsByClassName('wellsfargo')[0].style.display = 'block';
+    // document.getElementsByClassName('woodforest')[0].style.display = 'block';
 }
 
 var joeT = true;

@@ -272,7 +272,7 @@
   left: 0;
   top: 0;
   text-transform: uppercase;
-  font-size: 54px;
+  font-size: 56px;
 }
 .banner-words-wrapper b.is-visible {
   position: relative;
@@ -298,17 +298,17 @@
 }
 @media screen and (max-width: 570px) {
   .banner-words-wrapper b {
-    font-size: 37px;
+    font-size: 39px;
   }
 }
 @media screen and (max-width: 397px) {
   .banner-words-wrapper b {
-    font-size: 35px;
+    font-size: 37px;
   }
 }
 @media screen and (max-width: 370px) {
   .banner-words-wrapper b {
-    font-size: 33px;
+    font-size: 35px;
   }
 }
 

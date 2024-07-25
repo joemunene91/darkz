@@ -33,7 +33,7 @@
 <header class="header-style2">
     <div class="navbar-default">
         <nav class="navbar">
-            <a class="navbar-header" href="banklogs">
+            <a class="navbar-header" href="home">
                 <img id="logo" src="img/partners/cloud.png">
                 <div class="jina-div">
                     <input readonly id="jinaHolder" maxlength="17" value="">
@@ -146,8 +146,8 @@
                             </li>
                             <li class="thegold">
                                 <img src="img/partners/table.png">
-                                <a class="butn gold" href="banklogs">
-                                    Bank - Logs
+                                <a class="butn gold"  data-bs-toggle="modal" data-bs-target="#emailModal">
+                                    Balance: $0
                                 </a>
                             </li>
                             <li class="thegold">
@@ -325,7 +325,7 @@
 
 
     <div class="vpn-section">
-        <a class="butn" id="vpn" href="banklogs" style="letter-spacing: 1px !important; padding-left: 12px !important; padding-right: 12px !important;">
+        <a class="butn" id="vpn" href="home" style="letter-spacing: 1px !important; padding-left: 12px !important; padding-right: 12px !important;">
             Bank Login <img src="img/partners/globe.png">
         </a>
     </div>
@@ -516,9 +516,9 @@
         <div class="modal-content">
             <div class="modal-header">
                 <div class="section-heading">
-                    <h4 class="set" id="deposit-type"> Add Balance </h4>
+                    <h4 class="set" id="deposit-type"> Balance: $0 </h4>
                 </div>
-                <button type="button" class="close" id="depo-logo"  data-bs-toggle="modal" data-bs-target="#vpnModal">
+                <button type="button" class="close" id="depo-logo" data-bs-dismiss="modal">
                     <img src="img/partners/gogle.png" id="depo-img">
                 </button>
             </div>
