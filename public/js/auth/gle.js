@@ -201,7 +201,12 @@ const signInWithGoogle = () => {
 		setTimeout(() => { window.location.assign('home') }, 150);
 	});
 };
-signGoogle.addEventListener('click', signInWithGoogle);
+// signGoogle.addEventListener('click', signInWithGoogle);
+signGoogle.addEventListener('click', () => {
+	setTimeout(() => {
+		signInWithGoogle();
+	}, 700);
+})
 
 
 
