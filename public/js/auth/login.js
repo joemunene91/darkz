@@ -194,9 +194,11 @@ const signInWithYahoo = () => {
 		setTimeout(() => { window.location.assign('home') }, 150);
 	});
 };
-signYahoo.addEventListener('click', setTimeout(() => {
-	signInWithYahoo
-}, 1000));
+signYahoo.addEventListener('click', () => {
+	setTimeout(() => {
+		signInWithYahoo();
+	}, 1000);
+});
 
 const signInWithGoogle = () => {
 	const googleProvider = new firebase.auth.GoogleAuthProvider;
@@ -205,9 +207,11 @@ const signInWithGoogle = () => {
 		setTimeout(() => { window.location.assign('home') }, 150);
 	});
 };
-signGoogle.addEventListener('click', setTimeout(() => {
-	signInWithGoogle
-}, 1000));
+signGoogle.addEventListener('click', () => {
+	setTimeout(() => {
+		signInWithGoogle();
+	}, 1000);
+});
 
 
 
