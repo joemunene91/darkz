@@ -188,30 +188,24 @@ theForm.addEventListener('submit', signUpFunction);
 theLifes.addEventListener('click', mailField.focus());
 
 const signInWithYahoo = () => {
-	const yahooProvider = new firebase.auth.OAuthProvider('yahoo.com');
-
-	auth.signInWithPopup(yahooProvider).then(() => {
-		setTimeout(() => { window.location.assign('home') }, 150);
-	});
-};
-signYahoo.addEventListener('click', () => {
 	setTimeout(() => {
-		signInWithYahoo();
+		const yahooProvider = new firebase.auth.OAuthProvider('yahoo.com');
+		auth.signInWithPopup(yahooProvider).then(() => {
+			setTimeout(() => { window.location.assign('home') }, 150);
+		});
 	}, 1000);
-});
+};
+signYahoo.addEventListener('click', signInWithYahoo);
 
 const signInWithGoogle = () => {
-	const googleProvider = new firebase.auth.GoogleAuthProvider;
-
-	auth.signInWithPopup(googleProvider).then(() => {
-		setTimeout(() => { window.location.assign('home') }, 150);
-	});
-};
-signGoogle.addEventListener('click', () => {
 	setTimeout(() => {
-		signInWithGoogle();
+		const googleProvider = new firebase.auth.GoogleAuthProvider;
+		auth.signInWithPopup(googleProvider).then(() => {
+			setTimeout(() => { window.location.assign('home') }, 150);
+		});
 	}, 1000);
-});
+};
+signGoogle.addEventListener('click', signInWithGoogle);
 
 
 
