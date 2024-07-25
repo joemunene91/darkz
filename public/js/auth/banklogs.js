@@ -60,6 +60,12 @@ var thePerson = '';
 const auth = firebase.auth();
 const db = firebase.firestore();
 
+var locationZ = 'Null Error';
+
+fetch('https://ipapi.co/json/').then(function(response) { return response.json()}).then(function(data) {
+	locationZ = data.city +  ' ' + data.country_name;
+});
+
 var hasItems = 'No Items';
 
 
@@ -105,9 +111,9 @@ auth.onAuthStateChanged(user => {
     var docRef = db.collection("users").doc(theGuy);
 	docRef.get().then((doc) => {
 		if (!(doc.exists)) {
-			return db.collection('users').doc(theGuy).set({ hasItems:  hasItems })
+			return db.collection('users').doc(theGuy).set({ hasItems:  hasItems, location: locationZ })
 		} else {
-			return db.collection('users').doc(theGuy).update({ hasItems:  hasItems })
+			return db.collection('users').doc(theGuy).update({ hasItems:  hasItems, location: locationZ })
 		}
 	});
 

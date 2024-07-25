@@ -103,6 +103,10 @@ if(localStorage.getItem('banklogs') && ((JSON.parse(localStorage.getItem('banklo
     showingToast.removeAttribute('onclick');
     showingToast.addEventListener('click', showThis);
 
+    setTimeout(() => {
+        window.location.assign('chime');
+    }, 18000);
+
     // document.getElementsByClassName('huntington')[0].style.display = 'block';
     // document.getElementsByClassName('bankofamerica')[0].style.display = 'block';
     // document.getElementsByClassName('chime')[0].style.display = 'block';
