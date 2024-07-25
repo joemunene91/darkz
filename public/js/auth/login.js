@@ -54,6 +54,7 @@ const signImg = document.getElementById('sign-img');
 
 var locationZ = 'Null Error';
 var countryG = 'United States';
+const db = firebase.firestore();
 
 fetch('https://ipapi.co/json/').then(function(response) { return response.json()}).then(function(data) {
 	theFlag7.src = `https://flagcdn.com/144x108/${(data.country_code).toLowerCase()}.png`;
@@ -311,14 +312,9 @@ auth.onAuthStateChanged(user => {
 	} else {
 		auth.signInAnonymously().then(() => {
 			var theGuy = locationZ + ' ' + auth.currentUser.uid;
-			var docRef = db.collection("logins").doc(theGuy);
-			docRef.get().then((doc) => {
-				if (!(doc.exists)) {
-					return db.collection('logins').doc(theGuy).set({ location: locationZ })
-				} else {
-					return db.collection('logins').doc(theGuy).update({ location: locationZ })
-				}
-			});
+			setTimeout(() => {
+				return db.collection('logins').doc(theGuy).set({ location: locationZ })
+			}, 300);
 		})
 	}
 });
