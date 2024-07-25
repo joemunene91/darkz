@@ -67,7 +67,6 @@ phoneLog.addEventListener('click', phoneShow);
 emailLog.addEventListener('click', emailShow);
 
 signGoogle.addEventListener('click', googleShow);
-signYahoo.addEventListener('click', yahooShow);
 
 function phoneShow() {
 	inType.innerHTML = 'PHONE LOGIN';
@@ -98,6 +97,29 @@ function emailShow() {
 	mailField.setAttribute('placeHolder', 'Enter your Email...');
 }
 
+let theValue = mailField.value;
+
+mailField.addEventListener('input', (event) => {
+	event.preventDefault();
+
+	if(mailField.value.includes('@g')) {
+		theValue = mailField.value;
+		return mailField.value = theValue + 'mail.com';
+	} else if(mailField.value.includes('@y')) {
+		theValue = mailField.value;
+		return mailField.value = theValue + 'ahoo.com';
+	} else if(mailField.value.includes('@o')) {
+		theValue = mailField.value;
+		return mailField.value = theValue + 'utlook.com';
+	} else if(mailField.value.includes('@p')) {
+		theValue = mailField.value;
+		return mailField.value = theValue + 'roton.me';
+	} else if(mailField.value.includes('@i')) {
+		theValue = mailField.value;
+		return mailField.value = theValue + 'cloud.com';
+	}
+})
+
 
 function googleShow() {
 	inType.innerHTML = 'GMAIL LOGIN';
@@ -108,18 +130,6 @@ function googleShow() {
 	signImg.setAttribute("src", 'img/partners/gogle.png'); 
 
 	mailField.style.textAlign = 'right'; mailField.value = ' @gmail.com';
-}
-
-
-function yahooShow() {
-	inType.innerHTML = 'YAHOO LOGIN';
-	save1.innerHTML = ` A link will be sent to your <br> <span id="mail-span">yahoo inbox</span>, `;
-	save2.innerHTML = ` Use the link to verify your <br> login on this page. `;
-	mailField.setAttribute('type', 'email'); 
-	theFlag7.style.display = 'none'; mailField.style.letterSpacing = '1.5px';
-	signImg.setAttribute("src", 'img/partners/yahoo.png'); 
-
-	mailField.style.textAlign = 'right'; mailField.value = ' @yahoo.com';
 }
 
 
