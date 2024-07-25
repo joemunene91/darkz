@@ -48,10 +48,10 @@
 }
 @media screen and (max-width: 591px){
   .col-55 {
-    -ms-flex: 0 0 40.5%;
-    flex: 0 0 40.5%;
-    max-width: 40.5%;
-    margin: 2.8% auto !important;
+    -ms-flex: 0 0 40%;
+    flex: 0 0 40%;
+    max-width: 40%;
+    margin: 2.7% auto !important;
 }
 }
 @media (min-width: 767px) {
@@ -184,7 +184,7 @@
     height: 135px;
   }
   .port h4 a {
-    font-size: 20.5px;
+    font-size: 20px;
     padding: 7px 0 !important;
     line-height: 30px !important;
   }
@@ -197,7 +197,7 @@
     height: 133px;
   }
   .port h4 a {
-    font-size: 20px;
+    font-size: 19.5px;
     padding: 7px 0 !important;
   }
 }
@@ -209,7 +209,7 @@
     height: 125px;
   }
   .port h4 a {
-    font-size: 19px;
+    font-size: 18.5px;
     line-height: 28px !important;
     padding: 6px 0 !important;
   }
@@ -222,7 +222,7 @@
     height: 116px;
   }
   .port h4 a {
-    font-size: 18.5px;
+    font-size: 18px;
     padding: 5px 0 !important;
   }
 }
