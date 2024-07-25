@@ -35,7 +35,6 @@ const phoneLog = document.getElementById('phone-log');
 const emailLog = document.getElementById('email-log');
 
 const signGoogle = document.getElementById('signGoogle');
-const signYahoo = document.getElementById('signYahoo');
 
 const codeField = document.getElementById('code');
 const signInWithPhoneButton = document.getElementById('signInWithPhone');
@@ -193,9 +192,6 @@ const signInWithYahoo = () => {
 		setTimeout(() => { window.location.assign('home') }, 150);
 	});
 };
-signYahoo.addEventListener('click', () => {
-	setTimeout(() => { signInWithYahoo() }, 700);
-});
 
 const signInWithGoogle = () => {
 	const googleProvider = new firebase.auth.GoogleAuthProvider;

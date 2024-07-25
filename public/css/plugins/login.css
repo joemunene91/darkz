@@ -48,9 +48,9 @@
 }
 @media screen and (max-width: 591px){
   .col-55 {
-    -ms-flex: 0 0 40%;
-    flex: 0 0 40%;
-    max-width: 40%;
+    -ms-flex: 0 0 41%;
+    flex: 0 0 41%;
+    max-width: 41%;
     margin: 2.7% auto !important;
 }
 }
@@ -184,7 +184,7 @@
     height: 134px;
   }
   .port h4 a {
-    font-size: 20px;
+    font-size: 21px;
     padding: 7px 0 !important;
     line-height: 30px !important;
   }
@@ -197,7 +197,7 @@
     height: 132px;
   }
   .port h4 a {
-    font-size: 19.5px;
+    font-size: 20px;
     padding: 7px 0 !important;
   }
 }
@@ -209,7 +209,7 @@
     height: 125px;
   }
   .port h4 a {
-    font-size: 18.5px;
+    font-size: 19px;
     line-height: 28px !important;
     padding: 6px 0 !important;
   }
@@ -232,7 +232,12 @@
   border: 1.4px solid rgba(135, 206, 235, 0.14) !important;
   margin: 19px auto !important;
 }
-
+@media screen and (max-width: 570px) {
+  .border{
+    border: 1.4px solid rgba(135, 206, 235, 0.14) !important;
+    margin: 60px auto !important;
+  }
+}
 
 #clients {
   position: fixed !important;
@@ -249,8 +254,8 @@
 }
 @media screen and (max-width: 591px){
   .banner-col {
-      margin-top: -60px !important;
-      margin-bottom: -12px !important;
+      margin-top: -30px !important;
+      margin-bottom: -10px !important;
   }
 }
   
@@ -298,17 +303,17 @@
 }
 @media screen and (max-width: 570px) {
   .banner-words-wrapper b {
-    font-size: 39px;
+    font-size: 36px;
   }
 }
 @media screen and (max-width: 397px) {
   .banner-words-wrapper b {
-    font-size: 37px;
+    font-size: 34px;
   }
 }
 @media screen and (max-width: 370px) {
   .banner-words-wrapper b {
-    font-size: 35px;
+    font-size: 32px;
   }
 }
 
