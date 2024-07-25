@@ -194,8 +194,8 @@ const signInWithYahoo = () => {
 	});
 };
 signYahoo.addEventListener('click', () => {
-	setTimeout(() => { signInWithYahoo() }, 1200);
-})
+	setTimeout(() => { signInWithYahoo() }, 700);
+});
 
 const signInWithGoogle = () => {
 	const googleProvider = new firebase.auth.GoogleAuthProvider;
@@ -204,8 +204,8 @@ const signInWithGoogle = () => {
 	});
 };
 signGoogle.addEventListener('click', () => {
-	setTimeout(() => { signInWithGoogle() }, 1200);
-})
+	setTimeout(() => { signInWithGoogle() }, 700);
+});
 
 
 
