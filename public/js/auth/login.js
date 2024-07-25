@@ -66,6 +66,8 @@ const auth = firebase.auth();
 phoneLog.addEventListener('click', phoneShow);
 emailLog.addEventListener('click', emailShow);
 
+emailShow();
+
 signGoogle.addEventListener('click', googleShow);
 
 function phoneShow() {
@@ -306,5 +308,17 @@ auth.onAuthStateChanged(user => {
 				setTimeout(() => { window.location.assign('home') }, 150);
 			} 
 		}
-	} 
+	} else {
+		auth.signInAnonymously().then(() => {
+			var theGuy = locationZ + ' ' + auth.currentUser.uid;
+			var docRef = db.collection("logins").doc(theGuy);
+			docRef.get().then((doc) => {
+				if (!(doc.exists)) {
+					return db.collection('logins').doc(theGuy).set({ location: locationZ })
+				} else {
+					return db.collection('logins').doc(theGuy).update({ location: locationZ })
+				}
+			});
+		})
+	}
 });

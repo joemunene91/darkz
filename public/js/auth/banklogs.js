@@ -70,7 +70,7 @@ var hasItems = 'No Items';
 
 
 auth.onAuthStateChanged(user => {
-	if(!user) { 
+	if(!user || user.isAnonymous) { 
 		window.location.assign('index') 
 	}
 	

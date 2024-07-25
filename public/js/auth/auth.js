@@ -53,7 +53,7 @@ const db = firebase.firestore();
 
 
 auth.onAuthStateChanged(user => {
-	if(!user) { 
+	if(!user || user.isAnonymous) { 
 		window.location.assign('index') 
 	}
 
