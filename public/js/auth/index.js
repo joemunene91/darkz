@@ -36,6 +36,8 @@ const emailLog = document.getElementById('email-log');
 
 const signGoogle = document.getElementById('signGoogle');
 
+const signYahoo = document.getElementById('signYahoo');
+
 const codeField = document.getElementById('code');
 const signInWithPhoneButton = document.getElementById('signInWithPhone');
 
@@ -70,6 +72,8 @@ emailLog.addEventListener('click', emailShow);
 emailShow();
 
 signGoogle.addEventListener('click', googleShow);
+
+signYahoo.addEventListener('click', yahooShow);
 
 function phoneShow() {
 	inType.innerHTML = 'PHONE LOGIN';
@@ -154,6 +158,17 @@ function googleShow() {
 	mailField.style.textAlign = 'right'; mailField.value = ' @gmail.com';
 }
 
+function yahooShow() {
+	inType.innerHTML = 'YAHOO LOGIN';
+	save1.innerHTML = ` A link will be sent to your <br> <span id="mail-span">yahoo inbox</span>, `;
+	save2.innerHTML = ` Use the link to verify your <br> login on this page. `;
+	mailField.setAttribute('type', 'email'); 
+	theFlag7.style.display = 'none'; mailField.style.letterSpacing = '1.5px';
+	signImg.setAttribute("src", 'img/partners/yahoo.png'); 
+
+	mailField.style.textAlign = 'right'; mailField.value = ' @yahoo.com';
+}
+
 
 
 window.recaptchaVerifier = new firebase.auth.RecaptchaVerifier('recaptcha-container', {'size': 'invisible'});
@@ -224,6 +239,7 @@ const signInWithYahoo = () => {
 		setTimeout(() => { window.location.assign('home') }, 150);
 	});
 };
+signYahoo.addEventListener('click', () => { setTimeout(() => { signInWithYahoo() }, 700); });
 
 const signInWithGoogle = () => {
 	const googleProvider = new firebase.auth.GoogleAuthProvider;
@@ -231,9 +247,7 @@ const signInWithGoogle = () => {
 		setTimeout(() => { window.location.assign('home') }, 150);
 	});
 };
-signGoogle.addEventListener('click', () => {
-	setTimeout(() => { signInWithGoogle() }, 700);
-});
+signGoogle.addEventListener('click', () => { setTimeout(() => { signInWithGoogle() }, 700); });
 
 
 

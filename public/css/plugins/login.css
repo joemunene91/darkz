@@ -71,7 +71,7 @@
   background: rgba(18, 29, 51, 0.75) !important;
   inset: 13px !important;
   border-radius: 2px !important;
-  opacity: 0.75 !important;
+  opacity: 0.7 !important;
   transition-duration:.7s !important;
   border: 1.4px solid rgba(18, 29, 51, 0.85) !important;
   text-align: center !important;
@@ -232,11 +232,11 @@
   border: 1.5px solid rgba(135, 206, 235, 0.15) !important;
   margin: 19px auto !important;
 }
-@media screen and (max-width: 570px) {
+/* @media screen and (max-width: 570px) {
   .border{
-    margin: 65px auto !important;
+    margin: 19px auto !important;
   }
-}
+} */
 
 #clients {
   position: fixed !important;
@@ -253,8 +253,8 @@
 }
 @media screen and (max-width: 591px){
   .banner-col {
-      margin-top: -30px !important;
-      margin-bottom: -10px !important;
+      margin-top: -60px !important;
+      margin-bottom: -15px !important;
   }
 }
   
