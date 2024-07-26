@@ -48,9 +48,9 @@
 }
 @media screen and (max-width: 591px){
   .col-55 {
-    -ms-flex: 0 0 41%;
-    flex: 0 0 41%;
-    max-width: 41%;
+    -ms-flex: 0 0 40.7%;
+    flex: 0 0 40.7%;
+    max-width: 40.7%;
     margin: 2.7% auto !important;
 }
 }
@@ -297,7 +297,7 @@
 }
 @media screen and (max-width: 767px) {
   .banner-words-wrapper b {
-      font-size: 36px;
+      font-size: 38px;
   }
 }
 @media screen and (max-width: 570px) {
@@ -346,8 +346,8 @@ blink {
 
 
 #vpn {
-  bottom: 57px !important;
-  letter-spacing: 1.6px !important;
+  bottom: 60px !important;
+  letter-spacing: 1.8px !important;
   font-size: 24px !important;
   opacity: 0.85 !important;
   padding: 7.5px 11px !important;
