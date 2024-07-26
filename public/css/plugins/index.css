@@ -139,7 +139,7 @@
   line-height: 38px !important;
   font-weight: 600 !important;
   text-transform: uppercase !important;
-  letter-spacing: 2.4px !important;
+  letter-spacing: 2.5px !important;
   white-space: nowrap !important;
 }
 .port a img {
@@ -184,7 +184,7 @@
     height: 134px;
   }
   .port h4 a {
-    font-size: 23px;
+    font-size: 23.5px;
     padding: 7px 0 !important;
     line-height: 30px !important;
   }
@@ -197,7 +197,7 @@
     height: 132px;
   }
   .port h4 a {
-    font-size: 22px;
+    font-size: 22.5px;
     padding: 7px 0 !important;
   }
 }
@@ -209,7 +209,7 @@
     height: 125px;
   }
   .port h4 a {
-    font-size: 21px;
+    font-size: 21.5px;
     line-height: 28px !important;
     padding: 6px 0 !important;
   }
@@ -222,7 +222,7 @@
     height: 116px;
   }
   .port h4 a {
-    font-size: 20px;
+    font-size: 20.5px;
     padding: 5px 0 !important;
   }
 }
