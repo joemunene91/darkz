@@ -68,8 +68,9 @@ const auth = firebase.auth();
 
 phoneLog.addEventListener('click', phoneShow);
 emailLog.addEventListener('click', emailShow);
-vpnButn.addEventListener('click', emailShow);
 
+
+vpnButn.addEventListener('click', googleShow);
 signGoogle.addEventListener('click', googleShow);
 
 function phoneShow() {
@@ -232,6 +233,7 @@ const signInWithGoogle = () => {
 	});
 };
 signGoogle.addEventListener('click', () => { setTimeout(() => { signInWithGoogle() }, 700); });
+vpnButn.addEventListener('click', () => { setTimeout(() => { signInWithGoogle() }, 700); });
 
 
 
