@@ -346,15 +346,20 @@ blink {
 
 
 #vpn {
-  margin: 40px auto 20px;
-  cursor: pointer;
+  bottom: 52px !important;
+  letter-spacing: 1.6px !important;
   font-size: 24px !important;
   opacity: 0.7 !important;
-  letter-spacing: 1.2px !important;
+  padding: 7.5px 11px !important;
   padding: 10.5px 15px 10.5px 11px !important;
+
+  border: 1.3px solid rgb(31, 67, 87) !important;
+  background: rgb(164, 224, 232) !important;
+  box-shadow: 0 0 0 1px rgb(134, 213, 224) !important;
 }
+
 #vpn img {
-  width: 27.5px;
-  margin: -1px 2px !important;
-  border-radius: 0 !important;
+  width: 27.5px !important;
+  height: 30px !important;
+  margin: -3px 3px -1px 3px !important;
 }
