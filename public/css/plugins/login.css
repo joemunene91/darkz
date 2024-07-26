@@ -71,15 +71,15 @@
   background: rgba(18, 29, 51, 0.75) !important;
   inset: 13px !important;
   border-radius: 2px !important;
-  opacity: 0.05 !important;
+  opacity: 0.75 !important;
   transition-duration:.7s !important;
   border: 1.4px solid rgba(18, 29, 51, 0.85) !important;
   text-align: center !important;
 }
 .bro-text p:after{
   display:block !important;
-  width: 100px !important;
-  height: 2px !important;
+  width: 92px !important;
+  height: 3px !important;
   margin:10px auto 0 auto !important;
 }
 .bro-text p{
@@ -135,11 +135,11 @@
 }
 .port h4 a {
   color: rgba(255, 255, 255, 0.92) !important;
-  font-size: 28.2px;
+  font-size: 29px;
   line-height: 38px !important;
   font-weight: 600 !important;
   text-transform: uppercase !important;
-  letter-spacing: 2.2px !important;
+  letter-spacing: 2.4px !important;
   white-space: nowrap !important;
 }
 .port a img {
@@ -184,7 +184,7 @@
     height: 134px;
   }
   .port h4 a {
-    font-size: 21px;
+    font-size: 23px;
     padding: 7px 0 !important;
     line-height: 30px !important;
   }
@@ -197,7 +197,7 @@
     height: 132px;
   }
   .port h4 a {
-    font-size: 20px;
+    font-size: 22px;
     padding: 7px 0 !important;
   }
 }
@@ -209,7 +209,7 @@
     height: 125px;
   }
   .port h4 a {
-    font-size: 19px;
+    font-size: 21px;
     line-height: 28px !important;
     padding: 6px 0 !important;
   }
@@ -222,7 +222,7 @@
     height: 116px;
   }
   .port h4 a {
-    font-size: 18px;
+    font-size: 20px;
     padding: 5px 0 !important;
   }
 }
