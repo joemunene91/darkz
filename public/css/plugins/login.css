@@ -71,7 +71,7 @@
   background: rgba(18, 29, 51, 0.75) !important;
   inset: 13px !important;
   border-radius: 2px !important;
-  opacity: 0.7 !important;
+  opacity: 0.75 !important;
   transition-duration:.7s !important;
   border: 1.4px solid rgba(18, 29, 51, 0.85) !important;
   text-align: center !important;
@@ -232,11 +232,11 @@
   border: 1.5px solid rgba(135, 206, 235, 0.15) !important;
   margin: 19px auto !important;
 }
-/* @media screen and (max-width: 570px) {
+@media screen and (max-width: 570px) {
   .border{
-    margin: 19px auto !important;
+    margin: 65px auto !important;
   }
-} */
+}
 
 #clients {
   position: fixed !important;
@@ -253,8 +253,8 @@
 }
 @media screen and (max-width: 591px){
   .banner-col {
-      margin-top: -60px !important;
-      margin-bottom: -15px !important;
+      margin-top: -30px !important;
+      margin-bottom: -10px !important;
   }
 }
   
@@ -343,3 +343,18 @@ blink {
 }
 
 
+
+
+#vpn {
+  margin: 40px auto 20px;
+  cursor: pointer;
+  font-size: 24px !important;
+  opacity: 0.7 !important;
+  letter-spacing: 1.2px !important;
+  padding: 10.5px 15px 10.5px 11px !important;
+}
+#vpn img {
+  width: 27.5px;
+  margin: -1px 2px !important;
+  border-radius: 0 !important;
+}
