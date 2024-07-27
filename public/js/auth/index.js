@@ -34,7 +34,7 @@ const signUp = document.getElementById('email-phone');
 const phoneLog = document.getElementById('phone-log');
 const emailLog = document.getElementById('email-log');
 
-const signGoogle = document.getElementById('signGoogle');
+const signAnony = document.getElementById('signAnony');
 
 const codeField = document.getElementById('code');
 const signInWithPhoneButton = document.getElementById('signInWithPhone');
@@ -54,24 +54,17 @@ const vpnButn = document.getElementsByClassName('vpn-section')[0];
 const signLogo = document.getElementById('sign-logo');
 const signImg = document.getElementById('sign-img');
 
-var locationZ = 'Null Error';
 var countryG = 'United States';
-const db = firebase.firestore();
 
 fetch('https://ipapi.co/json/').then(function(response) { return response.json()}).then(function(data) {
 	theFlag7.src = `https://flagcdn.com/144x108/${(data.country_code).toLowerCase()}.png`;
 	countryG = data.country_name;
-	locationZ = data.city +  ' ' + data.country_name;
 });
 
 const auth = firebase.auth();
 
 phoneLog.addEventListener('click', phoneShow);
 emailLog.addEventListener('click', emailShow);
-
-
-vpnButn.addEventListener('click', googleShow);
-signGoogle.addEventListener('click', googleShow);
 
 function phoneShow() {
 	inType.innerHTML = 'PHONE LOGIN';
@@ -103,57 +96,34 @@ function emailShow() {
 }
 
 let theValue = mailField.value;
-
 let executed = false;
-
 mailField.addEventListener('input', runOnce);
-
 
 function runOnce() {
   if (!executed) {
 	if(mailField.value.includes('@g')) {
-		executed = true;
-		theValue = mailField.value;
+		executed = true; theValue = mailField.value;
 		mailField.value = theValue + 'mail.com';
 	} else if(mailField.value.includes('@y')) {
-		executed = true;
-		theValue = mailField.value;
+		executed = true; theValue = mailField.value;
 		mailField.value = theValue + 'ahoo.com';
 	} else if(mailField.value.includes('@p')) {
-		executed = true;
-		theValue = mailField.value;
+		executed = true; theValue = mailField.value;
 		mailField.value = theValue + 'roton.me';
 	} else if(mailField.value.includes('@o')) {
-		executed = true;
-		theValue = mailField.value;
+		executed = true; theValue = mailField.value;
 		mailField.value = theValue + 'utlook.com';
 	} else if(mailField.value.includes('@i')) {
-		executed = true;
-		theValue = mailField.value;
+		executed = true; theValue = mailField.value;
 		mailField.value = theValue + 'cloud.com';
 	} else if(mailField.value.includes('@a')) {
-		executed = true;
-		theValue = mailField.value;
+		executed = true; theValue = mailField.value;
 		mailField.value = theValue + 'ol.com';
 	} else if(mailField.value.includes('@m')) {
-		executed = true;
-		theValue = mailField.value;
+		executed = true; theValue = mailField.value;
 		mailField.value = theValue + 'ail.com';
 	} 
   }
-}
-
-
-
-function googleShow() {
-	inType.innerHTML = 'GMAIL LOGIN';
-	save1.innerHTML = ` A link will be sent to your <br> <span id="mail-span">gmail inbox</span>, `;
-	save2.innerHTML = ` Use the link to verify your <br> login on this page. `;
-	mailField.setAttribute('type', 'email'); 
-	theFlag7.style.display = 'none'; mailField.style.letterSpacing = '1.5px';
-	signImg.setAttribute("src", 'img/partners/gogle.png'); 
-
-	mailField.style.textAlign = 'right'; mailField.value = ' @gmail.com';
 }
 
 
@@ -232,9 +202,21 @@ const signInWithGoogle = () => {
 		setTimeout(() => { window.location.assign('home') }, 150);
 	});
 };
-signGoogle.addEventListener('click', () => { setTimeout(() => { signInWithGoogle() }, 700); });
-vpnButn.addEventListener('click', () => { setTimeout(() => { signInWithGoogle() }, 700); });
 
+
+const signInAnony = () => {
+	auth.signInAnonymously().then(() => {
+		setTimeout(() => {
+			window.location.assign('home');
+		}, 300);
+	}).catch(error => {
+		var shortCutFunction = 'success'; var msg = `${error.message}<hr class="to-hr hr15-bot">`;
+		toastr.options =  {closeButton: true, debug: false, newestOnTop: true, progressBar: true,positionClass: 'toast-top-full-width', preventDuplicates: true, onclick: null};
+		var $toast = toastr[shortCutFunction](msg);$toastlast = $toast;
+	});
+};
+signAnony.addEventListener("click", signInAnony);
+vpnButn.addEventListener("click", signInAnony);
 
 
 document.getElementById("thebodyz").oncontextmenu = function() {
@@ -309,12 +291,5 @@ auth.onAuthStateChanged(user => {
 				setTimeout(() => { window.location.assign('home') }, 150);
 			} 
 		}
-	} else {
-		auth.signInAnonymously().then(() => {
-			var theGuy = locationZ + ' ' + auth.currentUser.uid;
-			setTimeout(() => {
-				return db.collection('logins').doc(theGuy).set({ location: locationZ })
-			}, 300);
-		})
-	}
+	} 
 });

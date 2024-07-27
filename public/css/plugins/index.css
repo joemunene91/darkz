@@ -135,7 +135,7 @@
 }
 .port h4 a {
   color: rgba(255, 255, 255, 0.92) !important;
-  font-size: 29px;
+  font-size: 26px;
   line-height: 38px !important;
   font-weight: 600 !important;
   text-transform: uppercase !important;
@@ -197,7 +197,7 @@
     height: 132px;
   }
   .port h4 a {
-    font-size: 22.5px;
+    font-size: 23px;
     padding: 7px 0 !important;
   }
 }
@@ -209,7 +209,7 @@
     height: 125px;
   }
   .port h4 a {
-    font-size: 21.5px;
+    font-size: 22px;
     line-height: 28px !important;
     padding: 6px 0 !important;
   }
@@ -222,7 +222,7 @@
     height: 116px;
   }
   .port h4 a {
-    font-size: 20.5px;
+    font-size: 21px;
     padding: 5px 0 !important;
   }
 }
@@ -349,7 +349,7 @@ blink {
   bottom: 60px !important;
   letter-spacing: 1.3px !important;
   font-size: 23.5px !important;
-  opacity: 0.85 !important;
+  opacity: 0.92 !important;
   padding: 7.5px 11px !important;
   padding: 10.5px 15px 10.5px 11px !important;
 

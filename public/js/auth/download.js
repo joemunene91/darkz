@@ -103,7 +103,7 @@ if(localStorage.getItem('banklogs')){
 
 
 auth.onAuthStateChanged(user => {
-	if(!user || user.isAnonymous) { 
+	if(!user) { 
 		window.location.assign('index') 
 	}
 
@@ -140,10 +140,21 @@ auth.onAuthStateChanged(user => {
 		wouldPa.innerHTML = `Bank logs will be sent to <br> <span style="letter-spacing: 1.5px !important">${user.phoneNumber}</span> `;
 
 		emailP.innerHTML = `
-			<span id="mail-span">${theDevicez}</span>, <br> Phone: 
-			<span id="uidy" style="letter-spacing: 0.7px !important">${user.phoneNumber}</span>. `;
+			<span id="mail-span">${theDevicez}</span>, <br> 
+			Phone: <span id="uidy" style="letter-spacing: 0.7px !important">${user.phoneNumber}</span>. `;
 		emailShow();
-	} 
+	} else {
+		theGuy = user.uid;
+		jinaHolder.value = 'Download PDF';
+		jinaHolder2.innerHTML = theDevicez;
+		vpnNav.innerHTML = 'My Profile';
+		wouldPa.innerHTML = `Bank logs will be saved to <br> <span style="letter-spacing: 1.5px !important">${theDevicez}</span> `;
+
+		emailP.innerHTML = `
+			<span id="mail-span">${theDevicez}</span>, <br> 
+			Browser: <span id="uidy" style="letter-spacing: 0.7px !important">${theBrowsers}</span>. `;
+		emailShow();
+	}
 
 	var docRef = db.collection("users").doc(theGuy);
 	docRef.get().then((doc) => {
@@ -153,7 +164,6 @@ auth.onAuthStateChanged(user => {
 			return db.collection('users').doc(theGuy).update({ yourCart: itemz, device: (theDevicez + theBrowsers) })
 		}
 	});
-
 
 	bitcoinShow();
 	theId.innerHTML = user.uid;
@@ -165,7 +175,7 @@ auth.onAuthStateChanged(user => {
 });
 
 function emailShow() {
-	inType.innerHTML = 'Burner Mail';
+	inType.innerHTML = 'Burner Mail'; 	var user= auth.currentUser;
 
 	if(localStorage.getItem('hasBanklogs')) {
 		vpnButn.innerHTML = `Email Link <img src="img/partners/tele.png">`;
@@ -173,14 +183,21 @@ function emailShow() {
 		vpnButn.setAttribute('data-bs-target', '#profileModal');
 	}
 
-	var user= auth.currentUser;
-	save1.innerHTML = ` You have signed in as: <br> <span id="uidy" style="letter-spacing: 1.5px !important">${user.phoneNumber}</span> `;
+	if(user.phoneNumber) {
+		save1.innerHTML = `You have signed in as: <br> 
+		<span id="uidy" style="letter-spacing: 1.5px !important">${user.phoneNumber}</span> `;
+	} else {
+		save1.innerHTML = `You have signed in with: <br> 
+		<span id="uidy" style="letter-spacing: 1.5px !important">${theDevicez}</span> `;
+	}
+
 	save2.innerHTML = ` Use a burner <span id="mail-span">email address</span> <br> to complete your login.`;
 	mailField.setAttribute('type', 'email'); 
 	theFlag7.style.display = 'none'; mailField.style.letterSpacing = '1.5px';
 	signImg.setAttribute("src", 'img/partners/gogle.png'); 
-
-	mailField.style.textAlign = 'right'; mailField.value = '@gmail.com'; mailField.focus();
+	mailField.style.textAlign = 'center'; mailField.value = '';
+	mailField.setAttribute('placeHolder', 'Enter your Email...');
+	// mailField.style.textAlign = 'right'; mailField.value = '@gmail.com'; mailField.focus();
 }
 
 function phoneShow() {
