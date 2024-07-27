@@ -135,11 +135,11 @@
 }
 .port h4 a {
   color: rgba(255, 255, 255, 0.92) !important;
-  font-size: 26px;
+  font-size: 30px;
   line-height: 38px !important;
   font-weight: 600 !important;
   text-transform: uppercase !important;
-  letter-spacing: 2.5px !important;
+  letter-spacing: 2.8px !important;
   white-space: nowrap !important;
 }
 .port a img {
