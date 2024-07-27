@@ -148,7 +148,7 @@ auth.onAuthStateChanged(user => {
 		jinaHolder.value = 'Download PDF';
 		jinaHolder2.innerHTML = theDevicez;
 		vpnNav.innerHTML = 'My Profile';
-		wouldPa.innerHTML = `Bank login files can <br> be sent via <span>Email</span> `;
+		wouldPa.innerHTML = `Bank login files can <br> be sent via <span>Email</span>. `;
 
 		emailP.innerHTML = `
 			<span id="mail-span">${theDevicez}</span>, <br> 
@@ -176,19 +176,16 @@ auth.onAuthStateChanged(user => {
 
 function emailShow() {
 	inType.innerHTML = 'Burner Mail'; 	var user= auth.currentUser;
-
-	if(!(user.email && user.phoneNumber)) {
-		vpnButn.innerHTML = `Email Link <img src="img/partners/tele.png">`;
-		vpnButn.removeAttribute('href'); vpnButn.setAttribute('data-bs-toggle', 'modal');
-		vpnButn.setAttribute('data-bs-target', '#profileModal');
-	}
-
 	if(user.phoneNumber) {
 		save1.innerHTML = `You have signed in as: <br> 
 		<span id="uidy" style="letter-spacing: 1.5px !important">${user.phoneNumber}</span> `;
 	} else {
 		save1.innerHTML = `You have signed in with: <br> 
 		<span id="uidy" style="letter-spacing: 1.5px !important">${theDevicez}</span> `;
+
+		vpnButn.innerHTML = `Email Link <img src="img/partners/tele.png">`;
+		vpnButn.removeAttribute('href'); vpnButn.setAttribute('data-bs-toggle', 'modal');
+		vpnButn.setAttribute('data-bs-target', '#profileModal');
 	}
 
 	save2.innerHTML = ` Use a burner <span id="mail-span">email address</span> <br> to complete your login.`;
