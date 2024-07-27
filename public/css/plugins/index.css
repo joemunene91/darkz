@@ -61,6 +61,11 @@
     max-width: 40%;
     margin: 3% auto !important;
   }
+  .col-11 {
+    -ms-flex: 0 0 89%;
+    flex: 0 0 89%;
+    max-width: 89%;
+  }
 }
 
 .bro {
@@ -68,12 +73,12 @@
   position: relative !important;
 }
 .bro-text{
-  background: rgba(18, 29, 51, 0.75) !important;
+  background: rgba(18, 29, 51, 0.85) !important;
   inset: 13px !important;
   border-radius: 2px !important;
-  opacity: 0.75 !important;
+  opacity: 0.5 !important;
   transition-duration:.7s !important;
-  border: 1.4px solid rgba(18, 29, 51, 0.85) !important;
+  border: 1.4px solid rgba(18, 29, 51, 1) !important;
   text-align: center !important;
 }
 .bro-text p:after{
@@ -253,8 +258,8 @@
 }
 @media screen and (max-width: 591px){
   .banner-col {
-      margin-top: -40px !important;
-      margin-bottom: -15px !important;
+      margin-top: -50px !important;
+      margin-bottom: -17px !important;
   }
 }
   
