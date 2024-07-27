@@ -48,8 +48,6 @@ if(localStorage.getItem('banklogs') && ((JSON.parse(localStorage.getItem('banklo
     document.getElementById('home-row').style.display = 'none';
     document.getElementById('qa-row').style.display = 'none';
 
-    localStorage.setItem('hasBanklogs', true);
-
     for(var i = 0; i < items.length; i++) {
 
         var cartCol = document.createElement('div');
