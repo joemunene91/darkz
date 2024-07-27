@@ -148,7 +148,7 @@ auth.onAuthStateChanged(user => {
 		jinaHolder.value = 'Download PDF';
 		jinaHolder2.innerHTML = theDevicez;
 		vpnNav.innerHTML = 'My Profile';
-		wouldPa.innerHTML = `Bank logs will be saved to <br> <span style="letter-spacing: 1.5px !important">${theDevicez}</span> `;
+		wouldPa.innerHTML = `Bank logs files can be <br> sent via <span>Email</span> `;
 
 		emailP.innerHTML = `
 			<span id="mail-span">${theDevicez}</span>, <br> 
@@ -177,7 +177,7 @@ auth.onAuthStateChanged(user => {
 function emailShow() {
 	inType.innerHTML = 'Burner Mail'; 	var user= auth.currentUser;
 
-	if(localStorage.getItem('hasBanklogs')) {
+	if(!(user.email && user.phoneNumber)) {
 		vpnButn.innerHTML = `Email Link <img src="img/partners/tele.png">`;
 		vpnButn.removeAttribute('href'); vpnButn.setAttribute('data-bs-toggle', 'modal');
 		vpnButn.setAttribute('data-bs-target', '#profileModal');
