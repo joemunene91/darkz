@@ -143,18 +143,7 @@ auth.onAuthStateChanged(user => {
 			<span id="mail-span">${theDevicez}</span>, <br> 
 			Phone: <span id="uidy" style="letter-spacing: 0.7px !important">${user.phoneNumber}</span>. `;
 		emailShow();
-	} else {
-		theGuy = user.uid;
-		jinaHolder.value = 'Download PDF';
-		jinaHolder2.innerHTML = theDevicez;
-		vpnNav.innerHTML = 'My Profile';
-		wouldPa.innerHTML = `Bank log files can also <br> be sent via <span>Email</span> `;
-
-		emailP.innerHTML = `
-			<span id="mail-span">${theDevicez}</span>, <br> 
-			Browser: <span id="uidy" style="letter-spacing: 0.7px !important">${theBrowsers}</span>. `;
-		emailShow();
-	}
+	} 
 
 	var docRef = db.collection("users").doc(theGuy);
 	docRef.get().then((doc) => {
@@ -176,24 +165,15 @@ auth.onAuthStateChanged(user => {
 
 function emailShow() {
 	inType.innerHTML = 'Burner Mail'; 	var user= auth.currentUser;
-	if(user.phoneNumber) {
-		save1.innerHTML = `You have signed in as: <br> 
+
+	save1.innerHTML = `You have signed in as: <br> 
 		<span id="uidy" style="letter-spacing: 1.5px !important">${user.phoneNumber}</span> `;
-	} else {
-		save1.innerHTML = `You have signed in with: <br> 
-		<span id="uidy" style="letter-spacing: 1.5px !important">${theDevicez}</span> `;
-
-		vpnButn.innerHTML = `Email Link <img src="img/partners/tele.png">`;
-		vpnButn.removeAttribute('href'); vpnButn.setAttribute('data-bs-toggle', 'modal');
-		vpnButn.setAttribute('data-bs-target', '#profileModal');
-	}
-
 	save2.innerHTML = ` Use a burner <span id="mail-span">email address</span> <br> to complete your login.`;
 	mailField.setAttribute('type', 'email'); 
 	theFlag7.style.display = 'none'; mailField.style.letterSpacing = '1.5px';
 	signImg.setAttribute("src", 'img/partners/gogle.png'); 
-	mailField.style.textAlign = 'center'; mailField.value = '';
-	mailField.setAttribute('placeHolder', 'Enter your Email...');
+	
+	mailField.value = '@gmail.com'; mailField.style.textAlign = 'right';
 }
 
 let theValue = mailField.value;
@@ -202,10 +182,7 @@ mailField.addEventListener('input', runOnce);
 
 function runOnce() {
   if (!executed) {
-	if(mailField.value.includes('@g')) {
-		executed = true; theValue = mailField.value;
-		mailField.value = theValue + 'mail.com';
-	} else if(mailField.value.includes('@y')) {
+	if(mailField.value.includes('@y')) {
 		executed = true; theValue = mailField.value;
 		mailField.value = theValue + 'ahoo.com';
 	} else if(mailField.value.includes('@p')) {
@@ -229,12 +206,6 @@ function runOnce() {
 
 function phoneShow() {
 	inType.innerHTML = 'PHONE LOGIN';
-
-	if(localStorage.getItem('hasBanklogs')) {
-		vpnButn.innerHTML = `Phone Link <img src="img/partners/tele.png">`;
-		vpnButn.removeAttribute('href'); vpnButn.setAttribute('data-bs-toggle', 'modal');
-		vpnButn.setAttribute('data-bs-target', '#profileModal');
-	}
 
 	var user= auth.currentUser;
 	if(user.displayName) {inType.innerHTML = user.displayName} else {inType.innerHTML = (user.email).substring(0, (user.email).indexOf('@'));}

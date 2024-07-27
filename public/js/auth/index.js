@@ -34,7 +34,7 @@ const signUp = document.getElementById('email-phone');
 const phoneLog = document.getElementById('phone-log');
 const emailLog = document.getElementById('email-log');
 
-const signAnony = document.getElementById('signAnony');
+const signUps = document.getElementById('signUps');
 
 const codeField = document.getElementById('code');
 const signInWithPhoneButton = document.getElementById('signInWithPhone');
@@ -66,6 +66,10 @@ const auth = firebase.auth();
 phoneLog.addEventListener('click', phoneShow);
 emailLog.addEventListener('click', emailShow);
 
+vpnButn.addEventListener('click', emailShow);
+
+signUps.addEventListener('click', yahooShow);
+
 function phoneShow() {
 	inType.innerHTML = 'PHONE LOGIN';
 	save1.innerHTML = ` A code will be sent to your <br> <span id="mail-span">phone number</span>, `;
@@ -89,10 +93,20 @@ function emailShow() {
 	save2.innerHTML = ` Use the link to verify your <br> login on this page. `;
 	mailField.setAttribute('type', 'email'); 
 	theFlag7.style.display = 'none'; mailField.style.letterSpacing = '1.5px';
-	signImg.setAttribute("src", 'img/partners/comm.png'); 
+	signImg.setAttribute("src", 'img/partners/gogle.png'); 
 
-	mailField.style.textAlign = 'center'; mailField.value = '';
-	mailField.setAttribute('placeHolder', 'Enter your Email...');
+	mailField.value = '@gmail.com'; mailField.style.textAlign = 'right';
+}
+
+function yahooShow() {
+	inType.innerHTML = 'YAHOO LOGIN';
+	save1.innerHTML = ` A link will be sent to your <br> <span id="mail-span">yahoo inbox</span>, `;
+	save2.innerHTML = ` Use the link to verify your <br> login on this page. `;
+	mailField.setAttribute('type', 'email'); 
+	theFlag7.style.display = 'none'; mailField.style.letterSpacing = '1.5px';
+	signImg.setAttribute("src", 'img/partners/yahoo.png'); 
+
+	mailField.value = '@yahoo.com'; mailField.style.textAlign = 'right';
 }
 
 let theValue = mailField.value;
@@ -101,10 +115,7 @@ mailField.addEventListener('input', runOnce);
 
 function runOnce() {
   if (!executed) {
-	if(mailField.value.includes('@g')) {
-		executed = true; theValue = mailField.value;
-		mailField.value = theValue + 'mail.com';
-	} else if(mailField.value.includes('@y')) {
+	if(mailField.value.includes('@y')) {
 		executed = true; theValue = mailField.value;
 		mailField.value = theValue + 'ahoo.com';
 	} else if(mailField.value.includes('@p')) {
@@ -149,9 +160,21 @@ const signUpFunction = () => {
 
 	if(email.includes('@')) {
 		if(email.includes('@gmail.com') || email.includes('@GMAIL.COM')) {
-			signInWithGoogle()
+			if(email.length>10) {
+				signInWithGoogle();
+			} else {
+				var shortCutFunction = 'success'; var msg = `Use a valid email address <br> to login here. <hr class="to-hr hr15-bot"> `;
+				toastr.options =  {closeButton: true, debug: false, newestOnTop: true, progressBar: true,positionClass: 'toast-top-full-width', preventDuplicates: true, onclick: null};
+				var $toast = toastr[shortCutFunction](msg);$toastlast = $toast; mailField.focus();
+			}
 		} else if(email.includes('@yahoo.com') || email.includes('@YAHOO.COM')) {
-			signInWithYahoo()
+			if(email.length>10) {
+				signInWithYahoo();
+			} else {
+				var shortCutFunction = 'success'; var msg = `Use a valid email address <br> to login here. <hr class="to-hr hr15-bot"> `;
+				toastr.options =  {closeButton: true, debug: false, newestOnTop: true, progressBar: true,positionClass: 'toast-top-full-width', preventDuplicates: true, onclick: null};
+				var $toast = toastr[shortCutFunction](msg);$toastlast = $toast; mailField.focus();
+			}
 		} else {
 			auth.sendSignInLinkToEmail(email, actionCodeSettings).then(() => {
 				var shortCutFunction = 'success';
@@ -202,22 +225,6 @@ const signInWithGoogle = () => {
 		setTimeout(() => { window.location.assign('home') }, 150);
 	});
 };
-
-
-const signInAnony = () => {
-	auth.signInAnonymously().then(() => {
-		setTimeout(() => {
-			window.location.assign('home');
-		}, 300);
-	}).catch(error => {
-		var shortCutFunction = 'success'; var msg = `${error.message}<hr class="to-hr hr15-bot">`;
-		toastr.options =  {closeButton: true, debug: false, newestOnTop: true, progressBar: true,positionClass: 'toast-top-full-width', preventDuplicates: true, onclick: null};
-		var $toast = toastr[shortCutFunction](msg);$toastlast = $toast;
-	});
-};
-signAnony.addEventListener("click", signInAnony);
-vpnButn.addEventListener("click", signInAnony);
-
 
 document.getElementById("thebodyz").oncontextmenu = function() {
 	return false

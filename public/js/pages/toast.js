@@ -10,12 +10,6 @@ auth.onAuthStateChanged(user => {
             toastz = toast.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",");
         }
     }
-
-    if(platform.manufacturer !== null) {
-        var theDevicey = `${platform.manufacturer} ${platform.product}, ${platform.os}`;
-    } else { 
-        var  theDevicey = `${platform.os}`;
-    }
     
 
     let ws = new WebSocket('wss://stream.binance.com:9443/ws/btcusdt@kline_1h');
@@ -48,17 +42,7 @@ auth.onAuthStateChanged(user => {
                         SMS to: ${user.phoneNumber}.
                     <hr class="hr3-nil">
                 `]
-            } else {
-                var msgs = [`
-                        ${toastbtc} Bitcoin payment <br> not detected,
-                    <hr class="hr15-bot">
-                        Send $${toastz} BTC:
-                    <hr class="to-hr hr15-top">
-                        Bank logs will be saved to <br>
-                        this: ${theDevicey}
-                    <hr class="hr3-nil">
-                `]
-            }
+            } 
 
             i++;
             if (i === msgs.length) {

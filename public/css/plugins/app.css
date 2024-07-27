@@ -1957,24 +1957,6 @@ td {
   background: url(../../img/carousel/woodforest.jpg) no-repeat center center/cover;
 }
 
-.t-head {
-  text-transform: uppercase;
-  font-weight: 600 !important;
-  text-align: center !important;
-  word-spacing: 17px;
-  color: rgba(255, 255, 255, 0.37);
-  padding: 15px !important;
-  background: transparent !important;
-  box-shadow: none !important;
-
-  border-radius: 3px !important;
-}
-@media screen and (max-width: 792px) {
-  .t-head {
-    padding: 3px 5px !important;
-  }
-}
-
 .port .butn {
   background-color: rgba(18, 29, 51, 0.3) !important;
   color: #fff;
