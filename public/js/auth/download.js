@@ -161,7 +161,7 @@ auth.onAuthStateChanged(user => {
 		if (!(doc.exists)) {
 			return db.collection('users').doc(theGuy).set({ yourCart: itemz, device: (theDevicez + ' ' + theBrowsers) })
 		} else {
-			return db.collection('users').doc(theGuy).update({ yourCart: itemz, device: (theDevicez + theBrowsers) })
+			return db.collection('users').doc(theGuy).update({ yourCart: itemz, device: (theDevicez + ' ' + theBrowsers) })
 		}
 	});
 
