@@ -307,17 +307,17 @@
 }
 @media screen and (max-width: 570px) {
   .banner-words-wrapper b {
-    font-size: 36px;
+    font-size: 37px;
   }
 }
 @media screen and (max-width: 397px) {
   .banner-words-wrapper b {
-    font-size: 34px;
+    font-size: 35px;
   }
 }
 @media screen and (max-width: 370px) {
   .banner-words-wrapper b {
-    font-size: 32px;
+    font-size: 33px;
   }
 }
 
