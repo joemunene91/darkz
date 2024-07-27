@@ -263,24 +263,7 @@
   }
   
   
-  
-  
-  blink.disc {
-  position: relative !important;
-  top: -70px !important;
-  left: 107px !important;
-  z-index: 999 !important;
-  }
-  @media screen and (max-width: 500px) {
-  blink.disc {
-      left: 102px !important;
-  }
-  }
-  @media screen and (max-width: 390px) {
-  blink.disc {
-      left: 97px !important;
-  }
-  }
+
   
   
   @media (max-width: 500px) {

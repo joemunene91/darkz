@@ -185,17 +185,17 @@
 blink.load-blink {
     position: relative;
     top: -70px !important;
-    left: 118px !important;
+    left: 158px !important;
     z-index: 999 !important;
 }
 @media screen and (max-width: 500px) {
     blink.load-blink {
-        left: 113px !important;
+        left: 153px !important;
     }
 }
 @media screen and (max-width: 380px) {
     blink.load-blink {
-        left: 110px !important;
+        left: 150px !important;
     }
 }
 

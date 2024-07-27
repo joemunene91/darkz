@@ -341,21 +341,18 @@ width: 100% !important;
   }
 }
 
-blink.disc {
-position: relative !important;
-top: -70px !important;
-left: 107px !important;
-z-index: 999 !important;
-}
-@media screen and (max-width: 500px) {
-blink.disc {
-    left: 102px !important;
-}
-}
-@media screen and (max-width: 390px) {
-blink.disc {
-    left: 97px !important;
-}
+
+blink {
+  font-weight: 600;
+  padding: 5px;
+  margin: 5px;
+  font-size: 16.5px;
+  position: absolute;
+  right: 75px;
+  top: 7px;
+  border-radius: 0;
+  letter-spacing: 1px !important;
+  text-transform: uppercase;
 }
 
 

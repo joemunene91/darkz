@@ -207,8 +207,6 @@ function updateCartTotal() {
         modalAmount.innerHTML = `
             Send $ <span id="omanyala" class="countup">${parseInt(total).toLocaleString()}</span> 
         `;
-        
-        document.getElementById('disb').style.display = 'none';
     } else if(JSON.parse(localStorage.getItem('banklogs')).length > 1) {
         var Loginz = (JSON.parse(localStorage.getItem('banklogs')));
         for(var i = 0; i < Loginz.length; i++) {
@@ -225,6 +223,8 @@ function updateCartTotal() {
         if (window.innerWidth < 1092) {
             document.getElementById('flex-one').style.display = 'none';
         } 
+
+        document.getElementById('disb').innerHTML = '10% Discount';
 
         downFile.innerHTML = `Bank Logins`;
 
