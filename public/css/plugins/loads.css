@@ -146,7 +146,7 @@
 
 #voice-div p {
     margin: 15px auto !important;
-    font-size: 22px !important;
+    font-size: 23px !important;
     line-height: 70px !important;
 }
 
@@ -219,18 +219,18 @@ blink.load-blink {
 
 @media (min-width: 1092px) {
 	.col-lg-5 {
-		-ms-flex: 0 0 38.5%;
-		flex: 0 0 38.5%;
-		max-width: 38.5%;
+		-ms-flex: 0 0 37.5%;
+		flex: 0 0 37.5%;
+		max-width: 37.5%;
    }
 }
 
 
 @media (max-width: 500px)  {
     .col-12.jurit {
-      -ms-flex:0 0 90%;
-      flex:0 0 90%;
-      max-width: 90%;
+      -ms-flex:0 0 91%;
+      flex:0 0 91%;
+      max-width: 91%;
     }  
 }
 
