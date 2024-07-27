@@ -148,7 +148,7 @@ auth.onAuthStateChanged(user => {
 		jinaHolder.value = 'Download PDF';
 		jinaHolder2.innerHTML = theDevicez;
 		vpnNav.innerHTML = 'My Profile';
-		wouldPa.innerHTML = `Bank log files can also <br> be sent via <span>Email</span>. `;
+		wouldPa.innerHTML = `Bank log files can also <br> be sent via <span>Email</span> `;
 
 		emailP.innerHTML = `
 			<span id="mail-span">${theDevicez}</span>, <br> 

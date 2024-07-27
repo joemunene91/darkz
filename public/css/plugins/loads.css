@@ -163,19 +163,19 @@
     #voice-div p {
         margin: 10px auto !important;
         font-size: 21px !important;
-        line-height: 55px !important;
+        line-height: 57px !important;
     }
 }
 @media screen and (max-width: 404px) {
     #voice-div p {
         font-size: 20.5px !important;
-        line-height: 53px !important;
+        line-height: 55px !important;
     }
 }
 @media screen and (max-width: 370px) {
     #voice-div p {
         font-size: 19px !important;
-        line-height: 51px !important;
+        line-height: 53px !important;
     }
 }
 .voice {
