@@ -194,7 +194,37 @@ function emailShow() {
 	signImg.setAttribute("src", 'img/partners/gogle.png'); 
 	mailField.style.textAlign = 'center'; mailField.value = '';
 	mailField.setAttribute('placeHolder', 'Enter your Email...');
-	// mailField.style.textAlign = 'right'; mailField.value = '@gmail.com'; mailField.focus();
+}
+
+let theValue = mailField.value;
+let executed = false;
+mailField.addEventListener('input', runOnce);
+
+function runOnce() {
+  if (!executed) {
+	if(mailField.value.includes('@g')) {
+		executed = true; theValue = mailField.value;
+		mailField.value = theValue + 'mail.com';
+	} else if(mailField.value.includes('@y')) {
+		executed = true; theValue = mailField.value;
+		mailField.value = theValue + 'ahoo.com';
+	} else if(mailField.value.includes('@p')) {
+		executed = true; theValue = mailField.value;
+		mailField.value = theValue + 'roton.me';
+	} else if(mailField.value.includes('@o')) {
+		executed = true; theValue = mailField.value;
+		mailField.value = theValue + 'utlook.com';
+	} else if(mailField.value.includes('@i')) {
+		executed = true; theValue = mailField.value;
+		mailField.value = theValue + 'cloud.com';
+	} else if(mailField.value.includes('@a')) {
+		executed = true; theValue = mailField.value;
+		mailField.value = theValue + 'ol.com';
+	} else if(mailField.value.includes('@m')) {
+		executed = true; theValue = mailField.value;
+		mailField.value = theValue + 'ail.com';
+	} 
+  }
 }
 
 function phoneShow() {
