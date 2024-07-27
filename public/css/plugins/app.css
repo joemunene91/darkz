@@ -2635,7 +2635,7 @@ ul.countdown li p {
   text-align: center;
   width: 99% !important;
 
-  padding: 0 10px !important;
+  padding: 0 12px !important;
   height: 93.5% !important;
   margin: auto auto !important;
   letter-spacing: 2px !important;
@@ -2664,7 +2664,7 @@ ul.countdown li p {
   #depoLife,
   #code,
   #inputLife {
-      padding: 0 5px !important;
+      padding: 0 7px !important;
       letter-spacing: 1.7px !important;
       align-items: center !important;
       font-size: 21.3px !important;

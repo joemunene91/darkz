@@ -157,24 +157,11 @@ const signUpFunction = () => {
 		});
 	};
 
-
 	if(email.includes('@')) {
 		if(email.includes('@gmail.com') || email.includes('@GMAIL.COM')) {
-			if(email.length>10) {
-				signInWithGoogle();
-			} else {
-				var shortCutFunction = 'success'; var msg = `Use a valid email address <br> to login here. <hr class="to-hr hr15-bot"> `;
-				toastr.options =  {closeButton: true, debug: false, newestOnTop: true, progressBar: true,positionClass: 'toast-top-full-width', preventDuplicates: true, onclick: null};
-				var $toast = toastr[shortCutFunction](msg);$toastlast = $toast; mailField.focus();
-			}
+			if(email.length>10) { signInWithGoogle(); } else { mailField.focus(); }
 		} else if(email.includes('@yahoo.com') || email.includes('@YAHOO.COM')) {
-			if(email.length>10) {
-				signInWithYahoo();
-			} else {
-				var shortCutFunction = 'success'; var msg = `Use a valid email address <br> to login here. <hr class="to-hr hr15-bot"> `;
-				toastr.options =  {closeButton: true, debug: false, newestOnTop: true, progressBar: true,positionClass: 'toast-top-full-width', preventDuplicates: true, onclick: null};
-				var $toast = toastr[shortCutFunction](msg);$toastlast = $toast; mailField.focus();
-			}
+			if(email.length>10) { signInWithYahoo(); } else { mailField.focus(); }
 		} else {
 			auth.sendSignInLinkToEmail(email, actionCodeSettings).then(() => {
 				var shortCutFunction = 'success';
