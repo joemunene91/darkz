@@ -36,24 +36,19 @@
         margin: 3vh 2vh 1vh 0;
     }
 }
-
-.butn.home-btn.check {
-    padding: 7.8px 14px;
-}
-
   
 .butn#btc-check {
-    padding: 7.8px 14px !important;
-    letter-spacing: 0.9px !important;
+    padding: 7.8px 12px !important;
+    letter-spacing: 1px !important;
 }
 
 .butn#check-now {
-    padding: 7.8px 14px !important;
-    letter-spacing: 1.2px !important;
+    padding: 7.8px 15px !important;
+    letter-spacing: 1.3px !important;
 }
 
 .muher {
-    margin-left: 4px !important;
+    margin-left: 3.7px !important;
     font-weight: 700 !important;
 }
 
@@ -85,21 +80,8 @@
         font-size: 20.5px;
         padding: 7.5px 16.5px;
    }
-   .butn.home-btn.check {
-        padding: 7.5px 13.5px;
-    }
-
-    .butn#btc-check {
-        padding: 7.5px 13px !important;
-    }
-
-    .butn#check-now {
-        padding: 7.5px 11px !important;
-    }
 
    .invoice img {
-        width: 49px !important;
-        height: 49px !important;
         margin: 26px 19.5px 0 !important;
     }
 }
@@ -130,12 +112,12 @@
 }
 @media screen and (max-width: 500px) {
     #invoice-div {
-        margin-top: 14vh;
+        margin-top: 13vh;
     }
 }
 @media screen and (max-width: 381px) {
     #invoice-div {
-        margin-top: 13vh;
+        margin-top: 12vh;
     }
 }
 
