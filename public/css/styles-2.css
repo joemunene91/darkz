@@ -322,7 +322,6 @@ blink {
   border: 1px solid rgba(3, 169, 245, 0.3);
 }
 .navbar-nav li.nav-small.open a,
-.gold#links,
 .gold#vpn-nav {
   border: 1.3px solid rgb(15, 61, 96) !important;
   background: rgb(129, 213, 251) !important;

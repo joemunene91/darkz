@@ -249,16 +249,3 @@ section .dataTables_wrapper dataTables_length {
 }
 
   
-
-#vpn {
-    margin: 40px auto 20px;
-    cursor: pointer;
-    font-size: 26px !important;
-    padding: 10.5px 16px !important;
-  }
-  @media screen and (max-width: 767px) {
-    #vpn {
-        font-size: 24px !important;
-        padding: 9px 14px !important;
-    }
-  }

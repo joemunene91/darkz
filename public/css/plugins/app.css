@@ -314,8 +314,9 @@
 blink {
   font-weight: 600;
   padding: 4px;
-  margin: 3px;
+  margin: 4px;
   font-size: 16.5px;
+  letter-spacing: 1.1px !important;
   position: absolute;
   right: 3px;
   top: 3px;
@@ -1343,19 +1344,19 @@ td {
 }
 #showlink img,
 #showtoasts img {
-  width: 30px !important;
-  height: 30px !important;
+  width: 32px !important;
+  height: 32px !important;
   position: relative;
-  margin: -3px auto -3px 3px !important;
+  margin: -5px 0px -3px 1px !important;
   border-radius:  0 !important;
 }
 @media (max-width: 780px) {
   #showlink img,
   #showtoasts img {
-    width: 28px !important;
-    height: 28px !important;
+    width: 27.5px !important;
+    height: 27.5px !important;
     position: relative;
-    margin: -3px -1px -3px 1px !important;
+    margin: -5px -1px -3px 1px !important;
   }
 }
 
@@ -1395,42 +1396,42 @@ td {
   #showlink,
   #showtoasts {
     letter-spacing: 1.3px !important;
-      padding: 11px 9px !important;
-      font-size: 21px;
-      margin: 11px 10px !important;
+    padding: 11px 10px !important;
+    font-size: 20px;
+    margin: 11px 10px !important;
   }
 }
 
 @media (max-width: 420px) {
   #showlink,
   #showtoasts {
-      padding: 11px 8px !important;
-      font-size: 19.5px;
-      margin: 11px 9.5px !important;
+    padding: 11px 9px !important;
+    font-size: 19.5px;
+    margin: 11px 9px !important;
   }
 }
 @media (max-width: 400px) {
   #showlink,
   #showtoasts {
-      padding: 10px 8px !important;
-      font-size: 18.7px;
-      margin: 10px 7.5px !important;
+    padding: 10px 7px !important;
+    font-size: 18.7px;
+    margin: 10px 7px !important;
   }
 }
 @media (max-width: 380px) {
   #showlink,
   #showtoasts {
-      padding: 9px 7px !important;
-      font-size: 18.2px;
-      margin: 9px 6.5px !important;
+    padding: 9px 7px !important;
+    font-size: 18.2px;
+    margin: 9px 6px !important;
   }
 }
 @media (max-width: 370px) {
   #showlink,
   #showtoasts {
-      padding: 8px !important;
-      font-size: 17.2px;
-      margin: 8px 7px !important;
+    padding: 8px 6px !important;
+    font-size: 17.2px;
+    margin: 8px 6px !important;
   }
 }
 
@@ -1488,10 +1489,10 @@ td {
   .thegold a {
       padding: 17px 0 !important;
       font-size: 21.5px !important;
-      letter-spacing: 1.5px !important;
+      letter-spacing: 1.8px !important;
   }
   .thegold {
-      padding: 38px 12.5px !important;
+      padding: 36px 12px !important;
   }
 }
 @media (max-width: 1092px) {
@@ -1525,7 +1526,7 @@ td {
   .thegold a {
       padding: 15px 0 !important;
       font-size: 20px !important;
-      letter-spacing: 1px !important;
+      letter-spacing: 1.4px !important;
   }
   .thegold {
       padding: 37px 12.5px !important;
@@ -1557,7 +1558,7 @@ td {
       letter-spacing: 1px !important;
   }
   .thegold {
-      padding: 32px 10px !important;
+      padding: 30px 10px !important;
   }
 }
 @media (max-width: 370px) {
@@ -1576,7 +1577,7 @@ td {
       letter-spacing: 0.85px !important;
   }
   .thegold {
-      padding: 29px 9px !important;
+      padding: 27px 9px !important;
   }
 }
 .scroll-down {
@@ -2308,7 +2309,8 @@ ul.countdown li p {
   margin: 40px auto 20px;
   cursor: pointer;
   font-size: 26px !important;
-  padding: 10.5px 14px !important;
+  padding: 10.5px 13px !important;
+  letter-spacing: 1.8px !important;
 }
 @media screen and (max-width: 767px) {
   #vpn {
@@ -2317,13 +2319,15 @@ ul.countdown li p {
   }
 }
 #vpn img {
-  width: 30px;
+  width: 35px !important;
+  height: 35px !important;
   margin: -3px 3px !important;
   border-radius: 0 !important;
 }
 @media screen and (max-width: 767px) {
   #vpn img {
-      width: 27.5px;
+    width: 30px !important;
+    height: 30px !important;
       margin: -1px 2px !important;
   }
 }
@@ -3495,7 +3499,7 @@ box-shadow: 0 3px 7px 0 rgba(73, 192, 208, 0.7);
 }
 @media screen and (max-width: 570px) {
   #profileModal .modal-dialog {
-      max-width: 99.5vw !important;
+      max-width: 98.2vw !important;
   }
 }
 #profileModal .modal-dialog {
@@ -3544,7 +3548,7 @@ box-shadow: 0 3px 7px 0 rgba(73, 192, 208, 0.7);
   word-spacing: 17px;
   color: rgba(255, 255, 255, 0.37);
   padding: 15px !important;
-  opacity: 0.5 !important;
+  opacity: 0.6 !important;
   background: transparent !important;
   box-shadow: none !important;
 

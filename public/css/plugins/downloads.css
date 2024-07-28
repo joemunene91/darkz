@@ -265,83 +265,6 @@ width: 100% !important;
 
 
 
-@media (min-width: 980px) {
-  #showlink,
-  #showtoasts {
-    font-size: 22px;
-    margin: 20px 107px;
-    padding: 13px !important;
-    font-weight: 700 !important;
-  }
-
-  #showtoasts,
-  #showlink {
-    margin-right: 130px;
-  }
-}
-
-@media (min-width: 1370px) {
-  #showlink,
-  #showtoasts {
-    font-size: 24px;
-    margin: 20px 115px;
-    padding: 14px !important;
-    font-weight: 700 !important;
-  }
-
-  #showtoasts {
-    margin-right: 250px;
-  }
-  #showlink {
-    margin-right: 250px;
-  }
-}
-
-
-
-@media (max-width: 480px) {
-  #showlink,
-  #showtoasts {
-      padding: 10px 8px !important;
-      font-size: 20.5px;
-      margin: 11px 8px !important;
-  }
-}
-
-@media (max-width: 420px) {
-  #showlink,
-  #showtoasts {
-      padding: 10px 8px !important;
-      font-size: 19.5px;
-      margin: 11px 8px !important;
-  }
-}
-@media (max-width: 400px) {
-  #showlink,
-  #showtoasts {
-      padding: 10px 6px !important;
-      font-size: 19px;
-      margin: 10px 7px !important;
-  }
-}
-@media (max-width: 380px) {
-  #showlink,
-  #showtoasts {
-      padding: 9px 6px !important;
-      font-size: 18.5px;
-      margin: 9px 5px !important;
-  }
-}
-@media (max-width: 370px) {
-  #showlink,
-  #showtoasts {
-      padding: 8px 5px !important;
-      font-size: 17.5px;
-      margin: 8px 6px !important;
-  }
-}
-
-
 blink {
   font-weight: 600;
   padding: 5px;
@@ -409,18 +332,6 @@ padding: 6px 0 !important;
 }
 
 
-#vpn {
-  margin: 40px auto 20px;
-  cursor: pointer;
-  font-size: 27px !important;
-  padding: 10.5px 16px !important;
-}
-@media screen and (max-width: 767px) {
-  #vpn {
-      font-size: 25px !important;
-      padding: 10px 14px !important;
-  }
-}
 .gallery .butn {
   letter-spacing: 1.4px !important;
   margin-bottom: 6px !important;

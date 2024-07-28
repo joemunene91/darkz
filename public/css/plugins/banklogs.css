@@ -596,21 +596,6 @@ td.burro {
 	opacity: 0 !important;
 }
 
-  
-
-#vpn {
-    margin: 40px auto 20px;
-    cursor: pointer;
-    font-size: 27px !important;
-    padding: 10.5px 16px !important;
-  }
-  @media screen and (max-width: 767px) {
-    #vpn {
-        font-size: 25px !important;
-        padding: 10px 14px !important;
-    }
-  }
-
 
 hr.hr-2 {
     margin: 4px auto !important;

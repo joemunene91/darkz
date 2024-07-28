@@ -94,6 +94,7 @@ function addToCartClicked(event) {
     } else if(accoun.includes('PACKAGE')) {
         var account = accoun.replace(' PACKAGE]',']');
     }
+    
     joeT = false;
 
     addItemToCart(price, balance, account,website,image,info1,info2,info3,info4,info5,info6);
@@ -102,7 +103,7 @@ function addToCartClicked(event) {
     $('#profileModal').modal('show');
     event.preventDefault();
 
-    setTimeout(() => { window.location.assign('download'); }, 500);
+    setTimeout(() => { window.location.assign('invoice'); }, 500);
 }
 
 function removeCartItem(event) {

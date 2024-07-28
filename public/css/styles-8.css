@@ -322,7 +322,6 @@ blink {
   border: 1px solid rgba(22, 160, 134, 0.3);
 }
 .navbar-nav li.nav-small.open a,
-.gold#links,
 .gold#vpn-nav {
   border: 1.3px solid rgb(19, 59, 70) !important;
   background: rgb(139, 209, 196) !important;
@@ -359,7 +358,7 @@ span#uids {
 }
 #showlink,
 .gold#vpn-nav {
-  background: rgb(100, 193, 176) !important;
+  background: rgb(139, 209, 196) !important
 }
 #text-to-copy {
   border: 1.4px solid rgba(22, 160, 134, 0.7);
