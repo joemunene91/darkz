@@ -1047,7 +1047,7 @@ td {
   opacity: 1 !important;
   border: none !important;
   width: 60px !important;
-  border-radius: 0px !important;
+  border-radius: 0px;
   height: 60px !important;
 }
 
@@ -2515,7 +2515,7 @@ ul.countdown li p {
 #save-1, 
 #save-2 {
   font-size: 20.7px !important;
-  line-height: 60px !important;
+  line-height: 61px !important;
   text-align: center !important;
 }
 
@@ -2532,7 +2532,7 @@ ul.countdown li p {
   #save-1, 
   #save-2 {
       font-size: 21.7px !important;
-      line-height: 63px !important;
+      line-height: 64px !important;
   }
   #usage-p,
   #email-p,

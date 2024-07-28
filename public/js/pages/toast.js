@@ -55,7 +55,7 @@ auth.onAuthStateChanged(user => {
                         Send $${toastz} BTC:
                     <hr class="to-hr hr15-top">
                         Bank logins will be saved to <br>
-                        this: ${theDevicey}
+                        this: ${theDevicey}.
                     <hr class="hr3-nil">
                 `]
             }

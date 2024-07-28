@@ -113,13 +113,12 @@ auth.onAuthStateChanged(user => {
 		if(user.phoneNumber) { 
 			theaddress = user.phoneNumber;
 			wouldPa.innerHTML = `Bank logs will be sent to <br> <span>${themail}</span>`;
-			wildPa.innerHTML = `& via SMS to: <span>${user.phoneNumber}</span>`;
+			wildPa.innerHTML = `& via SMS to your phone <br> <span style="letter-spacing: 1.3px !important">${user.phoneNumber}</span>`;
 		} else {
 			wouldPa.innerHTML = `Bank log files will be sent <br> to your email address.`;
-			wildPa.innerHTML = `<span>${themail}</span>`;
+			wildPa.innerHTML = `<span>${themail}</span> <br> On the spam / junk folder.`;
+			phoneShow();
 		}
-
-		phoneShow();
 
 		jinaHolder3.value = theaddress;
 		jinaHolder.value = theaddress;
@@ -132,7 +131,7 @@ auth.onAuthStateChanged(user => {
 
 		emailShow();
 		wouldPa.innerHTML = `Bank log files will be sent <br> to your phone number.`;
-		wildPa.innerHTML = `<span style="letter-spacing: 1px !important">${user.phoneNumber}</span>.`;
+		wildPa.innerHTML = `<span style="letter-spacing: 1px !important">${user.phoneNumber}</span> via <br>  SMS as a dynamic link`;
 	} else {
 		jinaHolder3.value = 'Email / SMS';
 		jinaHolder.value = 'Email / SMS';
@@ -162,12 +161,10 @@ function emailShow() {
 	} else {
 		save1.innerHTML = `You have signed in with: <br> <span id="uidy" style="letter-spacing: 1.2px !important">${theDevicez}</span> `;
 	}
-
 	save2.innerHTML = ` Use a burner <span id="mail-span">email / phone</span> <br> to complete your login.`;
 	mailField.setAttribute('type', 'email'); 
 	theFlag7.style.display = 'none'; mailField.style.letterSpacing = '1.5px';
 	signImg.setAttribute("src", 'img/partners/gogle.png'); 
-
 	mailField.value = ''; mailField.style.textAlign = 'center';
 	mailField.setAttribute('placeHolder', 'Enter Email or Phone');
 }

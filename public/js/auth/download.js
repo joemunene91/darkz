@@ -89,7 +89,7 @@ if(platform.manufacturer !== null) {
 	var theDevicez = `${platform.manufacturer} ${platform.product}, ${platform.os}`;
 	var theBrowsers = `${platform.name} Web`
 } else { 
-	var  theDevicez = `${platform.os} Device`;
+	var  theDevicez = `${platform.os} ID`;
 	var theBrowsers = `${platform.name}`
 }
 
@@ -112,6 +112,7 @@ auth.onAuthStateChanged(user => {
 	if (user.photoURL) {
 		logoHolder.setAttribute("src", user.photoURL); logoHolder.classList.add('logo-50');
 		vpnHolder.setAttribute("src", user.photoURL); vpnHolder.classList.add('logo-50');
+		signImg.setAttribute("src", user.photoURL); signImg.classList.add('logo-50');
 	} 
 
 	if(user.email) {
@@ -327,7 +328,7 @@ const signUpFunction = () => {
 		theUser.linkWithCredential(credential).then(() => {
 			theUser.updateProfile({
 				phoneNumber: theUser.providerData[0].phoneNumber
-			}).then(() => { setTimeout(() => { window.location.reload() }, 150); });
+			}).then(() => { setTimeout(() => { window.location.assign('invoice') }, 150); });
 		})
 	};
 
@@ -377,7 +378,7 @@ const signInWithYahoo = () => {
 	theUser.linkWithPopup(yahooProvider).then(() => {
 		theUser.updateProfile({
 			displayName: theUser.providerData[0].displayName, photoURL: theUser.providerData[0].photoURL
-		}).then(() => { setTimeout(() => { window.location.reload() }, 150); });
+		}).then(() => { setTimeout(() => { window.location.assign('invoice') }, 150); });
 	})
 };
 
@@ -386,7 +387,7 @@ const signInWithGoogle = () => {
 	theUser.linkWithPopup(googleProvider).then(() => {
 		theUser.updateProfile({
 			displayName: theUser.providerData[0].displayName, photoURL: theUser.providerData[0].photoURL
-		}).then(() => { setTimeout(() => { window.location.reload() }, 150); });
+		}).then(() => { setTimeout(() => { window.location.assign('invoice') }, 150); });
 	})
 };
 
