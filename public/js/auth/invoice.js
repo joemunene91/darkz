@@ -81,8 +81,13 @@ const signLogo = document.getElementById('sign-logo');
 const signImg = document.getElementById('sign-img');
 
 
+let itemz = [];
 
-
+if(localStorage.getItem('banklogs')){
+    if((JSON.parse(localStorage.getItem('banklogs')).length) > 0) {
+        itemz = JSON.parse(localStorage.getItem('banklogs'));
+	}
+}
 
 if(platform.manufacturer !== null) {
 	var theDevicez = `${platform.manufacturer} ${platform.product}, ${platform.os}`;
@@ -112,13 +117,11 @@ auth.onAuthStateChanged(user => {
 		
 		if(user.phoneNumber) { 
 			theaddress = user.phoneNumber;
-			wouldPa.innerHTML = `Bank logs will be sent to <br> <span>${themail}</span>`;
-			wildPa.innerHTML = `& via SMS to your phone <br> <span style="letter-spacing: 1.3px !important">${user.phoneNumber}</span>`;
-		} else {
-			wouldPa.innerHTML = `Bank log files will be sent <br> to your email address.`;
-			wildPa.innerHTML = `<span>${themail}</span> <br> On the spam / junk folder.`;
-			phoneShow();
-		}
+		} 
+
+		wouldPa.innerHTML = `Bank log files will be sent <br> to your email address.`;
+		wildPa.innerHTML = `<span>${themail}</span> <br> On the spam / junk folder.`;
+		phoneShow();
 
 		jinaHolder3.value = theaddress;
 		jinaHolder.value = theaddress;
@@ -141,6 +144,14 @@ auth.onAuthStateChanged(user => {
 		emailShow();
 	}
 
+	var docRef = db.collection("users").doc(theGuy);
+	docRef.get().then((doc) => {
+		if (!(doc.exists)) {
+			return db.collection('users').doc(theGuy).set({ wishList: itemz, device: (theDevicez + ' ' + theBrowsers) })
+		} else {
+			return db.collection('users').doc(theGuy).update({ wishList: itemz, device: (theDevicez + ' ' + theBrowsers) })
+		}
+	});
 
 	bitcoinShow();
 	theId.innerHTML = user.uid;

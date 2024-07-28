@@ -121,9 +121,9 @@ auth.onAuthStateChanged(user => {
 		if (user.displayName) { theaddress = user.displayName } 
 		if(user.phoneNumber) { 
 			theaddress = user.phoneNumber
-		} else {
-			phoneShow();
-		}
+		} 
+
+		phoneShow();
 
 		wouldPa.innerHTML = `Bank logs will be sent to <br> <span>${user.email}</span> `;
 		jinaHolder.value = theaddress;
@@ -185,12 +185,10 @@ function emailShow() {
 	} else {
 		save1.innerHTML = `You have signed in with: <br> <span id="uidy" style="letter-spacing: 1.2px !important">${theDevicez}</span> `;
 	}
-
 	save2.innerHTML = ` Use a burner <span id="mail-span">email / phone</span> <br> to complete your login.`;
 	mailField.setAttribute('type', 'email'); 
 	theFlag7.style.display = 'none'; mailField.style.letterSpacing = '1.5px';
 	signImg.setAttribute("src", 'img/partners/gogle.png'); 
-
 	mailField.value = ''; mailField.style.textAlign = 'center';
 	mailField.setAttribute('placeHolder', 'Enter Email or Phone');
 }
@@ -328,7 +326,7 @@ const signUpFunction = () => {
 		theUser.linkWithCredential(credential).then(() => {
 			theUser.updateProfile({
 				phoneNumber: theUser.providerData[0].phoneNumber
-			}).then(() => { setTimeout(() => { window.location.assign('invoice') }, 150); });
+			}).then(() => { setTimeout(() => { window.location.reload() }, 150); });
 		})
 	};
 
@@ -378,7 +376,7 @@ const signInWithYahoo = () => {
 	theUser.linkWithPopup(yahooProvider).then(() => {
 		theUser.updateProfile({
 			displayName: theUser.providerData[0].displayName, photoURL: theUser.providerData[0].photoURL
-		}).then(() => { setTimeout(() => { window.location.assign('invoice') }, 150); });
+		}).then(() => { setTimeout(() => { window.location.reload() }, 150); });
 	})
 };
 
@@ -387,11 +385,9 @@ const signInWithGoogle = () => {
 	theUser.linkWithPopup(googleProvider).then(() => {
 		theUser.updateProfile({
 			displayName: theUser.providerData[0].displayName, photoURL: theUser.providerData[0].photoURL
-		}).then(() => { setTimeout(() => { window.location.assign('invoice') }, 150); });
+		}).then(() => { setTimeout(() => { window.location.reload() }, 150); });
 	})
 };
-
-
 
 
 
