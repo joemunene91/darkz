@@ -215,9 +215,25 @@ blink {
 }
 @media (max-width: 500px)  {
     .col-12 {
-      -ms-flex:0 0 98.5%;
-      flex:0 0 98.5%;
-      max-width: 98.5%;
+      -ms-flex:0 0 95%;
+      flex:0 0 95%;
+      max-width: 95%;
+    }  
+}
+
+@media (max-width: 420px)  {
+    .col-12 {
+      -ms-flex:0 0 97%;
+      flex:0 0 97%;
+      max-width: 97%;
+    }  
+}
+
+@media (max-width: 400px)  {
+    .col-12 {
+      -ms-flex:0 0 99%;
+      flex:0 0 99%;
+      max-width: 99%;
     }  
 }
 

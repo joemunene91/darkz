@@ -2649,7 +2649,7 @@ ul.countdown li p {
   padding: 0 12px !important;
   height: 93.5% !important;
   margin: auto auto !important;
-  letter-spacing: 2px !important;
+  letter-spacing: 2.2px !important;
   align-items: center !important;
   font-size: 22.3px !important;
 }
@@ -2676,7 +2676,7 @@ ul.countdown li p {
   #code,
   #inputLife {
       padding: 0 7px !important;
-      letter-spacing: 1.7px !important;
+      letter-spacing: 2px !important;
       align-items: center !important;
       font-size: 21.3px !important;
       height: 95% !important;

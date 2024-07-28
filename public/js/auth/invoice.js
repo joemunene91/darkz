@@ -174,6 +174,7 @@ function emailShow() {
 
 let theValue = mailField.value;
 let executed = false;
+let phoxecut = false;
 mailField.addEventListener('input', runOnce);
 
 function runOnce() {
@@ -201,18 +202,27 @@ function runOnce() {
 		mailField.value = theValue + 'mail.com';
 	} 
   }
+
+  if(!phoxecut) {
+	if(mailField.value != '') {
+		if (!(isNaN(mailField.value))) {
+			save2.innerHTML = ` Use a burner <span id="mail-span">phone number</span> <br> to complete your login.`;
+			mailField.style.letterSpacing = '3px'; mailField.setAttribute('type', 'tel'); mailField.style.textAlign = 'left'; 
+			mailField.value = '+123'; mailField.setAttribute('pattern', '[+]{1}[0-9]{11,14}');
+			theFlag7.src = `img/partners/phone.png`; theFlag7.style.display = 'block';
+	
+			phoxecut = true; phoneShow();
+		}
+	}
+  }
 }
 
 function phoneShow() {
 	inType.innerHTML = 'PHONE LOGIN';
-
-	var user= auth.currentUser;
-	if(user.displayName) {inType.innerHTML = user.displayName} else {inType.innerHTML = (user.email).substring(0, (user.email).indexOf('@'));}
-	if (user.photoURL) {signImg.setAttribute("src", user.photoURL); signImg.classList.add('logo-50');} 
-	save1.innerHTML = ` You have signed in as: <br> <span id="uidy">${user.email}</span> `;
+	save1.innerHTML = `You have signed in with: <br> <span id="uidy" style="letter-spacing: 1.2px !important">${theDevicez}</span> `;
 	save2.innerHTML = ` Use a burner <span id="mail-span">phone number</span> <br> to complete your login.`;
-	mailField.setAttribute('type', 'tel'); mailField.style.textAlign = 'left'; mailField.value = '+123'; 
-	mailField.setAttribute('pattern', '[+]{1}[0-9]{11,14}'); mailField.style.letterSpacing = '3px';
+	mailField.style.letterSpacing = '3px'; mailField.setAttribute('type', 'tel'); mailField.style.textAlign = 'left'; 
+	mailField.value = '+123'; mailField.setAttribute('pattern', '[+]{1}[0-9]{11,14}');
 	theFlag7.src = `img/partners/phone.png`; theFlag7.style.display = 'block';
 	fetch('https://ipapi.co/json/').then(function(response) { return response.json()}).then(function(data) {
 		mailField.value = data.country_calling_code; 
