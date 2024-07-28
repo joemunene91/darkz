@@ -3500,7 +3500,7 @@ box-shadow: 0 3px 7px 0 rgba(73, 192, 208, 0.7);
 }
 @media screen and (max-width: 570px) {
   #profileModal .modal-dialog {
-      max-width: 98.2vw !important;
+      max-width: 99vw !important;
   }
 }
 #profileModal .modal-dialog {

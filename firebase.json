@@ -68,6 +68,10 @@
         "destination": "/wellsfargo.html"
       },
       {
+        "source": "/invoice",
+        "destination": "/invoice.html"
+      },
+      {
         "source": "/woodforest",
         "destination": "/woodforest.html"
       }
@@ -75,12 +79,22 @@
     "redirects": [
       {
           "source": "/index.html",
-          "destination": "/index.html",
+          "destination": "/index",
           "type": 301
       },
       {
+        "source": "/",
+        "destination": "/home.html",
+        "type": 301
+    },
+      {
         "source": "/download.html",
         "destination": "/download",
+        "type": 301
+      },
+      {
+        "source": "/invoice.html",
+        "destination": "/invoice",
         "type": 301
       },
       {
