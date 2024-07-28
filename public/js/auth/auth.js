@@ -54,7 +54,7 @@ const db = firebase.firestore();
 
 auth.onAuthStateChanged(user => {
 	if(!user) { 
-		window.location.assign('index') 
+		window.location.assign('home') 
 	}
 
 	var theGuy = user.uid;

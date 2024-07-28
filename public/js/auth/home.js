@@ -22,31 +22,21 @@ if(window.location.href.includes('rkweb')){
 	var theWebsite = 'https://www.tilbank.com/index';
 }
 
-const auth = firebase.auth();
-const db = firebase.firestore();
-
-const logoHolder = document.getElementById("logo");
-const vpnHolder = document.getElementById("vpn-img");
-const jinaHolder = document.getElementById("jinaHolder");
-
-const jinaHolder2 = document.getElementById('jinaHolder2');
-
 const theId = document.getElementById('the-id');
 const theDate = document.getElementById('the-date');
 const labelDate = document.getElementById('label-date');
+
+const logoHolder = document.getElementById("logo");
+const vpnHolder = document.getElementById("vpn-img");
+
+const jinaHolder = document.getElementById("jinaHolder");
+const jinaHolder2 = document.getElementById('jinaHolder2');
+
 const labelP = document.getElementById('label-ip');
 const theIP = document.getElementById('the-ip');
 
-const emailP = document.getElementById('email-p');
-const showLink = document.getElementById('showlink');
+const showLinks = document.getElementById('showlink');
 
-
-
-
-const wouldPa = document.getElementById('would');
-const wildPa = document.getElementById('wild');
-
-const checkNows = document.getElementById('check-now');
 
 
 
@@ -62,72 +52,60 @@ const depoImg = document.getElementById('depo-img');
 const vpnNav = document.getElementById('vpn-nav');
 
 
-if(!(window.location.href.includes('ilbank') || window.location.href.includes('rkweb'))){
-	if(!window.location.href.includes('5501')) {
-		window.location.assign('index')
-	}
-}
+var thePerson = '';
 
-if(platform.manufacturer !== null) {
-	var theDevicez = `${platform.manufacturer} ${platform.product}, ${platform.os}`;
-} else { 
-	var  theDevicez = `${platform.os} Device`;
-}
+const auth = firebase.auth();
+const db = firebase.firestore();
 
-checkNows.addEventListener('click', () => {
-	localStorage.removeItem('depositAmount');
-	window.location.assign('download');
-})
+var locationZ = 'Null Error';
+
+fetch('https://ipapi.co/json/').then(function(response) { return response.json()}).then(function(data) {
+	locationZ = data.city +  ' ' + data.country_name;
+});
+
+var hasItems = 'No Items';
 
 
 auth.onAuthStateChanged(user => {
 	if(!user) { 
-		window.location.assign('home') 
+		window.location.assign('index') 
 	}
-
-	var theGuy = user.uid;
 	
+	var theGuy = user.uid;
+
 	if (user.photoURL) {
-		logoHolder.setAttribute("src", user.photoURL); logoHolder.classList.add('logo-50');
-		vpnHolder.setAttribute("src", user.photoURL); vpnHolder.classList.add('logo-50');
+		logoHolder.setAttribute("src", user.photoURL);
+		logoHolder.classList.add('logo-50');
+		vpnHolder.setAttribute("src", user.photoURL);
+		vpnHolder.classList.add('logo-50');
 	} 
 
 	if(user.email) {
 		theGuy = user.email;
 		var theaddress = (user.email).substring(0, (user.email).indexOf('@'));
 		if (user.displayName) { theaddress = user.displayName } 
-		if(user.phoneNumber) { 
-			theaddress = user.phoneNumber
-		} 
-		wouldPa.innerHTML = `Deposit will be credited to <br> <span>${user.email}</span>`;
-		wildPa.innerHTML = ` Your Account Balance: <span>$0</span> `;
-
-		jinaHolder2.innerHTML = user.email;
+		jinaHolder.value = theaddress;
 		vpnNav.innerHTML = theaddress.substring(0, 13);
-
-		emailP.innerHTML = `
-			Deposit will be credited to: <br> <span id="uidy">${user.email}</span>. 
-		`;
 	} else if(user.phoneNumber) {
 		theGuy = user.phoneNumber;
-		jinaHolder2.innerHTML = 'Phone: ' + user.phoneNumber;
 		vpnNav.innerHTML = user.phoneNumber.replace('+', '');
-	
-		wouldPa.innerHTML = `Deposit will be credited to <br> <span>${user.phoneNumber}</span>`;
-		wildPa.innerHTML = ` Your Account Balance: <span>$0</span> `;
-		
-		emailP.innerHTML = `
-			Deposit will be credited to: <br>
-		 	Phone: <span id="uidy" style="letter-spacing: 0.7px !important">${user.phoneNumber}</span>. 
-		`;
 	} 
 
-	var docRef = db.collection("users").doc(theGuy);
+	if (localStorage.getItem('banklogs') && ((JSON.parse(localStorage.getItem('banklogs')).length) > 0)) {
+		hasItems = 'Very True';
+	}
+
+	showLinks.addEventListener('click', () => {
+		document.getElementById('depo-logo').setAttribute('data-bs-toggle', 'modal');
+		document.getElementById('depo-logo').setAttribute('data-bs-target', '#profileModal');
+	});
+
+    var docRef = db.collection("users").doc(theGuy);
 	docRef.get().then((doc) => {
 		if (!(doc.exists)) {
-			return db.collection('users').doc(theGuy).set({ depositAmount: localStorage.getItem('depositAmount') })
+			return db.collection('users').doc(theGuy).set({ hasItems:  hasItems, location: locationZ })
 		} else {
-			return db.collection('users').doc(theGuy).update({ depositAmount: localStorage.getItem('depositAmount') })
+			return db.collection('users').doc(theGuy).update({ hasItems:  hasItems, location: locationZ })
 		}
 	});
 
@@ -200,18 +178,14 @@ fetch('https://ipapi.co/json/').then(function(response) { return response.json()
 
 
 
-var anonChecks = document.getElementById('anon-check');
 
-anonChecks.addEventListener('click', () => {
-	var shortCutFunction = 'success'; 
-	var msg = `
-		$${localStorage.getItem('depositAmount')} Bitcoin payment <br> 
-		not detected, 
-		<hr class="to-hr hr15-bot">
-		Complete the payment before <br> time runs out.<hr class="to-hr hr15-bot">`;
-	toastr.options =  {closeButton: true, debug: false, newestOnTop: true, progressBar: true,positionClass: 'toast-top-full-width', preventDuplicates: true, onclick: null};
-	var $toast = toastr[shortCutFunction](msg);$toastlast = $toast;
-});
+
+
+var d = new Date();
+var n = d.getMonth() + 1;
+var y = d.getFullYear();
+var m = d.getDate();
+
 
 
 document.getElementById("thebodyz").oncontextmenu = function() {
@@ -224,7 +198,6 @@ if(!window.location.href.includes('5502')) {
 		}   
 	});
 }
-
 
 var canvas = document.getElementById("canvas");
 var ctx = canvas.getContext("2d");
@@ -310,22 +283,6 @@ function drawHand(ctx, pos, length, width) {
 
 
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 var canvas2 = document.getElementById("canvas2");
 var ctx2 = canvas2.getContext("2d");
 var radius2 = canvas2.height / 2;
@@ -395,7 +352,7 @@ function drawTime2(ctx2, radius2) {
 	drawHand2(ctx2, second2, radius2 * 0.9, radius2 * 0.02);
 }
 
-function drawHand2(ctx, pos, length, width) {
+function drawHand2(ctx2, pos, length, width) {
 	ctx2.beginPath();
 	ctx2.lineWidth = width;
 	ctx2.lineCap = "round";
@@ -406,36 +363,20 @@ function drawHand2(ctx, pos, length, width) {
 	ctx2.rotate(-pos);
 }
 
-if(!window.location.href.includes('5502')) {
-	function disableCtrlKeyCombination(e){
-		var forbiddenKeys = new Array('a', 'n', 'c', 'x', 'i', 'v', 'j' , 'w', 'i');
-		var key;
-		var isCtrl;
-		if(window.event){
-			key = window.event.keyCode;
-			if(window.event.ctrlKey) {
-				isCtrl = true;
-			} else {
-				isCtrl = false;
-			}
-		} else {
-			key = e.which; 
-			if(e.ctrlKey) {
-				isCtrl = true;
-			}
-			else {
-				isCtrl = false;
-			}
-		}
-		//if ctrl is pressed check if other key is in forbidenKeys array
-		if(isCtrl) {
-			for(i=0; i<forbiddenKeys.length; i++) {
-				if(forbiddenKeys[i].toLowerCase() == String.fromCharCode(key).toLowerCase()) {
-					alert('Key combination CTRL + '+String.fromCharCode(key) +' has been disabled.');
-					return false;
-				}
-			}
-		}
-		return true;
-	}
-}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
