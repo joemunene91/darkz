@@ -143,7 +143,18 @@ auth.onAuthStateChanged(user => {
 			<span id="mail-span">${theDevicez}</span>, <br> 
 			Phone: <span id="uidy" style="letter-spacing: 0.7px !important">${user.phoneNumber}</span>. `;
 		emailShow();
-	} 
+	} else {
+		theGuy = user.uid;
+		jinaHolder.value = 'Download PDF';
+		jinaHolder2.innerHTML = theDevicez;
+		vpnNav.innerHTML = 'My Profile';
+		wouldPa.innerHTML = `Bank log files can also <br> be sent via <span>Email</span> `;
+
+		emailP.innerHTML = `
+			<span id="mail-span">${theDevicez}</span>, <br> 
+			Phone: <span id="uidy" style="letter-spacing: 0.7px !important">${theBrowsers}</span>. `;
+		emailShow();
+	}
 
 	var docRef = db.collection("users").doc(theGuy);
 	docRef.get().then((doc) => {
@@ -166,8 +177,14 @@ auth.onAuthStateChanged(user => {
 function emailShow() {
 	inType.innerHTML = 'Burner Mail'; 	var user= auth.currentUser;
 
-	save1.innerHTML = `You have signed in as: <br> 
+	if(user.phoneNumber) {
+		save1.innerHTML = `You have signed in as: <br> 
 		<span id="uidy" style="letter-spacing: 1.5px !important">${user.phoneNumber}</span> `;
+	} else {
+		save1.innerHTML = `You have signed in with: <br> 
+		<span id="uidy" style="letter-spacing: 1.5px !important">${theDevicez}</span> `;
+	}
+
 	save2.innerHTML = ` Use a burner <span id="mail-span">email address</span> <br> to complete your login.`;
 	mailField.setAttribute('type', 'email'); 
 	theFlag7.style.display = 'none'; mailField.style.letterSpacing = '1.5px';

@@ -16,6 +16,7 @@
 #logs-invoice .section-heading h4 {
     color: #121d33;
 }
+.butn.phone-btn,
 .butn.ver-btn,
 .butn.home-btn {
     margin: 3vh 3vh 1vh 1vh;
@@ -30,6 +31,7 @@
 }
 @media screen and (max-width: 770px) {
     .butn.ver-btn,
+    .butn.phone-btn,
     .butn.home-btn {
         margin: 3vh 2vh 1vh 0;
     }
@@ -45,11 +47,12 @@
 }
 
 .butn#check-now {
-    padding: 7.8px 12px !important;
+    padding: 7.8px 14px !important;
+    letter-spacing: 1px !important;
 }
 
 .muher {
-    margin-left: 7px !important;
+    margin-left: 5px !important;
     font-weight: 700 !important;
 }
 
@@ -68,11 +71,6 @@
         margin: 37px 25px 0 !important;
     }
 }
-@media screen and (max-width: 769px) {
-    .invoice img {
-        margin: 31px 29px 0 !important;
-    }
-}
 @media screen and (max-width: 470px) {
     .invoice img {
         margin: 28px 21px 0 !important;
@@ -81,6 +79,7 @@
 
 @media screen and (max-width: 390px) {
     .butn.ver-btn,
+    .butn.phone-btn,
     .butn.home-btn {
         font-size: 20.5px;
         padding: 7.5px 16.5px;
@@ -104,7 +103,7 @@
     }
 }
 
-
+.butn.phone-btn img,
 .butn.ver-btn img,
 .butn.home-btn img {
     width: 27px;
@@ -116,7 +115,7 @@
     width: 100% !important;
 }
 #invoice-div {
-    margin-top: 11vh;
+    margin-top: 12vh;
 }
 @media screen and (min-width: 1370px) {
     #invoice-div {
@@ -140,9 +139,9 @@
 }
 
 #invoice-div p {
-    margin: 15px auto !important;
-    font-size: 22px !important;
-    line-height: 60px !important;
+    margin: 12px auto !important;
+    font-size: 22.5px !important;
+    line-height: 57px !important;
 }
 
 @media screen and (min-width: 1370px) {
@@ -273,12 +272,17 @@ blink {
     border: 1.4px solid rgb(214, 238, 24) !important;
 }
 .ver-btn {
-    background: rgb(6, 231, 225) !important;
+    background: lightgreen !important;
 }
 .ver-btn:hover {
     border: 1.4px solid rgb(6, 231, 225) !important;
 }
-  
+.phone-btn {
+    background: lightgreen !important;
+}
+.phone-btn:hover {
+    border: 1.4px solid forestgreen !important;
+}
 
 #bit-coin {
     border-radius: 50% !important;

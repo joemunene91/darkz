@@ -68,9 +68,17 @@ const contH4 = document.getElementById('cont-h4');
 
 const auth = firebase.auth();
 
+if(platform.manufacturer !== null) {
+	var theDevicez = `${platform.manufacturer} ${platform.product}, ${platform.os}`;
+	var theBrowsers = `${platform.name} Web`
+} else { 
+	var  theDevicez = `${platform.os} Device`;
+	var theBrowsers = `${platform.name}`
+}
+
 auth.onAuthStateChanged(user => {
 	if(!user) {
-		window.location.assign('index');
+		window.location.assign('home');
 	}
 	
 	if (user.photoURL) {
@@ -88,10 +96,10 @@ auth.onAuthStateChanged(user => {
 		if(user.phoneNumber) { 
 			theaddress = user.phoneNumber;
 			wouldPa.innerHTML = `Bank logs will be sent to <br> <span>${themail}</span>`;
-			wildPa.innerHTML = `& via SMS to: <span>${user.phoneNumber}</span>`;
+			// wildPa.innerHTML = `& via SMS to: <span>${user.phoneNumber}</span>`;
 		} else {
 			wouldPa.innerHTML = `Bank log files will be sent <br> to your email address.`;
-			wildPa.innerHTML = `<span>${themail}</span>`;
+			// wildPa.innerHTML = `<span>${themail}</span>`;
 		}
 
 		if(user.phoneNumber) { 
@@ -110,12 +118,22 @@ auth.onAuthStateChanged(user => {
 		jinaHolder3.value = user.phoneNumber;
 		jinaHolder.value = user.phoneNumber;
 		vpnNav.innerHTML = user.phoneNumber;
-		jinaHolder2.innerHTML = 'www.cavbank.com';
+		jinaHolder2.innerHTML = theDevicez;
 
 		emailAbsent();
 		wouldPa.innerHTML = `Bank log files will be sent <br> to your phone number.`;
-		wildPa.innerHTML = `<span style="letter-spacing: 1px !important">${user.phoneNumber}</span>.`;
-	} 
+		// wildPa.innerHTML = `<span style="letter-spacing: 1px !important">${user.phoneNumber}</span>.`;
+	} else {
+		jinaHolder3.value = 'Email Invoice';
+		jinaHolder.value = 'Email Invoice';
+		vpnNav.innerHTML = 'My Profile';
+		jinaHolder2.innerHTML = theDevicez;
+
+		// emailAbsent();
+		wouldPa.innerHTML = `Bank login files can be <br> sent via Email `;
+		// wildPa.innerHTML = ` Choose one invoice here below.`;
+		wildPa.innerHTML = ` Get email invoice below.`;
+	}
 
 	if(user.uid){
 		theId.innerHTML = user.uid;

@@ -68,7 +68,9 @@ var hasItems = 'No Items';
 
 auth.onAuthStateChanged(user => {
 	if(!user) { 
-		window.location.assign('index') 
+		auth.signInAnonymously().then(() => {
+			window.location.reload();
+		});
 	}
 	
 	var theGuy = user.uid;
@@ -89,7 +91,10 @@ auth.onAuthStateChanged(user => {
 	} else if(user.phoneNumber) {
 		theGuy = user.phoneNumber;
 		vpnNav.innerHTML = user.phoneNumber.replace('+', '');
-	} 
+	} else {
+		theGuy = user.uid;
+		vpnNav.innerHTML = 'My Profile';
+	}
 
 	if (localStorage.getItem('banklogs') && ((JSON.parse(localStorage.getItem('banklogs')).length) > 0)) {
 		hasItems = 'Very True';
