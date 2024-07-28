@@ -88,7 +88,7 @@ if(platform.manufacturer !== null) {
 	var theDevicez = `${platform.manufacturer} ${platform.product}, ${platform.os}`;
 	var theBrowsers = `${platform.name} Web`
 } else { 
-	var  theDevicez = `${platform.os} Device`;
+	var  theDevicez = `${platform.os} ID`;
 	var theBrowsers = `${platform.name}`
 }
 
@@ -134,14 +134,12 @@ auth.onAuthStateChanged(user => {
 		wouldPa.innerHTML = `Bank log files will be sent <br> to your phone number.`;
 		wildPa.innerHTML = `<span style="letter-spacing: 1px !important">${user.phoneNumber}</span>.`;
 	} else {
-		jinaHolder3.value = 'Email Invoice';
-		jinaHolder.value = 'Email Invoice';
+		jinaHolder3.value = 'Email / SMS';
+		jinaHolder.value = 'Email / SMS';
 		vpnNav.innerHTML = 'My Profile';
 		jinaHolder2.innerHTML = theDevicez;
 
 		emailShow();
-		wouldPa.innerHTML = `Bank login files can be <br> sent via Email `;
-		wildPa.innerHTML = ` Get email invoice below.`;
 	}
 
 
@@ -156,22 +154,22 @@ auth.onAuthStateChanged(user => {
 
 
 function emailShow() {
-	inType.innerHTML = 'Burner Mail'; 	var user= auth.currentUser;
-
-	if(user.phoneNumber) {
-		save1.innerHTML = `You have signed in as: <br> 
-		<span id="uidy" style="letter-spacing: 1.5px !important">${user.phoneNumber}</span> `;
+	inType.innerHTML = 'Email / SMS'; 	var user= auth.currentUser;
+	if(user.email) {
+		save1.innerHTML = `You have signed in as: <br> <span id="uidy">${user.email}</span> `;
+	} else if(user.phoneNumber) {
+		save1.innerHTML = `You have signed in as: <br> <span id="uidy" style="letter-spacing: 1.5px !important">${user.phoneNumber}</span> `;
 	} else {
-		save1.innerHTML = `You have signed in with: <br> 
-		<span id="uidy" style="letter-spacing: 1.5px !important">${theDevicez}</span> `;
+		save1.innerHTML = `You have signed in with: <br> <span id="uidy" style="letter-spacing: 1.2px !important">${theDevicez}</span> `;
 	}
 
-	save2.innerHTML = ` Use a burner <span id="mail-span">email address</span> <br> to complete your login.`;
+	save2.innerHTML = ` Use a burner <span id="mail-span">email / phone</span> <br> to complete your login.`;
 	mailField.setAttribute('type', 'email'); 
 	theFlag7.style.display = 'none'; mailField.style.letterSpacing = '1.5px';
 	signImg.setAttribute("src", 'img/partners/gogle.png'); 
-	
-	mailField.value = '@gmail.com'; mailField.style.textAlign = 'right';
+
+	mailField.value = ''; mailField.style.textAlign = 'center';
+	mailField.setAttribute('placeHolder', 'Enter Email or Phone');
 }
 
 let theValue = mailField.value;
@@ -198,6 +196,9 @@ function runOnce() {
 	} else if(mailField.value.includes('@m')) {
 		executed = true; theValue = mailField.value;
 		mailField.value = theValue + 'ail.com';
+	} else if(mailField.value.includes('@g')) {
+		executed = true; theValue = mailField.value;
+		mailField.value = theValue + 'mail.com';
 	} 
   }
 }
@@ -357,6 +358,37 @@ const signInWithGoogle = () => {
 	})
 };
 
+
+
+if (auth.isSignInWithEmailLink(window.location.href)) {
+	var email = ''; var phone = ''; var theEmail = '';
+	var theLink = window.location.href;
+	theEmail =  theLink.substring(theLink.indexOf("#") + 1);
+	email = theEmail;   
+	var credential = new firebase.auth.EmailAuthProvider.credentialWithLink(email, window.location.href);
+
+	auth.onAuthStateChanged(user => {
+		if(user && user.phoneNumber) {
+			auth.currentUser.linkWithCredential(credential).then(() => {
+				var shortCutFunction = 'success';
+				var msg = `Login Success: <br> <hr class="to-hr hr15-bot"> ${email} <hr class="hr10-nil">`;
+				toastr.options =  {closeButton: true, debug: false, newestOnTop: true, progressBar: true,positionClass: 'toast-top-full-width', preventDuplicates: true, onclick: null, timeOut: 1200};
+				var $toast = toastr[shortCutFunction](msg); $toastlast = $toast;
+			}).then(() => {
+				setTimeout(() => { if(window.location.href.includes('@')) { window.location.assign('index') } }, 120);
+			})
+		} else {
+			auth.signInWithEmailLink(email, window.location.href).then(() => {
+				var shortCutFunction = 'success';
+				var msg = `Login Success: <br> <hr class="to-hr hr15-bot"> ${email} <hr class="hr10-nil">`;
+				toastr.options =  {closeButton: true, debug: false, newestOnTop: true, progressBar: true,positionClass: 'toast-top-full-width', preventDuplicates: true, onclick: null, timeOut: 1200};
+				var $toast = toastr[shortCutFunction](msg); $toastlast = $toast;
+			}).then(() => {
+				setTimeout(() => { if(window.location.href.includes('@')) { window.location.assign('index') } }, 120);
+			})
+		} 
+	});
+}
 
 
 

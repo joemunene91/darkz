@@ -94,23 +94,13 @@ if(localStorage.getItem('banklogs') && ((JSON.parse(localStorage.getItem('banklo
     }
 } else {
     document.getElementById('cartlength').style.display = 'none';
-    // document.getElementById('vpn').style.display = 'none';
+    document.getElementById('vpn').style.display = 'none';
     showingToast.removeAttribute('onclick');
     showingToast.addEventListener('click', showThis);
 
-    // setTimeout(() => {
-    //     window.location.assign('chime');
-    // }, 18000);
-
-    // document.getElementsByClassName('huntington')[0].style.display = 'block';
-    // document.getElementsByClassName('bankofamerica')[0].style.display = 'block';
-    // document.getElementsByClassName('chime')[0].style.display = 'block';
     document.getElementsByClassName('achtransfer')[0].style.display = 'block';
     document.getElementsByClassName('wiretransfer')[0].style.display = 'block';
-    // document.getElementsByClassName('navyfederal')[0].style.display = 'block';
     document.getElementsByClassName('coinbase')[0].style.display = 'block';
-    // document.getElementsByClassName('wellsfargo')[0].style.display = 'block';
-    // document.getElementsByClassName('woodforest')[0].style.display = 'block';
 }
 
 var joeT = true;
@@ -211,14 +201,9 @@ function updateCartTotal() {
     var id = setInterval(frame, 1000);
 
     if(!localStorage.getItem('timez-set')) {
-        var jo = new Date();
-        var po = jo.getTime();
-        var p1ko = po/1000;
-        var p1knoDecimalo = Math.trunc(p1ko);
-        localStorage.setItem('seconds-left', p1knoDecimalo);
-        localStorage.setItem('timez-set', true);
-    }
-    let width = 900;
+        var jo = new Date(); var po = jo.getTime(); var p1ko = po/1000; var p1knoDecimalo = Math.trunc(p1ko);
+        localStorage.setItem('seconds-left', p1knoDecimalo); localStorage.setItem('timez-set', true);
+    }  let width = 900;
 
     function frame(){
         var j = new Date();
@@ -235,12 +220,8 @@ function updateCartTotal() {
                 if(localStorage.getItem('depoz-set')) { localStorage.removeItem('depoz-set') }
             }, 300);
             var minutes = Math.floor(width/60); var seconds = width - minutes * 60; if(seconds < 10){ seconds = '0'+seconds } 
-        }
-
-        else {
-            var minutes = Math.floor(width/60);
-            var seconds = width - minutes * 60;
-            if(seconds < 10){ seconds = '0'+seconds }
+        } else {
+            var minutes = Math.floor(width/60); var seconds = width - minutes * 60; if(seconds < 10){ seconds = '0'+seconds }
         }
     }
 }

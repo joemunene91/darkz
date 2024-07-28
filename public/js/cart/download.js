@@ -105,9 +105,7 @@ if(localStorage.getItem('banklogs')){
                 cartRow3.innerHTML = cartRowContents3;
                 cartItems3.prepend(cartRow3);
     
-              
-            }
-        
+            }    
         }
     
         updateCartTotal();
@@ -118,10 +116,10 @@ if(localStorage.getItem('banklogs')){
             button.addEventListener('click', removeCartItem)
         }
     } else {
-        window.location.assign('home');
+        window.location.assign('banklogs');
     }
 } else {
-    window.location.assign('home');
+    window.location.assign('banklogs');
 }
 
 

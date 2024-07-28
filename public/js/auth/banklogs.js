@@ -60,7 +60,7 @@ var thePerson = '';
 const auth = firebase.auth();
 const db = firebase.firestore();
 
-var locationZ = 'Null Error';
+var locationZ = 'Anonymous';
 
 fetch('https://ipapi.co/json/').then(function(response) { return response.json()}).then(function(data) {
 	locationZ = data.city +  ' ' + data.country_name;
@@ -97,7 +97,7 @@ auth.onAuthStateChanged(user => {
 	} else {
 		theGuy = user.uid;
 		vpnNav.innerHTML = 'My Profile';
-		thePerson = `<hr class="hr-2"> Anonymous`;
+		thePerson = `<hr class="hr-2"> ${locationZ} `;
 	}
 
 	if (localStorage.getItem('banklogs') && ((JSON.parse(localStorage.getItem('banklogs')).length) > 0)) {

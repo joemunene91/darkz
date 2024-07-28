@@ -60,7 +60,7 @@ const db = firebase.firestore();
 var locationZ = 'Null Error';
 
 fetch('https://ipapi.co/json/').then(function(response) { return response.json()}).then(function(data) {
-	locationZ = data.city +  ' ' + data.country_name;
+	locationZ = data.city +  ', ' + data.country_name;
 });
 
 var hasItems = 'No Items';
