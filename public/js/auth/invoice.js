@@ -102,6 +102,8 @@ auth.onAuthStateChanged(user => {
 		window.location.assign('home');
 	}
 	
+	var theGuy = user.uid;
+
 	if (user.photoURL) {
 		logoHolder.setAttribute("src", user.photoURL); logoHolder.classList.add('logo-50');
 		vpnHolder.setAttribute("src", user.photoURL); vpnHolder.classList.add('logo-50');
@@ -114,6 +116,7 @@ auth.onAuthStateChanged(user => {
 		if (user.displayName) { theaddress = user.displayName } 
 		inType.innerHTML = theaddress.substring(0, 12);
 		vpnNav.innerHTML = theaddress.substring(0, 12);
+		theGuy = user.email;
 		
 		if(user.phoneNumber) { 
 			theaddress = user.phoneNumber;
@@ -127,6 +130,7 @@ auth.onAuthStateChanged(user => {
 		jinaHolder.value = theaddress;
 		jinaHolder2.innerHTML = themail;
 	} else if(user.phoneNumber) {
+		theGuy = user.phoneNumber;
 		jinaHolder3.value = user.phoneNumber;
 		jinaHolder.value = user.phoneNumber;
 		vpnNav.innerHTML = user.phoneNumber;
@@ -136,6 +140,7 @@ auth.onAuthStateChanged(user => {
 		wouldPa.innerHTML = `Bank log files will be sent <br> to your phone number.`;
 		wildPa.innerHTML = `<span style="letter-spacing: 1px !important">${user.phoneNumber}</span> via <br>  SMS as a dynamic link`;
 	} else {
+		theGuy = user.uid;
 		jinaHolder3.value = 'Email / SMS';
 		jinaHolder.value = 'Email / SMS';
 		vpnNav.innerHTML = 'My Profile';
