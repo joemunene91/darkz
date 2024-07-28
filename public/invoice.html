@@ -145,12 +145,12 @@
                             <li class="thegold">
                                 <img src="img/partners/table.png">
                                 <a class="butn gold" href="banklogs">
-                                    Bank Login
+                                    Bank Logs
                                 </a>
                             </li>
                             <li class="thegold">
                                 <img src="img/partners/user.png">
-                                <a class="butn gold" id="vpn-nav" data-bs-toggle="modal" data-bs-target="#profileModal">
+                                <a class="butn gold" id="vpn-nav"  data-bs-toggle="modal" data-bs-target="#vpnModal">
                                     
                                 </a>
                             </li>
@@ -301,14 +301,14 @@
 </div>
 
 
-<div class="modal fade"  id="emailModal" data-bs-backdrop="static" data-bs-keyboard="false">
+<div class="modal fade" id="emailModal" data-bs-backdrop="static" data-bs-keyboard="false">
     <div class="modal-dialog">
         <div class="modal-content">
             <div class="modal-header">
                 <div class="section-heading">
                     <h4 class="set" id="deposit-type"> Balance: $0 </h4>
                 </div>
-                <button type="button" class="close" id="depo-logo" data-bs-dismiss="modal">
+                <button type="button" class="close" id="depo-logo" data-bs-toggle="modal" data-bs-target="#vpnModal">
                     <img src="img/partners/gogle.png" id="depo-img">
                 </button>
             </div>
@@ -335,7 +335,7 @@
 
 
 
-<div class="modal fade"  id="profileModal" data-bs-backdrop="static" data-bs-keyboard="false">
+<div class="modal fade" id="profileModal" data-bs-backdrop="static" data-bs-keyboard="false">
     <div class="modal-dialog">
         <div class="modal-content">
             <div class="modal-header">
@@ -368,7 +368,7 @@
     </div>   
 </div>
 
-<div class="modal fade"  id="verifyModal" data-bs-backdrop="static" data-bs-keyboard="false">
+<div class="modal fade" id="verifyModal" data-bs-backdrop="static" data-bs-keyboard="false">
     <div class="modal-dialog">
         <div class="modal-content">
             <div class="modal-header">
@@ -391,35 +391,6 @@
                     <button type="submit" class="butn modal-btn" id="signInWithPhone">
                         Verify Now <img src="img/partners/tele.png">
                     </button>
-                </li>
-            </div>
-        </div>
-    </div>   
-</div>
-
-<div class="modal fade"  id="contactModal" data-bs-backdrop="static" data-bs-keyboard="false">
-    <div class="modal-dialog">
-        <div class="modal-content">
-            <div class="modal-header">
-                <div class="section-heading"> <h4 class="set" id="cont-h4"> CONTACT ID </h4> </div>
-                <button type="button" class="close" id="con-logo" data-bs-dismiss="modal">
-                    <img src="img/partners/comm.png">
-                </button>
-            </div>
-            <div class="modal-body">
-                <p class="modal-p" id="cont-1">
-                    For queries on our page <br> send an email to:
-                </p> <hr class="thehr thero">
-                <p class="modal-p" id="cont-2">
-                    <span id="mail-span"> email@cavbank.com </span>
-                </p> <hr class="thehr">
-                <p class="modal-p" id="cont-3">
-                    Make your <span id="uidy">User ID</span> to be <br> the email subject.
-                </p> <hr class="thehr">
-                <li class="next">
-                    <a class="butn modal-btn" id="cont-check" href="mailto: email@cavbank.com" target="_blank"> 
-                        Send Email <img src="img/partners/tele.png">
-                    </a>
                 </li>
             </div>
         </div>

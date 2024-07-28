@@ -212,13 +212,13 @@ section .dataTables_wrapper dataTables_length {
 	opacity: 0 !important;
 }
 .bro-text p {
-    margin-top: 5px !important;
-    font-size: 15px !important;
+    margin-top: 14px !important;
+    font-size: 20px !important;
 }
 @media screen and (max-width: 506px) {
     .bro-text p {
-        font-size: 13px !important;
-        margin-top: 13px !important;
+        font-size: 18px !important;
+        margin-top: 14px !important;
     }
 }
 

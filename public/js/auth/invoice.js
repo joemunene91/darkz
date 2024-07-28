@@ -8,7 +8,7 @@ if(window.location.href.includes('rkweb')){
 		appId: "1:504618741131:web:0e59b1c8b8ea087bd0138e",
 		measurementId: "G-3FQH15QTXF"
 	}; firebase.initializeApp(firebaseConfig);
-	var theWebsite = 'https://www.darkweb.lat/index';
+	var theWebsite = 'https://www.darkweb.lat/invoice';
 } else {
 	var firebaseConfig = { 
 		apiKey: "AIzaSyCAa_FFfhsrmJOI_GQzXmpfJXqlNW5iMT4",
@@ -19,7 +19,7 @@ if(window.location.href.includes('rkweb')){
 		appId: "1:738709207118:web:af014bfda3fe0158256b1f",
 		measurementId: "G-KKGN2GJ2QR"
 	}; firebase.initializeApp(firebaseConfig);
-	var theWebsite = 'https://www.tilbank.com/index';
+	var theWebsite = 'https://www.tilbank.com/invoice';
 }
 
 
@@ -109,6 +109,7 @@ auth.onAuthStateChanged(user => {
 		if (user.displayName) { theaddress = user.displayName } 
 		inType.innerHTML = theaddress.substring(0, 12);
 		vpnNav.innerHTML = theaddress.substring(0, 12);
+		
 		if(user.phoneNumber) { 
 			theaddress = user.phoneNumber;
 			wouldPa.innerHTML = `Bank logs will be sent to <br> <span>${themail}</span>`;
@@ -118,15 +119,8 @@ auth.onAuthStateChanged(user => {
 			wildPa.innerHTML = `<span>${themail}</span>`;
 		}
 
-		if(user.phoneNumber) { 
-			theaddress = user.phoneNumber;
-			signUp.addEventListener('click', sendEmail);
-			emailShow();
-		} else{
-			phoneAbsent(); 
-		}
+		phoneShow();
 
-		contH4.innerHTML = theaddress.substring(0, 12);
 		jinaHolder3.value = theaddress;
 		jinaHolder.value = theaddress;
 		jinaHolder2.innerHTML = themail;

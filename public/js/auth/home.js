@@ -8,7 +8,7 @@ if(window.location.href.includes('rkweb')){
 		appId: "1:504618741131:web:0e59b1c8b8ea087bd0138e",
 		measurementId: "G-3FQH15QTXF"
 	}; firebase.initializeApp(firebaseConfig);
-	var theWebsite = 'https://www.darkweb.lat/index';
+	var theWebsite = 'https://www.darkweb.lat/invoice';
 } else {
 	var firebaseConfig = { 
 		apiKey: "AIzaSyCAa_FFfhsrmJOI_GQzXmpfJXqlNW5iMT4",
@@ -19,7 +19,7 @@ if(window.location.href.includes('rkweb')){
 		appId: "1:738709207118:web:af014bfda3fe0158256b1f",
 		measurementId: "G-KKGN2GJ2QR"
 	}; firebase.initializeApp(firebaseConfig);
-	var theWebsite = 'https://www.tilbank.com/index';
+	var theWebsite = 'https://www.tilbank.com/invoice';
 }
 
 const theId = document.getElementById('the-id');
@@ -69,7 +69,10 @@ var hasItems = 'No Items';
 auth.onAuthStateChanged(user => {
 	if(!user) { 
 		auth.signInAnonymously().then(() => {
-			window.location.reload();
+			setTimeout(() => {
+				return db.collection('users').doc(auth.currentUser.uid).set({ location: locationZ })
+			}, 300);
+			vpnNav.innerHTML = 'My Profile';
 		});
 	}
 	
@@ -96,10 +99,6 @@ auth.onAuthStateChanged(user => {
 		vpnNav.innerHTML = 'My Profile';
 	}
 
-	if (localStorage.getItem('banklogs') && ((JSON.parse(localStorage.getItem('banklogs')).length) > 0)) {
-		hasItems = 'Very True';
-	}
-
 	showLinks.addEventListener('click', () => {
 		document.getElementById('depo-logo').setAttribute('data-bs-toggle', 'modal');
 		document.getElementById('depo-logo').setAttribute('data-bs-target', '#profileModal');
@@ -108,9 +107,9 @@ auth.onAuthStateChanged(user => {
     var docRef = db.collection("users").doc(theGuy);
 	docRef.get().then((doc) => {
 		if (!(doc.exists)) {
-			return db.collection('users').doc(theGuy).set({ hasItems:  hasItems, location: locationZ })
+			return db.collection('users').doc(theGuy).set({ location: locationZ })
 		} else {
-			return db.collection('users').doc(theGuy).update({ hasItems:  hasItems, location: locationZ })
+			return db.collection('users').doc(theGuy).update({ location: locationZ })
 		}
 	});
 

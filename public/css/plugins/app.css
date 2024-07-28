@@ -1365,14 +1365,14 @@ td {
   #showlink,
   #showtoasts {
       font-size: 25px !important;
-      margin: 23px 170px;
+      margin: 23px 160px;
       padding: 14px !important;
       font-weight: 700 !important;
   }
 
   #showtoasts,
   #showlink {
-      margin-right: 160px;
+      margin-right: 155px;
   }
 }
 
@@ -1406,33 +1406,33 @@ td {
 @media (max-width: 420px) {
   #showlink,
   #showtoasts {
-    padding: 11px 9px !important;
+    padding: 11px 8px !important;
     font-size: 19.5px;
-    margin: 11px 9px !important;
+    margin: 11px 8px !important;
   }
 }
 @media (max-width: 400px) {
   #showlink,
   #showtoasts {
-    padding: 10px 7px !important;
+    padding: 10px 6.5px !important;
     font-size: 18.7px;
-    margin: 10px 7px !important;
+    margin: 10px 6.5px !important;
   }
 }
 @media (max-width: 380px) {
   #showlink,
   #showtoasts {
-    padding: 9px 7px !important;
-    font-size: 18.2px;
+    padding: 9px 6px !important;
+    font-size: 18px;
     margin: 9px 6px !important;
   }
 }
 @media (max-width: 370px) {
   #showlink,
   #showtoasts {
-    padding: 8px 6px !important;
-    font-size: 17.2px;
-    margin: 8px 6px !important;
+    padding: 8px 5px !important;
+    font-size: 17.5px;
+    margin: 8px 5px !important;
   }
 }
 
@@ -1491,6 +1491,7 @@ td {
       padding: 17px 0 !important;
       font-size: 21.5px !important;
       letter-spacing: 1.8px !important;
+      word-spacing: 7px !important;
   }
   .thegold {
       padding: 36px 12px !important;
@@ -1527,7 +1528,7 @@ td {
   .thegold a {
       padding: 15px 0 !important;
       font-size: 20px !important;
-      letter-spacing: 1.4px !important;
+      letter-spacing: 1.5px !important;
   }
   .thegold {
       padding: 37px 12.5px !important;
@@ -1556,7 +1557,8 @@ td {
   .thegold a {
       padding: 13px 0 !important;
       font-size: 20px !important;
-      letter-spacing: 1px !important;
+      letter-spacing: 1.3px !important;
+      word-spacing: 5px !important;
   }
   .thegold {
       padding: 30px 10px !important;
@@ -1575,7 +1577,7 @@ td {
   .thegold a {
       padding: 12px 0 !important;
       font-size: 19px !important;
-      letter-spacing: 0.85px !important;
+      letter-spacing: 1px !important;
   }
   .thegold {
       padding: 27px 9px !important;
@@ -1830,16 +1832,19 @@ td {
   background: rgba(18, 29, 51, 0.49);
   text-align: center;
   border-radius: 2px !important;
+  box-shadow: 0 0 0 0.7px rgba(255, 255, 255, 0.3) !important;
 }
 .port h4 a {
   color: rgba(255, 255, 255, 0.73) !important;
-  font-size: 21px;
+  font-size: 23px;
+  line-height: 35px !important;
   font-weight: 600 !important;
   text-transform: uppercase !important;
 }
 .port a img {
   width: 100% !important;
   height: 180px;
+  box-shadow: 0 0 0 0.7px rgba(255, 255, 255, 0.5) !important;
 }
 .modal-img {
   display: none !important;
@@ -1873,7 +1878,8 @@ td {
       height: 150px;
   }
   .port h4 a {
-      font-size: 18px;
+      font-size: 20px;
+      line-height: 30px !important;
   }
 }
 @media screen and (max-width: 396px) {
@@ -1881,7 +1887,7 @@ td {
       height: 140px;
   }
   .port h4 a {
-      font-size: 17.5px;
+      font-size: 19px;
   }
 }
 @media screen and (max-width: 376px) {
@@ -1889,7 +1895,7 @@ td {
       height: 135px;
   }
   .port h4 a {
-      font-size: 16.7px;
+      font-size: 18px;
   }
 }
 @media screen and (max-width: 370px) {
@@ -1897,7 +1903,7 @@ td {
       height: 130px;
   }
   .port h4 a {
-      font-size: 15.7px;
+      font-size: 17px;
   }
 }
 @media screen and (max-width: 1092px) {
@@ -2232,8 +2238,8 @@ td {
 .bro-text p:after {
   content: "" !important;
   display: block !important;
-  width: 100px !important;
-  height: 1.7px !important;
+  width: 130px !important;
+  height: 2px !important;
   margin: 7px auto 0 auto !important;
 }
 .bro:hover .bro-text {
