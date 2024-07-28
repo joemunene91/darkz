@@ -99,7 +99,9 @@ if(platform.manufacturer !== null) {
 
 auth.onAuthStateChanged(user => {
 	if(!user) {
-		window.location.assign('home');
+		if (!auth.isSignInWithEmailLink(window.location.href)) {
+			setTimeout(() => { window.location.assign('home') }, 600);
+		}
 	}
 	
 	var theGuy = user.uid;
