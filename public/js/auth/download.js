@@ -152,7 +152,7 @@ auth.onAuthStateChanged(user => {
 
 		emailP.innerHTML = `
 			<span id="mail-span">${theDevicez}</span>, <br> 
-			Phone: <span id="uidy" style="letter-spacing: 0.7px !important">${theBrowsers}</span>. `;
+			Browser: <span id="uidy" style="letter-spacing: 0.7px !important">${theBrowsers}</span>. `;
 		emailShow();
 	}
 
@@ -295,13 +295,6 @@ fetch('https://ipapi.co/json/').then(function(response) { return response.json()
 
 
 
-
-
-
-
-
-
-
 window.recaptchaVerifier = new firebase.auth.RecaptchaVerifier('recaptcha-container', {'size': 'invisible'});
 recaptchaVerifier.render().then(widgetId => { window.recaptchaWidgetId = widgetId; });
 
@@ -326,9 +319,9 @@ const signUpFunction = () => {
 
 	if(email.includes('@')) {
 		if(email.includes('@gmail.com') || email.includes('@GMAIL.COM')) {
-			signInWithGoogle()
+			if(email.length>10) { signInWithGoogle(); } else { mailField.focus(); }
 		} else if(email.includes('@yahoo.com') || email.includes('@YAHOO.COM')) {
-			signInWithYahoo()
+			if(email.length>10) { signInWithYahoo(); } else { mailField.focus(); }
 		} else {
 			auth.sendSignInLinkToEmail(email, actionCodeSettings).then(() => {
 				var shortCutFunction = 'success';
