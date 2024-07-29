@@ -1406,33 +1406,33 @@ td {
 @media (max-width: 420px) {
   #showlink,
   #showtoasts {
-    padding: 11px 9px !important;
+    padding: 11px 8px !important;
     font-size: 19.5px;
-    margin: 11px 9px !important;
+    margin: 11px 8px !important;
   }
 }
 @media (max-width: 400px) {
   #showlink,
   #showtoasts {
-    padding: 10px 7px !important;
+    padding: 10px 6px !important;
     font-size: 19px;
-    margin: 10px 7px !important;
+    margin: 10px 6px !important;
   }
 }
 @media (max-width: 380px) {
   #showlink,
   #showtoasts {
-    padding: 9px 7px !important;
+    padding: 9px 5.5px !important;
     font-size: 18px;
-    margin: 9px 7px !important;
+    margin: 9px 5.5px !important;
   }
 }
 @media (max-width: 370px) {
   #showlink,
   #showtoasts {
-    padding: 8px 6px !important;
+    padding: 8px 5px !important;
     font-size: 17.5px;
-    margin: 8px 6px !important;
+    margin: 8px 5px !important;
   }
 }
 
