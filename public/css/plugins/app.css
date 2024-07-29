@@ -1648,7 +1648,7 @@ td {
   #exampleModal .modal-dialog,
   #emailModal .modal-dialog,
   #vpnModal .modal-dialog {
-      top: 17vh !important;
+      top: 16vh !important;
       max-width: 81.3vw !important;
   }
 }
@@ -1658,7 +1658,7 @@ td {
   #verifyModal .modal-dialog,
   #emailModal .modal-dialog,
   #vpnModal .modal-dialog {
-      top: 17vh !important;
+      top: 16vh !important;
       max-width: 84.5vw !important;
   }
 }
@@ -1670,7 +1670,7 @@ td {
   #verifyModal .modal-dialog,
   #emailModal .modal-dialog,
   #vpnModal .modal-dialog {
-      top: 17vh !important;
+      top: 16vh !important;
       max-width: 88vw !important;
   }
 }
