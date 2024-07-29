@@ -139,7 +139,7 @@ auth.onAuthStateChanged(user => {
 		jinaHolder2.innerHTML = theDevicez;
 
 		emailShow();
-		wouldPa.innerHTML = `Bank log files will be sent <br> to your phone number.`;
+		wouldPa.innerHTML = `Bank log files will be sent <br> to your phone inbox.`;
 		wildPa.innerHTML = `<span style="letter-spacing: 1px !important">${user.phoneNumber}</span> via <br>  SMS as a dynamic link`;
 	} 
 
@@ -163,20 +163,14 @@ auth.onAuthStateChanged(user => {
 
 
 function emailShow() {
-	inType.innerHTML = 'Email / SMS'; 	var user= auth.currentUser;
-	if(user.email) {
-		save1.innerHTML = `You have signed in as: <br> <span id="uidy">${user.email}</span> `;
-	} else if(user.phoneNumber) {
-		save1.innerHTML = `You have signed in as: <br> <span id="uidy" style="letter-spacing: 1.5px !important">${user.phoneNumber}</span> `;
-	} else {
-		save1.innerHTML = `You have signed in with: <br> <span id="uidy" style="letter-spacing: 1.2px !important">${theDevicez}</span> `;
-	}
-	save2.innerHTML = ` Use a burner <span id="mail-span">email / phone</span> <br> to complete your login.`;
+	inType.innerHTML = 'Email Link'; 	var user= auth.currentUser;
+	save1.innerHTML = `You have signed in as: <br> <span id="uidy" style="letter-spacing: 1.5px !important">${user.phoneNumber}</span> `;
+	save2.innerHTML = ` Use a burner <span id="mail-span">email address</span> <br> to complete your login.`;
 	mailField.setAttribute('type', 'email'); 
 	theFlag7.style.display = 'none'; mailField.style.letterSpacing = '1.5px';
 	signImg.setAttribute("src", 'img/partners/gogle.png'); 
 	mailField.value = ''; mailField.style.textAlign = 'center';
-	mailField.setAttribute('placeHolder', 'Enter Email or Phone');
+	mailField.setAttribute('placeHolder', 'Enter Email Address');
 }
 
 let theValue = mailField.value;
@@ -225,8 +219,8 @@ function runOnce() {
 }
 
 function phoneShow() {
-	inType.innerHTML = 'PHONE LOGIN';
-	save1.innerHTML = `You have signed in with: <br> <span id="uidy" style="letter-spacing: 1.2px !important">${theDevicez}</span> `;
+	inType.innerHTML = 'PHONE LOGIN'; var user = auth.currentUser;
+	save1.innerHTML = `You have signed in as: <br> <span id="uidy">${user.email}</span> `;
 	save2.innerHTML = ` Use a burner <span id="mail-span">phone number</span> <br> to complete your login.`;
 	mailField.style.letterSpacing = '3px'; mailField.setAttribute('type', 'tel'); mailField.style.textAlign = 'left'; 
 	mailField.value = '+123'; mailField.setAttribute('pattern', '[+]{1}[0-9]{11,14}');

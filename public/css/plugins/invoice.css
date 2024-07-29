@@ -38,13 +38,13 @@
 }
   
 .butn#btc-check {
-    padding: 7.8px 12px !important;
-    letter-spacing: 1px !important;
+    padding: 7.8px 13px !important;
+    letter-spacing: 1.2px !important;
 }
 
 .butn#check-now {
-    padding: 7.8px 15px !important;
-    letter-spacing: 1.3px !important;
+    padding: 7.8px 13px !important;
+    letter-spacing: 1.2px !important;
 }
 
 .muher {
@@ -160,22 +160,22 @@
 blink {
     position: relative;
     top: -70px !important;
-    left: 120px !important;
+    left: 125px !important;
     z-index: 999 !important;
 }
 @media screen and (max-width: 500px) {
     blink {
-        left: 115px !important;
+        left: 120px !important;
     }
 }
 @media screen and (max-width: 410px) {
     blink {
-        left: 110px !important;
+        left: 115px !important;
     }
 }
 @media screen and (max-width: 380px) {
     blink {
-        left: 105px !important;
+        left: 110px !important;
     }
 }
 
