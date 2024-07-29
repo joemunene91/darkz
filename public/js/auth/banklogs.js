@@ -71,7 +71,7 @@ var hasItems = 'No Items';
 
 auth.onAuthStateChanged(user => {
 	if(!user) { 
-		window.location.assign('home') 
+		window.location.assign('index') 
 	}
 	
 	var theGuy = user.uid;
