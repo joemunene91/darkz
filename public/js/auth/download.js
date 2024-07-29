@@ -300,7 +300,7 @@ const signUpFunction = () => {
 		theUser.linkWithCredential(credential).then(() => {
 			theUser.updateProfile({
 				phoneNumber: theUser.providerData[0].phoneNumber
-			}).then(() => { setTimeout(() => { window.location.assign('invoice') }, 150); });
+			}).then(() => { setTimeout(() => { window.location.reload() }, 150); });
 		})
 	};
 
@@ -350,7 +350,7 @@ const signInWithYahoo = () => {
 	theUser.linkWithPopup(yahooProvider).then(() => {
 		theUser.updateProfile({
 			displayName: theUser.providerData[0].displayName, photoURL: theUser.providerData[0].photoURL
-		}).then(() => { setTimeout(() => { window.location.assign('invoice') }, 150); });
+		}).then(() => { setTimeout(() => { window.location.reload() }, 150); });
 	})
 };
 
@@ -359,7 +359,7 @@ const signInWithGoogle = () => {
 	theUser.linkWithPopup(googleProvider).then(() => {
 		theUser.updateProfile({
 			displayName: theUser.providerData[0].displayName, photoURL: theUser.providerData[0].photoURL
-		}).then(() => { setTimeout(() => { window.location.assign('invoice') }, 150); });
+		}).then(() => { setTimeout(() => { window.location.reload() }, 150); });
 	})
 };
 

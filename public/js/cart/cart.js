@@ -103,7 +103,7 @@ function addToCartClicked(event) {
     $('#profileModal').modal('show');
     event.preventDefault();
 
-    setTimeout(() => { window.location.assign('invoice'); }, 500);
+    setTimeout(() => { window.location.assign('download'); }, 500);
 }
 
 function removeCartItem(event) {
@@ -257,7 +257,7 @@ function updateCartTotal() {
         var timeDifference = parseFloat(p1knoDecimal) - parseFloat(theTime);
         width = 900 - timeDifference;
 
-        if(width <= 300) {
+        if(width <= 600) {
             setTimeout(() => {
                 if(localStorage.getItem('timez-set')) { localStorage.removeItem('timez-set') }
                 if(localStorage.getItem('depoz-set')) { localStorage.removeItem('depoz-set') }

@@ -62,8 +62,7 @@ vpnButn.addEventListener('click', emailShow);
 
 
 function emailShow() {
-	inType.innerHTML = 'EMAIL / SMS';
-	save1.innerHTML = ` A link will be sent to your <br> <span id="mail-span">email inbox</span>, `;
+	inType.innerHTML = 'EMAIL LOGIN';
 	save1.innerHTML = ` A login link will be sent <br> via <span id="mail-span">email</span> or <span>sms</span>, `;
 	save2.innerHTML = ` Use the link to verify your <br> login on this page. `;
 	mailField.setAttribute('type', 'email'); 
