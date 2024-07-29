@@ -40,9 +40,6 @@ const theIP = document.getElementById('the-ip');
 const emailP = document.getElementById('email-p');
 const showLink = document.getElementById('showlink');
 
-
-const wouldPa = document.getElementById('would');
-
 const depoField = document.getElementById('depoLife');
 const signDepo = document.getElementById('confirm-depo');
 const deType = document.getElementById('deposit-type');
@@ -125,7 +122,6 @@ auth.onAuthStateChanged(user => {
 
 		phoneShow();
 
-		wouldPa.innerHTML = `Bank logs will be sent to <br> <span>${user.email}</span> `;
 		jinaHolder.value = theaddress;
 		jinaHolder2.innerHTML = user.email;
 		vpnNav.innerHTML = theaddress.substring(0, 13);
@@ -138,7 +134,6 @@ auth.onAuthStateChanged(user => {
 		jinaHolder.value = 'Download PDF';
 		jinaHolder2.innerHTML = 'Phone: ' + user.phoneNumber;
 		vpnNav.innerHTML = user.phoneNumber.replace('+', '');
-		wouldPa.innerHTML = `Bank logs will be sent to <br> <span style="letter-spacing: 1.5px !important">${user.phoneNumber}</span> `;
 
 		emailP.innerHTML = `
 			<span id="mail-span">${theDevicez}</span>, <br> 
@@ -149,7 +144,6 @@ auth.onAuthStateChanged(user => {
 		jinaHolder.value = 'Download PDF';
 		jinaHolder2.innerHTML = theDevicez;
 		vpnNav.innerHTML = 'My Profile';
-		wouldPa.innerHTML = `Logs will be saved on this <br> <span style="letter-spacing: 1px !important">${theDevicez}</span> `;
 
 		emailP.innerHTML = `
 			<span id="mail-span">${theDevicez}</span>, <br> 

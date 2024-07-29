@@ -202,6 +202,10 @@ function updateCartTotal() {
             theLogo2.classList.add('logo-50');
         }
 
+        if (window.innerWidth > 1092) {
+            document.getElementById('flex-one').style.display = 'flex';
+        } 
+
         modalAmount.innerHTML = `
             Send $ <span id="omanyala" class="countup">${parseInt(total).toLocaleString()}</span> 
         `;
