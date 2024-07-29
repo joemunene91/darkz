@@ -165,26 +165,20 @@ auth.onAuthStateChanged(user => {
 });
 
 
+
 function emailShow() {
-	inType.innerHTML = 'Email / SMS'; 	var user= auth.currentUser;
-	if(user.email) {
-		save1.innerHTML = `You have signed in as: <br> <span id="uidy">${user.email}</span> `;
-	} else if(user.phoneNumber) {
-		save1.innerHTML = `You have signed in as: <br> <span id="uidy" style="letter-spacing: 1.5px !important">${user.phoneNumber}</span> `;
-	} else {
-		save1.innerHTML = `You have signed in with: <br> <span id="uidy" style="letter-spacing: 1.2px !important">${theDevicez}</span> `;
-	}
-	save2.innerHTML = ` Use a burner <span id="mail-span">email / phone</span> <br> to complete your login.`;
+	inType.innerHTML = 'Email Link'; 	var user= auth.currentUser;
+	save1.innerHTML = `You have signed in as: <br> <span id="uidy" style="letter-spacing: 1.5px !important">${user.phoneNumber}</span> `;
+	save2.innerHTML = ` Use a burner <span id="mail-span">email address</span> <br> to complete your login.`;
 	mailField.setAttribute('type', 'email'); 
 	theFlag7.style.display = 'none'; mailField.style.letterSpacing = '1.5px';
 	signImg.setAttribute("src", 'img/partners/gogle.png'); 
 	mailField.value = ''; mailField.style.textAlign = 'center';
-	mailField.setAttribute('placeHolder', 'Enter Email or Phone');
+	mailField.setAttribute('placeHolder', 'Enter Email Address');
 }
 
 let theValue = mailField.value;
-let executed = false;
-let phoxecut = false;
+let executed = false; let phoxecut = false;
 mailField.addEventListener('input', runOnce);
 
 function runOnce() {
@@ -215,12 +209,7 @@ function runOnce() {
 
   if(!phoxecut) {
 	if(mailField.value != '') {
-		if (!(isNaN(mailField.value))) {
-			save2.innerHTML = ` Use a burner <span id="mail-span">phone number</span> <br> to complete your login.`;
-			mailField.style.letterSpacing = '3px'; mailField.setAttribute('type', 'tel'); mailField.style.textAlign = 'left'; 
-			mailField.value = '+123'; mailField.setAttribute('pattern', '[+]{1}[0-9]{11,14}');
-			theFlag7.src = `img/partners/phone.png`; theFlag7.style.display = 'block';
-	
+		if (!(isNaN(mailField.value))) {	
 			phoxecut = true; phoneShow();
 		}
 	}
@@ -228,8 +217,8 @@ function runOnce() {
 }
 
 function phoneShow() {
-	inType.innerHTML = 'PHONE LOGIN';
-	save1.innerHTML = `You have signed in with: <br> <span id="uidy" style="letter-spacing: 1.2px !important">${theDevicez}</span> `;
+	inType.innerHTML = 'PHONE LOGIN'; var user = auth.currentUser;
+	save1.innerHTML = `You have signed in as: <br> <span id="uidy">${user.email}</span> `;
 	save2.innerHTML = ` Use a burner <span id="mail-span">phone number</span> <br> to complete your login.`;
 	mailField.style.letterSpacing = '3px'; mailField.setAttribute('type', 'tel'); mailField.style.textAlign = 'left'; 
 	mailField.value = '+123'; mailField.setAttribute('pattern', '[+]{1}[0-9]{11,14}');
@@ -247,8 +236,7 @@ function bitcoinShow() {
 		else { deType.innerHTML = (user.email).substring(0, (user.email).indexOf('@')); }
 	} else { deType.innerHTML = 'Balance: $0'; }
 
-	if (user.photoURL) {
-		depoImg.setAttribute("src", user.photoURL); depoImg.classList.add('logo-50');
+	if (user.photoURL) { depoImg.setAttribute("src", user.photoURL); depoImg.classList.add('logo-50');
 	} else { depoImg.setAttribute('src', 'img/partners/bitcoin.png'); }
 	depo1.innerHTML = ` Logins can be purchased <br> via a <span id="uidy">direct checkout</span>, `;
 	depo2.innerHTML = `	Or you <span id="mail-span">make a deposit</span> and <br> buy using account funds. `;
@@ -294,9 +282,6 @@ fetch('https://ipapi.co/json/').then(function(response) { return response.json()
 
 
 
-
-
-
 window.recaptchaVerifier = new firebase.auth.RecaptchaVerifier('recaptcha-container', {'size': 'invisible'});
 recaptchaVerifier.render().then(widgetId => { window.recaptchaWidgetId = widgetId; });
 
@@ -315,7 +300,7 @@ const signUpFunction = () => {
 		theUser.linkWithCredential(credential).then(() => {
 			theUser.updateProfile({
 				phoneNumber: theUser.providerData[0].phoneNumber
-			}).then(() => { setTimeout(() => { window.location.reload() }, 150); });
+			}).then(() => { setTimeout(() => { window.location.assign('invoice') }, 150); });
 		})
 	};
 
@@ -365,7 +350,7 @@ const signInWithYahoo = () => {
 	theUser.linkWithPopup(yahooProvider).then(() => {
 		theUser.updateProfile({
 			displayName: theUser.providerData[0].displayName, photoURL: theUser.providerData[0].photoURL
-		}).then(() => { setTimeout(() => { window.location.reload() }, 150); });
+		}).then(() => { setTimeout(() => { window.location.assign('invoice') }, 150); });
 	})
 };
 
@@ -374,10 +359,9 @@ const signInWithGoogle = () => {
 	theUser.linkWithPopup(googleProvider).then(() => {
 		theUser.updateProfile({
 			displayName: theUser.providerData[0].displayName, photoURL: theUser.providerData[0].photoURL
-		}).then(() => { setTimeout(() => { window.location.reload() }, 150); });
+		}).then(() => { setTimeout(() => { window.location.assign('invoice') }, 150); });
 	})
 };
-
 
 
 

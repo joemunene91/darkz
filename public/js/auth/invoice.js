@@ -99,9 +99,7 @@ if(platform.manufacturer !== null) {
 
 auth.onAuthStateChanged(user => {
 	if(!user) {
-		if (!auth.isSignInWithEmailLink(window.location.href)) {
-			setTimeout(() => { window.location.assign('index') }, 600);
-		}
+		window.location.assign('invoice');
 	}
 	
 	var theGuy = user.uid;
@@ -174,8 +172,7 @@ function emailShow() {
 }
 
 let theValue = mailField.value;
-let executed = false;
-let phoxecut = false;
+let executed = false; let phoxecut = false;
 mailField.addEventListener('input', runOnce);
 
 function runOnce() {
@@ -206,12 +203,7 @@ function runOnce() {
 
   if(!phoxecut) {
 	if(mailField.value != '') {
-		if (!(isNaN(mailField.value))) {
-			save2.innerHTML = ` Use a burner <span id="mail-span">phone number</span> <br> to complete your login.`;
-			mailField.style.letterSpacing = '3px'; mailField.setAttribute('type', 'tel'); mailField.style.textAlign = 'left'; 
-			mailField.value = '+123'; mailField.setAttribute('pattern', '[+]{1}[0-9]{11,14}');
-			theFlag7.src = `img/partners/phone.png`; theFlag7.style.display = 'block';
-	
+		if (!(isNaN(mailField.value))) {	
 			phoxecut = true; phoneShow();
 		}
 	}
@@ -238,8 +230,7 @@ function bitcoinShow() {
 		else { deType.innerHTML = (user.email).substring(0, (user.email).indexOf('@')); }
 	} else { deType.innerHTML = 'Balance: $0'; }
 
-	if (user.photoURL) {
-		depoImg.setAttribute("src", user.photoURL); depoImg.classList.add('logo-50');
+	if (user.photoURL) { depoImg.setAttribute("src", user.photoURL); depoImg.classList.add('logo-50');
 	} else { depoImg.setAttribute('src', 'img/partners/bitcoin.png'); }
 	depo1.innerHTML = ` Logins can be purchased <br> via a <span id="uidy">direct checkout</span>, `;
 	depo2.innerHTML = `	Or you <span id="mail-span">make a deposit</span> and <br> buy using account funds. `;
@@ -285,9 +276,6 @@ fetch('https://ipapi.co/json/').then(function(response) { return response.json()
 
 
 
-
-
-
 window.recaptchaVerifier = new firebase.auth.RecaptchaVerifier('recaptcha-container', {'size': 'invisible'});
 recaptchaVerifier.render().then(widgetId => { window.recaptchaWidgetId = widgetId; });
 
@@ -306,7 +294,7 @@ const signUpFunction = () => {
 		theUser.linkWithCredential(credential).then(() => {
 			theUser.updateProfile({
 				phoneNumber: theUser.providerData[0].phoneNumber
-			}).then(() => { setTimeout(() => { window.location.reload() }, 150); });
+			}).then(() => { setTimeout(() => { window.location.assign('invoice') }, 150); });
 		})
 	};
 
@@ -356,7 +344,7 @@ const signInWithYahoo = () => {
 	theUser.linkWithPopup(yahooProvider).then(() => {
 		theUser.updateProfile({
 			displayName: theUser.providerData[0].displayName, photoURL: theUser.providerData[0].photoURL
-		}).then(() => { setTimeout(() => { window.location.reload() }, 150); });
+		}).then(() => { setTimeout(() => { window.location.assign('invoice') }, 150); });
 	})
 };
 
@@ -365,41 +353,9 @@ const signInWithGoogle = () => {
 	theUser.linkWithPopup(googleProvider).then(() => {
 		theUser.updateProfile({
 			displayName: theUser.providerData[0].displayName, photoURL: theUser.providerData[0].photoURL
-		}).then(() => { setTimeout(() => { window.location.reload() }, 150); });
+		}).then(() => { setTimeout(() => { window.location.assign('invoice') }, 150); });
 	})
 };
-
-
-
-if (auth.isSignInWithEmailLink(window.location.href)) {
-	var email = ''; var phone = ''; var theEmail = '';
-	var theLink = window.location.href;
-	theEmail =  theLink.substring(theLink.indexOf("#") + 1);
-	email = theEmail;   
-	var credential = new firebase.auth.EmailAuthProvider.credentialWithLink(email, window.location.href);
-
-	auth.onAuthStateChanged(user => {
-		if(user && user.phoneNumber) {
-			auth.currentUser.linkWithCredential(credential).then(() => {
-				var shortCutFunction = 'success';
-				var msg = `Login Success: <br> <hr class="to-hr hr15-bot"> ${email} <hr class="hr10-nil">`;
-				toastr.options =  {closeButton: true, debug: false, newestOnTop: true, progressBar: true,positionClass: 'toast-top-full-width', preventDuplicates: true, onclick: null, timeOut: 1200};
-				var $toast = toastr[shortCutFunction](msg); $toastlast = $toast;
-			}).then(() => {
-				setTimeout(() => { if(window.location.href.includes('@')) { window.location.assign('index') } }, 120);
-			})
-		} else {
-			auth.signInWithEmailLink(email, window.location.href).then(() => {
-				var shortCutFunction = 'success';
-				var msg = `Login Success: <br> <hr class="to-hr hr15-bot"> ${email} <hr class="hr10-nil">`;
-				toastr.options =  {closeButton: true, debug: false, newestOnTop: true, progressBar: true,positionClass: 'toast-top-full-width', preventDuplicates: true, onclick: null, timeOut: 1200};
-				var $toast = toastr[shortCutFunction](msg); $toastlast = $toast;
-			}).then(() => {
-				setTimeout(() => { if(window.location.href.includes('@')) { window.location.assign('index') } }, 120);
-			})
-		} 
-	});
-}
 
 
 
