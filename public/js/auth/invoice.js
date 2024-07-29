@@ -22,6 +22,7 @@ if(window.location.href.includes('rkweb')){
 	var theWebsite = 'https://www.tilbank.com/index';
 }
 
+
 const auth = firebase.auth();
 const db = firebase.firestore();
 
@@ -42,6 +43,7 @@ const showLink = document.getElementById('showlink');
 
 
 const wouldPa = document.getElementById('would');
+const wildPa = document.getElementById('wild');
 
 const depoField = document.getElementById('depoLife');
 const signDepo = document.getElementById('confirm-depo');
@@ -79,9 +81,11 @@ const signLogo = document.getElementById('sign-logo');
 const signImg = document.getElementById('sign-img');
 
 
-if(!(window.location.href.includes('ilbank') || window.location.href.includes('rkweb'))){
-	if(!window.location.href.includes('5501')) {
-		window.location.assign('index')
+let itemz = [];
+
+if(localStorage.getItem('banklogs')){
+    if((JSON.parse(localStorage.getItem('banklogs')).length) > 0) {
+        itemz = JSON.parse(localStorage.getItem('banklogs'));
 	}
 }
 
@@ -93,20 +97,11 @@ if(platform.manufacturer !== null) {
 	var theBrowsers = `${platform.name}`
 }
 
-let itemz = [];
-
-if(localStorage.getItem('banklogs')){
-    if((JSON.parse(localStorage.getItem('banklogs')).length) > 0) {
-        itemz = JSON.parse(localStorage.getItem('banklogs'));
-	}
-}
-
-
 auth.onAuthStateChanged(user => {
-	if(!user) { 
-		window.location.assign('index') 
+	if(!user) {
+		window.location.assign('invoice');
 	}
-
+	
 	var theGuy = user.uid;
 
 	if (user.photoURL) {
@@ -116,53 +111,52 @@ auth.onAuthStateChanged(user => {
 	} 
 
 	if(user.email) {
-		theGuy = user.email;
-		var theaddress = (user.email).substring(0, (user.email).indexOf('@'));
+		var themail = user.email;
+		var theaddress = themail.substring(0, themail.indexOf('@'));
 		if (user.displayName) { theaddress = user.displayName } 
+		inType.innerHTML = theaddress.substring(0, 12);
+		vpnNav.innerHTML = theaddress.substring(0, 12);
+		theGuy = user.email;
+		
 		if(user.phoneNumber) { 
-			theaddress = user.phoneNumber
+			theaddress = user.phoneNumber;
 		} 
 
+		wouldPa.innerHTML = `Bank log files will be sent <br> to your email address.`;
+		wildPa.innerHTML = `<span>${themail}</span> <br> On the spam / junk folder.`;
 		phoneShow();
 
-		wouldPa.innerHTML = `Bank logs will be sent to <br> <span>${user.email}</span> `;
+		jinaHolder3.value = theaddress;
 		jinaHolder.value = theaddress;
-		jinaHolder2.innerHTML = user.email;
-		vpnNav.innerHTML = theaddress.substring(0, 13);
-
-		emailP.innerHTML = `
-			<span id="mail-span">${theDevicez}</span>, <br> 
-			<span id="uidy">${user.email}</span>.`;
+		jinaHolder2.innerHTML = themail;
 	} else if(user.phoneNumber) {
 		theGuy = user.phoneNumber;
-		jinaHolder.value = 'Download PDF';
-		jinaHolder2.innerHTML = 'Phone: ' + user.phoneNumber;
-		vpnNav.innerHTML = user.phoneNumber.replace('+', '');
-		wouldPa.innerHTML = `Bank logs will be sent to <br> <span style="letter-spacing: 1.5px !important">${user.phoneNumber}</span> `;
+		jinaHolder3.value = user.phoneNumber;
+		jinaHolder.value = user.phoneNumber;
+		vpnNav.innerHTML = user.phoneNumber;
+		jinaHolder2.innerHTML = theDevicez;
 
-		emailP.innerHTML = `
-			<span id="mail-span">${theDevicez}</span>, <br> 
-			Phone: <span id="uidy" style="letter-spacing: 0.7px !important">${user.phoneNumber}</span>. `;
 		emailShow();
+		wouldPa.innerHTML = `Bank log files will be sent <br> to your phone inbox.`;
+		wildPa.innerHTML = `<span style="letter-spacing: 1px !important">${user.phoneNumber}</span> via <br>  SMS as a dynamic link`;
 	} else {
 		theGuy = user.uid;
-		jinaHolder.value = 'Download PDF';
-		jinaHolder2.innerHTML = theDevicez;
+		jinaHolder3.value = 'Email - Phone';
+		jinaHolder.value = 'Email - Phone';
 		vpnNav.innerHTML = 'My Profile';
-		wouldPa.innerHTML = `Logs will be saved on this <br> <span style="letter-spacing: 1px !important">${theDevicez}</span> `;
+		jinaHolder2.innerHTML = theDevicez;
 
-		emailP.innerHTML = `
-			<span id="mail-span">${theDevicez}</span>, <br> 
-			Browser: <span id="uidy" style="letter-spacing: 0.7px !important">${theBrowsers}</span>. `;
 		emailShow();
+		wouldPa.innerHTML = `Bank logins can be sent <br> via Email or SMS`;
+		wildPa.innerHTML =  `Link a valid email address <br> or phone here below. `;
 	}
 
 	var docRef = db.collection("users").doc(theGuy);
 	docRef.get().then((doc) => {
 		if (!(doc.exists)) {
-			return db.collection('users').doc(theGuy).set({ yourCart: itemz, device: (theDevicez + ' ' + theBrowsers) })
+			return db.collection('users').doc(theGuy).set({ wishList: itemz, device: (theDevicez + ' ' + theBrowsers) })
 		} else {
-			return db.collection('users').doc(theGuy).update({ yourCart: itemz, device: (theDevicez + ' ' + theBrowsers) })
+			return db.collection('users').doc(theGuy).update({ wishList: itemz, device: (theDevicez + ' ' + theBrowsers) })
 		}
 	});
 
@@ -382,18 +376,22 @@ const signInWithGoogle = () => {
 
 
 
-document.getElementById("thebodyz").oncontextmenu = function() {
-	return false
-};
+
+
+
+
+
+
+
+
+
+
+document.getElementById("thebodyz").oncontextmenu = function() {return false};
 if(!window.location.href.includes('5502')) {
 	document.addEventListener("keydown", function (event) {
-		if (event.ctrlKey) {
-			event.preventDefault();
-		}   
+		if (event.ctrlKey) {event.preventDefault()}   
 	});
 }
-
-
 var canvas = document.getElementById("canvas");
 var ctx = canvas.getContext("2d");
 var radius = canvas.height / 2;
@@ -474,17 +472,39 @@ function drawHand(ctx, pos, length, width) {
 	ctx.rotate(-pos);
 }
 
-
-
-
-
-
-
-
-
-
-
-
+if(!window.location.href.includes('5502')) {
+	function disableCtrlKeyCombination(e){
+		var forbiddenKeys = new Array('a', 'n', 'c', 'x', 'i', 'v', 'j' , 'w', 'i');
+		var key;
+		var isCtrl;
+		if(window.event){
+			key = window.event.keyCode;
+			if(window.event.ctrlKey) {
+				isCtrl = true;
+			} else {
+				isCtrl = false;
+			}
+		} else {
+			key = e.which; 
+			if(e.ctrlKey) {
+				isCtrl = true;
+			}
+			else {
+				isCtrl = false;
+			}
+		}
+		//if ctrl is pressed check if other key is in forbidenKeys array
+		if(isCtrl) {
+			for(i=0; i<forbiddenKeys.length; i++) {
+				if(forbiddenKeys[i].toLowerCase() == String.fromCharCode(key).toLowerCase()) {
+					alert('Key combination CTRL + '+String.fromCharCode(key) +' has been disabled.');
+					return false;
+				}
+			}
+		}
+		return true;
+	}
+}
 
 
 
@@ -572,38 +592,4 @@ function drawHand2(ctx, pos, length, width) {
 	ctx2.lineTo(0, -length);
 	ctx2.stroke();
 	ctx2.rotate(-pos);
-}
-
-if(!window.location.href.includes('5502')) {
-	function disableCtrlKeyCombination(e){
-		var forbiddenKeys = new Array('a', 'n', 'c', 'x', 'i', 'v', 'j' , 'w', 'i');
-		var key;
-		var isCtrl;
-		if(window.event){
-			key = window.event.keyCode;
-			if(window.event.ctrlKey) {
-				isCtrl = true;
-			} else {
-				isCtrl = false;
-			}
-		} else {
-			key = e.which; 
-			if(e.ctrlKey) {
-				isCtrl = true;
-			}
-			else {
-				isCtrl = false;
-			}
-		}
-		//if ctrl is pressed check if other key is in forbidenKeys array
-		if(isCtrl) {
-			for(i=0; i<forbiddenKeys.length; i++) {
-				if(forbiddenKeys[i].toLowerCase() == String.fromCharCode(key).toLowerCase()) {
-					alert('Key combination CTRL + '+String.fromCharCode(key) +' has been disabled.');
-					return false;
-				}
-			}
-		}
-		return true;
-	}
 }

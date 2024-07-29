@@ -58,7 +58,16 @@ fetch('https://ipapi.co/json/').then(function(response) { return response.json()
 
 const auth = firebase.auth();
 
-vpnButn.addEventListener('click', emailShow);
+// vpnButn.addEventListener('click', emailShow);
+
+const signInAnony = () => {
+	auth.signInAnonymously().then(() => {
+		setTimeout(() => {
+			window.location.assign('home');
+		}, 150);
+	});
+};
+vpnButn.addEventListener("click", signInAnony);
 
 
 function emailShow() {

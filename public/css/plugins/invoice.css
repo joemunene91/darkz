@@ -1,0 +1,400 @@
+.bg-animate{
+    background-position:0 0;
+    background-repeat:repeat-x;
+    animation:animatedBackground 70s linear infinite 
+}
+
+#logs-invoice {
+    padding: 0px  10px !important;
+    height: 100vh !important;
+}
+
+#logs-invoice div {
+    overflow: hidden !important;
+}
+
+#logs-invoice .section-heading h4 {
+    color: #121d33;
+}
+.butn.phone-btn,
+.butn.ver-btn,
+.butn.home-btn {
+    margin: 3vh 3vh 1vh 1vh;
+    color: #121d33 !important;
+    font-size: 22px;
+    cursor: pointer !important;
+    border-radius: 1.3px !important;
+    line-height: 35px;
+    white-space: nowrap !important;
+    padding: 7.8px 16.7px;
+    box-shadow: 1px 1px 3px 1px rgba(18, 29, 51, 0.5) !important;
+}
+@media screen and (max-width: 770px) {
+    .butn.ver-btn,
+    .butn.phone-btn,
+    .butn.home-btn {
+        margin: 3vh 2vh 1vh 0;
+    }
+}
+  
+.butn#btc-check {
+    padding: 7.8px 13px !important;
+    letter-spacing: 1.2px !important;
+}
+
+.butn#check-now {
+    padding: 7.8px 13px !important;
+    letter-spacing: 1.2px !important;
+}
+
+.muher {
+    margin-left: 3.7px !important;
+    font-weight: 700 !important;
+}
+
+.invoice img {
+    width: 51px !important;
+    height: 51px !important;
+    margin: 21px 20px 0 !important;
+}
+@media screen and (max-width: 1070px) {
+    .invoice img {
+        margin: 43px 27px 0 !important;
+    }
+}
+@media screen and (max-width: 821px) {
+    .invoice img {
+        margin: 37px 25px 0 !important;
+    }
+}
+@media screen and (max-width: 470px) {
+    .invoice img {
+        margin: 28px 21px 0 !important;
+    }
+}
+
+@media screen and (max-width: 390px) {
+    .butn.ver-btn,
+    .butn.phone-btn,
+    .butn.home-btn {
+        font-size: 20.5px;
+        padding: 7.5px 16.5px;
+   }
+
+   .invoice img {
+        margin: 26px 19.5px 0 !important;
+    }
+}
+
+.butn.phone-btn img,
+.butn.ver-btn img,
+.butn.home-btn img {
+    width: 27px;
+    border-radius: 4px;
+}
+#my-invoice {
+    margin: 3px !important;
+    padding: 0px !important;
+    width: 100% !important;
+}
+#invoice-div {
+    margin-top: 11vh;
+}
+@media screen and (min-width: 1370px) {
+    #invoice-div {
+        margin-top: 16vh;
+    }
+}
+@media screen and (max-width: 821px) {
+    #invoice-div {
+        margin-top: 16vh;
+    }
+}
+@media screen and (max-width: 500px) {
+    #invoice-div {
+        margin-top: 13vh;
+    }
+}
+@media screen and (max-width: 381px) {
+    #invoice-div {
+        margin-top: 12vh;
+    }
+}
+
+#invoice-div p {
+    margin: 10px auto !important;
+    font-size: 22.5px !important;
+    line-height: 52px !important;
+}
+
+@media screen and (min-width: 1370px) {
+    #invoice-div p {
+        font-size: 23px !important;
+        line-height: 55px !important;
+    }
+}
+#invoice-div p span {
+    font-weight: 600;
+}
+@media screen and (max-width: 574px) {
+    #invoice-div p {
+        font-size: 20.3px !important;
+        line-height: 52px !important;
+    }
+}
+
+@media screen and (max-width: 380px) {
+    #invoice-div p {
+        font-size: 19.7px !important;
+        line-height: 50px !important;
+    }
+}
+
+#my-invoice span {
+    font-weight: 600;
+}
+.invoice {
+    display: flex;
+    margin-left: -14px !important;
+}
+blink {
+    position: relative;
+    top: -70px !important;
+    left: 125px !important;
+    z-index: 999 !important;
+}
+@media screen and (max-width: 500px) {
+    blink {
+        left: 120px !important;
+    }
+}
+@media screen and (max-width: 410px) {
+    blink {
+        left: 115px !important;
+    }
+}
+@media screen and (max-width: 380px) {
+    blink {
+        left: 110px !important;
+    }
+}
+
+
+
+#invoice-body-div {
+    margin: 3px !important;
+    background: #fff !important;
+}
+#invoice-body-div p {
+    font-weight: 500 !important;
+}
+@media (min-width: 802px) {
+	.col-lg-5 {
+		-ms-flex: 0 0 37.5%;
+		flex: 0 0 37.5%;
+		max-width: 37.5%;
+   }
+}
+@media (max-width: 500px)  {
+    .col-12 {
+      -ms-flex:0 0 95%;
+      flex:0 0 95%;
+      max-width: 95%;
+    }  
+}
+
+@media (max-width: 420px)  {
+    .col-12 {
+      -ms-flex:0 0 97%;
+      flex:0 0 97%;
+      max-width: 97%;
+    }  
+}
+
+@media (max-width: 400px)  {
+    .col-12 {
+      -ms-flex:0 0 99%;
+      flex:0 0 99%;
+      max-width: 99%;
+    }  
+}
+
+#my-invoice {
+    border: 5px solid rgba(22, 160, 134, 0.5) !important;
+    background: rgba(22, 160, 134, 0.13) !important;
+  }
+  .nohr {
+    border: 0.5px solid rgba(22, 160, 134, 0.3);
+  }
+  
+  #my-invoice p {
+    color: rgb(19, 58, 69) !important;
+  }
+
+
+
+
+.link-first-div {
+    margin-top: 13px !important;
+    margin-bottom: 15px !important;
+}
+.link-second-div {
+    margin-top: 13px !important;
+    margin-bottom: -15px !important;
+}
+
+
+
+
+
+.nohr {
+    padding: 0 !important;
+    margin: 0 !important;
+}
+
+@media screen and (min-width: 1370px) {
+    .nohr {
+        padding: 0 !important;
+        margin: 10px !important;
+    }
+}
+
+.confirm-div {
+    cursor: pointer !important;
+    display: inline-block !important;
+}
+
+.home-btn {
+    background: rgb(197, 231, 34) !important;
+}
+.home-btn:hover {
+    border: 1.4px solid rgb(214, 238, 24) !important;
+}
+.ver-btn {
+    background: lightgreen !important;
+}
+.ver-btn:hover {
+    border: 1.4px solid rgb(6, 231, 225) !important;
+}
+
+#logo {
+    border-radius: 50% !important;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+#profile-logo {
+    border-radius: 0 !important;
+  }
+  #profile-logo img {
+    border-radius: 0 !important;
+  }
+  
+
+#profileModal .modal-dialog {
+    top: 9vh !important;
+    min-width: 28vw !important;
+  }
+  @media screen and (min-width: 1370px) {
+    #profileModal .modal-dialog {
+      top: 12vh !important;
+      min-width: 24.7vw !important;
+    }
+  }
+  @media screen and (max-width: 1025px) {
+    #profileModal .modal-dialog {
+      top: 20vh !important;
+      max-width: 40vw !important;
+    }
+  }
+  @media screen and (max-width: 825px) {
+    #profileModal .modal-dialog {
+      top: 20vh !important;
+      max-width: 50vw !important;
+    }
+  }
+  
+  @media screen and (max-width: 570px) {
+    #profileModal .modal-dialog {
+      top: 17vh !important;
+      max-width: 81.3vw !important;
+    }
+  }
+  @media screen and (max-width: 420px) {
+    #profileModal .modal-dialog {
+      top: 17vh !important;
+      max-width: 84.5vw !important;
+    }
+  }
+  
+  
+  @media screen and (max-width: 376px) {
+    #profileModal .modal-dialog {
+        top: 17vh !important;
+        max-width: 88vw !important;
+    }
+  }
+  
+  
+  #profileModal .modal-dialog {
+    background: transparent !important;
+  }
+  
+  #profileModal .modal-header {
+    margin: 2px;
+    padding: 0;
+    border-bottom: none;
+  }
+  
+  
+  #profileModal .modal-header img {
+    width: 70px;
+  }
+  
+  #profileModal .modal-header h4.modal-title {
+    font-weight: 600;
+  }
+  
+  #profileModal .modal-header .close img {
+    width: 30px;
+    opacity: 0.7;
+    border-radius: 50%;
+    opacity: 1 !important;
+  }
+  
+  #profileModal .modal-footer {
+    margin: 4px;
+    border-top: none;
+    padding: 0;
+  }
+  #profileModal .modal-body {
+    margin: 0;
+    padding: 0;
+    background: transparent !important;
+  }
+  
+  #profileModal .modal-backdrop div p {
+    background: transparent !important;
+  }

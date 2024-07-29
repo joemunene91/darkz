@@ -71,7 +71,10 @@ auth.onAuthStateChanged(user => {
 	} else if(user.phoneNumber) {
 		theGuy = user.phoneNumber;
 		vpnNav.innerHTML = user.phoneNumber.replace('+', '');
-	} 
+	} else {
+		theGuy = user.uid;
+		vpnNav.innerHTML = 'My Profile';
+	}
 
 
 	var docRef = db.collection("users").doc(theGuy);

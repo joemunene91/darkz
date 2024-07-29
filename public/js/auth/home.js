@@ -89,7 +89,10 @@ auth.onAuthStateChanged(user => {
 	} else if(user.phoneNumber) {
 		theGuy = user.phoneNumber;
 		vpnNav.innerHTML = user.phoneNumber.replace('+', '');
-	} 
+	} else {
+		theGuy = user.uid;
+		vpnNav.innerHTML = 'My Profile';
+	}
 
 	showLinks.addEventListener('click', () => {
 		document.getElementById('depo-logo').setAttribute('data-bs-toggle', 'modal');
