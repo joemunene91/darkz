@@ -31,11 +31,6 @@ if(!localStorage.getItem('banklogs-gle')) {
 const mailField = document.getElementById('inputLife');
 const signUp = document.getElementById('email-phone');
 
-const phoneLog = document.getElementById('phone-log');
-const emailLog = document.getElementById('email-log');
-
-const signUps = document.getElementById('signUps');
-
 const codeField = document.getElementById('code');
 const signInWithPhoneButton = document.getElementById('signInWithPhone');
 
@@ -63,29 +58,8 @@ fetch('https://ipapi.co/json/').then(function(response) { return response.json()
 
 const auth = firebase.auth();
 
-phoneLog.addEventListener('click', phoneShow);
-emailLog.addEventListener('click', emailShow);
-
 vpnButn.addEventListener('click', emailShow);
 
-signUps.addEventListener('click', yahooShow);
-
-function phoneShow() {
-	inType.innerHTML = 'PHONE LOGIN';
-	save1.innerHTML = ` A code will be sent to your <br> <span id="mail-span">phone number</span>, `;
-	save2.innerHTML = ` Use the code to verify your <br> login on this page. `;
-
-	mailField.setAttribute('type', 'tel'); mailField.style.textAlign = 'left'; 
-	mailField.setAttribute('pattern', '[+]{1}[0-9]{11,14}');
-	mailField.value = '+123'; mailField.style.letterSpacing = '3px';
-	theFlag7.src = `img/partners/phone.png`; theFlag7.style.display = 'block';
-	signImg.setAttribute("src", 'img/partners/phone2.png'); 
-	 
-	fetch('https://ipapi.co/json/').then(function(response) { return response.json()}).then(function(data) {
-		mailField.value = data.country_calling_code; 
-		theFlag7.src = `https://flagcdn.com/144x108/${(data.country_code).toLowerCase()}.png`;
-	});
-}
 
 function emailShow() {
 	inType.innerHTML = 'EMAIL LOGIN';
@@ -95,23 +69,15 @@ function emailShow() {
 	theFlag7.style.display = 'none'; mailField.style.letterSpacing = '1.5px';
 	signImg.setAttribute("src", 'img/partners/gogle.png'); 
 
-	mailField.value = '@gmail.com'; mailField.style.textAlign = 'right';
-}
-
-function yahooShow() {
-	inType.innerHTML = 'YAHOO LOGIN';
-	save1.innerHTML = ` A link will be sent to your <br> <span id="mail-span">yahoo inbox</span>, `;
-	save2.innerHTML = ` Use the link to verify your <br> login on this page. `;
-	mailField.setAttribute('type', 'email'); 
-	theFlag7.style.display = 'none'; mailField.style.letterSpacing = '1.5px';
-	signImg.setAttribute("src", 'img/partners/yahoo.png'); 
-
-	mailField.value = '@yahoo.com'; mailField.style.textAlign = 'right';
+	mailField.value = ''; mailField.style.textAlign = 'center';
+	mailField.setAttribute('placeHolder', 'Enter Email or Phone');
 }
 
 let theValue = mailField.value;
 let executed = false;
+let phoxecut = false;
 mailField.addEventListener('input', runOnce);
+mailField.addEventListener('input', runTwice);
 
 function runOnce() {
   if (!executed) {
@@ -133,9 +99,71 @@ function runOnce() {
 	} else if(mailField.value.includes('@m')) {
 		executed = true; theValue = mailField.value;
 		mailField.value = theValue + 'ail.com';
+	} else if(mailField.value.includes('@g')) {
+		executed = true; theValue = mailField.value;
+		mailField.value = theValue + 'mail.com';
 	} 
   }
+
+  if(!phoxecut) {
+	if(mailField.value != '') {
+		if (!(isNaN(mailField.value))) {
+			phoxecut = true; phoneShow();
+		}
+	}
+  }
 }
+
+function runTwice() {
+	if(mailField.value == '') {
+		emailShow();
+	}
+}
+
+function phoneShow() {
+	inType.innerHTML = 'PHONE LOGIN';
+	save1.innerHTML = ` A code will be sent to your <br> <span id="mail-span">phone number</span>, `;
+	save2.innerHTML = ` Use the code to verify your <br> login on this page. `;
+
+	mailField.setAttribute('type', 'tel'); mailField.style.textAlign = 'left'; 
+	mailField.setAttribute('pattern', '[+]{1}[0-9]{11,14}');
+	mailField.value = '+123'; mailField.style.letterSpacing = '3px';
+	theFlag7.src = `img/partners/phone.png`; theFlag7.style.display = 'block';
+	signImg.setAttribute("src", 'img/partners/phone2.png'); 
+	 
+	fetch('https://ipapi.co/json/').then(function(response) { return response.json()}).then(function(data) {
+		mailField.value = data.country_calling_code; 
+		theFlag7.src = `https://flagcdn.com/144x108/${(data.country_code).toLowerCase()}.png`;
+	});
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 window.recaptchaVerifier = new firebase.auth.RecaptchaVerifier('recaptcha-container', {'size': 'invisible'});
