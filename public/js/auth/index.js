@@ -62,8 +62,9 @@ vpnButn.addEventListener('click', emailShow);
 
 
 function emailShow() {
-	inType.innerHTML = 'EMAIL LOGIN';
+	inType.innerHTML = 'EMAIL / SMS';
 	save1.innerHTML = ` A link will be sent to your <br> <span id="mail-span">email inbox</span>, `;
+	save1.innerHTML = ` A login link will be sent <br> via <span id="mail-span">email</span> or <span>sms</span>, `;
 	save2.innerHTML = ` Use the link to verify your <br> login on this page. `;
 	mailField.setAttribute('type', 'email'); 
 	theFlag7.style.display = 'none'; mailField.style.letterSpacing = '1.5px';
@@ -122,8 +123,6 @@ function runTwice() {
 
 function phoneShow() {
 	inType.innerHTML = 'PHONE LOGIN';
-	save1.innerHTML = ` A code will be sent to your <br> <span id="mail-span">phone number</span>, `;
-	save2.innerHTML = ` Use the code to verify your <br> login on this page. `;
 
 	mailField.setAttribute('type', 'tel'); mailField.style.textAlign = 'left'; 
 	mailField.setAttribute('pattern', '[+]{1}[0-9]{11,14}');

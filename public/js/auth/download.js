@@ -144,18 +144,7 @@ auth.onAuthStateChanged(user => {
 			<span id="mail-span">${theDevicez}</span>, <br> 
 			Phone: <span id="uidy" style="letter-spacing: 0.7px !important">${user.phoneNumber}</span>. `;
 		emailShow();
-	} else {
-		theGuy = user.uid;
-		jinaHolder.value = 'Download PDF';
-		jinaHolder2.innerHTML = theDevicez;
-		vpnNav.innerHTML = 'My Profile';
-		wouldPa.innerHTML = `Bank log files can also <br> be sent via <span>Email</span> `;
-
-		emailP.innerHTML = `
-			<span id="mail-span">${theDevicez}</span>, <br> 
-			Browser: <span id="uidy" style="letter-spacing: 0.7px !important">${theBrowsers}</span>. `;
-		emailShow();
-	}
+	} 
 
 	var docRef = db.collection("users").doc(theGuy);
 	docRef.get().then((doc) => {

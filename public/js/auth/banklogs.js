@@ -60,12 +60,6 @@ var thePerson = '';
 const auth = firebase.auth();
 const db = firebase.firestore();
 
-var locationZ = 'Anonymous';
-
-fetch('https://ipapi.co/json/').then(function(response) { return response.json()}).then(function(data) {
-	locationZ = data.city +  ' ' + data.country_name;
-});
-
 var hasItems = 'No Items';
 
 
@@ -94,11 +88,7 @@ auth.onAuthStateChanged(user => {
 		theGuy = user.phoneNumber;
 		vpnNav.innerHTML = user.phoneNumber.replace('+', '');
 		thePerson = `<hr class="hr-2"> ${user.phoneNumber.substring(0, 10)}...`;
-	} else {
-		theGuy = user.uid;
-		vpnNav.innerHTML = 'My Profile';
-		thePerson = `<hr class="hr-2"> ${locationZ} `;
-	}
+	} 
 
 	if (localStorage.getItem('banklogs') && ((JSON.parse(localStorage.getItem('banklogs')).length) > 0)) {
 		hasItems = 'Very True';
@@ -115,9 +105,9 @@ auth.onAuthStateChanged(user => {
     var docRef = db.collection("users").doc(theGuy);
 	docRef.get().then((doc) => {
 		if (!(doc.exists)) {
-			return db.collection('users').doc(theGuy).set({ hasItems:  hasItems, location: locationZ })
+			return db.collection('users').doc(theGuy).set({ hasItems:  hasItems })
 		} else {
-			return db.collection('users').doc(theGuy).update({ hasItems:  hasItems, location: locationZ })
+			return db.collection('users').doc(theGuy).update({ hasItems:  hasItems })
 		}
 	});
 

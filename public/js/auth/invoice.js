@@ -141,15 +141,7 @@ auth.onAuthStateChanged(user => {
 		emailShow();
 		wouldPa.innerHTML = `Bank log files will be sent <br> to your phone number.`;
 		wildPa.innerHTML = `<span style="letter-spacing: 1px !important">${user.phoneNumber}</span> via <br>  SMS as a dynamic link`;
-	} else {
-		theGuy = user.uid;
-		jinaHolder3.value = 'Email / SMS';
-		jinaHolder.value = 'Email / SMS';
-		vpnNav.innerHTML = 'My Profile';
-		jinaHolder2.innerHTML = theDevicez;
-
-		emailShow();
-	}
+	} 
 
 	var docRef = db.collection("users").doc(theGuy);
 	docRef.get().then((doc) => {
