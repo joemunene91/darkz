@@ -406,6 +406,11 @@ header.scrollHeader .navbar-default {
   border: none !important;
   background: transparent !important;
 }
+@media screen and (max-width: 795px) {
+  #jinaHolder {
+    margin: 3px -0px 10px !important;
+  }
+}
 #jinaHolder2 {
   font-weight: 700;
   color: white;

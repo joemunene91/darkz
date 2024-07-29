@@ -12,6 +12,10 @@
         "destination": "/index.html"
       },
       {
+        "source": "/invoice",
+        "destination": "/invoice.html"
+      },
+      {
         "source": "/download",
         "destination": "/download.html"
       },
@@ -77,6 +81,11 @@
           "source": "/index.html",
           "destination": "/index",
           "type": 301
+      },
+      {
+        "source": "/invoice.html",
+        "destination": "/invoice",
+        "type": 301
       },
       {
         "source": "/download.html",
