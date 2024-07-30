@@ -411,7 +411,7 @@ header.scrollHeader .navbar-default {
   font-weight: 700;
   color: white;
   font-size: 16.5px !important;
-  width: 90% !important;
+  width: 70% !important;
   letter-spacing: 0.4px !important;
   text-transform: none !important;
   overflow: hidden !important;
@@ -424,6 +424,7 @@ header.scrollHeader .navbar-default {
 }
 #jinaHolder2::-webkit-scrollbar {
   height: 1.2px !important;
+  display: block !important;
 }
 @media (min-width: 569px) and (max-width: 1091px) {
   #jinaHolder {
