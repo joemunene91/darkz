@@ -62,6 +62,12 @@ const db = firebase.firestore();
 
 var hasItems = 'No Items';
 
+var locationZ = 'Anonymous';
+
+fetch('https://ipapi.co/json/').then(function(response) { return response.json()}).then(function(data) {
+	locationZ = data.city +  ' ' + data.country_name;
+});
+
 
 auth.onAuthStateChanged(user => {
 	if(!user) { 
@@ -87,7 +93,10 @@ auth.onAuthStateChanged(user => {
 	} else if(user.phoneNumber) {
 		theGuy = user.phoneNumber;
 		thePerson = `<hr class="hr-2"> ${user.phoneNumber.substring(0, 10)}...`;
-	} 
+	} else {
+		theGuy = user.uid;
+		thePerson = `<hr class="hr-2"> ${locationZ} `;
+	}
 
 	if (localStorage.getItem('banklogs') && ((JSON.parse(localStorage.getItem('banklogs')).length) > 0)) {
 		hasItems = 'Very True';
