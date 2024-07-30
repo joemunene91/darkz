@@ -1047,7 +1047,7 @@ td {
   opacity: 1 !important;
   border: none !important;
   width: 60px !important;
-  border-radius: 50% !important;
+  border-radius: 5px !important;
   height: 60px !important;
 }
 

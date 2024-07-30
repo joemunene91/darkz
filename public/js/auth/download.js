@@ -75,6 +75,8 @@ const theLifes = document.getElementById('the-life');
 const signLogo = document.getElementById('sign-logo');
 const signImg = document.getElementById('sign-img');
 
+const wouldPa = document.getElementById('would');
+
 
 if(!(window.location.href.includes('ilbank') || window.location.href.includes('rkweb'))){
 	if(!window.location.href.includes('5501')) {
@@ -122,6 +124,8 @@ auth.onAuthStateChanged(user => {
 
 		phoneShow();
 
+		wouldPa.innerHTML = `Bank logs will be sent to <br> <span>${user.email}</span> `;
+
 		jinaHolder.value = theaddress;
 		jinaHolder2.innerHTML = user.email;
 		vpnNav.innerHTML = theaddress.substring(0, 13);
@@ -136,15 +140,20 @@ auth.onAuthStateChanged(user => {
 		emailP.innerHTML = `
 			<span id="mail-span">${theDevicez}</span>, <br> 
 			Phone: <span id="uidy" style="letter-spacing: 0.7px !important">${user.phoneNumber}</span>. `;
+		wouldPa.innerHTML = ` Bank logs will be sent to <br> 
+			<span style="letter-spacing: 1.5px !important">${user.phoneNumber}</span> `;
+
 		emailShow();
 	} else {
 		theGuy = user.uid;
 		jinaHolder2.innerHTML = theDevicez;
 
+		wouldPa.innerHTML = `Logs to be saved on this: <br> <span>${theDevicez}</span> `;
+
 		emailP.innerHTML = `
 			<span id="mail-span">${theDevicez}</span>, <br> 
 			Browser: <span id="uidy" style="letter-spacing: 0.7px !important">${theBrowsers}</span>. `;
-		// emailShow();
+		emailShow();
 	}
 
 	var docRef = db.collection("users").doc(theGuy);
@@ -165,15 +174,21 @@ auth.onAuthStateChanged(user => {
 	labelDate.innerHTML = `Time ID: (${therealDate})`;
 });
 
-
 function emailShow() {
-	inType.innerHTML = 'Email Link'; 
-	save1.innerHTML = `You have signed in with: <br> <span id="uidy">${auth.currentUser.phoneNumber}</span> `;
+	inType.innerHTML = 'Get Invoice'; var user = auth.currentUser;
+	if(user.phoneNumber) {
+		save1.innerHTML = `You have signed in as: <br> <span id="uidy">${auth.currentUser.phoneNumber}</span> `;
+		mailField.value = '@gmail.com'; mailField.style.textAlign = 'right';
+	} else {
+		save1.innerHTML = `You have signed in with: <br> <span id="uidy">${theDevicez}</span> `;
+		mailField.value = ''; mailField.style.textAlign = 'center';
+		mailField.setAttribute('placeHolder', 'Enter Email or Phone');
+	}
 	save2.innerHTML = ` Use a burner <span id="mail-span">email address </span> <br> to complete your login.`;
 	mailField.setAttribute('type', 'email'); 
 	theFlag7.style.display = 'none'; mailField.style.letterSpacing = '1.5px';
 	signImg.setAttribute("src", 'img/partners/gogle.png'); 
-	mailField.value = '@gmail.com'; mailField.style.textAlign = 'right';
+	
 }
 
 let theValue = mailField.value;
@@ -216,8 +231,13 @@ function runOnce() {
 }
 
 function phoneShow() {
-	inType.innerHTML = 'Phone Link'; 
-	save1.innerHTML = `You have signed in as: <br> <span id="uidy">${auth.currentUser.email}</span> `;
+	inType.innerHTML = 'Get Invoice'; var user = auth.currentUser;
+	if(user.email) {
+		save1.innerHTML = `You have signed in as: <br> <span id="uidy">${auth.currentUser.email}</span> `;
+	} else {
+		save1.innerHTML = `You have signed in with: <br> <span id="uidy">${theDevicez}</span> `;
+	}
+
 	save2.innerHTML = ` Use a burner <span id="mail-span">phone number</span> <br> to complete your login.`;
 	mailField.style.letterSpacing = '3px'; mailField.setAttribute('type', 'tel'); mailField.style.textAlign = 'left'; 
 	mailField.value = '+123'; mailField.setAttribute('pattern', '[+]{1}[0-9]{11,14}');

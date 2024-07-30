@@ -68,6 +68,12 @@ fetch('https://ipapi.co/json/').then(function(response) { return response.json()
 	locationZ = data.city +  ' ' + data.country_name;
 });
 
+if(platform.manufacturer !== null) {
+	var theDevicez = `${platform.manufacturer} ${platform.product}, ${platform.os}`;
+} else { 
+	var  theDevicez = `${platform.os} ID`;
+}
+
 
 auth.onAuthStateChanged(user => {
 	if(!user) { 
@@ -95,7 +101,7 @@ auth.onAuthStateChanged(user => {
 		thePerson = `<hr class="hr-2"> ${user.phoneNumber.substring(0, 10)}...`;
 	} else {
 		theGuy = user.uid;
-		thePerson = `<hr class="hr-2"> ${locationZ} `;
+		thePerson = `<hr class="hr-2"> ${theDevicez} `;
 	}
 
 	if (localStorage.getItem('banklogs') && ((JSON.parse(localStorage.getItem('banklogs')).length) > 0)) {

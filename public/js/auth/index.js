@@ -51,17 +51,7 @@ const depoImg = document.getElementById('depo-img');
 
 const vpnNav = document.getElementById('vpn-nav');
 
-
-var thePerson = '';
-
 const auth = firebase.auth();
-const db = firebase.firestore();
-
-var locationZ = 'Null Error';
-
-fetch('https://ipapi.co/json/').then(function(response) { return response.json()}).then(function(data) {
-	locationZ = data.city +  ', ' + data.country_name;
-});
 
 auth.onAuthStateChanged(user => {
 	if(!user) { 
@@ -94,15 +84,6 @@ auth.onAuthStateChanged(user => {
 	showLinks.addEventListener('click', () => {
 		document.getElementById('depo-logo').setAttribute('data-bs-toggle', 'modal');
 		document.getElementById('depo-logo').setAttribute('data-bs-target', '#profileModal');
-	});
-
-    var docRef = db.collection("users").doc(theGuy);
-	docRef.get().then((doc) => {
-		if (!(doc.exists)) {
-			return db.collection('users').doc(theGuy).set({ location: locationZ })
-		} else {
-			return db.collection('users').doc(theGuy).update({ location: locationZ })
-		}
 	});
 
 	bitcoinShow();
