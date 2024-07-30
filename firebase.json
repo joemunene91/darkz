@@ -20,10 +20,6 @@
         "destination": "/download.html"
       },
       {
-        "source": "/banklogs",
-        "destination": "/banklogs.html"
-      },
-      {
         "source": "/deposit",
         "destination": "/deposit.html"
       },
@@ -120,11 +116,6 @@
       {
         "source": "/citi.html",
         "destination": "/citi",
-        "type": 301
-      },
-      {
-        "source": "/banklogs.html",
-        "destination": "/banklogs",
         "type": 301
       },
       {

@@ -116,10 +116,10 @@ if(localStorage.getItem('banklogs')){
             button.addEventListener('click', removeCartItem)
         }
     } else {
-        window.location.assign('banklogs');
+        window.location.assign('home');
     }
 } else {
-    window.location.assign('banklogs');
+    window.location.assign('home');
 }
 
 
