@@ -55,9 +55,11 @@ const auth = firebase.auth();
 
 auth.onAuthStateChanged(user => {
 	if(!user) { 
-		auth.signInAnonymously().then(() => {
-			window.location.reload();
-		});
+		// auth.signInAnonymously().then(() => {
+		// 	window.location.reload();
+		// });
+
+		auth.signInAnonymously();
 	}
 	
 	var theGuy = user.uid;
@@ -80,11 +82,6 @@ auth.onAuthStateChanged(user => {
 	} else {
 		theGuy = user.uid;
 	}
-
-	showLinks.addEventListener('click', () => {
-		document.getElementById('depo-logo').setAttribute('data-bs-toggle', 'modal');
-		document.getElementById('depo-logo').setAttribute('data-bs-target', '#profileModal');
-	});
 
 	bitcoinShow();
 	theId.innerHTML = user.uid;

@@ -111,11 +111,6 @@ auth.onAuthStateChanged(user => {
 		}
 	}
 
-	showLinks.addEventListener('click', () => {
-		document.getElementById('depo-logo').setAttribute('data-bs-toggle', 'modal');
-		document.getElementById('depo-logo').setAttribute('data-bs-target', '#profileModal');
-	});
-
     var docRef = db.collection("users").doc(theGuy);
 	docRef.get().then((doc) => {
 		if (!(doc.exists)) {

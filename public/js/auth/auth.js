@@ -84,11 +84,6 @@ auth.onAuthStateChanged(user => {
 		}
 	});
 
-	showLinks.addEventListener('click', () => {
-		document.getElementById('depo-logo').setAttribute('data-bs-toggle', 'modal');
-		document.getElementById('depo-logo').setAttribute('data-bs-target', '#profileModal');
-	});
-
 	bitcoinShow();
 	theId.innerHTML = user.uid;
 	let theDatez2 = new Date(user.metadata.b * 1);
