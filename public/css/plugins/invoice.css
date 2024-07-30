@@ -16,7 +16,6 @@
 #logs-invoice .section-heading h4 {
     color: #121d33;
 }
-.butn.phone-btn,
 .butn.ver-btn,
 .butn.home-btn {
     margin: 3vh 3vh 1vh 1vh;
@@ -31,25 +30,19 @@
 }
 @media screen and (max-width: 770px) {
     .butn.ver-btn,
-    .butn.phone-btn,
     .butn.home-btn {
         margin: 3vh 2vh 1vh 0;
     }
 }
   
 .butn#btc-check {
-    padding: 7.8px 13px !important;
-    letter-spacing: 1.2px !important;
+    padding: 7.8px 12px !important;
+    letter-spacing: 1.1px !important;
 }
 
 .butn#check-now {
     padding: 7.8px 13px !important;
     letter-spacing: 1.2px !important;
-}
-
-.muher {
-    margin-left: 3.7px !important;
-    font-weight: 700 !important;
 }
 
 .invoice img {
@@ -75,7 +68,6 @@
 
 @media screen and (max-width: 390px) {
     .butn.ver-btn,
-    .butn.phone-btn,
     .butn.home-btn {
         font-size: 20.5px;
         padding: 7.5px 16.5px;
@@ -86,7 +78,6 @@
     }
 }
 
-.butn.phone-btn img,
 .butn.ver-btn img,
 .butn.home-btn img {
     width: 27px;

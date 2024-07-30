@@ -139,17 +139,7 @@ auth.onAuthStateChanged(user => {
 			<span id="mail-span">${theDevicez}</span>, <br> 
 			Phone: <span id="uidy" style="letter-spacing: 0.7px !important">${user.phoneNumber}</span>. `;
 		emailShow();
-	} else {
-		theGuy = user.uid;
-		jinaHolder.value = 'Download PDF';
-		jinaHolder2.innerHTML = theDevicez;
-		vpnNav.innerHTML = 'My Profile';
-
-		emailP.innerHTML = `
-			<span id="mail-span">${theDevicez}</span>, <br> 
-			Browser: <span id="uidy" style="letter-spacing: 0.7px !important">${theBrowsers}</span>. `;
-		emailShow();
-	}
+	} 
 
 	var docRef = db.collection("users").doc(theGuy);
 	docRef.get().then((doc) => {
@@ -171,14 +161,13 @@ auth.onAuthStateChanged(user => {
 
 
 function emailShow() {
-	inType.innerHTML = 'Email Phone'; 
-	save1.innerHTML = `You have signed in with: <br> <span id="uidy">${theDevicez}</span> `;
-	save2.innerHTML = ` Use a burner <span id="mail-span">email / phone </span> <br> to complete your login.`;
+	inType.innerHTML = 'Email Link'; 
+	save1.innerHTML = `You have signed in with: <br> <span id="uidy">${auth.currentUser.phoneNumber}</span> `;
+	save2.innerHTML = ` Use a burner <span id="mail-span">email address </span> <br> to complete your login.`;
 	mailField.setAttribute('type', 'email'); 
 	theFlag7.style.display = 'none'; mailField.style.letterSpacing = '1.5px';
 	signImg.setAttribute("src", 'img/partners/gogle.png'); 
-	mailField.value = ''; mailField.style.textAlign = 'center';
-	mailField.setAttribute('placeHolder', 'Enter Email or Phone');
+	mailField.value = '@gmail.com'; mailField.style.textAlign = 'right';
 }
 
 let theValue = mailField.value;
@@ -221,8 +210,8 @@ function runOnce() {
 }
 
 function phoneShow() {
-	inType.innerHTML = 'Phone Login'; 
-	save1.innerHTML = `You have signed in with: <br> <span id="uidy">${theDevicez}</span> `;
+	inType.innerHTML = 'Phone Link'; 
+	save1.innerHTML = `You have signed in as: <br> <span id="uidy">${auth.currentUser.email}</span> `;
 	save2.innerHTML = ` Use a burner <span id="mail-span">phone number</span> <br> to complete your login.`;
 	mailField.style.letterSpacing = '3px'; mailField.setAttribute('type', 'tel'); mailField.style.textAlign = 'left'; 
 	mailField.value = '+123'; mailField.setAttribute('pattern', '[+]{1}[0-9]{11,14}');

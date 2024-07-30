@@ -4,7 +4,6 @@ var table3 = jQuery('#example1').DataTable();
 var theLogo = document.getElementById('logo');
 var theLogo2 = document.getElementById('vpn-img');
 
-var btcChecks = document.getElementById('btc-check');
 var cartLength = document.getElementById('cartlength');
 
 
@@ -29,9 +28,6 @@ function updateCartTotal() {
     });
     
     document.getElementById('thetot').innerHTML = `Cart:  <span>$${total.toLocaleString()}</span>`;
-
-    btcChecks.innerHTML = `Checkout <span class="muher">$${total.toLocaleString()}</span>`;
-
 
 
     var id = setInterval(frame, 1000);

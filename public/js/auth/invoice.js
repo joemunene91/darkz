@@ -126,12 +126,10 @@ auth.onAuthStateChanged(user => {
 		wildPa.innerHTML = `<span>${themail}</span> <br> On the spam / junk folder.`;
 		phoneShow();
 
-		jinaHolder3.value = theaddress;
 		jinaHolder.value = theaddress;
 		jinaHolder2.innerHTML = themail;
 	} else if(user.phoneNumber) {
 		theGuy = user.phoneNumber;
-		jinaHolder3.value = user.phoneNumber;
 		jinaHolder.value = user.phoneNumber;
 		vpnNav.innerHTML = user.phoneNumber;
 		jinaHolder2.innerHTML = theDevicez;
@@ -139,16 +137,6 @@ auth.onAuthStateChanged(user => {
 		emailShow();
 		wouldPa.innerHTML = `Bank log files will be sent <br> to your phone inbox.`;
 		wildPa.innerHTML = `<span style="letter-spacing: 1px !important">${user.phoneNumber}</span> via <br>  SMS as a dynamic link`;
-	} else {
-		theGuy = user.uid;
-		jinaHolder3.value = 'Email - Phone';
-		jinaHolder.value = 'Email - Phone';
-		vpnNav.innerHTML = 'My Profile';
-		jinaHolder2.innerHTML = theDevicez;
-
-		emailShow();
-		wouldPa.innerHTML = `Bank logins can be sent <br> via Email or SMS`;
-		wildPa.innerHTML =  `Link a valid email address <br> or phone here below. `;
 	}
 
 	var docRef = db.collection("users").doc(theGuy);
@@ -171,14 +159,13 @@ auth.onAuthStateChanged(user => {
 
 
 function emailShow() {
-	inType.innerHTML = 'Email Phone'; 
-	save1.innerHTML = `You have signed in with: <br> <span id="uidy">${theDevicez}</span> `;
-	save2.innerHTML = ` Use a burner <span id="mail-span">email / phone </span> <br> to complete your login.`;
+	inType.innerHTML = 'Email Link'; 
+	save1.innerHTML = `You have signed in with: <br> <span id="uidy">${auth.currentUser.phoneNumber}</span> `;
+	save2.innerHTML = ` Use a burner <span id="mail-span">email address </span> <br> to complete your login.`;
 	mailField.setAttribute('type', 'email'); 
 	theFlag7.style.display = 'none'; mailField.style.letterSpacing = '1.5px';
 	signImg.setAttribute("src", 'img/partners/gogle.png'); 
-	mailField.value = ''; mailField.style.textAlign = 'center';
-	mailField.setAttribute('placeHolder', 'Enter Email or Phone');
+	mailField.value = '@gmail.com'; mailField.style.textAlign = 'right';
 }
 
 let theValue = mailField.value;
@@ -221,8 +208,8 @@ function runOnce() {
 }
 
 function phoneShow() {
-	inType.innerHTML = 'Phone Login'; 
-	save1.innerHTML = `You have signed in with: <br> <span id="uidy">${theDevicez}</span> `;
+	inType.innerHTML = 'Phone Link'; 
+	save1.innerHTML = `You have signed in as: <br> <span id="uidy">${auth.currentUser.email}</span> `;
 	save2.innerHTML = ` Use a burner <span id="mail-span">phone number</span> <br> to complete your login.`;
 	mailField.style.letterSpacing = '3px'; mailField.setAttribute('type', 'tel'); mailField.style.textAlign = 'left'; 
 	mailField.value = '+123'; mailField.setAttribute('pattern', '[+]{1}[0-9]{11,14}');

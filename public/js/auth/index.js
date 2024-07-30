@@ -58,20 +58,11 @@ fetch('https://ipapi.co/json/').then(function(response) { return response.json()
 
 const auth = firebase.auth();
 
-// vpnButn.addEventListener('click', emailShow);
-
-const signInAnony = () => {
-	auth.signInAnonymously().then(() => {
-		setTimeout(() => {
-			window.location.assign('home');
-		}, 150);
-	});
-};
-vpnButn.addEventListener("click", signInAnony);
+vpnButn.addEventListener('click', emailShow);
 
 
 function emailShow() {
-	inType.innerHTML = 'EMAIL LOGIN';
+	inType.innerHTML = 'Login Page';
 	save1.innerHTML = ` A login link will be sent <br> via <span id="mail-span">email</span> or <span>sms</span>, `;
 	save2.innerHTML = ` Use the link to verify your <br> login on this page. `;
 	mailField.setAttribute('type', 'email'); 
@@ -130,13 +121,10 @@ function runTwice() {
 }
 
 function phoneShow() {
-	inType.innerHTML = 'PHONE LOGIN';
-
 	mailField.setAttribute('type', 'tel'); mailField.style.textAlign = 'left'; 
 	mailField.setAttribute('pattern', '[+]{1}[0-9]{11,14}');
 	mailField.value = '+123'; mailField.style.letterSpacing = '3px';
 	theFlag7.src = `img/partners/phone.png`; theFlag7.style.display = 'block';
-	signImg.setAttribute("src", 'img/partners/phone2.png'); 
 	 
 	fetch('https://ipapi.co/json/').then(function(response) { return response.json()}).then(function(data) {
 		mailField.value = data.country_calling_code; 
@@ -320,5 +308,7 @@ auth.onAuthStateChanged(user => {
 				setTimeout(() => { window.location.assign('home') }, 150);
 			} 
 		}
-	} 
+	} else {
+		$('#emailModal').modal('show'); emailShow(); 
+	}
 });

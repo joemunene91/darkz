@@ -48,7 +48,6 @@ if(localStorage.getItem('banklogs') && ((JSON.parse(localStorage.getItem('banklo
     }
     updateCartTotal();
 } else {
-    // document.getElementById('vpn').style.display = 'none';
     document.getElementById('cartlength').style.display = 'none';
     showingToast.removeAttribute('onclick');
     showingToast.addEventListener('click', showThis);

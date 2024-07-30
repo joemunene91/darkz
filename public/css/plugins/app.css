@@ -1047,7 +1047,7 @@ td {
   opacity: 1 !important;
   border: none !important;
   width: 60px !important;
-  border-radius: 4px !important;
+  border-radius: 50% !important;
   height: 60px !important;
 }
 
@@ -1396,7 +1396,7 @@ td {
 @media (max-width: 480px) {
   #showlink,
   #showtoasts {
-    letter-spacing: 1.15px !important;
+    letter-spacing: 1.2px !important;
     padding: 11px 10px !important;
     font-size: 20px;
     margin: 11px 10px !important;
@@ -1406,25 +1406,25 @@ td {
 @media (max-width: 420px) {
   #showlink,
   #showtoasts {
-    padding: 11px 8px !important;
+    padding: 11px 9px !important;
     font-size: 19.5px;
-    margin: 11px 8px !important;
+    margin: 11px 9px !important;
   }
 }
 @media (max-width: 400px) {
   #showlink,
   #showtoasts {
-    padding: 10px 6px !important;
+    padding: 10px 7px !important;
     font-size: 19px;
-    margin: 10px 6px !important;
+    margin: 10px 7px !important;
   }
 }
 @media (max-width: 380px) {
   #showlink,
   #showtoasts {
-    padding: 9px 5.5px !important;
-    font-size: 18px;
-    margin: 9px 5.5px !important;
+    padding: 9px 6px !important;
+    font-size: 18.2px;
+    margin: 9px 6px !important;
   }
 }
 @media (max-width: 370px) {
@@ -1924,7 +1924,7 @@ td {
 }
 .navbar-nav > li.nav-large {
   border-radius: 50% !important;
-  margin: 6.5px 13px !important;
+  margin: 6.5px 13.5px !important;
 }  
 .navbar-nav li.nav-large a {
   width: 65px !important;
