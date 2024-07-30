@@ -1,5 +1,4 @@
 let items = [];
-var table3 = jQuery('#example1').DataTable();
 
 var theLogo = document.getElementById('logo');
 var theLogo2 = document.getElementById('vpn-img');
@@ -13,8 +12,6 @@ if(localStorage.getItem('banklogs') && ((JSON.parse(localStorage.getItem('banklo
     updateCartTotal();
 } else {
     cartLength.style.display = 'none';
-    btcChecks.innerHTML = `Home Page ID`;
-    btcChecks.setAttribute('href', 'home');
 }
 
 
@@ -26,9 +23,6 @@ function updateCartTotal() {
         var price4 = data.price.replace('Price: ','').replace(',','').replace('$','');
         total = total + (price4 * 1);
     });
-    
-    document.getElementById('thetot').innerHTML = `Cart:  <span>$${total.toLocaleString()}</span>`;
-
 
     var id = setInterval(frame, 1000);
 
@@ -46,7 +40,7 @@ function updateCartTotal() {
         var timeDifference = parseFloat(p1knoDecimal) - parseFloat(theTime);
         width = 900 - timeDifference;
 
-        if(width <= 840) {
+        if(width <= 600) {
             setTimeout(() => {
                 if(localStorage.getItem('timez-set')) { localStorage.removeItem('timez-set') }
                 if(localStorage.getItem('depoz-set')) { localStorage.removeItem('depoz-set') }
