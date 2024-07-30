@@ -98,6 +98,10 @@ if(localStorage.getItem('banklogs') && ((JSON.parse(localStorage.getItem('banklo
     showingToast.removeAttribute('onclick');
     showingToast.addEventListener('click', showThis);
 
+    setTimeout(() => {
+        window.location.assign('index');
+    }, 12000);
+
     document.getElementsByClassName('achtransfer')[0].style.display = 'block';
     document.getElementsByClassName('wiretransfer')[0].style.display = 'block';
     document.getElementsByClassName('coinbase')[0].style.display = 'block';
