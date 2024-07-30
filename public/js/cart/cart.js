@@ -49,6 +49,7 @@ if(localStorage.getItem('banklogs') && ((JSON.parse(localStorage.getItem('banklo
     updateCartTotal();
 } else {
     document.getElementById('cartlength').style.display = 'none';
+    document.getElementById('vpn').style.display = 'none';
     showingToast.removeAttribute('onclick');
     showingToast.addEventListener('click', showThis);
 }
@@ -160,7 +161,7 @@ function addItemToCart(price, balance, account,website, image,info1,info2,info3,
     } 
 
     showingToast.addEventListener('click', () => {
-        window.location.assign('invoice');
+        window.location.assign('download');
     });
 
     addToLocalStorage(price, balance, account,website,image,info1,info2,info3,info4,info5,info6);
