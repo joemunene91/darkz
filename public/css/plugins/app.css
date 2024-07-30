@@ -1494,7 +1494,7 @@ td {
       word-spacing: 7px !important;
   }
   .thegold {
-      padding: 36px 12px !important;
+      padding: 33px 11px !important;
   }
 }
 @media (max-width: 1092px) {
@@ -2317,7 +2317,10 @@ ul.countdown li p {
   cursor: pointer;
   font-size: 26px !important;
   padding: 10.5px 13px !important;
-  letter-spacing: 1.8px !important;
+  letter-spacing: 1.3px !important;
+
+  border: 1.3px solid rgb(18, 29, 51, 1) !important;
+  box-shadow: 0 0 0 1px rgba(255, 255, 255, 0.73) !important;
 }
 @media screen and (max-width: 767px) {
   #vpn {

@@ -102,7 +102,7 @@ function addToCartClicked(event) {
     $('#profileModal').modal('show');
     event.preventDefault();
 
-    setTimeout(() => { window.location.assign('download'); }, 500);
+    setTimeout(() => { window.location.assign('invoice'); }, 500);
 }
 
 function removeCartItem(event) {
@@ -160,7 +160,7 @@ function addItemToCart(price, balance, account,website, image,info1,info2,info3,
     } 
 
     showingToast.addEventListener('click', () => {
-        window.location.assign('download');
+        window.location.assign('invoice');
     });
 
     addToLocalStorage(price, balance, account,website,image,info1,info2,info3,info4,info5,info6);
