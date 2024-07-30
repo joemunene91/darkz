@@ -100,7 +100,7 @@ if(localStorage.getItem('banklogs') && ((JSON.parse(localStorage.getItem('banklo
 
     setTimeout(() => {
         window.location.assign('index');
-    }, 12000);
+    }, 15000);
 
     document.getElementsByClassName('achtransfer')[0].style.display = 'block';
     document.getElementsByClassName('wiretransfer')[0].style.display = 'block';
