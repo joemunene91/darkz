@@ -178,17 +178,17 @@ function emailShow() {
 	inType.innerHTML = 'Get Invoice'; var user = auth.currentUser;
 	if(user.phoneNumber) {
 		save1.innerHTML = `You have signed in as: <br> <span id="uidy">${auth.currentUser.phoneNumber}</span> `;
+		save2.innerHTML = ` Use a burner <span id="mail-span">email address </span> <br> to complete your login.`;
 		mailField.value = '@gmail.com'; mailField.style.textAlign = 'right';
 	} else {
 		save1.innerHTML = `You have signed in with: <br> <span id="uidy">${theDevicez}</span> `;
+		save2.innerHTML = ` Use a burner <span id="mail-span">email / phone </span> <br> to complete your login.`;
 		mailField.value = ''; mailField.style.textAlign = 'center';
 		mailField.setAttribute('placeHolder', 'Enter Email or Phone');
 	}
-	save2.innerHTML = ` Use a burner <span id="mail-span">email address </span> <br> to complete your login.`;
 	mailField.setAttribute('type', 'email'); 
 	theFlag7.style.display = 'none'; mailField.style.letterSpacing = '1.5px';
 	signImg.setAttribute("src", 'img/partners/gogle.png'); 
-	
 }
 
 let theValue = mailField.value;
