@@ -24,7 +24,7 @@ auth.onAuthStateChanged(user => {
         for (var i = 0; i < items.length; i++) {
             if(user.email) {
                 var msgs = [`
-                        ${toastbtc} BTC not detected, <br> Send $${toastz} BTC:
+                        ${toastbtc} Bitcoin payment <br> not detected,
                     <hr class="hr15-bot">
                         Send $${toastz} BTC:
                     <hr class="to-hr hr15-top">
