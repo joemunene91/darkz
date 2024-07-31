@@ -94,7 +94,6 @@ if(localStorage.getItem('banklogs') && ((JSON.parse(localStorage.getItem('banklo
     }
 } else {
     document.getElementById('cartlength').style.display = 'none';
-    document.getElementById('vpn').style.display = 'none';
     showingToast.removeAttribute('onclick');
     showingToast.addEventListener('click', showThis);
 
@@ -122,24 +121,24 @@ function showThis() {
 
 document.getElementById('balance1').innerHTML = '$10,049';
 document.getElementById('balance2').innerHTML = '$10,738';
-document.getElementById('balance3').innerHTML = '$10,305';
+document.getElementById('balance3').innerHTML = '$7,305';
 document.getElementById('balance4').innerHTML = '$10,902';
-document.getElementById('balance5').innerHTML = '$10,402';
+document.getElementById('balance5').innerHTML = '$7,402';
 document.getElementById('balance6').innerHTML = '$10,730';
 document.getElementById('balance7').innerHTML = '$10,087';
 document.getElementById('balance8').innerHTML = '$10,259';
-document.getElementById('balance9').innerHTML = '$10,820';
+document.getElementById('balance9').innerHTML = '$7,820';
 
-document.getElementById('balance10').innerHTML = '$10,705';
-document.getElementById('balance11').innerHTML = '$10,214';
+document.getElementById('balance10').innerHTML = '$7,805';
+document.getElementById('balance11').innerHTML = '$7,214';
 document.getElementById('balance12').innerHTML = '$10,390';
 document.getElementById('balance13').innerHTML = '$10,832';
-document.getElementById('balance14').innerHTML = '$10,439';
+document.getElementById('balance14').innerHTML = '$7,439';
 document.getElementById('balance15').innerHTML = '$10,228';
-document.getElementById('balance16').innerHTML = '$10,910';
+document.getElementById('balance16').innerHTML = '$7,910';
 document.getElementById('balance17').innerHTML = '$10,104';
 document.getElementById('balance18').innerHTML = '$10,724';
-document.getElementById('balance19').innerHTML = '$10,825';
+document.getElementById('balance19').innerHTML = '$7,825';
 document.getElementById('balance20').innerHTML = '$10,270';
 document.getElementById('balance21').innerHTML = '$10,309';
 document.getElementById('balance22').innerHTML = '$10,183';

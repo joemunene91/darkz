@@ -2096,8 +2096,9 @@ td {
 #canvas2 {
   border-radius: 50%;
   float: right !important;
-  margin-right: 4px !important;
-  margin-bottom: 5px !important;
+  width: 63px !important;
+  height: 63px !important;
+  margin: 5px !important;
 }
 .ticketz label,
 #vpnModal label {
@@ -2122,10 +2123,9 @@ td {
   }
 
   #canvas2 {
-    border-radius: 50%;
-    float: right !important;
     width: 60px !important;
     height: 60px !important;
+    margin: 4px !important;
   }
 }
 .logo-50 {
