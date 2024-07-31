@@ -11,8 +11,12 @@
 @media screen and (max-width: 770px) {
     #logs-invoice {
         padding: 0px  10px !important;
-        height: 94vh !important;
+        height: 87vh !important;
     }
+}
+#vpn {
+    margin: 15px auto 5px;
+    cursor: pointer;
 }
 
 #logs-invoice div {
