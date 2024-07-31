@@ -72,7 +72,7 @@
 
 .border{
   border: 1.5px solid rgba(135, 206, 235, 0.15) !important;
-  margin: 37px auto !important;
+  margin: 50px auto !important;
 }
 @media screen and (max-width: 570px) {
   .border{

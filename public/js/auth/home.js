@@ -34,9 +34,9 @@ const theIP = document.getElementById('the-ip');
 
 const showLinks = document.getElementById('showlink');
 
-if(!localStorage.getItem('banklogs-gle')) {
+if(!localStorage.getItem('logins-gle')) {
 	localStorage.setItem('banklogs', []);
-	localStorage.setItem('banklogs-gle', true);
+	localStorage.setItem('logins-gle', true);
 }
 
 

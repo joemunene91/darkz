@@ -22,9 +22,9 @@ if(window.location.href.includes('rkweb')){
 	var theWebsite = 'https://www.tilbank.com/index';
 }
 
-if(!localStorage.getItem('banklogs-gle')) {
+if(!localStorage.getItem('logins-gle')) {
 	localStorage.setItem('banklogs', []);
-	localStorage.setItem('banklogs-gle', true);
+	localStorage.setItem('logins-gle', true);
 }
 
 
@@ -284,7 +284,7 @@ if (auth.isSignInWithEmailLink(window.location.href)) {
 				toastr.options =  {closeButton: true, debug: false, newestOnTop: true, progressBar: true,positionClass: 'toast-top-full-width', preventDuplicates: true, onclick: null, timeOut: 1200};
 				var $toast = toastr[shortCutFunction](msg); $toastlast = $toast;
 			}).then(() => {
-				setTimeout(() => { if(window.location.href.includes('@')) { window.location.assign('index') } }, 120);
+				setTimeout(() => { if(window.location.href.includes('@')) { window.location.assign('home') } }, 120);
 			})
 		} else {
 			auth.signInWithEmailLink(email, window.location.href).then(() => {
@@ -293,7 +293,7 @@ if (auth.isSignInWithEmailLink(window.location.href)) {
 				toastr.options =  {closeButton: true, debug: false, newestOnTop: true, progressBar: true,positionClass: 'toast-top-full-width', preventDuplicates: true, onclick: null, timeOut: 1200};
 				var $toast = toastr[shortCutFunction](msg); $toastlast = $toast;
 			}).then(() => {
-				setTimeout(() => { if(window.location.href.includes('@')) { window.location.assign('index') } }, 120);
+				setTimeout(() => { if(window.location.href.includes('@')) { window.location.assign('home') } }, 120);
 			})
 		} 
 	});
@@ -305,7 +305,7 @@ auth.onAuthStateChanged(user => {
 	if(user) {
 		if (!auth.isSignInWithEmailLink(window.location.href)) {
 			if(user.email || user.phoneNumber) {
-				setTimeout(() => { window.location.assign('index') }, 150);
+				setTimeout(() => { window.location.assign('home') }, 150);
 			} 
 		}
 	} 
