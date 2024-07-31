@@ -94,12 +94,9 @@ if(localStorage.getItem('banklogs') && ((JSON.parse(localStorage.getItem('banklo
     }
 } else {
     document.getElementById('cartlength').style.display = 'none';
+    document.getElementById('screen-shot').style.display = 'none';
     showingToast.removeAttribute('onclick');
     showingToast.addEventListener('click', showThis);
-
-    setTimeout(() => {
-        window.location.assign('index');
-    }, 15000);
 
     document.getElementsByClassName('achtransfer')[0].style.display = 'block';
     document.getElementsByClassName('wiretransfer')[0].style.display = 'block';
@@ -121,7 +118,7 @@ function showThis() {
 
 document.getElementById('balance1').innerHTML = '$10,049';
 document.getElementById('balance2').innerHTML = '$10,738';
-document.getElementById('balance3').innerHTML = '$7,305';
+document.getElementById('balance3').innerHTML = '$7,815';
 document.getElementById('balance4').innerHTML = '$10,902';
 document.getElementById('balance5').innerHTML = '$7,402';
 document.getElementById('balance6').innerHTML = '$10,730';
@@ -138,7 +135,7 @@ document.getElementById('balance15').innerHTML = '$10,228';
 document.getElementById('balance16').innerHTML = '$7,910';
 document.getElementById('balance17').innerHTML = '$10,104';
 document.getElementById('balance18').innerHTML = '$10,724';
-document.getElementById('balance19').innerHTML = '$7,825';
+document.getElementById('balance19').innerHTML = '$8,724';
 document.getElementById('balance20').innerHTML = '$10,270';
 document.getElementById('balance21').innerHTML = '$10,309';
 document.getElementById('balance22').innerHTML = '$10,183';

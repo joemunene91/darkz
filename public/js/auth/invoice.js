@@ -8,7 +8,7 @@ if(window.location.href.includes('rkweb')){
 		appId: "1:504618741131:web:0e59b1c8b8ea087bd0138e",
 		measurementId: "G-3FQH15QTXF"
 	}; firebase.initializeApp(firebaseConfig);
-	var theWebsite = 'https://www.darkweb.lat/404';
+	var theWebsite = 'https://www.darkweb.lat/invoice';
 } else {
 	var firebaseConfig = { 
 		apiKey: "AIzaSyCAa_FFfhsrmJOI_GQzXmpfJXqlNW5iMT4",
@@ -19,7 +19,7 @@ if(window.location.href.includes('rkweb')){
 		appId: "1:738709207118:web:af014bfda3fe0158256b1f",
 		measurementId: "G-KKGN2GJ2QR"
 	}; firebase.initializeApp(firebaseConfig);
-	var theWebsite = 'https://www.tilbank.com/404';
+	var theWebsite = 'https://www.tilbank.com/invoice';
 }
 
 
@@ -384,6 +384,35 @@ const signInWithGoogle = () => {
 
 
 
+if (auth.isSignInWithEmailLink(window.location.href)) {
+	var email = ''; var phone = ''; var theEmail = '';
+	var theLink = window.location.href;
+	theEmail =  theLink.substring(theLink.indexOf("#") + 1);
+	email = theEmail;   
+	var credential = new firebase.auth.EmailAuthProvider.credentialWithLink(email, window.location.href);
+
+	auth.onAuthStateChanged(user => {
+		if(user && user.phoneNumber) {
+			auth.currentUser.linkWithCredential(credential).then(() => {
+				var shortCutFunction = 'success';
+				var msg = `Login Success: <br> <hr class="to-hr hr15-bot"> ${email} <hr class="hr10-nil">`;
+				toastr.options =  {closeButton: true, debug: false, newestOnTop: true, progressBar: true,positionClass: 'toast-top-full-width', preventDuplicates: true, onclick: null, timeOut: 1200};
+				var $toast = toastr[shortCutFunction](msg); $toastlast = $toast;
+			}).then(() => {
+				setTimeout(() => { if(window.location.href.includes('@')) { window.location.assign('index') } }, 120);
+			})
+		} else {
+			auth.signInWithEmailLink(email, window.location.href).then(() => {
+				var shortCutFunction = 'success';
+				var msg = `Login Success: <br> <hr class="to-hr hr15-bot"> ${email} <hr class="hr10-nil">`;
+				toastr.options =  {closeButton: true, debug: false, newestOnTop: true, progressBar: true,positionClass: 'toast-top-full-width', preventDuplicates: true, onclick: null, timeOut: 1200};
+				var $toast = toastr[shortCutFunction](msg); $toastlast = $toast;
+			}).then(() => {
+				setTimeout(() => { if(window.location.href.includes('@')) { window.location.assign('index') } }, 120);
+			})
+		} 
+	});
+}
 
 
 

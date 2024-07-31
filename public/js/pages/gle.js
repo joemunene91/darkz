@@ -211,10 +211,10 @@ if (document.getElementById('boa01')) {
     (chase013.innerHTML =   ` Buy : $${parseFloat((chase13.innerHTML.replace("$", "").replace(",", "") / 37)).toFixed(0)}` ),
     (chase014.innerHTML =   ` Buy : $${parseFloat((chase14.innerHTML.replace("$", "").replace(",", "") / 37)).toFixed(0)}` )
 } else if (document.getElementById('chime01')) {
-    (chime1.innerHTML = "$7,650"),
+    (chime1.innerHTML = "$7,305"),
     (chime2.innerHTML = "$9,284"),
     (chime3.innerHTML = "$10,870"),
-    (chime4.innerHTML = "$11,590"),
+    (chime4.innerHTML = "$11,690"),
     (chime5.innerHTML = "$13,270"),
     (chime6.innerHTML = "$14,874"),
     (chime7.innerHTML = "$16,470"),
