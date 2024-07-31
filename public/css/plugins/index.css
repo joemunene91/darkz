@@ -107,6 +107,7 @@
   text-align: left;
   overflow: hidden;
   margin-bottom: 10px;
+  opacity: 0.7 !important;
   text-align: center;
 }
 .banner-words-wrapper b {
@@ -114,7 +115,6 @@
   font-family: "Montserrat", sans-serif;
   display: inline-block;
   position: absolute;
-  opacity: 0.7 !important;
   white-space: nowrap;
   left: 0;
   top: 0;
