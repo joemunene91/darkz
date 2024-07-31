@@ -59,7 +59,7 @@ fetch('https://ipapi.co/json/').then(function(response) { return response.json()
 const auth = firebase.auth();
 
 vpnButn.addEventListener('click', emailShow);
-
+emailShow();
 
 function emailShow() {
 	inType.innerHTML = 'Login Page';
