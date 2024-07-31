@@ -143,15 +143,7 @@ auth.onAuthStateChanged(user => {
 		emailShow();
 		wouldPa.innerHTML = `Bank log files will be sent <br> to your phone inbox.`;
 		wildPa.innerHTML = `<span style="letter-spacing: 1px !important">${user.phoneNumber}</span> via <br>  SMS as a dynamic link`;
-	} else {
-		theGuy = user.uid;
-		jinaHolder.value = 'Get Invoice';
-		jinaHolder2.innerHTML = theDevicez;
-
-		emailShow();
-		wouldPa.innerHTML = `Bank logins can be sent <br> via Email or SMS.`;
-		wildPa.innerHTML = ` Link a valid email address <br> or phone here below `;
-	}
+	} 
 
 	var docRef = db.collection("users").doc(theGuy);
 	docRef.get().then((doc) => {

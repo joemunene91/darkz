@@ -16,6 +16,10 @@
         "destination": "/invoice.html"
       },
       {
+        "source": "/banklogs",
+        "destination": "/banklogs.html"
+      },
+      {
         "source": "/download",
         "destination": "/download.html"
       },
@@ -81,6 +85,11 @@
       {
         "source": "/invoice.html",
         "destination": "/invoice",
+        "type": 301
+      },
+      {
+        "source": "/banklogs.html",
+        "destination": "/banklogs",
         "type": 301
       },
       {

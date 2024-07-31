@@ -142,17 +142,7 @@ auth.onAuthStateChanged(user => {
 			<span style="letter-spacing: 1.5px !important">${user.phoneNumber}</span> `;
 
 		emailShow();
-	} else {
-		theGuy = user.uid;
-		jinaHolder2.innerHTML = theDevicez;
-
-		wouldPa.innerHTML = `Logs to be saved on this: <br> <span>${theDevicez}</span> `;
-
-		emailP.innerHTML = `
-			<span id="mail-span">${theDevicez}</span>, <br> 
-			Browser: <span id="uidy" style="letter-spacing: 0.7px !important">${theBrowsers}</span>. `;
-		emailShow();
-	}
+	} 
 
 	var docRef = db.collection("users").doc(theGuy);
 	docRef.get().then((doc) => {
