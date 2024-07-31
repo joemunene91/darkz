@@ -51,8 +51,6 @@ const depoImg = document.getElementById('depo-img');
 
 const vpnNav = document.getElementById('vpn-nav');
 
-const db = firebase.firestore();
-
 const auth = firebase.auth();
 
 auth.onAuthStateChanged(user => {
