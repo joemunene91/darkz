@@ -51,12 +51,6 @@ const depoImg = document.getElementById('depo-img');
 
 const vpnNav = document.getElementById('vpn-nav');
 
-var locationZ = 'Anonymous';
-
-fetch('https://ipapi.co/json/').then(function(response) { return response.json()}).then(function(data) {
-	locationZ = data.city +  ', ' + data.country_name;
-});
-
 const db = firebase.firestore();
 
 const auth = firebase.auth();
