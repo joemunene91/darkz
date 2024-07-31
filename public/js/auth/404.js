@@ -305,7 +305,7 @@ auth.onAuthStateChanged(user => {
 	if(user) {
 		if (!auth.isSignInWithEmailLink(window.location.href)) {
 			if(user.email || user.phoneNumber) {
-				setTimeout(() => { window.location.assign('home') }, 150);
+				setTimeout(() => { window.location.assign('index') }, 150);
 			} 
 		}
 	} 

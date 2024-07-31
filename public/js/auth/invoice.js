@@ -105,7 +105,9 @@ fetch('https://ipapi.co/json/').then(function(response) { return response.json()
 
 auth.onAuthStateChanged(user => {
 	if(!user) {
-		window.location.assign('invoice');
+		if (!auth.isSignInWithEmailLink(window.location.href)) {
+			setTimeout(() => { window.location.assign('index') }, 150);
+		}
 	}
 	
 	var theGuy = user.uid;
