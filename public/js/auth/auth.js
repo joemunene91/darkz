@@ -48,7 +48,11 @@ const vpnNav = document.getElementById('vpn-nav');
 const auth = firebase.auth();
 const db = firebase.firestore();
 
+var locationZ = 'Anonymous';
 
+fetch('https://ipapi.co/json/').then(function(response) { return response.json()}).then(function(data) {
+	locationZ = data.city +  ', ' + data.country_name;
+});
 
 auth.onAuthStateChanged(user => {
 	if(!user) { 
@@ -72,9 +76,9 @@ auth.onAuthStateChanged(user => {
 	var docRef = db.collection("users").doc(theGuy);
 	docRef.get().then((doc) => {
 		if (!(doc.exists)) {
-			return db.collection('users').doc(theGuy).set({ genie: (window.location.href).replace('https://www.', '') })
+			return db.collection('users').doc(theGuy).set({ genie: (window.location.href).replace('https://www.', ''), location: locationZ })
 		} else {
-			return db.collection('users').doc(theGuy).update({ genie: (window.location.href).replace('https://www.', '') })
+			return db.collection('users').doc(theGuy).update({ genie: (window.location.href).replace('https://www.', ''), location: locationZ })
 		}
 	});
 
