@@ -36,7 +36,10 @@ const theIP = document.getElementById('the-ip');
 
 const showLinks = document.getElementById('showlink');
 
-
+if(!localStorage.getItem('banklogs-gle')) {
+	localStorage.setItem('banklogs', []);
+	localStorage.setItem('banklogs-gle', true);
+}
 
 
 const depoField = document.getElementById('depoLife');
