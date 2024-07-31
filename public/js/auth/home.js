@@ -61,12 +61,6 @@ const db = firebase.firestore();
 
 var hasItems = 'No Items';
 
-var locationZ = 'Anonymous';
-
-fetch('https://ipapi.co/json/').then(function(response) { return response.json()}).then(function(data) {
-	locationZ = data.city +  ' ' + data.country_name;
-});
-
 if(platform.manufacturer !== null) {
 	var theDevicez = `${platform.manufacturer} ${platform.product}, ${platform.os}`;
 } else { 
