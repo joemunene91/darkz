@@ -8,6 +8,12 @@
     padding: 0px  10px !important;
     height: 100vh !important;
 }
+@media screen and (max-width: 770px) {
+    #logs-invoice {
+        padding: 0px  10px !important;
+        height: 94vh !important;
+    }
+}
 
 #logs-invoice div {
     overflow: hidden !important;
@@ -128,8 +134,14 @@
 }
 @media screen and (max-width: 574px) {
     #invoice-div p {
+        font-size: 20.5px !important;
+        line-height: 54px !important;
+    }
+}
+@media screen and (max-width: 404px) {
+    #invoice-div p {
         font-size: 20.3px !important;
-        line-height: 52px !important;
+        line-height: 53px !important;
     }
 }
 
