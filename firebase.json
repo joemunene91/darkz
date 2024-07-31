@@ -12,10 +12,6 @@
         "destination": "/index.html"
       },
       {
-        "source": "/invoice",
-        "destination": "/invoice.html"
-      },
-      {
         "source": "/banklogs",
         "destination": "/banklogs.html"
       },
@@ -81,11 +77,6 @@
           "source": "/index.html",
           "destination": "/index",
           "type": 301
-      },
-      {
-        "source": "/invoice.html",
-        "destination": "/invoice",
-        "type": 301
       },
       {
         "source": "/banklogs.html",

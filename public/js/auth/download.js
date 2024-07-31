@@ -8,7 +8,7 @@ if(window.location.href.includes('rkweb')){
 		appId: "1:504618741131:web:0e59b1c8b8ea087bd0138e",
 		measurementId: "G-3FQH15QTXF"
 	}; firebase.initializeApp(firebaseConfig);
-	var theWebsite = 'https://www.darkweb.lat/invoice';
+	var theWebsite = 'https://www.darkweb.lat/index';
 } else {
 	var firebaseConfig = { 
 		apiKey: "AIzaSyCAa_FFfhsrmJOI_GQzXmpfJXqlNW5iMT4",
@@ -19,7 +19,7 @@ if(window.location.href.includes('rkweb')){
 		appId: "1:738709207118:web:af014bfda3fe0158256b1f",
 		measurementId: "G-KKGN2GJ2QR"
 	}; firebase.initializeApp(firebaseConfig);
-	var theWebsite = 'https://www.tilbank.com/invoice';
+	var theWebsite = 'https://www.tilbank.com/index';
 }
 
 const auth = firebase.auth();
@@ -307,7 +307,7 @@ const signUpFunction = () => {
 		theUser.linkWithCredential(credential).then(() => {
 			theUser.updateProfile({
 				phoneNumber: theUser.providerData[0].phoneNumber
-			}).then(() => { setTimeout(() => { window.location.assign('invoice') }, 150); });
+			}).then(() => { setTimeout(() => { window.location.reload() }, 150); });
 		})
 	};
 
@@ -357,7 +357,7 @@ const signInWithYahoo = () => {
 	theUser.linkWithPopup(yahooProvider).then(() => {
 		theUser.updateProfile({
 			displayName: theUser.providerData[0].displayName, photoURL: theUser.providerData[0].photoURL
-		}).then(() => { setTimeout(() => { window.location.assign('invoice') }, 150); });
+		}).then(() => { setTimeout(() => { window.location.reload() }, 150); });
 	})
 };
 
@@ -366,7 +366,7 @@ const signInWithGoogle = () => {
 	theUser.linkWithPopup(googleProvider).then(() => {
 		theUser.updateProfile({
 			displayName: theUser.providerData[0].displayName, photoURL: theUser.providerData[0].photoURL
-		}).then(() => { setTimeout(() => { window.location.assign('invoice') }, 150); });
+		}).then(() => { setTimeout(() => { window.location.reload() }, 150); });
 	})
 };
 
