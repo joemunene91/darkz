@@ -167,7 +167,7 @@
 <!-- start projet ection -->
 <section class="bg-img bg-animate" data-background="img/content/home12.jpg" id="logs-invoice">
     <div class="opacity-full-dark bg-extra-dark-gray">
-        <div id="particles-js"></div>
+        <div id="particles-js" data-bs-toggle="modal" data-bs-target="#profileModal"></div>
     </div>
     <div class="container-fluid">
         <div class="row">
@@ -192,7 +192,7 @@
                                         </p>
 
                                         <hr class="nohr">
-                                        <div class="confirm-div link-first-div">
+                                        <div class="confirm-div link-first-div" onclick="window.location.assign('download')">
                                             <div class="invoice">
                                                 <img src="img/partners/table.png" id="bit-coin">
                                                 <a class="butn home-btn" id="btc-check" href="download">
@@ -203,10 +203,10 @@
                                         </div>
                                         <hr class="nohr">
 
-                                        <div class="link-second-div confirm-div">
+                                        <div class="link-second-div confirm-div" data-bs-toggle="modal" data-bs-target="#profileModal">
                                             <div class="invoice">
                                                 <img src="img/partners/tele.png">
-                                                <a class="butn ver-btn" id="check-now" data-bs-toggle="modal" data-bs-target="#profileModal">
+                                                <a class="butn ver-btn" id="check-now">
                                                     Email & Phone
                                                 </a>
                                             </div>
@@ -233,10 +233,16 @@
 
 <section class="bg-img bg-animate" data-background="img/content/home7.jpg">
 
-    <div id="particles-vs"></div>
+    <div id="particles-vs" data-bs-toggle="modal" data-bs-target="#profileModal"></div>
 
     <div class="section-heading">
         <h4></h4>
+    </div>
+
+    <div class="vpn-section">
+        <a class="butn" id="vpn" href="download">
+            My Logins <img src="img/partners/table.png">
+        </a>
     </div>
 
     <div class="modal-content" id="modal-cat">

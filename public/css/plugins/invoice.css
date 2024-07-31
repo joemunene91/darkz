@@ -227,10 +227,12 @@ blink {
 .link-first-div {
     margin-top: 13px !important;
     margin-bottom: -15px !important;
+    z-index: 99999999 !important;
 }
 .link-second-div {
     margin-top: 13px !important;
     margin-bottom: 15px !important;
+    z-index: 99999999 !important;
 }
 
 
