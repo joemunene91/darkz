@@ -63,7 +63,7 @@
                         delay: 12e3,
                         responsiveLevels: [4096, 1024, 778, 530],
                         gridwidth: [1370, 1024, 578, 400],
-                        gridheight: [170, 200, 190, 160],
+                        gridheight: [175, 200, 175, 150],
                         hideThumbs: 10,
                         sliderLayout: 'fullwidth',
                         autoHeight: 'on',
@@ -78,7 +78,8 @@
                                 drag_block_vertical: !1
                             },
                             arrows: {
-                                enable: !0,
+                                // enable: !0,
+                                enable: 0,
                                 style: "hermes",
                                 tmp: '<div class="tp-arr-allwrapper">  <div class="tp-arr-imgholder"></div> <div class="tp-arr-titleholder">{{title}}</div> </div>',
                                 left: {
