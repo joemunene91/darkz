@@ -26,7 +26,6 @@
     line-height: 35px;
     white-space: nowrap !important;
     padding: 7.8px 16.7px;
-    box-shadow: 1px 1px 3px 1px rgba(18, 29, 51, 0.5) !important;
 }
 @media screen and (max-width: 770px) {
     .butn.ver-btn,
@@ -259,20 +258,23 @@ blink {
     background: rgb(197, 231, 34) !important;
 }
 .home-btn:hover {
-    border: 1.4px solid rgb(214, 238, 24) !important;
+    border: 2px solid rgb(214, 238, 24) !important;
 }
 .ver-btn {
     background: lightgreen !important;
 }
 .ver-btn:hover {
-    border: 1.4px solid rgb(6, 231, 225) !important;
+    border: 2px solid rgb(6, 231, 225) !important;
 }
 
 #logo {
     border-radius: 50% !important;
 }
 
-
+.butn.ver-btn,
+.butn.home-btn {
+    box-shadow: 0 1px 3px 1.5px rgba(18, 29, 51, 0.5) !important;
+}
 
 
 
