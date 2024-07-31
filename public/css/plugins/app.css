@@ -2078,9 +2078,9 @@ td {
 #settings {
   position: absolute;
   white-space: nowrap;
-  top: 24%;
-  left: 24.5%;
-  right: 25%;
+  left: 24%;
+  right: 24%;
+  margin: 10px auto !important;
   font-size: 24px !important;
   opacity: 1 !important;
   letter-spacing: 1.5px !important;
@@ -2093,26 +2093,51 @@ td {
   margin: -5px auto -3px 5px !important;
   border-radius: 3px;
 }
-@media screen and (max-width: 506px) {
-  #settings {
-    font-size: 23px !important;
-  }
-}
 #canvas2 {
   border-radius: 50%;
   float: right !important;
   margin-right: 4px !important;
+  margin-bottom: 5px !important;
 }
+.ticketz label,
+#vpnModal label {
+  font-size: 17.5px !important;
+  margin-top: 14px !important;
+  margin-bottom: 8px !important;
+}
+.modal-body#first-modal {
+  border-bottom: none !important;
+  padding: 10px 1px !important;
+  height: 85px !important; 
+}
+@media screen and (max-width: 506px) {
+  #settings {
+    font-size: 23px !important;
+  }
+  .ticketz label,
+  #vpnModal label {
+    font-size: 17px !important;
+    margin-top: 10px !important;
+    margin-bottom: 6px !important;
+  }
+
+  #canvas2 {
+    border-radius: 50%;
+    float: right !important;
+    width: 60px !important;
+    height: 60px !important;
+  }
+}
+.logo-50 {
+  border-radius: 50% !important;
+}
+
+
 #thetot span {
   margin-left: 7px !important;
   font-weight: 700 !important;
 }
-#vpn-img {
-  border-radius: 0;
-  width: 67px;
-  height: 67px;
-  float: left !important;
-}
+
 ::placeholder {
   color: rgba(255, 255, 255, 0.73);
 }
@@ -2426,18 +2451,8 @@ ul.countdown li p {
   width: 100%;
 }
 
-.ticketz label,
-#vpnModal label {
-  font-size: 16.3px !important;
-  margin-top: 10px !important;
-  margin-bottom: 1px !important;
-}
-#vpnModal h4 {
-  font-size: 28px !important;
-}
-#label-mail {
-  margin-bottom: 10px !important;
-}
+
+
 .butn.modal-btn {
   margin: 3vh 0 2vh;
   font-size: 24px;
@@ -3248,15 +3263,6 @@ box-shadow: 0 1.3px 3.1px 0 rgba(73, 192, 208, 0.7);
 .tut:hover {
 box-shadow: 0 3px 7px 0 rgba(73, 192, 208, 0.7);
 }
-.modal-body#first-modal {
-  border-bottom: none !important;
-  padding: 8px 1px !important
-}
-.logo-50 {
-  border-radius: 50% !important;
-}
-
-
 
 
 
@@ -3551,21 +3557,3 @@ box-shadow: 0 3px 7px 0 rgba(73, 192, 208, 0.7);
   }
 }
 
-.t-head {
-  text-transform: uppercase;
-  font-weight: 600 !important;
-  text-align: center !important;
-  word-spacing: 17px;
-  color: rgba(255, 255, 255, 0.37);
-  padding: 15px !important;
-  opacity: 0.6 !important;
-  background: transparent !important;
-  box-shadow: none !important;
-
-  border-radius: 3px !important;
-}
-@media screen and (max-width: 792px) {
-  .t-head {
-    padding: 3px 5px !important;
-  }
-}

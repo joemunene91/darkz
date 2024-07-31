@@ -22,8 +22,6 @@ if(window.location.href.includes('rkweb')){
 	var theWebsite = 'https://www.tilbank.com/invoice';
 }
 
-const vpnHolder = document.getElementById("vpn-img");
-
 const theId = document.getElementById('the-id');
 
 const theDate = document.getElementById('the-date');
@@ -58,10 +56,6 @@ auth.onAuthStateChanged(user => {
 	}
 
 	var theGuy = user.uid;
-
-	if (user.photoURL) {
-		vpnHolder.setAttribute("src", user.photoURL); vpnHolder.classList.add('logo-50');
-	} 
 
 	if(user.email) {
 		theGuy = user.email;

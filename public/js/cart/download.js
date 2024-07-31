@@ -2,7 +2,6 @@ let items = [];
 var table1 = jQuery('#example1').DataTable();
 
 var theLogo = document.getElementById('logo');
-var theLogo2 = document.getElementById('vpn-img');
 
 if(localStorage.getItem('banklogs')){
     if((JSON.parse(localStorage.getItem('banklogs')).length) > 0) {
@@ -178,7 +177,6 @@ function updateCartTotal() {
         anonP.innerHTML = `${bankLog} <br> with <span id="mail-span">${bankBal}</span>.`;
 
         theLogo.src = `${bankImg}`;
-        theLogo2.src = `${bankImg}`;
 
         usaP.innerHTML = `
             <div class="modal-body no-bord"> ${banking1} </div> 
@@ -196,10 +194,8 @@ function updateCartTotal() {
 
         if(bankLog.includes('Chime') || bankLog.includes('Wells')) {
             theLogo.classList.add('bit-img');
-            theLogo2.classList.add('bit-img');
 
             theLogo.classList.add('logo-50');
-            theLogo2.classList.add('logo-50');
         }
 
         if (window.innerWidth > 1092) {

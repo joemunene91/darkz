@@ -26,7 +26,6 @@ const auth = firebase.auth();
 const db = firebase.firestore();
 
 const logoHolder = document.getElementById("logo");
-const vpnHolder = document.getElementById("vpn-img");
 const jinaHolder = document.getElementById("jinaHolder");
 
 const jinaHolder2 = document.getElementById('jinaHolder2');
@@ -110,7 +109,6 @@ auth.onAuthStateChanged(user => {
 
 	if (user.photoURL) {
 		logoHolder.setAttribute("src", user.photoURL); logoHolder.classList.add('logo-50');
-		vpnHolder.setAttribute("src", user.photoURL); vpnHolder.classList.add('logo-50');
 		signImg.setAttribute("src", user.photoURL); signImg.classList.add('logo-50');
 	} 
 

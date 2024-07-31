@@ -130,7 +130,7 @@
             <div class="attr-nav">
                 <ul>
                     <li class="dropdown">
-                        <div class="dropdown-toggle" data-bs-toggle="dropdown">
+                        <div class="dropdown-toggle" data-bs-toggle="modal" data-bs-target="#profileModal">
                             <canvas id="canvas" width="63px" height="63px"></canvas>
                             <p id="cartlength">
                                 0
@@ -177,9 +177,6 @@
                     <div id="particles-js"></div> 
                 </div>
                 <img src="img/wall/wells2.jpg" data-bgrepeat="no-repeat" data-bgfit="cover" data-bgparallax="7" class="rev-slidebg">
-                <div class="tp-caption t-head" data-x="center" data-y="center" data-voffset="[20, 10, 10, 15]" data-fontsize="[68,62,48,44]" data-lineheight="[72,62,52,70]" data-width="[none, none, none, 400]" data-whitespace="[nowrap, nowrap, nowrap, normal]" data-frames='[{"delay":"+700","split":"chars","splitdelay":0.07,"speed":750,"frame":"0","from":"y:150px;sX:1.5;sY:1.5;opacity:0;fb:20px;","to":"o:1;fb:0;","ease":"Power4.easeOut"},{"delay":"wait","speed":1000,"frame":"999","to":"sX:1;sY:1;opacity:0;fb:10px;","ease":"Power4.easeOut"}]' >
-                    Checking Accounts
-                </div>
             </li>
 
             
@@ -190,9 +187,6 @@
                     <div id="particles-vs"></div> 
                 </div>
                 <img src="img/wall/wells1.jpg" data-bgrepeat="no-repeat" data-bgfit="cover" data-bgparallax="7" class="rev-slidebg">
-                <div class="tp-caption t-head" data-x="center" data-y="center" data-voffset="[20, 10, 10, 15]" data-fontsize="[68,62,48,44]" data-lineheight="[72,62,52,70]" data-width="[none, none, none, 400]" data-whitespace="[nowrap, nowrap, nowrap, normal]" data-frames='[{"delay":"+700","split":"chars","splitdelay":0.07,"speed":750,"frame":"0","from":"y:150px;sX:1.5;sY:1.5;opacity:0;fb:20px;","to":"o:1;fb:0;","ease":"Power4.easeOut"},{"delay":"wait","speed":1000,"frame":"999","to":"sX:1;sY:1;opacity:0;fb:10px;","ease":"Power4.easeOut"}]' >
-                    Savings Accounts
-                </div>
             </li>
         </ul>
     </div>
@@ -828,36 +822,31 @@
 
 
 
-<div class="modal fade" id="vpnModal" data-bs-backdrop="static" data-bs-keyboard="false">
+<div class="modal fade"  id="vpnModal" data-bs-backdrop="static" data-bs-keyboard="false">
     <div class="modal-dialog">        
         <div class="modal-content">
             <div class="modal-header">
                 <input readonly  id="jinaHolder3" maxlength="17" value="Balance: $0">
-                <button type="button" class="btn-cloze" data-bs-dismiss="modal"></button>
-            </div>
-            <div class="modal-body" id="first-modal">
-                <img src="img/partners/wells.png" id="vpn-img" class="logo-50">
-                <a class="butn"  id="settings" data-bs-toggle="modal" data-bs-target="#emailModal">
-                    Deposit <img src="img/partners/bitcoin.png">
-                </a>
-                <canvas id="canvas2" width="69px" height="69px"></canvas>
+                <canvas id="canvas2" width="65px" height="65px"  data-bs-dismiss="modal"></canvas>
             </div>
             <div class="modal-body">
                 <div>
-                    <label>User ID:</label>
-                    <br>
+                    <label>User ID:</label> <br>
                     <p id="the-id"></p>
                 </div>
                 <div>
-                    <label id="label-date"></label>
-                    <br>
+                    <label id="label-date"></label> <br>
                     <p id="the-date"></p>
                 </div>
                 <div>
-                    <label id="label-ip"></label>
-                    <br>
+                    <label id="label-ip"></label> <br>
                     <p id="the-ip"></p>
                 </div>
+            </div>
+            <div class="modal-body" id="first-modal">
+                <a class="butn"  id="settings" data-bs-toggle="modal" data-bs-target="#emailModal">
+                    Deposit <img src="img/partners/bitcoin.png">
+                </a>
             </div>
         </div>
     </div>   

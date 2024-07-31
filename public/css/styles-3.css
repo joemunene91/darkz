@@ -155,10 +155,7 @@ blink {
 .scroll-to-top:visited {
   color: #0073ad;
 }
-.t-head{
-  text-shadow: 0 0 1.4px rgba(0, 115, 173, 0.92);
-  box-shadow: 0 0 0 1.4px rgba(0, 115, 173, 0.05) !important;
-}
+
 .butn {
   border: 1.4px solid #0073ad;
 }

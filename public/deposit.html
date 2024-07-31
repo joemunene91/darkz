@@ -129,7 +129,7 @@
             <div class="attr-nav">
                 <ul>
                     <li class="dropdown">
-                        <div class="dropdown-toggle" data-bs-toggle="dropdown">
+                        <div class="dropdown-toggle" data-bs-toggle="modal" data-bs-target="#vpnModal">
                             <canvas id="canvas" width="63px" height="63px"></canvas>
                             <p id="cartlength">
                                 0
@@ -499,41 +499,35 @@
     <i class="fas fa-angle-up"></i>
 </a>
 
-<div class="modal fade" id="vpnModal" data-bs-backdrop="static" data-bs-keyboard="false">
+<div class="modal fade"  id="vpnModal" data-bs-backdrop="static" data-bs-keyboard="false">
     <div class="modal-dialog">        
         <div class="modal-content">
             <div class="modal-header">
                 <input readonly  id="jinaHolder3" maxlength="17" value="Balance: $0">
-                <button type="button" class="btn-cloze" data-bs-dismiss="modal"></button>
-            </div>
-            <div class="modal-body" id="first-modal">
-                <img src="img/partners/cloud.png" id="vpn-img">
-                <a class="butn"  id="settings" data-bs-toggle="modal" data-bs-target="#emailModal">
-                    Deposit <img src="img/partners/bitcoin.png">
-                </a>
-                <canvas id="canvas2" width="69px" height="69px"></canvas>
+                <canvas id="canvas2" width="65px" height="65px"  data-bs-dismiss="modal"></canvas>
             </div>
             <div class="modal-body">
                 <div>
-                    <label>User ID:</label>
-                    <br>
+                    <label>User ID:</label> <br>
                     <p id="the-id"></p>
                 </div>
                 <div>
-                    <label id="label-date"></label>
-                    <br>
+                    <label id="label-date"></label> <br>
                     <p id="the-date"></p>
                 </div>
                 <div>
-                    <label id="label-ip"></label>
-                    <br>
+                    <label id="label-ip"></label> <br>
                     <p id="the-ip"></p>
                 </div>
+            </div>
+            <div class="modal-body" id="first-modal">
+                <a class="butn"  id="settings" data-bs-toggle="modal" data-bs-target="#emailModal">
+                    Deposit <img src="img/partners/bitcoin.png">
+                </a>
             </div>
         </div>
     </div>   
 </div>
-
 
 <div class="modal fade" id="exampleModal" data-bs-backdrop="static" data-bs-keyboard="false">
     <div class="modal-dialog">

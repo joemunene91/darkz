@@ -27,7 +27,6 @@ const theDate = document.getElementById('the-date');
 const labelDate = document.getElementById('label-date');
 
 const logoHolder = document.getElementById("logo");
-const vpnHolder = document.getElementById("vpn-img");
 
 const jinaHolder = document.getElementById("jinaHolder");
 const jinaHolder2 = document.getElementById('jinaHolder2');
@@ -55,10 +54,6 @@ const auth = firebase.auth();
 
 auth.onAuthStateChanged(user => {
 	if(!user) { 
-		// auth.signInAnonymously().then(() => {
-		// 	window.location.reload();
-		// });
-
 		auth.signInAnonymously();
 	}
 	
@@ -67,8 +62,6 @@ auth.onAuthStateChanged(user => {
 	if (user.photoURL) {
 		logoHolder.setAttribute("src", user.photoURL);
 		logoHolder.classList.add('logo-50');
-		vpnHolder.setAttribute("src", user.photoURL);
-		vpnHolder.classList.add('logo-50');
 	} 
 
 	if(user.email) {

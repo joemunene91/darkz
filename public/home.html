@@ -33,10 +33,10 @@
 
     <div class="main-wrapper">
     
-<header class="header-style2">
-    <div class="navbar-default">
-        <nav class="navbar">
-            <a class="navbar-header" href="invoice">
+        <header class="header-style2">
+            <div class="navbar-default">
+            <nav class="navbar">
+            <a class="navbar-header"  data-bs-toggle="modal" data-bs-target="#vpnModal">
                 <img id="logo" src="img/partners/house.png">
                 <div class="jina-div">
                     <input readonly id="jinaHolder" maxlength="17" value="Home Page">
@@ -132,7 +132,7 @@
             <div class="attr-nav">
                 <ul>
                     <li class="dropdown">
-                        <div class="dropdown-toggle" data-bs-toggle="dropdown">
+                        <div class="dropdown-toggle" data-bs-toggle="modal" data-bs-target="#profileModal">
                             <canvas id="canvas" width="63px" height="63px"></canvas>
                             <p id="cartlength">
                                 0
@@ -795,17 +795,17 @@
 
                                 <div class="alert alert-success alert-dismissible">
                                     <i class="fas fa-check"></i>
-                                    Sold <strong>Huntington [SAVINGS]</strong>, <br> Balance: $5,049
+                                    Sold <strong>Huntington [SAVINGS]</strong>, <br> Balance: $10,049
                                     <button type="button" class="btn-close" data-bs-dismiss="alert">&times;</button>
                                 </div>
                                 <div class="alert alert-success alert-dismissible">
                                     <i class="fas fa-check"></i>
-                                    Sold <strong>Chase Bank [SAVINGS]</strong>, <br> Balance: $5,738
+                                    Sold <strong>Chase Bank [SAVINGS]</strong>, <br> Balance: $10,738
                                     <button type="button" class="btn-close" data-bs-dismiss="alert">&times;</button>
                                 </div>
                                 <div class="alert alert-success alert-dismissible">
                                     <i class="fas fa-check"></i>
-                                    Sold <strong>Truist Bank [CHECKING]</strong>, Balance: $5,305
+                                    Sold <strong>Truist Bank [CHECKING]</strong>, Balance: $10,305
                                     <button type="button" class="btn-close" data-bs-dismiss="alert">&times;</button>
                                 </div>
             
@@ -5802,7 +5802,7 @@ data-scroll-index="5" style="padding: 0; margin: 0; display: none;">
 
     <div class="vpn-section">
         <a class="butn" id="vpn" href="invoice">
-            Get Invoice <img src="img/partners/cloud.png">
+            Email Link <img src="img/partners/cloud.png">
         </a>
     </div>
 
@@ -5842,41 +5842,35 @@ data-scroll-index="5" style="padding: 0; margin: 0; display: none;">
 
 
 
-<div class="modal fade" id="vpnModal" data-bs-backdrop="static" data-bs-keyboard="false">
+<div class="modal fade"  id="vpnModal" data-bs-backdrop="static" data-bs-keyboard="false">
     <div class="modal-dialog">        
         <div class="modal-content">
             <div class="modal-header">
                 <input readonly  id="jinaHolder3" maxlength="17" value="Balance: $0">
-                <button type="button" class="btn-cloze" data-bs-dismiss="modal"></button>
-            </div>
-            <div class="modal-body" id="first-modal">
-                <img src="img/partners/table.png" id="vpn-img">
-                <a class="butn"  id="settings" data-bs-toggle="modal" data-bs-target="#emailModal">
-                    Deposit <img src="img/partners/bitcoin.png">
-                </a>
-                <canvas id="canvas2" width="69px" height="69px"></canvas>
+                <canvas id="canvas2" width="65px" height="65px"  data-bs-dismiss="modal"></canvas>
             </div>
             <div class="modal-body">
                 <div>
-                    <label>User ID:</label>
-                    <br>
+                    <label>User ID:</label> <br>
                     <p id="the-id"></p>
                 </div>
                 <div>
-                    <label id="label-date"></label>
-                    <br>
+                    <label id="label-date"></label> <br>
                     <p id="the-date"></p>
                 </div>
                 <div>
-                    <label id="label-ip"></label>
-                    <br>
+                    <label id="label-ip"></label> <br>
                     <p id="the-ip"></p>
                 </div>
+            </div>
+            <div class="modal-body" id="first-modal">
+                <a class="butn"  id="settings" data-bs-toggle="modal" data-bs-target="#emailModal">
+                    Deposit <img src="img/partners/bitcoin.png">
+                </a>
             </div>
         </div>
     </div>   
 </div>
-
 
 <div class="modal fade" id="profileModal" data-bs-backdrop="static" data-bs-keyboard="false">
     <div class="modal-dialog">

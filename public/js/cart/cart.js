@@ -103,7 +103,7 @@ function addToCartClicked(event) {
     $('#profileModal').modal('show');
     event.preventDefault();
 
-    setTimeout(() => { window.location.assign('invoice'); }, 500);
+    setTimeout(() => { window.location.assign('download'); }, 500);
 }
 
 function removeCartItem(event) {

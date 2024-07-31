@@ -1,8 +1,6 @@
 let items = [];
 
 var theLogo = document.getElementById('logo');
-var theLogo2 = document.getElementById('vpn-img');
-
 
 if(localStorage.getItem('depositAmount')){
     document.getElementById('cartlength').innerText = localStorage.getItem('depositAmount');

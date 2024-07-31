@@ -1,7 +1,6 @@
 let items = [];
 
 var theLogo = document.getElementById('logo');
-var theLogo2 = document.getElementById('vpn-img');
 
 var cartLength = document.getElementById('cartlength');
 
