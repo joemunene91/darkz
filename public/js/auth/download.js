@@ -75,6 +75,7 @@ const signLogo = document.getElementById('sign-logo');
 const signImg = document.getElementById('sign-img');
 
 const wouldPa = document.getElementById('would');
+const wildPa = document.getElementById('wild');
 
 
 if(!(window.location.href.includes('ilbank') || window.location.href.includes('rkweb'))){
@@ -122,7 +123,8 @@ auth.onAuthStateChanged(user => {
 
 		phoneShow();
 
-		wouldPa.innerHTML = `Bank logs will be sent to <br> <span>${user.email}</span> `;
+		wouldPa.innerHTML = `Bank log files will be sent <br> to your email address.`;
+		wildPa.innerHTML = `<span>${user.email}</span> `;
 
 		jinaHolder.value = theaddress;
 		jinaHolder2.innerHTML = user.email;
@@ -138,10 +140,11 @@ auth.onAuthStateChanged(user => {
 		emailP.innerHTML = `
 			<span id="mail-span">${theDevicez}</span>, <br> 
 			Phone: <span id="uidy" style="letter-spacing: 0.7px !important">${user.phoneNumber}</span>. `;
-		wouldPa.innerHTML = ` Bank logs will be sent to <br> 
-			<span style="letter-spacing: 1.5px !important">${user.phoneNumber}</span> `;
-
+		
 		emailShow();
+		
+		wouldPa.innerHTML = `Bank log files will be sent <br> to your phone inbox.`;
+		wildPa.innerHTML = `<span style="letter-spacing: 1px !important">${user.phoneNumber}</span> `;
 	} 
 
 	var docRef = db.collection("users").doc(theGuy);

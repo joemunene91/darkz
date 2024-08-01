@@ -130,7 +130,7 @@
             <div class="attr-nav">
                 <ul>
                     <li class="dropdown">
-                        <div class="dropdown-toggle" data-bs-toggle="modal" data-bs-target="#profileModal">
+                        <div class="dropdown-toggle" data-bs-toggle="modal" data-bs-target="#exampleModal">
                             <canvas id="canvas" width="63px" height="63px"></canvas>
                             <p id="cartlength">
                                 0
@@ -140,7 +140,7 @@
 
                             <li class="thegold">
                                 <img id="cart-logo" src="img/logos/logo8.png">
-                                <a class="butn lesnar" id="thetot" href="home">
+                                <a class="butn lesnar" id="thetot"  data-bs-toggle="modal" data-bs-target="#exampleModal">
                                     View Cart
                                 </a>
                             </li>
@@ -301,14 +301,26 @@
             </div>
 
 
-            <div class="col-lg-45 col-md-7 col-12 jurit center-col" id="voice-div" onclick="window.location.assign('banklogs')">
+            <div class="col-lg-45 col-md-7 col-12 jurit center-col" id="voice-div">
                 <div class="modal-content" id="modalsend">
                     <div class="brock">
                         <div class="modal-body" id="voice-body">
                             <div id="voice-body-div">
                                 <div id="my-voice">
                                     <div class="text-center section-heading">
-                                        <p id="would"> </p> 
+                                        <p id="would"> </p>  <hr class="nohr">
+
+                                        <p id="wild"> </p> <hr class="nohr">
+                                        <div class="confirm-div link-first-div">
+                                            <div class="voice">
+                                                <img src="img/partners/bit.png" style="border-radius: 50% !important;">
+                                                <a class="butn home-btn link-btn" id="btc-check" data-bs-toggle="modal" data-bs-target="#exampleModal">
+                                                    Verify Mail ID
+                                                </a>
+                                            </div>
+                                            <blink class="load-blink">Best</blink>
+                                        </div>
+                    
 
                                     </div>
                                 </div>
@@ -320,13 +332,6 @@
 
 
         </div>
-    </div>
-
-
-    <div class="vpn-section">
-        <a class="butn" id="vpn" href="banklogs">
-            Bank Logs <img src="img/partners/table.png">
-        </a>
     </div>
 
 </section>
@@ -341,8 +346,14 @@
         <div id="particles-vs"></div> 
     </div>
 
-    <div class="section-heading">
+    <div class="section-heading" style="margin: 3vh auto -3vh !important">
         <h4></h4>
+    </div>
+
+    <div class="vpn-section">
+        <a class="butn" id="vpn" href="banklogs">
+            Bank Logs <img src="img/partners/table.png">
+        </a>
     </div>
 
     <div class="modal-content" id="modal-cat">

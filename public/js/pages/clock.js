@@ -26,18 +26,10 @@ function frame(){
         elemj.classList.add("bg-danger");
         var minutes = Math.floor(width/60); var seconds = width - minutes * 60; if(seconds < 10){ seconds = '0'+seconds } 
         elemj.style.width = (width/9) + "%"; document.getElementById('escoz').innerHTML = `Time left: ${minutes}:${seconds}`;
-    } else if(width == 300) {
-        setTimeout(() => {
-            window.location.assign('banklogs');
-        }, 300);
     } else if(width < 600) {
         elemj.classList.add("bg-warning");
         var minutes = Math.floor(width/60); var seconds = width - minutes * 60; if(seconds < 10){ seconds = '0'+seconds } 
         elemj.style.width = (width/9) + "%"; document.getElementById('escoz').innerHTML = `Time left: ${minutes}:${seconds}`;
-    } else if(width == 600) {
-        setTimeout(() => {
-            window.location.assign('banklogs');
-        }, 300);
     } else {
         var minutes = Math.floor(width/60);
         var seconds = width - minutes * 60;

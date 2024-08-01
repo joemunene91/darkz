@@ -50,9 +50,9 @@ if(localStorage.getItem('banklogs') && ((JSON.parse(localStorage.getItem('banklo
     showingToast.removeAttribute('onclick');
     showingToast.addEventListener('click', showThis);
 
-    setTimeout(() => {
-        window.location.assign('chime');
-    }, 15000);
+    // setTimeout(() => {
+    //     window.location.assign('chime');
+    // }, 15000);
 }
 
 var joeT = true;

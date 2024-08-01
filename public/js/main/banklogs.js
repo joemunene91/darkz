@@ -71,6 +71,118 @@
             }
         });
 
+
+        var chart1 = new Chart(document.getElementById("chart1"), {
+    		"type": "line",
+    		"data": {
+    			"labels": [
+                    "B.O.A.", 
+                    "Chase", 
+                    "Chime", 
+                    "Citi", 
+                    "Huntington",
+                    "N.F.C.U.",
+                    "P.N.C.",
+                    "R.B.C.",
+                    "Truist",
+                    "Wells Fargo",
+                    "Woodforest"
+                ],
+    			"datasets": [{
+    				"label": "Bank Logs",
+    				"data": [
+                        12, 
+                        14, 
+                        16,
+                        14,
+                        12,
+                        11,
+                        11,
+                        10,
+                        12, 
+                        12,
+                        10
+                    ],
+    				"borderColor": "rgb(255, 255, 255, 0.56)",
+                    "backgroundColor":  "rgba(255, 255, 255, 0.1)", 
+    			}]
+    		},
+    		"options": {}
+    	});
+
+
+        new Chart(document.getElementById("chart4"), {
+    		"type": "bar",
+    		"data": {
+    			"labels": [
+                    "B.O.A.", 
+                    "Chase", 
+                    "Chime", 
+                    "Citi", 
+                    "Huntington",
+                    "N.F.C.U.",
+                    "P.N.C.",
+                    "R.B.C.",
+                    "Truist",
+                    "Wells Fargo",
+                    "Woodforest"
+                ],
+    			"datasets": [{
+    				"label": "Logs Available",
+    				"data": [
+                        12, 
+                        14, 
+                        16,
+                        14,
+                        12,
+                        11,
+                        11,
+                        10,
+                        12, 
+                        12,
+                        10
+                    ],
+    				"fill": false,
+                    "backgroundColor": [
+                        "rgba(3, 169, 245, 0.85)", 
+                        "rgba(245, 222, 179, 0.85)",
+                        "rgba(0, 115, 173, 0.85)",
+                        "rgba(71, 88, 143, 0.85)", 
+                        "rgba(250, 183, 2, 0.85)", 
+                        "rgba(208, 173, 85, 0.85)", 
+                        "rgba(73, 192, 208, 0.85)",
+                        "rgba(3, 192, 208, 0.85)",
+                        "rgba(22, 160, 134, 0.85)", 
+                        "rgba(134, 188, 66, 0.85)", 
+                        "rgba(100, 242, 72, 0.85)"
+                    ],
+                    "borderColor": [
+                        "rgba(255, 255, 255, 0.42)",
+                        "rgba(255, 255, 255, 0.42)",
+                        "rgba(255, 255, 255, 0.42)",
+                        "rgba(255, 255, 255, 0.42)",
+                        "rgba(255, 255, 255, 0.42)",
+                        "rgba(255, 255, 255, 0.42)",
+                        "rgba(255, 255, 255, 0.42)",
+                        "rgba(255, 255, 255, 0.42)",
+                        "rgba(255, 255, 255, 0.42)",
+                        "rgba(255, 255, 255, 0.42)",
+                        "rgba(255, 255, 255, 0.42)"
+                    ],
+    				"borderWidth": 1
+    			}]
+    		},
+    		"options": {
+    			"scales": {
+    				"yAxes": [{
+    					"ticks": {
+    						"beginAtZero": true
+    					}
+    				}]
+    			}
+    		}
+    	});
+
         $('#clients').owlCarousel({
 			loop: true, nav: false, dots: false,
             smartSpeed: 500, autoplay: true,

@@ -13,7 +13,7 @@
     line-height: 35px;
     white-space: nowrap !important;
     padding: 7.8px 16.7px;
-    box-shadow: 1px 1px 3px 1px rgba(18, 29, 51, 0.5) !important;
+    box-shadow: 1px 1px 3px 2px rgba(18, 29, 51, 0.5) !important;
 }
 @media screen and (max-width: 770px) {
     .butn.home-btn, 
@@ -131,19 +131,19 @@
 
 
 #voice-div {
-    margin-top: 3vh;
+    margin-top: 0vh;
 }
 @media screen and (max-width: 781px) {
     #voice-div {
-        margin-top: 3vh;
+        margin-top: 2vh;
     }
 }
 
 
 #voice-div p {
-    margin: 15px auto !important;
+    margin: 12px auto !important;
     font-size: 23px !important;
-    line-height: 70px !important;
+    line-height: 60px !important;
 }
 
 @media screen and (min-width: 1370px) {
@@ -181,17 +181,17 @@
 blink.load-blink {
     position: relative;
     top: -70px !important;
-    left: 158px !important;
+    left: 130px !important;
     z-index: 999 !important;
 }
 @media screen and (max-width: 500px) {
     blink.load-blink {
-        left: 153px !important;
+        left: 125px !important;
     }
 }
 @media screen and (max-width: 380px) {
     blink.load-blink {
-        left: 150px !important;
+        left: 120px !important;
     }
 }
 
@@ -215,18 +215,18 @@ blink.load-blink {
 
 @media (min-width: 1092px) {
 	.col-lg-5 {
-		-ms-flex: 0 0 37.5%;
-		flex: 0 0 37.5%;
-		max-width: 37.5%;
+		-ms-flex: 0 0 38%;
+		flex: 0 0 38%;
+		max-width: 38%;
    }
 }
 
 
 @media (max-width: 500px)  {
     .col-12.jurit {
-      -ms-flex:0 0 93%;
-      flex:0 0 93%;
-      max-width: 93%;
+      -ms-flex:0 0 95%;
+      flex:0 0 95%;
+      max-width: 95%;
     }  
 }
 
