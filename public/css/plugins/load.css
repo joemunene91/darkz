@@ -135,7 +135,7 @@
 }
 @media screen and (max-width: 781px) {
     #voice-div {
-        margin-top: 2vh;
+        margin-top: 3vh;
     }
 }
 
@@ -224,9 +224,9 @@ blink.load-blink {
 
 @media (max-width: 500px)  {
     .col-12.jurit {
-      -ms-flex:0 0 92%;
-      flex:0 0 92%;
-      max-width: 92%;
+      -ms-flex:0 0 93%;
+      flex:0 0 93%;
+      max-width: 93%;
     }  
 }
 
@@ -235,11 +235,11 @@ blink.load-blink {
 
 .link-first-div {
     margin-top: 5px !important;
-    margin-bottom: 1px !important;
+    margin-bottom: -3px !important;
 }
 .link-second-div {
     margin-top: 5px !important;
-    margin-bottom: 10px !important;
+    margin-bottom: 7px !important;
 }
 
 
