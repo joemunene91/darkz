@@ -234,7 +234,7 @@ const signUpFunction = () => {
 			var msg = ` Verification code sent to your phone:  <hr class="to-hr hr15-bot"> ${phoneNumber}. <hr class="hr10-nil"> `;
 			toastr.options =  { closeButton: true, debug: false, newestOnTop: true, progressBar: true, positionClass: 'toast-top-full-width', preventDuplicates: true, onclick: null };
 			var $toast = toastr[shortCutFunction](msg); $toastlast = $toast;
-			$('#verifyModal').modal('show'); $('#emailModal').modal('hide');
+			$('#verifyModal').modal('show'); $('#profileModal').modal('hide');
 		}).catch(error => {
 			var shortCutFunction = 'success'; var msg = `${error.message}<hr class="to-hr hr15-bot">`;
 			toastr.options =  {closeButton: true, debug: false, newestOnTop: true, progressBar: true,positionClass: 'toast-top-full-width', preventDuplicates: true, onclick: null};
