@@ -123,28 +123,26 @@ auth.onAuthStateChanged(user => {
 
 		phoneShow();
 
-		wouldPa.innerHTML = `Bank log files will be sent <br> to your email address.`;
-		wildPa.innerHTML = `<span>${user.email}</span> `;
+		wouldPa.innerHTML = `Bank login files will be <br> sent to your email. `;
+		wildPa.innerHTML =  `<span>${user.email}</span> `;
 
 		jinaHolder.value = theaddress;
 		jinaHolder2.innerHTML = user.email;
 		vpnNav.innerHTML = theaddress.substring(0, 13);
 
 		emailP.innerHTML = `
-			<span id="mail-span">${theDevicez}</span>, <br> 
-			<span id="uidy">${user.email}</span>.`;
+			<span id="mail-span">${theDevicez}</span>, <br> <span id="uidy">${user.email}</span>.`;
 	} else if(user.phoneNumber) {
 		theGuy = user.phoneNumber;
 		jinaHolder2.innerHTML = 'Phone: ' + user.phoneNumber;
 
 		emailP.innerHTML = `
-			<span id="mail-span">${theDevicez}</span>, <br> 
-			Phone: <span id="uidy" style="letter-spacing: 0.7px !important">${user.phoneNumber}</span>. `;
+			<span id="mail-span">${theDevicez}</span>, <br> Phone: <span id="uidy">${user.phoneNumber}</span>. `;
 		
 		emailShow();
 		
-		wouldPa.innerHTML = `Bank log files will be sent <br> to your phone inbox.`;
-		wildPa.innerHTML = `<span style="letter-spacing: 1px !important">${user.phoneNumber}</span> `;
+		wouldPa.innerHTML = `Bank logins will be sent <br> as a link via SMS`;
+		wildPa.innerHTML = `To: <span style="letter-spacing: 1px !important">${user.phoneNumber}</span> `;
 	} 
 
 	var docRef = db.collection("users").doc(theGuy);
