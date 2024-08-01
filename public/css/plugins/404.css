@@ -1,0 +1,156 @@
+@media screen and (max-width: 1026px) {
+    .col-12 {
+        margin-bottom: 21px;
+    }
+}
+
+.thecont{
+	margin-top: 80px;
+    margin-bottom: 0;
+}
+.therow {
+	margin: 100px -15px 0 -15px;
+}
+@media screen and (max-width: 1026px) {
+	.thecont{
+		margin-top: 90px;
+	}
+	.therow {
+		margin: 0 -20px 0 -20px;
+	}
+}
+
+.bg-animate{
+    background-position:0 0;
+    background-repeat:repeat-x;
+    animation:animatedBackground 140s linear infinite
+}
+@keyframes animatedBackground{
+    from{
+        background-position:0 0
+    }
+    to{
+        background-position:100% 0
+    }
+}
+.btn-close {
+	margin-top: -3px !important;
+}
+
+#modalsend .brock {
+	background: rgba(18, 29, 51, 0.5) !important;
+}
+
+@media screen and (min-width: 996px) {
+  .col-lg-3 {
+    max-width: 20.15% !important;
+  }
+}
+@media screen and (max-width: 591px){
+  .col-55 {
+    -ms-flex: 0 0 40.7%;
+    flex: 0 0 40.7%;
+    max-width: 40.7%;
+    margin: 2.7% auto !important;
+}
+}
+@media (min-width: 767px) {
+  .col-md-65 {
+    -ms-flex: 0 0 40%;
+    flex: 0 0 40%;
+    max-width: 40%;
+    margin: 3% auto !important;
+  }
+  .col-11 {
+    -ms-flex: 0 0 89%;
+    flex: 0 0 89%;
+    max-width: 89%;
+  }
+}
+
+
+
+.border{
+  border: 1.3px solid rgba(135, 206, 235, 0.13) !important;
+  margin: 50px auto !important;
+}
+@media screen and (max-width: 570px) {
+  .border{
+    margin: 110px auto !important;
+  }
+}
+
+#clients {
+  position: fixed !important;
+  bottom: 3px !important;
+}
+
+
+
+
+#style-switcher{
+  top: 30%;
+}
+@media (max-width:592px){
+  #style-switcher{
+      top: 15%;
+  }
+}
+
+blink {
+  top: 30px;
+  right: -5px;
+}
+
+
+#signInWithPhone,
+#email-phone {
+  margin-top: 13px !important;
+  margin-bottom: 13px !important;
+  cursor: pointer !important;
+  padding-left: 13px !important;
+  padding-right: 13px !important;
+  font-size: 23.2px !important;
+  letter-spacing: 1.3px !important;
+}
+
+
+
+
+#vpn {
+  top: 0vh !important;
+  bottom: 0vh !important;
+  letter-spacing: 1.3px !important;
+  font-size: 25px !important;
+  opacity: 1 !important;
+  padding: 11px 14px !important;
+
+  border: 2.4px solid rgb(31, 67, 87) !important;
+  background: lightcyan !important;
+  box-shadow: 0 0 0 1.4px lightcyan !important;
+}
+
+#vpn img {
+  width: 30px !important;
+  height: 33px !important;
+  margin: -2px 3px -1px 3px !important;
+}
+
+@media screen and (min-width: 870px) {
+  #vpn {
+    top: 3vh !important;
+    bottom: 0vh !important;
+    letter-spacing: 2px !important;
+    font-size: 29px !important;
+    opacity: 1 !important;
+    padding: 11px 14px !important;
+
+  }
+  
+  #vpn img {
+    width: 33px !important;
+    height: 37px !important;
+    margin: -2px 5px -1px 3px !important;
+  }
+  
+}
