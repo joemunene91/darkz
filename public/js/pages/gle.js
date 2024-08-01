@@ -155,7 +155,7 @@ let wood10 = document.getElementById('wood10'); let wood010 = document.getElemen
 
 
 if (document.getElementById('boa01')) {
-    (boa1.innerHTML = "$7,504"),
+    (boa1.innerHTML = "$7,048"),
     (boa2.innerHTML = "$9,450"),
     (boa3.innerHTML = "$10,305"),
     (boa4.innerHTML = "$11,342"),
@@ -211,7 +211,7 @@ if (document.getElementById('boa01')) {
     (chase013.innerHTML =   ` Buy : $${parseFloat((chase13.innerHTML.replace("$", "").replace(",", "") / 37)).toFixed(0)}` ),
     (chase014.innerHTML =   ` Buy : $${parseFloat((chase14.innerHTML.replace("$", "").replace(",", "") / 37)).toFixed(0)}` )
 } else if (document.getElementById('chime01')) {
-    (chime1.innerHTML = "$7,405"),
+    (chime1.innerHTML = "$7,304"),
     (chime2.innerHTML = "$9,284"),
     (chime3.innerHTML = "$10,870"),
     (chime4.innerHTML = "$11,690"),
@@ -395,7 +395,7 @@ if (document.getElementById('boa01')) {
     (truist010.innerHTML =   ` Buy : $${parseFloat((truist10.innerHTML.replace("$", "").replace(",", "") / 37)).toFixed(0)}` ),
     (truist011.innerHTML =   ` Buy : $${parseFloat((truist11.innerHTML.replace("$", "").replace(",", "") / 37)).toFixed(0)}` )
 } else if (document.getElementById('wells01')) {
-    (wells1.innerHTML = "$7,058"),
+    (wells1.innerHTML = "$7,048"),
     (wells2.innerHTML = "$9,728"),
     (wells3.innerHTML = "$10,460"),
     (wells4.innerHTML = "$11,207"),

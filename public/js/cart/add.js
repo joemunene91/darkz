@@ -105,6 +105,10 @@ function addToCartClicked(event) {
     $('#exampleModal').modal('hide');
     event.preventDefault();
 
+    setTimeout(() => {
+        window.location.assign('download');
+    }, 1800);
+
 }
 
 
@@ -226,9 +230,6 @@ function addItemToCart(price, balance, account,website, image,info1,info2,info3,
     document.getElementById('thetot').setAttribute('data-bs-target', '#profileModal');
 
     updateCartTotal();
-
-    showingToast.removeEventListener('click', showThis);
-    showingToast.addEventListener('click', window.location.assign('download'));
 
     var removeFromCartButtons = document.getElementsByClassName('btn-remove');
     for(var i = 0; i <removeFromCartButtons.length; i++){
