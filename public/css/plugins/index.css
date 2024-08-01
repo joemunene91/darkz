@@ -72,11 +72,11 @@
 
 .border{
   border: 1.3px solid rgba(135, 206, 235, 0.13) !important;
-  margin: 37px auto !important;
+  margin: 50px auto !important;
 }
 @media screen and (max-width: 570px) {
   .border{
-    margin: 92px auto !important;
+    margin: 110px auto !important;
   }
 }
 
@@ -86,78 +86,7 @@
 }
 
 
-  
-@media screen and (min-width: 829px) {
-  .banner-col {
-      margin-top: -60px !important;
-      margin-bottom: -10px !important;
-  }
-}
-@media screen and (max-width: 591px){
-  .banner-col {
-      margin-top: -30px !important;
-      margin-bottom: -30px !important;
-  }
-}
-  
-  
-.banner-words-wrapper {
-  display: inline-block;
-  position: relative;
-  text-align: left;
-  overflow: hidden;
-  margin-bottom: 10px;
-  opacity: 0.7 !important;
-  text-align: center;
-}
-.banner-words-wrapper b {
-  font-weight: 700;
-  font-family: "Montserrat", sans-serif;
-  display: inline-block;
-  position: absolute;
-  white-space: nowrap;
-  left: 0;
-  top: 0;
-  text-transform: uppercase;
-  font-size: 58px;
-}
-.banner-words-wrapper b.is-visible {
-  position: relative;
-}
-.banner-headline b {
-  opacity: 0;
-}
-.banner-headline b.is-visible {
-  opacity: 1;
-}
-.banner-headline .banner-words-wrapper:after {
-  content: "";
-  position: absolute;
-  top: 0;
-  right: 0;
-  width: 3px;
-  height: 100%;
-}
-@media screen and (max-width: 767px) {
-  .banner-words-wrapper b {
-      font-size: 42px;
-  }
-}
-@media screen and (max-width: 570px) {
-  .banner-words-wrapper b {
-    font-size: 40px;
-  }
-}
-@media screen and (max-width: 397px) {
-  .banner-words-wrapper b {
-    font-size: 38px;
-  }
-}
-@media screen and (max-width: 370px) {
-  .banner-words-wrapper b {
-    font-size: 36px;
-  }
-}
+
 
 #style-switcher{
   top: 30%;
@@ -190,7 +119,7 @@ blink {
 
 #vpn {
   top: 0vh !important;
-  bottom: 0px !important;
+  bottom: 0vh !important;
   letter-spacing: 1.3px !important;
   font-size: 25px !important;
   opacity: 1 !important;
@@ -209,8 +138,8 @@ blink {
 
 @media screen and (min-width: 870px) {
   #vpn {
-    top: 10vh !important;
-    bottom: 60px !important;
+    top: 0vh !important;
+    bottom: 0vh !important;
     letter-spacing: 2px !important;
     font-size: 29px !important;
     opacity: 1 !important;
