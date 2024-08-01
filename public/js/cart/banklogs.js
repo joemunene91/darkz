@@ -38,6 +38,9 @@ if(localStorage.getItem('banklogs') && ((JSON.parse(localStorage.getItem('banklo
         ]).draw();
     });
 
+    document.getElementById('home-row').style.display = 'none';
+    document.getElementById('qa-row').style.display = 'none';
+
     var removeFromCartButtons = document.getElementsByClassName('btn-remove');
     for(var i = 0; i <removeFromCartButtons.length; i++){
         var button = removeFromCartButtons[i];

@@ -12,10 +12,6 @@
         "destination": "/index.html"
       },
       {
-        "source": "/banklogs",
-        "destination": "/banklogs.html"
-      },
-      {
         "source": "/download",
         "destination": "/download.html"
       },
@@ -77,11 +73,6 @@
           "source": "/index.html",
           "destination": "/index",
           "type": 301
-      },
-      {
-        "source": "/banklogs.html",
-        "destination": "/banklogs",
-        "type": 301
       },
       {
         "source": "/download.html",
