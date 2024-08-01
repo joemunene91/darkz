@@ -38,9 +38,6 @@ if(localStorage.getItem('banklogs') && ((JSON.parse(localStorage.getItem('banklo
         ]).draw();
     });
 
-    document.getElementById('home-row').style.display = 'none';
-    document.getElementById('qa-row').style.display = 'none';
-
     var removeFromCartButtons = document.getElementsByClassName('btn-remove');
     for(var i = 0; i <removeFromCartButtons.length; i++){
         var button = removeFromCartButtons[i];
@@ -152,15 +149,52 @@ for(j=0; j< jobs.length; j++) {
 }
 
 
+
 function removeCartItem(event) {
     var buttonClicked = event.target
-    
-    localStorage.setItem('banklogs', []);
+    var cartItem = buttonClicked.parentElement.parentElement;
+    var price = cartItem.children[4].innerText;
+    var balance = cartItem.children[1].innerText;
+    var account = cartItem.children[2].innerText;
+    var website = cartItem.children[11].innerText;
+    var image = cartItem.children[0].children[0].src;
+    var info1 = cartItem.children[5].innerText;
+    var info2 = cartItem.children[6].innerText;
+    var info3 = cartItem.children[7].innerText;
+    var info4 = cartItem.children[8].innerText;
+    var info5 = cartItem.children[9].innerText;
+    var info6 = cartItem.children[10].innerText;
 
+    removeItemFromCart(price, balance, account,website,image,info1,info2,info3,info4,info5,info6);
     buttonClicked.parentElement.parentElement.remove();
-
-    window.location.reload();
 }
+
+
+function removeItemFromCart(price, balance,account,website,image,info1,info2,info3,info4,info5,info6){
+    let item = {
+        price: price,
+        balance: balance,
+        account: account,
+        website: website,
+        image: image,
+        info1: info1,
+        info2: info2,
+        info3: info3,
+        info4: info4,
+        info5: info5,
+        info6: info6
+    }
+    function checkAdult(items) {
+        return JSON.stringify(items) !== JSON.stringify(item)
+    }
+    localStorage.setItem('banklogs', JSON.stringify(items.filter(checkAdult)));
+    items = items.filter(checkAdult);
+    if(localStorage.getItem('timez-set')) {
+        localStorage.removeItem('timez-set');
+    }
+    window.location.reload()
+}
+
 
 function updateCartTotal() {
     let items3 = (JSON.parse(localStorage.getItem('banklogs')));

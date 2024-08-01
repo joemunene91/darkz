@@ -421,7 +421,7 @@ if (document.getElementById('boa01')) {
     (wells011.innerHTML =   ` Buy : $${parseFloat((wells11.innerHTML.replace("$", "").replace(",", "") / 37)).toFixed(0)}` ),
     (wells012.innerHTML =   ` Buy : $${parseFloat((wells12.innerHTML.replace("$", "").replace(",", "") / 37)).toFixed(0)}` )
 } else if (document.getElementById('wood01')) {
-    (wood1.innerHTML = "$10,210"),
+    (wood1.innerHTML = "$10,710"),
     (wood2.innerHTML = "$11,950"),
     (wood3.innerHTML = "$13,460"),
     (wood4.innerHTML = "$14,208"),

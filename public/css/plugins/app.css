@@ -1022,20 +1022,6 @@ td {
   padding: 7px 2px !important;
 }
 
-
-#profile-logo {
-  opacity: 1 !important;
-  margin: 3px;
-  border-radius: 50% !important;
-}
-#profile-logo img {
-  opacity: 1 !important;
-  border-radius: 50% !important;
-  border: none !important;
-  width: 64px !important;
-  height: 64px !important;
-}
-
 #depo-logo,
 #sign-logo {
   opacity: 1 !important;
@@ -1078,10 +1064,7 @@ td {
   #bitcoin-logo2 {
       margin: -8px 0px !important;
   }
-  #profile-logo img {
-      width: 60px !important;
-      height: 60px !important;
-  }
+
   #depo-logo img,
   #sign-logo img {
     width: 57px !important;
@@ -2057,7 +2040,7 @@ td {
 }
 
 #jinaHolder3 {
-  margin: 5px auto !important;
+  margin: 10px auto !important;
   width: 85% !important;
   font-weight: 700;
   overflow-x: scroll !important;
@@ -2098,6 +2081,7 @@ td {
   float: right !important;
   width: 63px !important;
   height: 63px !important;
+  cursor: pointer !important;
   margin: 5px !important;
 }
 .ticketz label,
@@ -3023,7 +3007,7 @@ button.toast-close-button {
 
 .alert {
   line-height: 30px !important;
-  font-size: 17px !important;
+  font-size: 17.3px !important;
 }
 .alert i {
   margin-right: 7px !important;
@@ -3031,7 +3015,7 @@ button.toast-close-button {
 @media screen and (max-width: 780px) {
   .alert {
     line-height: 30px !important;
-    font-size: 16.5px !important;
+    font-size: 17px !important;
   }
 }
 .bit-img {

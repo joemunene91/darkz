@@ -65,52 +65,99 @@ function showThis() {
     }
 }
 
-var addToGallery = document.getElementsByClassName('gallery')[0];
-var addToCartButtons = addToGallery.getElementsByClassName('butn');
+var addToCartButtons = document.getElementsByClassName('money');
 for(var i = 0; i <addToCartButtons.length; i++){
     var button = addToCartButtons[i];
     button.addEventListener('click', addToCartClicked)
 }
 
+
+
 function addToCartClicked(event) {
     var button = event.target;
-    var balance = 'Balance: ' + button.parentElement.parentElement.children[0].children[0].innerText;
+    var pri = button.innerText;
+    var pric = pri.replace('Buy : ','');
+    var price3 = 'Price: '+  pric;
+    var price = price3.substring(0, price3.length - 1);
+    var balance = button.parentElement.parentElement.parentElement.children[0].children[1].innerText;
+    var website = button.parentElement.parentElement.children[0].children[0].innerText;
+    var info1 = button.parentElement.parentElement.children[1].children[0].innerText;
+    var info2 = button.parentElement.parentElement.children[2].children[0].innerText;
+    var info3 = button.parentElement.parentElement.children[3].children[0].innerText;
+    var info4 = button.parentElement.parentElement.children[4].children[0].innerText;
+    var info5 = button.parentElement.parentElement.children[5].children[0].innerText;
+    var info6 = button.parentElement.parentElement.children[6].children[0].innerText;
 
-    var price = button.innerText.replace('Buy : $', 'Price: $');
-    var image = button.parentElement.parentElement.children[0].children[1].src;
-    var website = button.parentElement.parentElement.children[1].children[0].innerText;
-
-    var info1 = button.parentElement.parentElement.children[1].children[1].innerText;
-    var info2 = button.parentElement.parentElement.children[1].children[2].innerText;
-    var info3 = button.parentElement.parentElement.children[1].children[3].innerText;
-    var info4 = button.parentElement.parentElement.children[1].children[4].innerText;
-    var info5 = button.parentElement.parentElement.children[1].children[5].innerText;
-    var info6 = button.parentElement.parentElement.children[1].children[6].innerText;
-    var accoun = button.parentElement.parentElement.children[1].children[7].innerText;
+    var image = button.parentElement.parentElement.parentElement.children[0].children[0].src;
+    var accoun = button.parentElement.parentElement.children[7].children[0].innerText;
 
     if(accoun.includes('ACCOUNT')) {
         var account = accoun.replace(' ACCOUNT]',']');
     } else if(accoun.includes('PACKAGE')) {
         var account = accoun.replace(' PACKAGE]',']');
     }
-    
-    joeT = false;
 
     addItemToCart(price, balance, account,website,image,info1,info2,info3,info4,info5,info6);
+
     updateCartTotal();
 
     $('#profileModal').modal('show');
+    $('#exampleModal').modal('hide');
     event.preventDefault();
 
-    setTimeout(() => { window.location.assign('download'); }, 500);
 }
+
+
 
 function removeCartItem(event) {
     var buttonClicked = event.target
+    var cartItem = buttonClicked.parentElement.parentElement;
+    var price = cartItem.children[4].innerText;
+    var balance = cartItem.children[1].innerText;
+    var account = cartItem.children[2].innerText;
+    var website = cartItem.children[11].innerText;
+    var image = cartItem.children[0].children[0].src;
+    var info1 = cartItem.children[5].innerText;
+    var info2 = cartItem.children[6].innerText;
+    var info3 = cartItem.children[7].innerText;
+    var info4 = cartItem.children[8].innerText;
+    var info5 = cartItem.children[9].innerText;
+    var info6 = cartItem.children[10].innerText;
+    var remove = `<td><button class="btn-cloze btn-remove"></button></td>`
 
-    localStorage.setItem('banklogs', []);
-
+    removeItemFromCart(price, balance, account,website,image,info1,info2,info3,info4,info5,info6);
     buttonClicked.parentElement.parentElement.remove();
+    
+    updateCartTotal2();
+
+    table1.row(({
+        image,
+        balance,      
+        account,   
+        remove,
+        price,
+        info1,   
+        info2,   
+        info3,   
+        info4,   
+        info5,   
+        info6,   
+        website,      
+    })).remove();
+
+    var logsContainer =  document.getElementsByClassName('gallery')[0];
+    var singleLog = logsContainer.getElementsByClassName('butn');
+    for(var i = 0; i < singleLog.length; i++){
+        if((singleLog[i].innerText) == price.replace('Price: ', 'In Cart ') && (singleLog[i].parentElement.children[0].innerHTML) == website){
+            singleLog[i].innerHTML = `
+                ${price.replace('Price: ', 'Buy: ')}
+            `;
+            singleLog[i].classList.remove('in-cart');
+            var bunist = singleLog[i].parentElement.parentElement;
+            bunist.classList.remove('display-nones');
+            singleLog[i].disabled = false;
+        } 
+    }
 
     window.location.reload();
 }
@@ -159,10 +206,6 @@ function addItemToCart(price, balance, account,website, image,info1,info2,info3,
         }
     } 
 
-    showingToast.addEventListener('click', () => {
-        window.location.assign('download');
-    });
-
     addToLocalStorage(price, balance, account,website,image,info1,info2,info3,info4,info5,info6);
 
     table1.row.add([
@@ -179,6 +222,8 @@ function addItemToCart(price, balance, account,website, image,info1,info2,info3,
         info61,   
         website1,      
     ]).draw();
+
+    document.getElementById('thetot').setAttribute('data-bs-target', '#profileModal');
 
     updateCartTotal();
 
@@ -212,6 +257,27 @@ function addToLocalStorage(price, balance, account,website, image,info1,info2,in
     }
 }
 
+function removeItemFromCart(price, balance,account,website,image,info1,info2,info3,info4,info5,info6){
+    let item = {
+        price: price,
+        balance: balance,
+        account: account,
+        website: website,
+        image: image,
+        info1: info1,
+        info2: info2,
+        info3: info3,
+        info4: info4,
+        info5: info5,
+        info6: info6
+    }
+    function checkAdult(items) {
+        return JSON.stringify(items) !== JSON.stringify(item)
+    }
+    localStorage.setItem('banklogs', JSON.stringify(items.filter(checkAdult)));
+    items = items.filter(checkAdult);
+}
+
 function updateCartTotal() {
     let items3 = (JSON.parse(localStorage.getItem('banklogs')));
     var total = 0;
@@ -219,7 +285,7 @@ function updateCartTotal() {
         var price4 = data.price.replace('Price: ','').replace(',','').replace('$','');
         total = total + (price4 * 1);
     });
-    document.getElementById('thetot').innerHTML = `Total:  <span>$${total.toLocaleString()}</span>`;
+    document.getElementById('thetot').innerHTML = `Cart:  <span>$${total.toLocaleString()}</span>`;
 
     document.getElementById('theno1').innerHTML = 'Cart: ' + JSON.parse(localStorage.getItem('banklogs')).length + ' , Total: $' + total.toLocaleString();
 
@@ -238,7 +304,6 @@ function updateCartTotal() {
             } 
         });
     }
-
 
     var id = setInterval(frame, 1000);
 
@@ -264,4 +329,20 @@ function updateCartTotal() {
             var minutes = Math.floor(width/60); var seconds = width - minutes * 60; if(seconds < 10){ seconds = '0'+seconds }
         }
     }
+}
+
+
+function updateCartTotal2() {
+    let items3 = (JSON.parse(localStorage.getItem('banklogs')));
+    var total = 0;
+    items3.map(data=>{
+        var price4 = data.price.replace('Price: ','').replace(',','').replace('$','');
+        total = total + (price4 * 1);
+    });
+    document.getElementById('thetot').innerHTML = `Cart:  <span>$${total.toLocaleString()}</span>`;
+
+    document.getElementById('cartlength').innerText = (JSON.parse(localStorage.getItem('banklogs')).length);
+    
+    document.getElementById('theno1').innerHTML = 'Cart: ' + JSON.parse(localStorage.getItem('banklogs')).length + ' , Total: $' + total.toLocaleString();
+
 }
