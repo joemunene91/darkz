@@ -511,7 +511,7 @@ select {
   height: 300vh !important;
   overflow: hidden;
   outline: 0;
-  background: rgba(0, 0, 0, 0.85) !important;
+  background: rgba(0, 0, 0, 0.87) !important;
 }
 .modal-dialog {
   position: relative;

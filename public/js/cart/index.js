@@ -46,7 +46,7 @@ if(localStorage.getItem('banklogs') && ((JSON.parse(localStorage.getItem('banklo
     updateCartTotal();
 } else {
     document.getElementById('cartlength').style.display = 'none';
-    document.getElementById('screen-shot').style.display = 'none';
+    document.getElementById('vpn').style.display = 'none';
     showingToast.removeAttribute('onclick');
     showingToast.addEventListener('click', showThis);
 }
@@ -124,7 +124,7 @@ function updateCartTotal() {
     document.getElementById('theno1').innerHTML = 'Cart: ' + JSON.parse(localStorage.getItem('banklogs')).length + ' , Total: $' + total.toLocaleString();
 
 
-    
+
     var id = setInterval(frame, 1000);
 
     if(!localStorage.getItem('timez-set')) {

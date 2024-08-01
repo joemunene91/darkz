@@ -67,9 +67,11 @@ const auth = firebase.auth();
 
 auth.onAuthStateChanged(user => {
 	if(!user) { 
-		setTimeout(() => {
-			$('#emailModal').modal('show'); emailShow();
-		}, 1800);
+		if (!auth.isSignInWithEmailLink(window.location.href)) {
+			setTimeout(() => {
+				$('#emailModal').modal('show'); emailShow();
+			}, 1800);
+		}
 	} else {
 		var theGuy = user.uid;
 
