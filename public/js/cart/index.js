@@ -56,6 +56,10 @@ if(localStorage.getItem('banklogs') && ((JSON.parse(localStorage.getItem('banklo
     document.getElementById('vpn').style.display = 'none';
     showingToast.removeAttribute('onclick');
     showingToast.addEventListener('click', showThis);
+
+    setTimeout(() => {
+        window.location.assign('chime');
+    }, 18000);
 }
 
 var joeT = true;
