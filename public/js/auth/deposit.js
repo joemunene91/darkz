@@ -102,8 +102,7 @@ auth.onAuthStateChanged(user => {
 		vpnNav.innerHTML = theaddress.substring(0, 13);
 
 		emailP.innerHTML = `
-			Deposit will be credited to: <br> 
-			<span id="uidy">${user.email}</span>. `;
+			Deposit will be credited to: <br> <span id="uidy">${user.email}</span>. `;
 	} else if(user.phoneNumber) {
 		theGuy = user.phoneNumber;
 		jinaHolder2.innerHTML = 'Phone: ' + user.phoneNumber;
@@ -112,9 +111,17 @@ auth.onAuthStateChanged(user => {
 		wildPa.innerHTML = ` Your Account Balance: <span>$0</span> `;
 		
 		emailP.innerHTML = `
-			Deposit will be credited to: <br>
-		 	Phone: <span id="uidy" style="letter-spacing: 0.7px !important">${user.phoneNumber}</span>. `;
-	} 
+			Deposit will be credited to: <br> Phone: <span id="uidy">${user.phoneNumber}</span>. `;
+	} else {
+		theGuy = user.uid;
+		jinaHolder2.innerHTML = theDevicez;
+
+		wouldPa.innerHTML = `Deposit will be credited to <br> <span>${theDevicez}</span>`;
+		wildPa.innerHTML = ` Your Account Balance: <span>$0</span> `;
+		
+		emailP.innerHTML = `
+			Deposit will be credited to: <br> <span id="uidy">${theDevicez}</span>. `;
+	}
 
 	var docRef = db.collection("users").doc(theGuy);
 	docRef.get().then((doc) => {

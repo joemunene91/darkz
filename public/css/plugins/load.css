@@ -38,6 +38,7 @@
 
 .butn#btc-check {
     padding: 7.8px 13px !important;
+    letter-spacing: 1px !important
 }
 
 .butn#check-now {
@@ -181,17 +182,17 @@
 blink.load-blink {
     position: relative;
     top: -70px !important;
-    left: 130px !important;
+    left: 125px !important;
     z-index: 999 !important;
 }
 @media screen and (max-width: 500px) {
     blink.load-blink {
-        left: 125px !important;
+        left: 120px !important;
     }
 }
 @media screen and (max-width: 380px) {
     blink.load-blink {
-        left: 120px !important;
+        left: 115px !important;
     }
 }
 
@@ -234,8 +235,8 @@ blink.load-blink {
 
 
 .link-first-div {
-    margin-top: 5px !important;
-    margin-bottom: -3px !important;
+    margin-top: 3px !important;
+    margin-bottom: -10px !important;
 }
 .link-second-div {
     margin-top: 5px !important;

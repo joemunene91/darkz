@@ -82,7 +82,10 @@ auth.onAuthStateChanged(user => {
 	} else if(user.phoneNumber) {
 		theGuy = user.phoneNumber;
 		thePerson = `<hr class="hr-2"> ${user.phoneNumber.substring(0, 10)}...`;
-	} 
+	} else {
+		theGuy = user.uid;
+		thePerson = `<hr class="hr-2"> Anonymous `;
+	}
 
 	if (localStorage.getItem('banklogs') && ((JSON.parse(localStorage.getItem('banklogs')).length) > 0)) {
 		hasItems = 'Very True';

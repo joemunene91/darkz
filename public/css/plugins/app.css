@@ -1205,7 +1205,7 @@ td {
   color: aqua;
   margin: 10px auto !important;
   font-size: 21px !important;
-  letter-spacing: 0.94px !important;
+  letter-spacing: 0.85px !important;
 }
 @media (max-width: 769px) {
   .modal-body {

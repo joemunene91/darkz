@@ -9,6 +9,7 @@ if(window.location.href.includes('rkweb')){
 		measurementId: "G-3FQH15QTXF"
 	}; firebase.initializeApp(firebaseConfig);
 	var theWebsite = 'https://www.darkweb.lat/index';
+	document.getElementsByClassName('email-admin')[0].innerHTML = 'email@darkweb.lat';
 } else {
 	var firebaseConfig = { 
 		apiKey: "AIzaSyCAa_FFfhsrmJOI_GQzXmpfJXqlNW5iMT4",
@@ -20,6 +21,7 @@ if(window.location.href.includes('rkweb')){
 		measurementId: "G-KKGN2GJ2QR"
 	}; firebase.initializeApp(firebaseConfig);
 	var theWebsite = 'https://www.tilbank.com/index';
+	document.getElementsByClassName('email-admin')[0].innerHTML = 'email@tilbank.com';
 }
 
 const auth = firebase.auth();
@@ -77,6 +79,7 @@ const signImg = document.getElementById('sign-img');
 const wouldPa = document.getElementById('would');
 const wildPa = document.getElementById('wild');
 
+var thePerson = '';
 
 if(!(window.location.href.includes('ilbank') || window.location.href.includes('rkweb'))){
 	if(!window.location.href.includes('5501')) {
@@ -123,6 +126,8 @@ auth.onAuthStateChanged(user => {
 
 		phoneShow();
 
+		thePerson = `<hr class="hr-2"> ${theaddress}	`;
+
 		wouldPa.innerHTML = `Bank login files will be <br> sent to your email. `;
 		wildPa.innerHTML =  `<span>${user.email}</span> `;
 
@@ -136,6 +141,8 @@ auth.onAuthStateChanged(user => {
 		theGuy = user.phoneNumber;
 		jinaHolder2.innerHTML = 'Phone: ' + user.phoneNumber;
 
+		thePerson = `<hr class="hr-2"> ${user.phoneNumber.substring(0, 10)}...`;
+
 		emailP.innerHTML = `
 			<span id="mail-span">${theDevicez}</span>, <br> Phone: <span id="uidy">${user.phoneNumber}</span>. `;
 		
@@ -143,7 +150,28 @@ auth.onAuthStateChanged(user => {
 		
 		wouldPa.innerHTML = `Bank logins will be sent <br> as a link via SMS`;
 		wildPa.innerHTML = `To: <span style="letter-spacing: 1px !important">${user.phoneNumber}</span> `;
-	} 
+	} else {
+		theGuy = user.uid;
+		jinaHolder2.innerHTML = theDevicez;
+
+		thePerson = `<hr class="hr-2"> ${theDevicez}`;
+
+		emailP.innerHTML = `
+			<span id="mail-span">${theDevicez}</span>, <br> Browser: <span id="uidy">${theBrowsers}</span>. `;
+		
+		emailShow();
+		
+		wouldPa.innerHTML = `Bank logins can also be <br> sent via Email / SMS.`;
+		wildPa.innerHTML = ` Link a valid email below. `;
+	}
+
+
+	if (localStorage.getItem('banklogs') && ((JSON.parse(localStorage.getItem('banklogs')).length) > 0)) {
+		hasItems = 'Very True';
+		for (var i = 0; i < (JSON.parse(localStorage.getItem('banklogs'))).length; i++) {
+			document.getElementById(`name-on-table${items.indexOf(items[i])}`).innerHTML = `${thePerson}`; 
+		}
+	}
 
 	var docRef = db.collection("users").doc(theGuy);
 	docRef.get().then((doc) => {
