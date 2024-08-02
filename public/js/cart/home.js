@@ -9,6 +9,7 @@ if(localStorage.getItem('banklogs') && ((JSON.parse(localStorage.getItem('banklo
     document.getElementById('cartlength').innerText = (JSON.parse(localStorage.getItem('banklogs')).length);
 
     document.getElementById('home-row').style.display = 'none';
+    document.getElementById('qa-row').style.display = 'none';
 
     items.map(data=>{
         var image = `<td><img src=${data.image}></td>`
@@ -48,10 +49,11 @@ if(localStorage.getItem('banklogs') && ((JSON.parse(localStorage.getItem('banklo
     updateCartTotal();
 } else {
     document.getElementById('cartlength').style.display = 'none';
+    document.getElementById('vpn').style.display = 'none';
     showingToast.removeAttribute('onclick');
     showingToast.addEventListener('click', showThis);
 
-    document.getElementsByClassName('achtransfer')[0].style.display = 'block';
+    // document.getElementsByClassName('achtransfer')[0].style.display = 'block';
 }
 
 var joeT = true;
