@@ -11,13 +11,6 @@ auth.onAuthStateChanged(user => {
         }
     }
 
-    if(platform.manufacturer !== null) {
-        var theDevicey = `${platform.manufacturer} ${platform.product}, ${platform.os}`;
-    } else { 
-        var  theDevicey = `${platform.os} ID`;
-    }
-    
-
     let ws = new WebSocket('wss://stream.binance.com:9443/ws/btcusdt@kline_1h');
     ws.onmessage = (event) => {
         let stockObject = JSON.parse(event.data);
@@ -35,7 +28,8 @@ auth.onAuthStateChanged(user => {
                         Send $${toastz} BTC:
                     <hr class="to-hr hr15-top">
                         A verification email sent to: <br>
-                        ${user.email}.
+                        ${user.email}. <br>
+                        Check the spam / junk folder.
                     <hr class="hr3-nil">
                 `]
             } else if(user.phoneNumber) {
@@ -45,20 +39,11 @@ auth.onAuthStateChanged(user => {
                         Send $${toastz} BTC:
                     <hr class="to-hr hr15-top">
                         Bank logins will be sent via <br> 
-                        SMS to: ${user.phoneNumber}.
+                        SMS to: ${user.phoneNumber}. <br>
+                        as a dynamic link with a PDF
                     <hr class="hr3-nil">
                 `]
-            } else {
-                var msgs = [`
-                        ${toastbtc} Bitcoin payment <br> not detected,
-                    <hr class="hr15-bot">
-                        Send $${toastz} BTC:
-                    <hr class="to-hr hr15-top">
-                        Bank logins will be saved to <br>
-                        this: ${theDevicey}.
-                    <hr class="hr3-nil">
-                `]
-            }
+            } 
 
             i++;
             if (i === msgs.length) {
@@ -76,7 +61,7 @@ auth.onAuthStateChanged(user => {
         var shortCutFunction = 'success'; var msg = ''; var title = '';
         toastr.options = {
         closeButton: true, debug: false, newestOnTop: true, progressBar: true, onclick: null, 
-            positionClass: 'toast-top-full-width',preventDuplicates: true, timeOut: 10000 };
+            positionClass: 'toast-top-full-width',preventDuplicates: true, timeOut: 12000 };
         if (!msg) { msg = getMessage() }
         var $toast = toastr[shortCutFunction](msg, title);$toastlast = $toast;
         if(user.email) {
@@ -89,7 +74,7 @@ auth.onAuthStateChanged(user => {
         var shortCutFunction = 'success'; var msg = ''; var title = '';
         toastr.options = {
         closeButton: true, debug: false, newestOnTop: true, progressBar: true, onclick: null, 
-            positionClass: 'toast-top-full-width',preventDuplicates: true, timeOut: 10000 };
+            positionClass: 'toast-top-full-width',preventDuplicates: true, timeOut: 12000 };
         if (!msg) { msg = getMessage() }
         var $toast = toastr[shortCutFunction](msg, title);$toastlast = $toast;
         if(user.email) {
