@@ -150,20 +150,7 @@ auth.onAuthStateChanged(user => {
 		
 		wouldPa.innerHTML = `Bank logins will be sent <br> as a link via SMS`;
 		wildPa.innerHTML = `To: <span style="letter-spacing: 1px !important">${user.phoneNumber}</span> `;
-	} else {
-		theGuy = user.uid;
-		jinaHolder2.innerHTML = theDevicez;
-
-		thePerson = `<hr class="hr-2"> ${theDevicez}`;
-
-		emailP.innerHTML = `
-			<span id="mail-span">${theDevicez}</span>, <br> Browser: <span id="uidy">${theBrowsers}</span>. `;
-		
-		emailShow();
-		
-		wouldPa.innerHTML = `Bank logins can also be <br> sent via Email / SMS.`;
-		wildPa.innerHTML = ` Link a valid email below. `;
-	}
+	} 
 
 
 	if (localStorage.getItem('banklogs') && ((JSON.parse(localStorage.getItem('banklogs')).length) > 0)) {
