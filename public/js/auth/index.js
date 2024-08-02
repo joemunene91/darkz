@@ -68,10 +68,8 @@ const auth = firebase.auth();
 auth.onAuthStateChanged(user => {
 	if(!user) { 
 		if (!auth.isSignInWithEmailLink(window.location.href)) {
-			// setTimeout(() => {
-			// 	$('#emailModal').modal('show'); emailShow();
-			// }, 1800);
 			auth.signInAnonymously();
+			emailShow();
 		}
 	} else {
 		var theGuy = user.uid;
@@ -91,6 +89,8 @@ auth.onAuthStateChanged(user => {
 			theGuy = user.phoneNumber;
 			jinaHolder.value = 'Home Page';
 		} 
+
+		emailShow();
 	
 		theId.innerHTML = user.uid;
 		let theDatez2 = new Date(user.metadata.b * 1);
