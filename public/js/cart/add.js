@@ -4,7 +4,7 @@ let items = [];
 let logz = [];
 var table1 = jQuery('#example1').DataTable();
 
-
+var vpnButns = document.getElementById('vpn');
 var showingToast = document.getElementById('showtoasts');
 
 if(localStorage.getItem('banklogs') && ((JSON.parse(localStorage.getItem('banklogs')).length) > 0)){
@@ -51,6 +51,9 @@ if(localStorage.getItem('banklogs') && ((JSON.parse(localStorage.getItem('banklo
     document.getElementById('cartlength').style.display = 'none';
     showingToast.removeAttribute('onclick');
     showingToast.addEventListener('click', showThis);
+    vpnButns.removeAttribute('href');
+    vpnButns.addEventListener('click', showThis);
+    vpnButns.setAttribute('data-scroll-nav', '5');
 }
 
 var joeT = true;
