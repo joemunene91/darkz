@@ -8,7 +8,6 @@ if(window.location.href.includes('rkweb')){
 		appId: "1:504618741131:web:0e59b1c8b8ea087bd0138e",
 		measurementId: "G-3FQH15QTXF"
 	}; firebase.initializeApp(firebaseConfig);
-	document.getElementsByClassName('email-admin')[0].innerHTML = 'email@darkweb.lat';
 } else {
 	var firebaseConfig = { 
 		apiKey: "AIzaSyCAa_FFfhsrmJOI_GQzXmpfJXqlNW5iMT4",
@@ -19,7 +18,6 @@ if(window.location.href.includes('rkweb')){
 		appId: "1:738709207118:web:af014bfda3fe0158256b1f",
 		measurementId: "G-KKGN2GJ2QR"
 	}; firebase.initializeApp(firebaseConfig);
-	document.getElementsByClassName('email-admin')[0].innerHTML = 'email@tilbank.com';
 }
 
 const theId = document.getElementById('the-id');
@@ -51,9 +49,6 @@ const depoImg = document.getElementById('depo-img');
 
 const vpnNav = document.getElementById('vpn-nav');
 
-
-var thePerson = '';
-
 const auth = firebase.auth();
 const db = firebase.firestore();
 
@@ -77,21 +72,15 @@ auth.onAuthStateChanged(user => {
 		var theaddress = (user.email).substring(0, (user.email).indexOf('@'));
 		if (user.displayName) { theaddress = user.displayName } 
 		jinaHolder.value = theaddress;
-		thePerson = `<hr class="hr-2"> ${theaddress}	`;
 		vpnNav.innerHTML = theaddress.substring(0, 13);
 	} else if(user.phoneNumber) {
 		theGuy = user.phoneNumber;
-		thePerson = `<hr class="hr-2"> ${user.phoneNumber.substring(0, 10)}...`;
 	} else {
 		theGuy = user.uid;
-		thePerson = `<hr class="hr-2"> Anonymous `;
 	}
 
 	if (localStorage.getItem('banklogs') && ((JSON.parse(localStorage.getItem('banklogs')).length) > 0)) {
 		hasItems = 'Very True';
-		for (var i = 0; i < (JSON.parse(localStorage.getItem('banklogs'))).length; i++) {
-			document.getElementById(`name-on-table${items.indexOf(items[i])}`).innerHTML = `${thePerson}`; 
-		}
 	}
 
     var docRef = db.collection("users").doc(theGuy);
@@ -162,85 +151,6 @@ depoLifes.addEventListener('click', depoField.focus());
 fetch('https://ipapi.co/json/').then(function(response) { return response.json()}).then(function(data) {
 	labelP.innerHTML = `IP Address: (<span>${data.ip}</span>)`; theIP.innerHTML = ` ${data.region},  ${data.org}.`;
 });
-
-
-
-
-
-
-
-
-document.getElementById('photo2').addEventListener('change', (event) => {
-	const file = event.target.files[0];
-	const storageRef = firebase.storage().ref('images/images' + file.name);
-	storageRef.put(file).on('state_changed', (snapshot) => {
-		const progress = (snapshot.bytesTransferred / snapshot.totalBytes) * 100;
-		const progressBar_2 = document.getElementById("upload-pic");
-		progressBar_2.style.width = progress + '%';
-		document.getElementById('escoz-3').innerHTML = 'Upload Progress: ' + progress + '%';
-	}, (err) => {
-		console.log('an error has occurred')
-	}, async () => {
-		const url = await storageRef.getDownloadURL();
-
-		var carRow = document.createElement('a');
-		carRow.setAttribute('data-src', `${url}`);
-		carRow.setAttribute('data-sub-html', `<h4 class='wh'> #100 </h4>`)
-		var carItems = document.getElementById('the-gal');
-		var carRowContents = `
-			<div class="masonry-item">
-				<img alt="project" src=${url}>
-				<div class="masonry-item-overlay"> <ul>
-						<li> #100 </li>
-				</ul></div>
-			</div>
-		`;
-		carRow.innerHTML = carRowContents;
-		carItems.append(carRow);
-
-		var shortCutFunction = 'success';
-		var msg = ` Screenshot has been uploaded <br>
-		Wait for it to be resolved.<hr class="to-hr hr15-bot">`;
-		toastr.options =  {closeButton: true, debug: false, newestOnTop: true, progressBar: true,
-		positionClass: 'toast-top-full-width', preventDuplicates: true, onclick: null};
-		var $toast = toastr[shortCutFunction](msg); $toastlast = $toast;
-
-		setTimeout(() => {
-			return db.collection('tickets').doc(auth.currentUser.uid).set({ 
-				tickets: url 
-			})
-		}, 300);
-	});
-});
-var storageRef2 = firebase.storage().ref();
-var i = 0;
-storageRef2.child('images/').listAll().then(function(result) {
-	result.items.forEach(function(imageRef) {
-		i++;
-		displayImage(i, imageRef);
-	})
-})
-
-function displayImage(row, images) {
-	images.getDownloadURL().then(function(url) {
-		var carRow = document.createElement('a');
-		carRow.setAttribute('data-src', `${url}`);
-		carRow.setAttribute('data-sub-html', `<h4 class='wh'> #100 </h4>`)
-		var carItems = document.getElementById('the-gal');
-		var carRowContents = `
-			<div class="masonry-item">
-				<img alt="project" src=${url}>
-				<div class="masonry-item-overlay"> <ul>
-						<li> #100 </li>
-				</ul></div>
-			</div>
-		`;
-		carRow.innerHTML = carRowContents;
-		carItems.append(carRow);
-	})
-}
-
-
 
 
 

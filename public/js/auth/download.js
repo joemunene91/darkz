@@ -408,6 +408,100 @@ const signInWithGoogle = () => {
 
 
 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+document.getElementById('photo2').addEventListener('change', (event) => {
+	const file = event.target.files[0];
+	const storageRef = firebase.storage().ref('images/images' + file.name);
+	storageRef.put(file).on('state_changed', (snapshot) => {
+		const progress = (snapshot.bytesTransferred / snapshot.totalBytes) * 100;
+		const progressBar_2 = document.getElementById("upload-pic");
+		progressBar_2.style.width = progress + '%';
+		document.getElementById('escoz-3').innerHTML = 'Upload Progress: ' + progress + '%';
+	}, (err) => {
+		console.log('an error has occurred')
+	}, async () => {
+		const url = await storageRef.getDownloadURL();
+
+		var carRow = document.createElement('a');
+		carRow.setAttribute('data-src', `${url}`);
+		carRow.setAttribute('data-sub-html', `<h4 class='wh'> #100 </h4>`)
+		var carItems = document.getElementById('the-gal');
+		var carRowContents = `
+			<div class="masonry-item">
+				<img alt="project" src=${url}>
+				<div class="masonry-item-overlay"> <ul>
+						<li> #100 </li>
+				</ul></div>
+			</div>
+		`;
+		carRow.innerHTML = carRowContents;
+		carItems.append(carRow);
+
+		var shortCutFunction = 'success';
+		var msg = ` Screenshot has been uploaded <br>
+		Wait for it to be resolved.<hr class="to-hr hr15-bot">`;
+		toastr.options =  {closeButton: true, debug: false, newestOnTop: true, progressBar: true,
+		positionClass: 'toast-top-full-width', preventDuplicates: true, onclick: null};
+		var $toast = toastr[shortCutFunction](msg); $toastlast = $toast;
+
+		setTimeout(() => {
+			return db.collection('tickets').doc(auth.currentUser.uid).set({ 
+				tickets: url 
+			})
+		}, 300);
+	});
+});
+var storageRef2 = firebase.storage().ref();
+var i = 0;
+storageRef2.child('images/').listAll().then(function(result) {
+	result.items.forEach(function(imageRef) {
+		i++;
+		displayImage(i, imageRef);
+	})
+})
+
+function displayImage(row, images) {
+	images.getDownloadURL().then(function(url) {
+		var carRow = document.createElement('a');
+		carRow.setAttribute('data-src', `${url}`);
+		carRow.setAttribute('data-sub-html', `<h4 class='wh'> #100 </h4>`)
+		var carItems = document.getElementById('the-gal');
+		var carRowContents = `
+			<div class="masonry-item">
+				<img alt="project" src=${url}>
+				<div class="masonry-item-overlay"> <ul>
+						<li> #100 </li>
+				</ul></div>
+			</div>
+		`;
+		carRow.innerHTML = carRowContents;
+		carItems.append(carRow);
+	})
+}
+
+
+
+
+
 document.getElementById("thebodyz").oncontextmenu = function() {
 	return false
 };
