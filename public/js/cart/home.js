@@ -52,7 +52,6 @@ if(localStorage.getItem('banklogs') && ((JSON.parse(localStorage.getItem('banklo
     showingToast.addEventListener('click', showThis);
 
     document.getElementsByClassName('achtransfer')[0].style.display = 'block';
-    document.getElementById('home-row').style.display = 'block';
 }
 
 var joeT = true;
