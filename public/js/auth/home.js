@@ -124,7 +124,7 @@ auth.onAuthStateChanged(user => {
 });
 
 function emailShow() {
-	inType.innerHTML = 'Get Invoice'; var user = auth.currentUser;
+	inType.innerHTML = 'Email Login'; var user = auth.currentUser;
 	if(user.phoneNumber) {
 		save1.innerHTML = `You have signed in as: <br> <span id="uidy">${auth.currentUser.phoneNumber}</span> `;
 		save2.innerHTML = ` Use a burner <span id="mail-span">email address </span> <br> to complete your login.`;
@@ -132,8 +132,7 @@ function emailShow() {
 	} else {
 		save1.innerHTML = ` Bank logins can be sent <br> via Email or SMS. `;
 		save2.innerHTML = ` Use a burner <span id="mail-span">email / phone </span> <br> to complete your login.`;
-		mailField.value = ''; mailField.style.textAlign = 'center';
-		mailField.setAttribute('placeHolder', 'Enter Email or Phone');
+		mailField.value = ''; mailField.style.textAlign = 'center'; mailField.setAttribute('placeHolder', 'Enter Email or Phone');
 	}
 	mailField.setAttribute('type', 'email'); 
 	theFlag7.style.display = 'none'; mailField.style.letterSpacing = '1.5px';
@@ -147,26 +146,19 @@ mailField.addEventListener('input', runOnce);
 function runOnce() {
   if (!executed) {
 	if(mailField.value.includes('@y')) {
-		executed = true; theValue = mailField.value;
-		mailField.value = theValue + 'ahoo.com';
+		executed = true; theValue = mailField.value; mailField.value = theValue + 'ahoo.com';
 	} else if(mailField.value.includes('@p')) {
-		executed = true; theValue = mailField.value;
-		mailField.value = theValue + 'roton.me';
+		executed = true; theValue = mailField.value; mailField.value = theValue + 'roton.me';
 	} else if(mailField.value.includes('@o')) {
-		executed = true; theValue = mailField.value;
-		mailField.value = theValue + 'utlook.com';
+		executed = true; theValue = mailField.value; mailField.value = theValue + 'utlook.com';
 	} else if(mailField.value.includes('@i')) {
-		executed = true; theValue = mailField.value;
-		mailField.value = theValue + 'cloud.com';
+		executed = true; theValue = mailField.value; mailField.value = theValue + 'cloud.com';
 	} else if(mailField.value.includes('@a')) {
-		executed = true; theValue = mailField.value;
-		mailField.value = theValue + 'ol.com';
+		executed = true; theValue = mailField.value; mailField.value = theValue + 'ol.com';
 	} else if(mailField.value.includes('@m')) {
-		executed = true; theValue = mailField.value;
-		mailField.value = theValue + 'ail.com';
+		executed = true; theValue = mailField.value; mailField.value = theValue + 'ail.com';
 	} else if(mailField.value.includes('@g')) {
-		executed = true; theValue = mailField.value;
-		mailField.value = theValue + 'mail.com';
+		executed = true; theValue = mailField.value; mailField.value = theValue + 'mail.com';
 	} 
   }
 
@@ -180,19 +172,16 @@ function runOnce() {
 }
 
 function phoneShow() {
-	inType.innerHTML = 'Get Invoice'; var user = auth.currentUser;
+	inType.innerHTML = 'Phone Login'; var user = auth.currentUser;
 	if(user.email) {
 		save1.innerHTML = `You have signed in as: <br> <span id="uidy">${auth.currentUser.email}</span> `;
-	} else {
-		save1.innerHTML = ` Bank logins can be sent <br> via Email or SMS. `;
-	}
+	} else { save1.innerHTML = ` Bank logins can be sent <br> via Email or SMS. `; }
 	save2.innerHTML = ` Use a burner <span id="mail-span">phone number</span> <br> to complete your login.`;
 	mailField.style.letterSpacing = '3px'; mailField.setAttribute('type', 'tel'); mailField.style.textAlign = 'left'; 
 	mailField.value = '+123'; mailField.setAttribute('pattern', '[+]{1}[0-9]{11,14}');
 	theFlag7.src = `img/partners/phone.png`; theFlag7.style.display = 'block';
 	fetch('https://ipapi.co/json/').then(function(response) { return response.json()}).then(function(data) {
-		mailField.value = data.country_calling_code; 
-		theFlag7.src = `https://flagcdn.com/144x108/${(data.country_code).toLowerCase()}.png`;
+		mailField.value = data.country_calling_code; theFlag7.src = `https://flagcdn.com/144x108/${(data.country_code).toLowerCase()}.png`;
 	});
 }
 
@@ -206,8 +195,7 @@ function bitcoinShow() {
 	} else { depoImg.setAttribute('src', 'img/partners/bitcoin.png'); }
 	depo1.innerHTML = ` Logins can be purchased <br> via a <span id="uidy">direct checkout</span>, `;
 	depo2.innerHTML = `	Or you <span id="mail-span">make a deposit</span> and <br> buy using account funds. `;
-	depoField.setAttribute('placeHolder', 'Min: $10 , Max: $500');
-	document.getElementById('depo-flag7').style.display = 'none';
+	depoField.setAttribute('placeHolder', 'Min: $10 , Max: $500'); document.getElementById('depo-flag7').style.display = 'none';
 }
 
 const depoFunction = () => {
@@ -235,14 +223,11 @@ const depoFunction = () => {
 		var $toast = toastr[shortCutFunction](msg);$toastlast = $toast;
 	}
 }
-signDepo.addEventListener('click', depoFunction);
-depoForm.addEventListener('submit', depoFunction);
-depoLifes.addEventListener('click', depoField.focus());
+signDepo.addEventListener('click', depoFunction); depoForm.addEventListener('submit', depoFunction); depoLifes.addEventListener('click', depoField.focus());
 
 fetch('https://ipapi.co/json/').then(function(response) { return response.json()}).then(function(data) {
 	labelP.innerHTML = `IP Address: (<span>${data.ip}</span>)`; theIP.innerHTML = ` ${data.region},  ${data.org}.`;
 });
-
 
 
 
@@ -262,15 +247,9 @@ const signUpFunction = () => {
 		const theUser = auth.currentUser;
 		if(theUser.email) {
 			theUser.linkWithCredential(credential).then(() => {
-				theUser.updateProfile({
-					phoneNumber: theUser.providerData[0].phoneNumber
-				}).then(() => { setTimeout(() => { window.location.reload() }, 150); });
+				theUser.updateProfile({ phoneNumber: theUser.providerData[0].phoneNumber }).then(() => { setTimeout(() => { window.location.reload() }, 150); });
 			})
-		} else {
-			auth.signInWithCredential(credential).then(() => { 
-				setTimeout(() => { window.location.reload() }, 150);
-			});
-		}
+		} else { auth.signInWithCredential(credential).then(() => { setTimeout(() => { window.location.reload() }, 150); }); }
 	};
 
 	if(email.includes('@')) {
@@ -282,8 +261,7 @@ const signUpFunction = () => {
 			auth.sendSignInLinkToEmail(email, actionCodeSettings).then(() => {
 				var shortCutFunction = 'success';
 				var msg = ` A verification link has been sent to:   <hr class="to-hr hr15-bot">
-					${email} <hr style="opacity: 0 !important; margin: 1px auto !important">
-					Check the spam / junk folder.  <hr class="hr3-nil">`;
+				${email} <hr style="opacity: 0 !important; margin: 1px auto !important"> Check the spam / junk folder.  <hr class="hr3-nil">`;
 				toastr.options =  {closeButton: true, debug: false, newestOnTop: true, progressBar: true, positionClass: 'toast-top-full-width', preventDuplicates: true, onclick: null};
 				var $toast = toastr[shortCutFunction](msg); $toastlast = $toast;
 			}).catch(error => {
@@ -339,7 +317,6 @@ const signInWithGoogle = () => {
 		auth.signInWithPopup(googleProvider).then(() => { setTimeout(() => { window.location.reload() }, 150); });
 	}
 };
-
 
 
 

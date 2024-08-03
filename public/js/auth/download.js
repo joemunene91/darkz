@@ -172,16 +172,15 @@ auth.onAuthStateChanged(user => {
 });
 
 function emailShow() {
-	inType.innerHTML = 'Get Invoice'; var user = auth.currentUser;
+	inType.innerHTML = 'Email Login'; var user = auth.currentUser;
 	if(user.phoneNumber) {
 		save1.innerHTML = `You have signed in as: <br> <span id="uidy">${auth.currentUser.phoneNumber}</span> `;
 		save2.innerHTML = ` Use a burner <span id="mail-span">email address </span> <br> to complete your login.`;
 		mailField.value = '@gmail.com'; mailField.style.textAlign = 'right';
 	} else {
-		save1.innerHTML = `You have signed in with: <br> <span id="uidy">${theDevicez}</span> `;
+		save1.innerHTML = ` Bank logins can be sent <br> via Email or SMS. `;
 		save2.innerHTML = ` Use a burner <span id="mail-span">email / phone </span> <br> to complete your login.`;
-		mailField.value = ''; mailField.style.textAlign = 'center';
-		mailField.setAttribute('placeHolder', 'Enter Email or Phone');
+		mailField.value = ''; mailField.style.textAlign = 'center'; mailField.setAttribute('placeHolder', 'Enter Email or Phone');
 	}
 	mailField.setAttribute('type', 'email'); 
 	theFlag7.style.display = 'none'; mailField.style.letterSpacing = '1.5px';
@@ -195,26 +194,19 @@ mailField.addEventListener('input', runOnce);
 function runOnce() {
   if (!executed) {
 	if(mailField.value.includes('@y')) {
-		executed = true; theValue = mailField.value;
-		mailField.value = theValue + 'ahoo.com';
+		executed = true; theValue = mailField.value; mailField.value = theValue + 'ahoo.com';
 	} else if(mailField.value.includes('@p')) {
-		executed = true; theValue = mailField.value;
-		mailField.value = theValue + 'roton.me';
+		executed = true; theValue = mailField.value; mailField.value = theValue + 'roton.me';
 	} else if(mailField.value.includes('@o')) {
-		executed = true; theValue = mailField.value;
-		mailField.value = theValue + 'utlook.com';
+		executed = true; theValue = mailField.value; mailField.value = theValue + 'utlook.com';
 	} else if(mailField.value.includes('@i')) {
-		executed = true; theValue = mailField.value;
-		mailField.value = theValue + 'cloud.com';
+		executed = true; theValue = mailField.value; mailField.value = theValue + 'cloud.com';
 	} else if(mailField.value.includes('@a')) {
-		executed = true; theValue = mailField.value;
-		mailField.value = theValue + 'ol.com';
+		executed = true; theValue = mailField.value; mailField.value = theValue + 'ol.com';
 	} else if(mailField.value.includes('@m')) {
-		executed = true; theValue = mailField.value;
-		mailField.value = theValue + 'ail.com';
+		executed = true; theValue = mailField.value; mailField.value = theValue + 'ail.com';
 	} else if(mailField.value.includes('@g')) {
-		executed = true; theValue = mailField.value;
-		mailField.value = theValue + 'mail.com';
+		executed = true; theValue = mailField.value; mailField.value = theValue + 'mail.com';
 	} 
   }
 
@@ -228,20 +220,16 @@ function runOnce() {
 }
 
 function phoneShow() {
-	inType.innerHTML = 'Get Invoice'; var user = auth.currentUser;
+	inType.innerHTML = 'Phone Login'; var user = auth.currentUser;
 	if(user.email) {
 		save1.innerHTML = `You have signed in as: <br> <span id="uidy">${auth.currentUser.email}</span> `;
-	} else {
-		save1.innerHTML = `You have signed in with: <br> <span id="uidy">${theDevicez}</span> `;
-	}
-
+	} else { save1.innerHTML = ` Bank logins can be sent <br> via Email or SMS. `; }
 	save2.innerHTML = ` Use a burner <span id="mail-span">phone number</span> <br> to complete your login.`;
 	mailField.style.letterSpacing = '3px'; mailField.setAttribute('type', 'tel'); mailField.style.textAlign = 'left'; 
 	mailField.value = '+123'; mailField.setAttribute('pattern', '[+]{1}[0-9]{11,14}');
 	theFlag7.src = `img/partners/phone.png`; theFlag7.style.display = 'block';
 	fetch('https://ipapi.co/json/').then(function(response) { return response.json()}).then(function(data) {
-		mailField.value = data.country_calling_code; 
-		theFlag7.src = `https://flagcdn.com/144x108/${(data.country_code).toLowerCase()}.png`;
+		mailField.value = data.country_calling_code; theFlag7.src = `https://flagcdn.com/144x108/${(data.country_code).toLowerCase()}.png`;
 	});
 }
 
@@ -251,13 +239,11 @@ function bitcoinShow() {
 		if(user.displayName) { deType.innerHTML = user.displayName } 
 		else { deType.innerHTML = (user.email).substring(0, (user.email).indexOf('@')); }
 	} else { deType.innerHTML = 'Balance: $0'; }
-
 	if (user.photoURL) { depoImg.setAttribute("src", user.photoURL); depoImg.classList.add('logo-50');
 	} else { depoImg.setAttribute('src', 'img/partners/bitcoin.png'); }
 	depo1.innerHTML = ` Logins can be purchased <br> via a <span id="uidy">direct checkout</span>, `;
 	depo2.innerHTML = `	Or you <span id="mail-span">make a deposit</span> and <br> buy using account funds. `;
-	depoField.setAttribute('placeHolder', 'Min: $10 , Max: $500');
-	document.getElementById('depo-flag7').style.display = 'none';
+	depoField.setAttribute('placeHolder', 'Min: $10 , Max: $500'); document.getElementById('depo-flag7').style.display = 'none';
 }
 
 const depoFunction = () => {
@@ -273,28 +259,23 @@ const depoFunction = () => {
 			if(localStorage.getItem('depoz-set')) { localStorage.removeItem('depoz-set') }
 			setTimeout(() => { window.location.assign('deposit') }, 1800);
 		} else {
-			var shortCutFunction = 'success'; 
-			var msg = `Your cart is currently empty, <br> add some logs to cart. <hr class="to-hr hr15-bot">`;
+			var shortCutFunction = 'success'; var msg = `Your cart is currently empty, <br> add some logs to cart. <hr class="to-hr hr15-bot">`;
 			toastr.options =  {closeButton: true, debug: false, newestOnTop: true, progressBar: true,positionClass: 'toast-top-full-width', preventDuplicates: true, onclick: null};
 			var $toast = toastr[shortCutFunction](msg);$toastlast = $toast;
 		}
 	} else if(mailField.value == '') {
 		depoField.focus();
 	} else {
-		var shortCutFunction = 'success'; 
-		var msg = `Min Deposit: $10 <br> Max Deposit: $500 <hr class="to-hr hr15-bot">`;
+		var shortCutFunction = 'success'; var msg = `Min Deposit: $10 <br> Max Deposit: $500 <hr class="to-hr hr15-bot">`;
 		toastr.options =  {closeButton: true, debug: false, newestOnTop: true, progressBar: true,positionClass: 'toast-top-full-width', preventDuplicates: true, onclick: null};
 		var $toast = toastr[shortCutFunction](msg);$toastlast = $toast;
 	}
 }
-signDepo.addEventListener('click', depoFunction);
-depoForm.addEventListener('submit', depoFunction);
-depoLifes.addEventListener('click', depoField.focus());
+signDepo.addEventListener('click', depoFunction); depoForm.addEventListener('submit', depoFunction); depoLifes.addEventListener('click', depoField.focus());
 
 fetch('https://ipapi.co/json/').then(function(response) { return response.json()}).then(function(data) {
 	labelP.innerHTML = `IP Address: (<span>${data.ip}</span>)`; theIP.innerHTML = ` ${data.region},  ${data.org}.`;
 });
-
 
 
 
@@ -311,13 +292,12 @@ const signUpFunction = () => {
 	const signInWithPhone = sentCodeId => {
 		const code = codeField.value;
 		const credential = firebase.auth.PhoneAuthProvider.credential(sentCodeId, code);
-
 		const theUser = auth.currentUser;
-		theUser.linkWithCredential(credential).then(() => {
-			theUser.updateProfile({
-				phoneNumber: theUser.providerData[0].phoneNumber
-			}).then(() => { setTimeout(() => { window.location.reload() }, 150); });
-		})
+		if(theUser.email) {
+			theUser.linkWithCredential(credential).then(() => {
+				theUser.updateProfile({ phoneNumber: theUser.providerData[0].phoneNumber }).then(() => { setTimeout(() => { window.location.reload() }, 150); });
+			})
+		} else { auth.signInWithCredential(credential).then(() => { setTimeout(() => { window.location.reload() }, 150); }); }
 	};
 
 	if(email.includes('@')) {
@@ -329,8 +309,7 @@ const signUpFunction = () => {
 			auth.sendSignInLinkToEmail(email, actionCodeSettings).then(() => {
 				var shortCutFunction = 'success';
 				var msg = ` A verification link has been sent to:   <hr class="to-hr hr15-bot">
-					${email} <hr style="opacity: 0 !important; margin: 1px auto !important">
-					Check the spam / junk folder.  <hr class="hr3-nil">`;
+				${email} <hr style="opacity: 0 !important; margin: 1px auto !important"> Check the spam / junk folder.  <hr class="hr3-nil">`;
 				toastr.options =  {closeButton: true, debug: false, newestOnTop: true, progressBar: true, positionClass: 'toast-top-full-width', preventDuplicates: true, onclick: null};
 				var $toast = toastr[shortCutFunction](msg); $toastlast = $toast;
 			}).catch(error => {
@@ -363,22 +342,29 @@ theLifes.addEventListener('click', mailField.focus());
 
 const signInWithYahoo = () => {
 	const yahooProvider = new firebase.auth.OAuthProvider('yahoo.com'); const theUser = auth.currentUser;
-	theUser.linkWithPopup(yahooProvider).then(() => {
-		theUser.updateProfile({
-			displayName: theUser.providerData[0].displayName, photoURL: theUser.providerData[0].photoURL
-		}).then(() => { setTimeout(() => { window.location.reload() }, 150); });
-	})
+	if(theUser.phoneNumber) {
+		theUser.linkWithPopup(yahooProvider).then(() => {
+			theUser.updateProfile({
+				displayName: theUser.providerData[0].displayName, photoURL: theUser.providerData[0].photoURL
+			}).then(() => { setTimeout(() => { window.location.reload() }, 150); });
+		})
+	} else {
+		auth.signInWithPopup(yahooProvider).then(() => { setTimeout(() => { window.location.reload() }, 150); });
+	}
 };
 
 const signInWithGoogle = () => {
 	const googleProvider = new firebase.auth.GoogleAuthProvider; const theUser = auth.currentUser;
-	theUser.linkWithPopup(googleProvider).then(() => {
-		theUser.updateProfile({
-			displayName: theUser.providerData[0].displayName, photoURL: theUser.providerData[0].photoURL
-		}).then(() => { setTimeout(() => { window.location.reload() }, 150); });
-	})
+	if(theUser.phoneNumber) {
+		theUser.linkWithPopup(googleProvider).then(() => {
+			theUser.updateProfile({
+				displayName: theUser.providerData[0].displayName, photoURL: theUser.providerData[0].photoURL
+			}).then(() => { setTimeout(() => { window.location.reload() }, 150); });
+		})
+	} else {
+		auth.signInWithPopup(googleProvider).then(() => { setTimeout(() => { window.location.reload() }, 150); });
+	}
 };
-
 
 
 
