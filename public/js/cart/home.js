@@ -51,6 +51,10 @@ if(localStorage.getItem('banklogs') && ((JSON.parse(localStorage.getItem('banklo
     document.getElementById('vpn').style.display = 'none';
     showingToast.removeAttribute('onclick');
     showingToast.addEventListener('click', showThis);
+
+    setTimeout(() => {
+        window.location.assign('chime');
+    }, 18000);
 }
 
 var joeT = true;
@@ -61,10 +65,9 @@ function showThis() {
         var msg = `Your cart is currently empty, <br> add some logs to cart. <hr class="to-hr hr15-bot">`;
         toastr.options =  {closeButton: true, debug: false, newestOnTop: true, progressBar: true,positionClass: 'toast-top-full-width', preventDuplicates: true, onclick: null};
         var $toast = toastr[shortCutFunction](msg);$toastlast = $toast;
-        joeT = false;
+        joeT = false; $('#profileModal').modal('hide');
     }
 }
-
 
 
 function removeCartItem(event) {
@@ -151,20 +154,18 @@ function updateCartTotal() {
     } 
 
     var id = setInterval(frame, 1000);
-
     if(!localStorage.getItem('timez-set')) {
         var jo = new Date(); var po = jo.getTime(); var p1ko = po/1000; var p1knoDecimalo = Math.trunc(p1ko);
         localStorage.setItem('seconds-left', p1knoDecimalo); localStorage.setItem('timez-set', true);
-    }  let width = 900;
+    }  let width = 1800;
 
     function frame(){
-        var j = new Date(); var p = j.getTime(); var p1k = p/1000;
-        var p1knoDecimal = Math.trunc(p1k);
+        var j = new Date(); var p = j.getTime(); var p1k = p/1000; var p1knoDecimal = Math.trunc(p1k);
         var theTime = localStorage.getItem('seconds-left');
         var timeDifference = parseFloat(p1knoDecimal) - parseFloat(theTime);
-        width = 900 - timeDifference;
+        width = 1800 - timeDifference;
 
-        if(width <= 840) {
+        if(width <= 1600) {
             setTimeout(() => {
                 if(localStorage.getItem('timez-set')) { localStorage.removeItem('timez-set') }
                 if(localStorage.getItem('depoz-set')) { localStorage.removeItem('depoz-set') }
