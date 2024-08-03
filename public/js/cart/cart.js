@@ -47,6 +47,7 @@ if(localStorage.getItem('banklogs') && ((JSON.parse(localStorage.getItem('banklo
         button.addEventListener('click', removeCartItem)
     }
     updateCartTotal();
+    document.getElementById('cd-time').style.display = 'block';
 } else {
     document.getElementById('cartlength').style.display = 'none';
     showingToast.removeAttribute('onclick');
