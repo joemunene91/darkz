@@ -80,7 +80,7 @@ if(localStorage.getItem('banklogs') && ((JSON.parse(localStorage.getItem('banklo
         } else if(window.location.href.includes('woodforest')) {
             var link = document.getElementById('wood01'); link.click();
         }
-    }, 15000);
+    }, 10000);
 }
 
 var joeT = true;
