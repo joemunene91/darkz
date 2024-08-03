@@ -71,12 +71,7 @@
     "redirects": [
       {
           "source": "/index.html",
-          "destination": "/home.html",
-          "type": 301
-      },
-      {
-          "source": "/",
-          "destination": "/home.html",
+          "destination": "/index.html",
           "type": 301
       },
       {
