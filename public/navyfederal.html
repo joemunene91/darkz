@@ -1234,8 +1234,8 @@
     </div>
 
     <div class="vpn-section">
-        <a class="butn" id="vpn" data-bs-toggle="modal" data-bs-target="#profileModal" style="letter-spacing: 1.7px !important;">
-            View Cart <img src="img/partners/cloud.png">
+        <a class="butn" id="vpn"  data-bs-toggle="modal" data-bs-target="#saveModal" style="letter-spacing: 1.4px !important;">
+            Email Link <img src="img/partners/cloud.png">
         </a>
     </div>
 
@@ -1437,7 +1437,69 @@
     </div>   
 </div>
 
-    <script src="js/pages/gle.js"></script>
+<div class="modal fade" id="saveModal" data-bs-backdrop="static" data-bs-keyboard="false">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <div class="section-heading">
+                    <h4 class="set" id="invoice-type"> BURNER MAIL</h4>
+                </div>
+                <button type="button" class="close" id="sign-logo" data-bs-dismiss="modal">
+                    <img src="img/partners/gogle.png" id="sign-img">
+                </button>
+            </div>
+            <div class="modal-body">
+                <p class="modal-p" id="save-1"></p> <hr class="thehr thero">
+                <p class="modal-p" id="save-2"></p> <hr class="thehr">
+
+                <form  id="the-form" onsubmit="signUpFunction()">
+                    <div class="form-group col-md-12" id="form">
+                        <div id="the-life">
+                            <img id="the-flag7" src="img/partners/comm.png"/>
+                            <input type="text" class="form-control" id="inputLife" autofocus placeholder="Enter Email Address" required>
+                        </div> <div id="recaptcha-container"></div>
+                    </div> <hr class="thehr" id="hr">
+                    <li class="next">
+                        <a class="butn modal-btn" id="email-phone"> 
+                            Verify Now <img src="img/partners/tele.png">
+                        </a>
+                    </li>
+                </form>
+            </div>
+        </div>
+    </div>   
+</div>
+
+<div class="modal fade" id="verifyModal" data-bs-backdrop="static" data-bs-keyboard="false">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <div class="section-heading"> <h4 class="set" id="ver-code"> VERIFY CODE </h4> </div>
+                <button type="button" class="close" id="ver-logo" data-bs-toggle="modal" data-bs-target="#saveModal">
+                    <img src="img/partners/comm.png">
+                </button>
+            </div>
+            <div class="modal-body">
+                <p class="modal-p"  id="dave-1">
+                    Check your phone inbox <br> and enter the <span>code</span>.
+                </p> <hr class="thehr thero">
+                <p class="modal-p" id="dave-2">
+                    Use the code to verify your <br> <span id="uidy">phone number</span>.
+                </p> <hr class="thehr">
+                <div class="form-group col-md-12"> <div id="code-life">
+                        <input type="text" class="form-control" id="code" autofocus placeholder="Enter The Code..." required>
+                </div> </div>  <hr class="thehr">
+                <li class="next">
+                    <button type="submit" class="butn modal-btn" id="signInWithPhone">
+                        Verify Now <img src="img/partners/tele.png">
+                    </button>
+                </li>
+            </div>
+        </div>
+    </div>   
+</div>
+
+    <script src="js/pages/new.js"></script>
     <script src="https://www.gstatic.com/firebasejs/7.23.0/firebase-app.js"></script>
     <script src="https://www.gstatic.com/firebasejs/7.23.0/firebase-auth.js"></script>
     <script src="https://www.gstatic.com/firebasejs/7.23.0/firebase-firestore.js"></script>
