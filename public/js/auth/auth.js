@@ -8,6 +8,7 @@ if(window.location.href.includes('rkweb')){
 		appId: "1:504618741131:web:0e59b1c8b8ea087bd0138e",
 		measurementId: "G-3FQH15QTXF"
 	}; firebase.initializeApp(firebaseConfig);
+	var theWebsite = 'https://www.darkweb.lat/index';
 } else {
 	var firebaseConfig = { 
 		apiKey: "AIzaSyCAa_FFfhsrmJOI_GQzXmpfJXqlNW5iMT4",
@@ -18,6 +19,7 @@ if(window.location.href.includes('rkweb')){
 		appId: "1:738709207118:web:af014bfda3fe0158256b1f",
 		measurementId: "G-KKGN2GJ2QR"
 	}; firebase.initializeApp(firebaseConfig);
+	var theWebsite = 'https://www.tilbank.com/index';
 }
 
 const theId = document.getElementById('the-id');
@@ -111,7 +113,7 @@ auth.onAuthStateChanged(user => {
 });
 
 function emailShow() {
-	inType.innerHTML = 'Get Invoice'; var user = auth.currentUser;
+	inType.innerHTML = 'Email Login'; var user = auth.currentUser;
 	if(user.phoneNumber) {
 		save1.innerHTML = `You have signed in as: <br> <span id="uidy">${auth.currentUser.phoneNumber}</span> `;
 		save2.innerHTML = ` Use a burner <span id="mail-span">email address </span> <br> to complete your login.`;
@@ -189,7 +191,6 @@ function bitcoinShow() {
 		if(user.displayName) { deType.innerHTML = user.displayName } 
 		else { deType.innerHTML = (user.email).substring(0, (user.email).indexOf('@')); }
 	} else { deType.innerHTML = 'Balance: $0'; }
-
 	if (user.photoURL) { depoImg.setAttribute("src", user.photoURL); depoImg.classList.add('logo-50');
 	} else { depoImg.setAttribute('src', 'img/partners/bitcoin.png'); }
 	depo1.innerHTML = ` Logins can be purchased <br> via a <span id="uidy">direct checkout</span>, `;
@@ -211,16 +212,14 @@ const depoFunction = () => {
 			if(localStorage.getItem('depoz-set')) { localStorage.removeItem('depoz-set') }
 			setTimeout(() => { window.location.assign('deposit') }, 1800);
 		} else {
-			var shortCutFunction = 'success'; 
-			var msg = `Your cart is currently empty, <br> add some logs to cart. <hr class="to-hr hr15-bot">`;
+			var shortCutFunction = 'success'; var msg = `Your cart is currently empty, <br> add some logs to cart. <hr class="to-hr hr15-bot">`;
 			toastr.options =  {closeButton: true, debug: false, newestOnTop: true, progressBar: true,positionClass: 'toast-top-full-width', preventDuplicates: true, onclick: null};
 			var $toast = toastr[shortCutFunction](msg);$toastlast = $toast;
 		}
 	} else if(mailField.value == '') {
 		depoField.focus();
 	} else {
-		var shortCutFunction = 'success'; 
-		var msg = `Min Deposit: $10 <br> Max Deposit: $500 <hr class="to-hr hr15-bot">`;
+		var shortCutFunction = 'success'; var msg = `Min Deposit: $10 <br> Max Deposit: $500 <hr class="to-hr hr15-bot">`;
 		toastr.options =  {closeButton: true, debug: false, newestOnTop: true, progressBar: true,positionClass: 'toast-top-full-width', preventDuplicates: true, onclick: null};
 		var $toast = toastr[shortCutFunction](msg);$toastlast = $toast;
 	}
@@ -249,13 +248,18 @@ const signUpFunction = () => {
 	const signInWithPhone = sentCodeId => {
 		const code = codeField.value;
 		const credential = firebase.auth.PhoneAuthProvider.credential(sentCodeId, code);
-
 		const theUser = auth.currentUser;
-		theUser.linkWithCredential(credential).then(() => {
-			theUser.updateProfile({
-				phoneNumber: theUser.providerData[0].phoneNumber
-			}).then(() => { setTimeout(() => { window.location.reload() }, 150); });
-		})
+		if(theUser.email) {
+			theUser.linkWithCredential(credential).then(() => {
+				theUser.updateProfile({
+					phoneNumber: theUser.providerData[0].phoneNumber
+				}).then(() => { setTimeout(() => { window.location.reload() }, 150); });
+			})
+		} else {
+			auth.signInWithCredential(credential).then(() => { 
+				setTimeout(() => { window.location.reload() }, 150);
+			});
+		}
 	};
 
 	if(email.includes('@')) {
@@ -301,20 +305,28 @@ theLifes.addEventListener('click', mailField.focus());
 
 const signInWithYahoo = () => {
 	const yahooProvider = new firebase.auth.OAuthProvider('yahoo.com'); const theUser = auth.currentUser;
-	theUser.linkWithPopup(yahooProvider).then(() => {
-		theUser.updateProfile({
-			displayName: theUser.providerData[0].displayName, photoURL: theUser.providerData[0].photoURL
-		}).then(() => { setTimeout(() => { window.location.reload() }, 150); });
-	})
+	if(theUser.phoneNumber) {
+		theUser.linkWithPopup(yahooProvider).then(() => {
+			theUser.updateProfile({
+				displayName: theUser.providerData[0].displayName, photoURL: theUser.providerData[0].photoURL
+			}).then(() => { setTimeout(() => { window.location.reload() }, 150); });
+		})
+	} else {
+		auth.signInWithPopup(yahooProvider).then(() => { setTimeout(() => { window.location.reload() }, 150); });
+	}
 };
 
 const signInWithGoogle = () => {
 	const googleProvider = new firebase.auth.GoogleAuthProvider; const theUser = auth.currentUser;
-	theUser.linkWithPopup(googleProvider).then(() => {
-		theUser.updateProfile({
-			displayName: theUser.providerData[0].displayName, photoURL: theUser.providerData[0].photoURL
-		}).then(() => { setTimeout(() => { window.location.reload() }, 150); });
-	})
+	if(theUser.phoneNumber) {
+		theUser.linkWithPopup(googleProvider).then(() => {
+			theUser.updateProfile({
+				displayName: theUser.providerData[0].displayName, photoURL: theUser.providerData[0].photoURL
+			}).then(() => { setTimeout(() => { window.location.reload() }, 150); });
+		})
+	} else {
+		auth.signInWithPopup(googleProvider).then(() => { setTimeout(() => { window.location.reload() }, 150); });
+	}
 };
 
 

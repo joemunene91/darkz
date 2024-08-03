@@ -403,7 +403,7 @@
   });
   
   
-  $('#saveModal').on('show.bs.modal', function(event) {
+  $('#profileModal').on('show.bs.modal', function(event) {
   
     "use strict";
   

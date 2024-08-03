@@ -108,7 +108,7 @@ if(localStorage.getItem('banklogs')){
                             <li class="text-white">${items[i].info5} </li>
                             <li class="text-white">${items[i].info6} </li>
                             <li class="text-white">${(items[i].account).replace('[','<br>[').replace(']',' ACCOUNT]')}</li>
-                            <button type="submit" class="butn white" style="letter-spacing: 2px !important; padding-right: 15px !important" data-bs-toggle="modal" data-bs-target="#saveModal">
+                            <button type="submit" class="butn white" style="letter-spacing: 2px !important; padding-right: 15px !important" data-bs-toggle="modal" data-bs-target="#profileModal">
                                 Download
                             </button>
                         </ul>
@@ -139,7 +139,7 @@ if(localStorage.getItem('banklogs')){
                             <li>${items[i].info5} </li>
                             <li>${items[i].info6} </li>
                             <li>${(items[i].account).replace('[','<br>[').replace(']',' ACCOUNT]')}</li>
-                            <button type="submit" style="letter-spacing: 2px !important; padding-right: 15px !important" class="butn" data-bs-toggle="modal" data-bs-target="#saveModal">
+                            <button type="submit" style="letter-spacing: 2px !important; padding-right: 15px !important" class="butn" data-bs-toggle="modal" data-bs-target="#profileModal">
                                 Download 
                             </button>
                         </ul>
