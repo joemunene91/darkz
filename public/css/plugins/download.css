@@ -819,9 +819,9 @@ td.burro {
     -webkit-column-gap: 2px;
     column-gap: 2px;
 
-    -moz-column-count: 12;
-    -webkit-column-count: 12;
-    column-count: 12;
+    -moz-column-count: 11;
+    -webkit-column-count: 11;
+    column-count: 11;
 }
 .masonry-4 a {
     display: block;
@@ -833,9 +833,9 @@ td.burro {
 
 @media screen and (min-width: 768px) {
     .masonry-4 {
-        -moz-column-count: 21;
-        -webkit-column-count: 21;
-        column-count: 21;
+        -moz-column-count: 20;
+        -webkit-column-count: 20;
+        column-count: 20;
 
         margin: 3px 0;
         padding: 0;
@@ -887,8 +887,8 @@ td.burro {
 
 .upload-p {
 	color: #fff !important;
-	font-size: 20.5px !important;
-	line-height: 60px !important;
+	font-size: 20.7px !important;
+	line-height: 58px !important;
     text-align: center !important;
 }
 
@@ -949,8 +949,8 @@ td.burro {
     }
 
     .upload-p {
-        font-size: 19.5px !important;
-        line-height: 58px !important;
+        font-size: 19.7px !important;
+        line-height: 56px !important;
         text-align: center !important;
     }
     
