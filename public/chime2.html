@@ -171,8 +171,8 @@
                                             </div>
                                         </div>    
                                         <div class="modal-footer modal-checkout" id="cart-footer">
-                                            <button class="butn" id="showlink" onclick="window.location.assign('home')">
-                                                Cash Out <img src="img/partners/tele.png">            
+                                            <button class="butn" id="showlink" data-bs-toggle="modal" data-bs-target="#saveModal">
+                                                Mail Link <img src="img/partners/tele.png">            
                                             </button>
                             
                                             <button class="butn" id="showtoasts"  onclick="window.location.assign('download')">
@@ -1002,51 +1002,6 @@
             </div>
         </div>
     </div>   
-</div>
-
-<div class="modal fade" id="profileModal" data-bs-backdrop="static" data-bs-keyboard="false">
-    <div class="modal-dialog">
-        <div class="modal-content">
-            <div class="modal-header">
-                  <h4 class="modal-title"  id="theno1">
-                    Cart: 0, Total: 0
-                </h4>
-                <canvas id="canvas2" width="65px" height="65px"  data-bs-dismiss="modal"></canvas>
-            </div>
-            <div class="modal-body">
-                <div class="table-responsive">
-                    <table class="table table-striped table-bordered"  id="example1">
-                        <thead>
-                            <tr class="table-primary">
-                                <th>Bank</th>
-                                <th>Balance</th>
-                                <th>Account</th>
-                                <th class="remove-th"><i class="fas fa-trash"></i></th>
-                                <th>Price</th>
-                                <th>Info1</th>
-                                <th>Info2</th>
-                                <th>Info3</th>
-                                <th>Info4</th>
-                                <th>Info5</th>
-                                <th>Info6</th>
-                                <th>Link</th>
-                            </tr>
-                        </thead>
-                        <tbody class="champez1"></tbody>      
-                    </table>
-                </div>
-            </div>    
-            <div class="modal-footer modal-checkout" id="cart-footer">
-                <button class="butn" id="showlink" onclick="window.location.assign('home')">
-                    Cash Out <img src="img/partners/tele.png">            
-                </button>
-
-                <button class="butn" id="showtoasts"  onclick="window.location.assign('download')">
-                    Download <i class="fas fa-angle-down"></i>
-                </button>
-            </div>
-        </div>
-    </div>
 </div>
 
 <div class="modal fade" id="emailModal" data-bs-backdrop="static" data-bs-keyboard="false">

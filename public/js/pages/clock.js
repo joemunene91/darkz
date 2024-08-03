@@ -9,7 +9,7 @@ if(!localStorage.getItem('timez-set')) {
     localStorage.setItem('seconds-left', p1knoDecimalo);
     localStorage.setItem('timez-set', true);
 }
-let width = 1800;
+let width = 1200;
 
 function frame(){
     var j = new Date();
@@ -18,23 +18,23 @@ function frame(){
     var p1knoDecimal = Math.trunc(p1k);
     var theTime = localStorage.getItem('seconds-left');
     var timeDifference = parseFloat(p1knoDecimal) - parseFloat(theTime);
-    width = 1800 - timeDifference;
+    width = 1200 - timeDifference;
 
     if(width <= 10){
         window.location.assign('home');
-    } else if(width < 600) {
+    } else if(width < 400) {
         elemj.classList.add("bg-danger");
         var minutes = Math.floor(width/60); var seconds = width - minutes * 60; if(seconds < 10){ seconds = '0'+seconds } 
-        elemj.style.width = (width/18) + "%"; document.getElementById('escoz').innerHTML = `Time left: ${minutes}:${seconds}`;
-    } else if(width < 1200) {
+        elemj.style.width = (width/12) + "%"; document.getElementById('escoz').innerHTML = `Time left: ${minutes}:${seconds}`;
+    } else if(width < 800) {
         elemj.classList.add("bg-warning");
         var minutes = Math.floor(width/60); var seconds = width - minutes * 60; if(seconds < 10){ seconds = '0'+seconds } 
-        elemj.style.width = (width/18) + "%"; document.getElementById('escoz').innerHTML = `Time left: ${minutes}:${seconds}`;
+        elemj.style.width = (width/12) + "%"; document.getElementById('escoz').innerHTML = `Time left: ${minutes}:${seconds}`;
     } else {
         var minutes = Math.floor(width/60);
         var seconds = width - minutes * 60;
         if(seconds < 10){ seconds = '0'+seconds }
-        elemj.style.width = (width/18) + "%";
+        elemj.style.width = (width/12) + "%";
         document.getElementById('escoz').innerHTML = `Time left: ${minutes}:${seconds}`;
     }
 }
