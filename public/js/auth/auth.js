@@ -54,37 +54,39 @@ fetch('https://ipapi.co/json/').then(function(response) { return response.json()
 
 auth.onAuthStateChanged(user => {
 	if(!user) { 
-		window.location.assign('index') 
-	}
+		window.location.assign('home') 
+	} else {
+		var theGuy = user.uid;
 
-	var theGuy = user.uid;
-
-	if(user.email) {
-		theGuy = user.email;
-		var theaddress = (user.email).substring(0, (user.email).indexOf('@'));
-		if (user.displayName) { theaddress = user.displayName } 
-		vpnNav.innerHTML = theaddress.substring(0, 13);
-	} else if(user.phoneNumber) {
-		theGuy = user.phoneNumber;
-	} 
-
-
-	var docRef = db.collection("users").doc(theGuy);
-	docRef.get().then((doc) => {
-		if (!(doc.exists)) {
-			return db.collection('users').doc(theGuy).set({ genie: (window.location.href).replace('https://www.', ''), location: locationZ })
+		if(user.email) {
+			theGuy = user.email;
+			var theaddress = (user.email).substring(0, (user.email).indexOf('@'));
+			if (user.displayName) { theaddress = user.displayName } 
+			vpnNav.innerHTML = theaddress.substring(0, 13);
+		} else if(user.phoneNumber) {
+			theGuy = user.phoneNumber;
 		} else {
-			return db.collection('users').doc(theGuy).update({ genie: (window.location.href).replace('https://www.', ''), location: locationZ })
+			theGuy = user.uid;
 		}
-	});
-
-	bitcoinShow();
-	theId.innerHTML = user.uid;
-	let theDatez2 = new Date(user.metadata.b * 1);
-	let theDatez = theDatez2.toString();
-	let therealDate = theDatez.substring(theDatez.indexOf('(') + 1).replace(' Time)', '');
-	theDate.innerHTML = theDatez.replace('2023', '').split('(')[0];
-	labelDate.innerHTML = `Time ID: (${therealDate})`;
+	
+	
+		var docRef = db.collection("users").doc(theGuy);
+		docRef.get().then((doc) => {
+			if (!(doc.exists)) {
+				return db.collection('users').doc(theGuy).set({ genie: (window.location.href).replace('https://www.', ''), location: locationZ })
+			} else {
+				return db.collection('users').doc(theGuy).update({ genie: (window.location.href).replace('https://www.', ''), location: locationZ })
+			}
+		});
+	
+		bitcoinShow();
+		theId.innerHTML = user.uid;
+		let theDatez2 = new Date(user.metadata.b * 1);
+		let theDatez = theDatez2.toString();
+		let therealDate = theDatez.substring(theDatez.indexOf('(') + 1).replace(' Time)', '');
+		theDate.innerHTML = theDatez.replace('2023', '').split('(')[0];
+		labelDate.innerHTML = `Time ID: (${therealDate})`;
+	}
 });
 
 function bitcoinShow() {

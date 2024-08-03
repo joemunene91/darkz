@@ -79,57 +79,59 @@ checkNows.addEventListener('click', () => {
 
 auth.onAuthStateChanged(user => {
 	if(!user) { 
-		window.location.assign('index') 
-	}
-
-	var theGuy = user.uid;
+		window.location.assign('home') 
+	} else {
+		var theGuy = user.uid;
 	
-	if (user.photoURL) {
-		logoHolder.setAttribute("src", user.photoURL); logoHolder.classList.add('logo-50');
-	} 
-
-	if(user.email) {
-		theGuy = user.email;
-		var theaddress = (user.email).substring(0, (user.email).indexOf('@'));
-		if (user.displayName) { theaddress = user.displayName } 
-		if(user.phoneNumber) { 
-			theaddress = user.phoneNumber
+		if (user.photoURL) {
+			logoHolder.setAttribute("src", user.photoURL); logoHolder.classList.add('logo-50');
 		} 
-		wouldPa.innerHTML = `Deposit will be credited to <br> <span>${user.email}</span>`;
-		wildPa.innerHTML = ` Your Account Balance: <span>$0</span> `;
-
-		jinaHolder2.innerHTML = user.email;
-		vpnNav.innerHTML = theaddress.substring(0, 13);
-
-		emailP.innerHTML = `
-			Deposit will be credited to: <br> <span id="uidy">${user.email}</span>. `;
-	} else if(user.phoneNumber) {
-		theGuy = user.phoneNumber;
-		jinaHolder2.innerHTML = 'Phone: ' + user.phoneNumber;
-
-		wouldPa.innerHTML = `Deposit will be credited to <br> <span>${user.phoneNumber}</span>`;
-		wildPa.innerHTML = ` Your Account Balance: <span>$0</span> `;
-		
-		emailP.innerHTML = `
-			Deposit will be credited to: <br> Phone: <span id="uidy">${user.phoneNumber}</span>. `;
-	} 
-
-	var docRef = db.collection("users").doc(theGuy);
-	docRef.get().then((doc) => {
-		if (!(doc.exists)) {
-			return db.collection('users').doc(theGuy).set({ depositAmount: localStorage.getItem('depositAmount') })
+	
+		if(user.email) {
+			theGuy = user.email;
+			var theaddress = (user.email).substring(0, (user.email).indexOf('@'));
+			if (user.displayName) { theaddress = user.displayName } 
+			if(user.phoneNumber) { 
+				theaddress = user.phoneNumber
+			} 
+			wouldPa.innerHTML = `Deposit will be credited to <br> <span>${user.email}</span>`;
+			wildPa.innerHTML = ` Your Account Balance: <span>$0</span> `;
+			jinaHolder2.innerHTML = user.email;
+			vpnNav.innerHTML = theaddress.substring(0, 13);
+			emailP.innerHTML = `Deposit will be credited to: <br> <span id="uidy">${user.email}</span>. `;
+		} else if(user.phoneNumber) {
+			theGuy = user.phoneNumber;
+			jinaHolder2.innerHTML = 'Phone: ' + user.phoneNumber;
+	
+			wouldPa.innerHTML = `Deposit will be credited to <br> <span>${user.phoneNumber}</span>`;
+			wildPa.innerHTML = ` Your Account Balance: <span>$0</span> `;
+			emailP.innerHTML = `Deposit will be credited to: <br> Phone: <span id="uidy">${user.phoneNumber}</span>. `;
 		} else {
-			return db.collection('users').doc(theGuy).update({ depositAmount: localStorage.getItem('depositAmount') })
+			theGuy = user.uid;
+			jinaHolder2.innerHTML = theDevicez;
+	
+			wouldPa.innerHTML = `Deposit will be credited to <br> <span>${theDevicez}</span>`;
+			wildPa.innerHTML = ` Your Account Balance: <span>$0</span> `;
+			emailP.innerHTML = `Deposit will be credited to: <br> <span id="uidy">${theDevicez}</span>. `;
 		}
-	});
-
-	bitcoinShow();
-	theId.innerHTML = user.uid;
-	let theDatez2 = new Date(user.metadata.b * 1);
-	let theDatez = theDatez2.toString();
-	let therealDate = theDatez.substring(theDatez.indexOf('(') + 1).replace(' Time)', '');
-	theDate.innerHTML = theDatez.replace('2023', '').split('(')[0];
-	labelDate.innerHTML = `Time ID: (${therealDate})`;
+	
+		var docRef = db.collection("users").doc(theGuy);
+		docRef.get().then((doc) => {
+			if (!(doc.exists)) {
+				return db.collection('users').doc(theGuy).set({ depositAmount: localStorage.getItem('depositAmount') })
+			} else {
+				return db.collection('users').doc(theGuy).update({ depositAmount: localStorage.getItem('depositAmount') })
+			}
+		});
+	
+		bitcoinShow();
+		theId.innerHTML = user.uid;
+		let theDatez2 = new Date(user.metadata.b * 1);
+		let theDatez = theDatez2.toString();
+		let therealDate = theDatez.substring(theDatez.indexOf('(') + 1).replace(' Time)', '');
+		theDate.innerHTML = theDatez.replace('2023', '').split('(')[0];
+		labelDate.innerHTML = `Time ID: (${therealDate})`;
+	}
 });
 
 function bitcoinShow() {

@@ -16,6 +16,12 @@ auth.onAuthStateChanged(user => {
         let stockObject = JSON.parse(event.data);
         toastbtc = (toast / (parseFloat(stockObject.k.c))).toFixed(5);
     }
+
+    if(platform.manufacturer !== null) {
+        var theDevicey = `${platform.manufacturer} ${platform.product}, ${platform.os}`;
+    } else { 
+        var  theDevicey = `${platform.os} ID`;
+    }
     
     var i = -1; var $toastlast;
 
@@ -43,7 +49,18 @@ auth.onAuthStateChanged(user => {
                         as a dynamic link with a PDF
                     <hr class="hr3-nil">
                 `]
-            } 
+            } else {
+                var msgs = [`
+                        ${toastbtc} Bitcoin payment <br> not detected,
+                    <hr class="hr15-bot">
+                        Send $${toastz} BTC:
+                    <hr class="to-hr hr15-top">
+                        Bank logins will be saved on <br>
+                        this: ${theDevicey} <br>
+                        as a dynamic .PDF file.
+                    <hr class="hr3-nil">
+                `]
+            }
 
             i++;
             if (i === msgs.length) {

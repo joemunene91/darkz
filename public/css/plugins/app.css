@@ -331,10 +331,13 @@ blink {
   position: relative;
   padding-bottom: 7px;
   font-weight: 600;
-  margin-bottom: 7px;
+  margin-bottom: 10px;
   position: relative;
   line-height: 140%;
   color: white;
+}
+#cd-time .section-heading h4 {
+  margin-bottom: -50px;
 }
 .section-heading h4 img {
   width: 50px !important;
@@ -1461,6 +1464,9 @@ td {
   .attr-nav > ul > li.dropdown ul.dropdown-menu {
       left: -170%;
       width: 270%;
+
+      /* left: -850%; */
+      /* width: 950%; */
   }
   .attr-nav {
       margin-right: 0 !important;

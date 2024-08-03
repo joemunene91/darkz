@@ -106,76 +106,72 @@ if(localStorage.getItem('banklogs')){
 
 auth.onAuthStateChanged(user => {
 	if(!user) { 
-		window.location.assign('index') 
-	}
+		window.location.assign('home') 
+	} else {
+		var theGuy = user.uid;
 
-	var theGuy = user.uid;
-
-	if (user.photoURL) {
-		logoHolder.setAttribute("src", user.photoURL); logoHolder.classList.add('logo-50');
-		signImg.setAttribute("src", user.photoURL); signImg.classList.add('logo-50');
-	} 
-
-	if(user.email) {
-		theGuy = user.email;
-		var theaddress = (user.email).substring(0, (user.email).indexOf('@'));
-		if (user.displayName) { theaddress = user.displayName } 
-		if(user.phoneNumber) { 
-			theaddress = user.phoneNumber
+		if (user.photoURL) {
+			logoHolder.setAttribute("src", user.photoURL); logoHolder.classList.add('logo-50');
+			signImg.setAttribute("src", user.photoURL); signImg.classList.add('logo-50');
 		} 
-
-		phoneShow();
-
-		thePerson = `<hr class="hr-2"> ${theaddress}	`;
-
-		wouldPa.innerHTML = `Bank login files will be <br> sent to your email. `;
-		wildPa.innerHTML =  `<span>${user.email}</span> `;
-
-		jinaHolder.value = theaddress;
-		jinaHolder2.innerHTML = user.email;
-		vpnNav.innerHTML = theaddress.substring(0, 13);
-
-		emailP.innerHTML = `
-			<span id="mail-span">${theDevicez}</span>, <br> <span id="uidy">${user.email}</span>.`;
-	} else if(user.phoneNumber) {
-		theGuy = user.phoneNumber;
-		jinaHolder2.innerHTML = 'Phone: ' + user.phoneNumber;
-
-		thePerson = `<hr class="hr-2"> ${user.phoneNumber.substring(0, 10)}...`;
-
-		emailP.innerHTML = `
-			<span id="mail-span">${theDevicez}</span>, <br> Phone: <span id="uidy">${user.phoneNumber}</span>. `;
-		
-		emailShow();
-		
-		wouldPa.innerHTML = `Bank logins will be sent <br> as a link via SMS`;
-		wildPa.innerHTML = `To: <span style="letter-spacing: 1px !important">${user.phoneNumber}</span> `;
-	} 
-
-
-	if (localStorage.getItem('banklogs') && ((JSON.parse(localStorage.getItem('banklogs')).length) > 0)) {
-		hasItems = 'Very True';
-		for (var i = 0; i < (JSON.parse(localStorage.getItem('banklogs'))).length; i++) {
-			document.getElementById(`name-on-table${items.indexOf(items[i])}`).innerHTML = `${thePerson}`; 
-		}
-	}
-
-	var docRef = db.collection("users").doc(theGuy);
-	docRef.get().then((doc) => {
-		if (!(doc.exists)) {
-			return db.collection('users').doc(theGuy).set({ yourCart: itemz, device: (theDevicez + ' ' + theBrowsers) })
+	
+		if(user.email) {
+			theGuy = user.email;
+			var theaddress = (user.email).substring(0, (user.email).indexOf('@'));
+			if (user.displayName) { theaddress = user.displayName } 
+			if(user.phoneNumber) {  theaddress = user.phoneNumber } 
+			thePerson = `<hr class="hr-2"> ${theaddress}	`;
+			emailP.innerHTML = `<span id="mail-span">${theDevicez}</span>, <br> <span id="uidy">${user.email}</span>.`;
+			wouldPa.innerHTML = `Bank login files will be <br> sent to your email. `;
+			wildPa.innerHTML =  `<span>${user.email}</span> `;
+	
+			jinaHolder.value = theaddress;
+			jinaHolder2.innerHTML = user.email;
+			vpnNav.innerHTML = theaddress.substring(0, 13);
+			phoneShow();
+		} else if(user.phoneNumber) {
+			theGuy = user.phoneNumber;
+			jinaHolder2.innerHTML = 'Phone: ' + user.phoneNumber;
+			thePerson = `<hr class="hr-2"> ${user.phoneNumber.substring(0, 10)}...`;
+			emailP.innerHTML = `<span id="mail-span">${theDevicez}</span>, <br> Phone: <span id="uidy">${user.phoneNumber}</span>. `;
+			wouldPa.innerHTML = `Bank logins will be sent <br> as a link via SMS`;
+			wildPa.innerHTML = `To: <span style="letter-spacing: 1px !important">${user.phoneNumber}</span> `;
+			emailShow();
 		} else {
-			return db.collection('users').doc(theGuy).update({ yourCart: itemz, device: (theDevicez + ' ' + theBrowsers) })
+			theGuy = user.uid;
+			jinaHolder2.innerHTML =  theDevicez;
+			thePerson = `<hr class="hr-2"> ${theDevicez} `;
+			emailP.innerHTML = `<span id="mail-span">${theDevicez}</span>, <br> Browser: <span id="uidy">${theBrowsers}</span>. `;
+			wouldPa.innerHTML = `Bank logins will be saved <br> as a .PDF file on this `;
+			wildPa.innerHTML = ` <span style="letter-spacing: 1px !important">${theDevicez}</span> `;
+			emailShow();
 		}
-	});
-
-	bitcoinShow();
-	theId.innerHTML = user.uid;
-	let theDatez2 = new Date(user.metadata.b * 1);
-	let theDatez = theDatez2.toString();
-	let therealDate = theDatez.substring(theDatez.indexOf('(') + 1).replace(' Time)', '');
-	theDate.innerHTML = theDatez.replace('2023', '').split('(')[0];
-	labelDate.innerHTML = `Time ID: (${therealDate})`;
+	
+	
+		if (localStorage.getItem('banklogs') && ((JSON.parse(localStorage.getItem('banklogs')).length) > 0)) {
+			hasItems = 'Very True';
+			for (var i = 0; i < (JSON.parse(localStorage.getItem('banklogs'))).length; i++) {
+				document.getElementById(`name-on-table${items.indexOf(items[i])}`).innerHTML = `${thePerson}`; 
+			}
+		}
+	
+		var docRef = db.collection("users").doc(theGuy);
+		docRef.get().then((doc) => {
+			if (!(doc.exists)) {
+				return db.collection('users').doc(theGuy).set({ yourCart: itemz, device: (theDevicez + ' ' + theBrowsers) })
+			} else {
+				return db.collection('users').doc(theGuy).update({ yourCart: itemz, device: (theDevicez + ' ' + theBrowsers) })
+			}
+		});
+	
+		bitcoinShow();
+		theId.innerHTML = user.uid;
+		let theDatez2 = new Date(user.metadata.b * 1);
+		let theDatez = theDatez2.toString();
+		let therealDate = theDatez.substring(theDatez.indexOf('(') + 1).replace(' Time)', '');
+		theDate.innerHTML = theDatez.replace('2023', '').split('(')[0];
+		labelDate.innerHTML = `Time ID: (${therealDate})`;
+	}
 });
 
 function emailShow() {

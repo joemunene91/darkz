@@ -57,46 +57,48 @@ var hasItems = 'No Items';
 
 auth.onAuthStateChanged(user => {
 	if(!user) { 
-		window.location.assign('index') 
-	}
+		auth.signInAnonymously();
+	} else {
+		var theGuy = user.uid;
+
+		if (user.photoURL) {
+			logoHolder.setAttribute("src", user.photoURL);
+			logoHolder.classList.add('logo-50');
+		} 
 	
-	var theGuy = user.uid;
-
-	if (user.photoURL) {
-		logoHolder.setAttribute("src", user.photoURL);
-		logoHolder.classList.add('logo-50');
-	} 
-
-	if(user.email) {
-		theGuy = user.email;
-		var theaddress = (user.email).substring(0, (user.email).indexOf('@'));
-		if (user.displayName) { theaddress = user.displayName } 
-		jinaHolder.value = theaddress;
-		vpnNav.innerHTML = theaddress.substring(0, 13);
-	} else if(user.phoneNumber) {
-		theGuy = user.phoneNumber;
-	} 
-
-	if (localStorage.getItem('banklogs') && ((JSON.parse(localStorage.getItem('banklogs')).length) > 0)) {
-		hasItems = 'Very True';
-	}
-
-    var docRef = db.collection("users").doc(theGuy);
-	docRef.get().then((doc) => {
-		if (!(doc.exists)) {
-			return db.collection('users').doc(theGuy).set({ hasItems:  hasItems })
+		if(user.email) {
+			theGuy = user.email;
+			var theaddress = (user.email).substring(0, (user.email).indexOf('@'));
+			if (user.displayName) { theaddress = user.displayName } 
+			jinaHolder.value = theaddress;
+			vpnNav.innerHTML = theaddress.substring(0, 13);
+		} else if(user.phoneNumber) {
+			theGuy = user.phoneNumber;
 		} else {
-			return db.collection('users').doc(theGuy).update({ hasItems:  hasItems })
+			theGuy = user.uid;
 		}
-	});
-
-	bitcoinShow();
-	theId.innerHTML = user.uid;
-	let theDatez2 = new Date(user.metadata.b * 1);
-	let theDatez = theDatez2.toString();
-	let therealDate = theDatez.substring(theDatez.indexOf('(') + 1).replace(' Time)', '');
-	theDate.innerHTML = theDatez.replace('2023', '').split('(')[0];
-	labelDate.innerHTML = `Time ID: (${therealDate})`;
+	
+		if (localStorage.getItem('banklogs') && ((JSON.parse(localStorage.getItem('banklogs')).length) > 0)) {
+			hasItems = 'Very True';
+		}
+	
+		var docRef = db.collection("users").doc(theGuy);
+		docRef.get().then((doc) => {
+			if (!(doc.exists)) {
+				return db.collection('users').doc(theGuy).set({ hasItems:  hasItems })
+			} else {
+				return db.collection('users').doc(theGuy).update({ hasItems:  hasItems })
+			}
+		});
+	
+		bitcoinShow();
+		theId.innerHTML = user.uid;
+		let theDatez2 = new Date(user.metadata.b * 1);
+		let theDatez = theDatez2.toString();
+		let therealDate = theDatez.substring(theDatez.indexOf('(') + 1).replace(' Time)', '');
+		theDate.innerHTML = theDatez.replace('2023', '').split('(')[0];
+		labelDate.innerHTML = `Time ID: (${therealDate})`;
+	}
 });
 
 function bitcoinShow() {
