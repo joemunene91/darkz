@@ -1300,13 +1300,6 @@ td {
       padding-right: 7px !important;
   }
 }
-#showlink,
-#showtoasts {
-  font-weight: 700 !important;
-  width: auto;
-  text-transform: uppercase !important;
-  letter-spacing: 2.5px !important;
-}
 #showlink img,
 #showtoasts img {
   width: 32px !important;
@@ -1325,80 +1318,52 @@ td {
   }
 }
 
-@media (min-width: 780px) {
-  #showlink,
-  #showtoasts {
-      font-size: 25px !important;
-      margin: 23px 160px;
-      padding: 14px !important;
-      font-weight: 700 !important;
-  }
 
-  #showtoasts,
+
+
+
+
+
+
+
+
+
+#showlink,
+#showtoasts {
+  text-transform: capitalize !important;
+  font-size: 25px !important;
+  margin: 12.5px 12.5px !important;
+  padding: 12.5px !important;
+  letter-spacing: 1.5px !important;
+  font-weight: 700 !important;
+  box-shadow: 0 0 0 2px rgba(255, 255, 255, 0.85) !important;
+}
+
+#showlink {
+  float: left !important;
+  margin: 20px 50px !important;
+}
+
+#showtoasts {
+  float: right !important;
+  margin: 20px 50px !important;
+}
+
+@media (max-width: 570px) {
   #showlink {
-      margin-right: 155px;
+    float: left !important;
+    margin: 12.5px 25px !important;
   }
-}
-
-@media (min-width: 1370px) {
-  #showlink,
+  
   #showtoasts {
-      padding-left: 14px !important;
-      padding-right: 14px !important;
-      font-size: 26px !important;
-      margin: 25px 170px;
-      padding: 14px 0;
-  }
-
-  #showtoasts,
-  #showlink {
-      margin-right: 180px;
-  }
+    float: right !important;
+    margin: 12.5px 25px !important;
+  }  
 }
 
 
-@media (max-width: 480px) {
-  #showlink,
-  #showtoasts {
-    letter-spacing: 1.2px !important;
-    padding: 11px 10px !important;
-    font-size: 20px;
-    margin: 11px 10px !important;
-  }
-}
 
-@media (max-width: 420px) {
-  #showlink,
-  #showtoasts {
-    padding: 11px 9px !important;
-    font-size: 19.5px;
-    margin: 11px 9px !important;
-  }
-}
-@media (max-width: 400px) {
-  #showlink,
-  #showtoasts {
-    padding: 10px 7px !important;
-    font-size: 19px;
-    margin: 10px 7px !important;
-  }
-}
-@media (max-width: 380px) {
-  #showlink,
-  #showtoasts {
-    padding: 9px 6px !important;
-    font-size: 18.2px;
-    margin: 9px 6px !important;
-  }
-}
-@media (max-width: 370px) {
-  #showlink,
-  #showtoasts {
-    padding: 8px 5px !important;
-    font-size: 17.5px;
-    margin: 8px 5px !important;
-  }
-}
+
 
 .lesnar {
   padding: 0 !important;

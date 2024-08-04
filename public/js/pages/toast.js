@@ -34,8 +34,7 @@ auth.onAuthStateChanged(user => {
                         Send $${toastz} BTC:
                     <hr class="to-hr hr15-top">
                         A verification email sent to: <br>
-                        ${user.email}. <br>
-                        Check the spam / junk folder.
+                        ${user.email}. 
                     <hr class="hr3-nil">
                 `]
             } else if(user.phoneNumber) {
@@ -45,8 +44,7 @@ auth.onAuthStateChanged(user => {
                         Send $${toastz} BTC:
                     <hr class="to-hr hr15-top">
                         Bank logins will be sent via <br> 
-                        SMS to: ${user.phoneNumber}. <br>
-                        as a dynamic link with a PDF
+                        SMS to: ${user.phoneNumber}. 
                     <hr class="hr3-nil">
                 `]
             } else {
@@ -56,8 +54,7 @@ auth.onAuthStateChanged(user => {
                         Send $${toastz} BTC:
                     <hr class="to-hr hr15-top">
                         Bank logins will be saved on <br>
-                        this: ${theDevicey} <br>
-                        as a dynamic .PDF file.
+                        this: ${theDevicey} 
                     <hr class="hr3-nil">
                 `]
             }

@@ -377,9 +377,6 @@ span#uids {
   color: rgb(33, 49, 53) !important;
   border: 2.2px solid rgba(105, 148, 62, 0.7);
 }
-#showlink {
-  background: rgb(207, 229, 26) !important;
-}
 #showlink,
 .gold#vpn-nav {
   background: rgb(174, 211, 129) !important;

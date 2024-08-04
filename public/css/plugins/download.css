@@ -337,41 +337,6 @@ padding: 6px 0 !important;
   margin-bottom: 6px !important;
 }
 
-@media (min-width: 780px) {
-  #showlink,
-  #showtoasts {
-      font-size: 25px !important;
-      margin: 23px 125px;
-      padding: 14px !important;
-      font-weight: 700 !important;
-  }
-
-  #showtoasts,
-  #showlink {
-      margin-right: 120px;
-  }
-}
-
-@media (min-width: 1370px) {
-  #showlink,
-  #showtoasts {
-      padding-left: 14px !important;
-      padding-right: 14px !important;
-      font-size: 26px !important;
-      margin: 25px 130px;
-      padding: 14px 0;
-  }
-
-  #showtoasts,
-  #showlink {
-      margin-right: 130px;
-  }
-}
-
-
-
-
-
 
 
 
