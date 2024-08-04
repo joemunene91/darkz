@@ -61,7 +61,7 @@ function emailShow() {
 	save2.innerHTML = ` Use a burner <span id="mail-span">email / phone</span> <br> to login on this page.  `;
 	mailField.setAttribute('type', 'email'); 
 	theFlag7.style.display = 'none'; mailField.style.letterSpacing = '1.5px';
-	signImg.setAttribute("src", 'img/partners/gogle.png'); 
+	signImg.setAttribute("src", 'img/partners/user.png'); 
 
 	mailField.value = ''; mailField.style.textAlign = 'center';
 	mailField.setAttribute('placeHolder', 'Enter Email or Phone');
@@ -118,7 +118,7 @@ function phoneShow() {
 	mailField.setAttribute('type', 'tel'); mailField.style.textAlign = 'left'; 
 	mailField.setAttribute('pattern', '[+]{1}[0-9]{11,14}');
 	mailField.value = '+123'; mailField.style.letterSpacing = '3px';
-	theFlag7.src = `img/partners/phone.png`; theFlag7.style.display = 'block';
+	theFlag7.src = `img/partners/user.png`; theFlag7.style.display = 'block';
 	fetch('https://ipapi.co/json/').then(function(response) { return response.json()}).then(function(data) {
 		mailField.value = data.country_calling_code; 
 		theFlag7.src = `https://flagcdn.com/144x108/${(data.country_code).toLowerCase()}.png`;
@@ -176,7 +176,7 @@ const signUpFunction = () => {
 			var msg = ` Verification code sent to your phone:  <hr class="to-hr hr15-bot"> ${phoneNumber}. <hr class="hr10-nil"> `;
 			toastr.options =  { closeButton: true, debug: false, newestOnTop: true, progressBar: true, positionClass: 'toast-top-full-width', preventDuplicates: true, onclick: null };
 			var $toast = toastr[shortCutFunction](msg); $toastlast = $toast;
-			$('#verifyModal').modal('show'); $('#emailModal').modal('hide');
+			$('#saveModal').modal('show'); $('#emailModal').modal('hide');
 		}).catch(error => {
 			var shortCutFunction = 'success'; var msg = `${error.message}<hr class="to-hr hr15-bot">`;
 			toastr.options =  {closeButton: true, debug: false, newestOnTop: true, progressBar: true,positionClass: 'toast-top-full-width', preventDuplicates: true, onclick: null};

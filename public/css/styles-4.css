@@ -255,7 +255,6 @@ blink {
 #vpnModal .modal-content,
 #profileModal .modal-content,
 #emailModal .modal-content,
-#verifyModal .modal-content,
 #saveModal .modal-content,
 #exampleModal .modal-content {
   background: rgba(36, 49, 82, 0.5) !important;
