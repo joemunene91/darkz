@@ -1331,9 +1331,8 @@ td {
 #showlink,
 #showtoasts {
   text-transform: capitalize !important;
-  font-size: 25px !important;
-  margin: 12.5px 12.5px !important;
-  padding: 12.5px !important;
+  font-size: 27px !important;
+  padding: 13px !important;
   letter-spacing: 1.5px !important;
   font-weight: 700 !important;
   box-shadow: 0 0 0 2px rgba(255, 255, 255, 0.85) !important;
@@ -1341,15 +1340,23 @@ td {
 
 #showlink {
   float: left !important;
-  margin: 20px 50px !important;
+  margin: 30px 60px !important;
 }
 
 #showtoasts {
   float: right !important;
-  margin: 20px 50px !important;
+  margin: 30px 60px !important;
 }
 
 @media (max-width: 570px) {
+  #showlink,
+  #showtoasts {
+    font-size: 25px !important;
+    padding: 12.5px !important;
+    letter-spacing: 1.5px !important;
+  }
+
+
   #showlink {
     float: left !important;
     margin: 12.5px 25px !important;
