@@ -1351,20 +1351,20 @@ td {
 @media (max-width: 570px) {
   #showlink,
   #showtoasts {
-    font-size: 24px !important;
-    padding: 12px !important;
+    font-size: 23.5px !important;
+    padding: 11px !important;
     letter-spacing: 1.5px !important;
   }
 
 
   #showlink {
     float: left !important;
-    margin: 12.5px 25px !important;
+    margin: 12px 24px !important;
   }
   
   #showtoasts {
     float: right !important;
-    margin: 12.5px 25px !important;
+    margin: 12px 24px !important;
   }  
 }
 
