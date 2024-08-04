@@ -1351,8 +1351,8 @@ td {
 @media (max-width: 570px) {
   #showlink,
   #showtoasts {
-    font-size: 25px !important;
-    padding: 12.5px !important;
+    font-size: 24px !important;
+    padding: 12px !important;
     letter-spacing: 1.5px !important;
   }
 
