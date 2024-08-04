@@ -51,9 +51,9 @@ if(localStorage.getItem('banklogs') && ((JSON.parse(localStorage.getItem('banklo
 
     vpnButz.innerHTML = ` Download <img src="img/partners/cloud.png"> `;
     vpnButz.setAttribute('href', 'download');
+    document.getElementById('home-row').style.display = 'none';
 } else {
     document.getElementById('cartlength').style.display = 'none';
-    document.getElementById('home-row').style.display = 'none';
     showingToast.removeAttribute('onclick');
     showingToast.addEventListener('click', showThis);
 
