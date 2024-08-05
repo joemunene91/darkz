@@ -5,9 +5,11 @@ auth.onAuthStateChanged(user => {
         if(JSON.parse(localStorage.getItem('banklogs')).length == 1) {
             toasti = localStorage.getItem('banktotal');
             toastzi = toasti.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",");
+            localStorage.setItem('btcDola', toastzi);
         } else if(JSON.parse(localStorage.getItem('banklogs')).length == 2) { 
             toasti = localStorage.getItem('divtotal');
             toastzi = toasti.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",");
+            localStorage.setItem('btcDola', toastzi);
         }
     }
 
@@ -15,6 +17,8 @@ auth.onAuthStateChanged(user => {
     ws.onmessage = (event) => {
         let stockObject = JSON.parse(event.data);
         toastbtci = (toasti / (parseFloat(stockObject.k.c))).toFixed(5);
+
+        localStorage.setItem('btcPoint', toastbtci);
     }
     
     var i = -1; var $toastlast;
