@@ -159,8 +159,6 @@ auth.onAuthStateChanged(user => {
 
 			emailP.innerHTML = `Bank logs are sent via <span id="mail-span">Email</span>
 				<br> or <span id="mail-span">SMS</span> as a dynamic link. `;
-
-			emailShow();
 		}
 	
 	
@@ -180,6 +178,7 @@ auth.onAuthStateChanged(user => {
 			}
 		});
 	
+		emailShow();
 		bitcoinShow();
 		theId.innerHTML = user.uid;
 		let theDatez2 = new Date(user.metadata.b * 1);
