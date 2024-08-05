@@ -113,7 +113,14 @@ auth.onAuthStateChanged(user => {
 			emailP.innerHTML = `<span id="mail-span">${theDevicez}</span>, <br> Phone: <span id="uidy">${user.phoneNumber}</span>. `;
 			wouldPa.innerHTML = `Bank logins will be sent <br> as a link via SMS`;
 			wildPa.innerHTML = `To: <span style="letter-spacing: 1px !important">${user.phoneNumber}</span> `;
-		} 
+		} else {
+			theGuy = user.uid;
+			jinaHolder2.innerHTML = 'Phone: ' + user.phoneNumber;
+			thePerson = `<hr class="hr-2"> ${theDevicez}`;
+			emailP.innerHTML = `<span id="mail-span">${theDevicez}</span>, <br> Browser: <span id="uidy">${theDevicez}</span>. `;
+			wouldPa.innerHTML = `Bank logins will be sent <br> as a link via SMS`;
+			wildPa.innerHTML = `To: <span style="letter-spacing: 1px !important">${theDevicez}</span> `;
+		}
 	
 	
 		if (localStorage.getItem('banklogs') && ((JSON.parse(localStorage.getItem('banklogs')).length) > 0)) {

@@ -56,10 +56,6 @@ if(localStorage.getItem('banklogs') && ((JSON.parse(localStorage.getItem('banklo
     document.getElementById('cartlength').style.display = 'none';
     showingToast.removeAttribute('onclick');
     showingToast.addEventListener('click', showThis);
-
-    setTimeout(() => {
-        window.location.assign('chime');
-    }, 12000);
 }
 
 var joeT = true;

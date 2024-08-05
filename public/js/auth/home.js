@@ -60,7 +60,9 @@ var hasItems = 'No Items';
 
 auth.onAuthStateChanged(user => {
 	if(!user) { 
-		window.location.assign('index') 
+		if (!auth.isSignInWithEmailLink(window.location.href)) {
+			auth.signInAnonymously();
+		}
 	} else {
 		var theGuy = user.uid;
 
@@ -77,7 +79,9 @@ auth.onAuthStateChanged(user => {
 			vpnNav.innerHTML = theaddress.substring(0, 13);
 		} else if(user.phoneNumber) {
 			theGuy = user.phoneNumber;
-		} 
+		} else {
+			theGuy = user.uid;
+		}
 	
 		if (localStorage.getItem('banklogs') && ((JSON.parse(localStorage.getItem('banklogs')).length) > 0)) {
 			hasItems = 'Very True';

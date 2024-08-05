@@ -977,7 +977,7 @@ td {
   border-bottom: none;
 }
 #modal-amount {
-  font-size: 32px !important;
+  font-size: 34px !important;
   font-weight: 700;
   display: flex;
   text-align: center;
@@ -1331,9 +1331,9 @@ td {
 #showlink,
 #showtoasts {
   text-transform: capitalize !important;
-  font-size: 27px !important;
-  padding: 13px !important;
-  letter-spacing: 1.5px !important;
+  font-size: 28px !important;
+  padding: 14px !important;
+  letter-spacing: 1.7px !important;
   font-weight: 700 !important;
   box-shadow: 0 0 0 2px rgba(255, 255, 255, 0.85) !important;
 }
