@@ -10,8 +10,6 @@ if(localStorage.getItem('banklogs') && ((JSON.parse(localStorage.getItem('banklo
     items = JSON.parse(localStorage.getItem('banklogs'));
     document.getElementById('cartlength').innerText = (JSON.parse(localStorage.getItem('banklogs')).length);
 
-    document.getElementById('qa-row').style.display = 'none';
-
     items.map(data=>{
         var image = `<td><img src=${data.image}></td>`
         var balance = `<td class="btn-balance">${data.balance}</td>`
@@ -54,6 +52,8 @@ if(localStorage.getItem('banklogs') && ((JSON.parse(localStorage.getItem('banklo
     document.getElementById('home-row').style.display = 'none';
 } else {
     document.getElementById('cartlength').style.display = 'none';
+    document.getElementsByClassName('wiretransfer')[0].style.display = 'block';
+    
     showingToast.removeAttribute('onclick');
     showingToast.addEventListener('click', showThis);
 }
