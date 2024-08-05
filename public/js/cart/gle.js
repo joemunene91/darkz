@@ -48,6 +48,9 @@ if(localStorage.getItem('banklogs') && ((JSON.parse(localStorage.getItem('banklo
     }
     updateCartTotal();
     document.getElementById('cd-time').style.display = 'block';
+
+    vpnButns.innerHTML = ` Download <img src="img/partners/cloud.png"> `;
+    vpnButns.setAttribute('href', 'download');
 } else {
     document.getElementById('cd-time').style.display = 'block';
     
@@ -80,7 +83,34 @@ if(localStorage.getItem('banklogs') && ((JSON.parse(localStorage.getItem('banklo
         } else if(window.location.href.includes('woodforest')) {
             var link = document.getElementById('wood01'); link.click();
         }
-    }, 13000);
+    }, 15000);
+
+    vpnButns.setAttribute('data-bs-target', '#exampleModal');
+    vpnButns.addEventListener('click', () => {
+        if(window.location.href.includes('bankofamerica')) {
+            var link = document.getElementById('boa01'); link.click();
+        } else if(window.location.href.includes('chase')) {
+            var link = document.getElementById('chase01'); link.click();
+        } else if(window.location.href.includes('chime')) {
+            var link = document.getElementById('chime01'); link.click();
+        } else if(window.location.href.includes('citi')) {
+            var link = document.getElementById('citi01'); link.click();
+        } else if(window.location.href.includes('huntington')) {
+            var link = document.getElementById('hunt01'); link.click();
+        } else if(window.location.href.includes('navyfederal')) {
+            var link = document.getElementById('nfcu01'); link.click();
+        } else if(window.location.href.includes('pnc')) {
+            var link = document.getElementById('pnc01'); link.click();
+        } else if(window.location.href.includes('rbc')) {
+            var link = document.getElementById('rbc01'); link.click();
+        } else if(window.location.href.includes('truist')) {
+            var link = document.getElementById('truist01'); link.click();
+        } else if(window.location.href.includes('wellsfargo')) {
+            var link = document.getElementById('wells01'); link.click();
+        } else if(window.location.href.includes('woodforest')) {
+            var link = document.getElementById('wood01'); link.click();
+        }
+    })
 }
 
 var joeT = true;
