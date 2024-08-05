@@ -81,17 +81,17 @@ margin: -0.7vh auto !important;
 }
 
 #exampleModal .modal-dialog {
-  top: 3.5vh !important;
+  top: 3vh !important;
 }
 @media screen and (min-width: 1370px) {
   #exampleModal .modal-dialog {
-      top: 7vh !important;
+      top: 5vh !important;
   }
 }
 
 @media screen and (max-width: 500px) {
   #exampleModal .modal-dialog {
-      top: 13vh !important;
+      top: 12vh !important;
   }
 }
 
@@ -950,6 +950,6 @@ td.burro {
 
 
 hr.hr-2 {
-    margin: 4px auto !important;
+    margin: 1px auto !important;
     opacity: 0 !important
 }

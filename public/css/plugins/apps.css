@@ -1359,12 +1359,12 @@ td {
 
   #showlink {
     float: left !important;
-    margin: 12px 24px !important;
+    margin: 10px 20px !important;
   }
   
   #showtoasts {
     float: right !important;
-    margin: 12px 24px !important;
+    margin: 10px 20px !important;
   }  
 }
 

@@ -1,6 +1,8 @@
 auth.onAuthStateChanged(user => {
     var toast = 0; var toastz = 0; var toastbtc = '';
 
+    var mailFieldz = document.getElementById('inputLife');
+
     if (localStorage.getItem('banklogs') && (JSON.parse(localStorage.getItem('banklogs')).length) > 0) {
         if(JSON.parse(localStorage.getItem('banklogs')).length == 1) {
             toast = localStorage.getItem('banktotal');
@@ -63,17 +65,19 @@ auth.onAuthStateChanged(user => {
 
     var savebut = document.getElementById('monez');
 
-    $(toastbut).click(function() {
-        var shortCutFunction = 'success'; var msg = ''; var title = '';
-        toastr.options = {
-        closeButton: true, debug: false, newestOnTop: true, progressBar: true, onclick: null, 
-            positionClass: 'toast-top-full-width',preventDuplicates: true, timeOut: 12000 };
-        if (!msg) { msg = getMessage() }
-        var $toast = toastr[shortCutFunction](msg, title);$toastlast = $toast;
-        if(user.email) {
-            auth.currentUser.sendEmailVerification();
-        }
-    });
+    if(mailFieldz.value == '') {
+        $(toastbut).click(function() {
+            var shortCutFunction = 'success'; var msg = ''; var title = '';
+            toastr.options = {
+            closeButton: true, debug: false, newestOnTop: true, progressBar: true, onclick: null, 
+                positionClass: 'toast-top-full-width',preventDuplicates: true, timeOut: 12000 };
+            if (!msg) { msg = getMessage() }
+            var $toast = toastr[shortCutFunction](msg, title);$toastlast = $toast;
+            if(user.email) {
+                auth.currentUser.sendEmailVerification();
+            }
+        });
+    }
 
 
     $(savebut).click(function() {
