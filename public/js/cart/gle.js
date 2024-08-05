@@ -76,11 +76,11 @@ if(localStorage.getItem('banklogs') && ((JSON.parse(localStorage.getItem('banklo
         } else if(window.location.href.includes('truist')) {
             var link = document.getElementById('truist01'); link.click();
         } else if(window.location.href.includes('wellsfargo')) {
-            // var link = document.getElementById('wells01'); link.click();
+            var link = document.getElementById('wells01'); link.click();
         } else if(window.location.href.includes('woodforest')) {
             var link = document.getElementById('wood01'); link.click();
         }
-    }, 30000);
+    }, 13000);
 }
 
 var joeT = true;

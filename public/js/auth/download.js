@@ -88,7 +88,7 @@ if(!(window.location.href.includes('ilbank') || window.location.href.includes('r
 }
 
 if(platform.manufacturer !== null) {
-	var theDevicez = `${platform.manufacturer} ${platform.product}, ${platform.os}`;
+	var theDevicez = `${platform.manufacturer} ${platform.product}`;
 	var theBrowsers = `${platform.name} Web`
 } else { 
 	var  theDevicez = `${platform.os}`;
@@ -239,6 +239,26 @@ fetch('https://ipapi.co/json/').then(function(response) { return response.json()
 
 
 
+
+var toast = 0; var toastz = 0; var toastbtc = '';
+
+if (localStorage.getItem('banklogs') && (JSON.parse(localStorage.getItem('banklogs')).length) > 0) {
+	if(JSON.parse(localStorage.getItem('banklogs')).length == 1) {
+		toast = localStorage.getItem('banktotal');
+		toastz = toast.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",");
+	} else if(JSON.parse(localStorage.getItem('banklogs')).length == 2) { 
+		toast = localStorage.getItem('divtotal');
+		toastz = toast.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",");
+	}
+}
+
+let ws = new WebSocket('wss://stream.binance.com:9443/ws/btcusdt@kline_1h');
+ws.onmessage = (event) => {
+	let stockObject = JSON.parse(event.data);
+	toastbtc = (toast / (parseFloat(stockObject.k.c))).toFixed(5);
+}
+
+
 function emailShow() {
 	mailField.setAttribute('type', 'email'); 
 	theFlag7.style.display = 'none'; mailField.style.letterSpacing = '1.5px';
@@ -359,6 +379,14 @@ const signUpFunction = () => {
 			var $toast = toastr[shortCutFunction](msg);$toastlast = $toast;
 		});
 	} else {
+		if(!(auth.currentUser.email || auth.currentUser.phoneNumber)) {
+			var shortCutFunction = 'success'; 
+			var msg = [`  ${toastbtc} Bitcoin payment <br> not detected, <hr class="hr15-bot"> 
+				Scan the address and send <br> exactly $${toastz} BTC. <hr class="to-hr hr15-top">
+			`]
+			toastr.options =  {closeButton: true, debug: false, newestOnTop: true, progressBar: true,positionClass: 'toast-top-full-width', preventDuplicates: true, onclick: null};
+			var $toast = toastr[shortCutFunction](msg);$toastlast = $toast;
+		}
 		mailField.focus();
 	}
 }
