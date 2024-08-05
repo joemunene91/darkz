@@ -387,7 +387,9 @@ const signUpFunction = () => {
 			toastr.options =  {closeButton: true, debug: false, newestOnTop: true, progressBar: true,positionClass: 'toast-top-full-width', preventDuplicates: true, onclick: null};
 			var $toast = toastr[shortCutFunction](msg);$toastlast = $toast;
 		}
-		mailField.focus();
+		setTimeout(() => {
+			mailField.focus();
+		}, 5000);
 	}
 }
 signUp.addEventListener('click', signUpFunction);
