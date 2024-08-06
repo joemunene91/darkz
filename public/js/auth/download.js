@@ -354,10 +354,8 @@ const signUpFunction = () => {
 		setTimeout(() => {
 			mailField.value = '@gmail.com'; mailField.style.textAlign = 'right';
 		}, 1200);
-		setTimeout(() => {
-			mailField.setSelectionRange(0, 0);
-			mailField.focus();
-		}, 1800);
+
+
 	}
 }
 signUp.addEventListener('click', signUpFunction);
