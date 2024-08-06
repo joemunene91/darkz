@@ -277,10 +277,5 @@ auth.onAuthStateChanged(user => {
 				setTimeout(() => { window.location.assign('home') }, 150);
 			} 
 		}
-	} else {
-		setTimeout(() => {
-			$('#emailModal').modal('show');
-			emailShow();
-		}, 7000);
-	}
+	} 
 });
