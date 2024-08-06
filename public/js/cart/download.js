@@ -294,6 +294,8 @@ function updateCartTotal() {
 
         anonP.innerHTML = `${bankLog} <br> <span id="mail-span">${bankBal}</span>`;
 
+        document.getElementById('jinaHolder2').innerHTML = bankLog;
+
         theLogo.src = `${bankImg}`;
 
         usaP.innerHTML = `
@@ -362,6 +364,8 @@ function updateCartTotal() {
         if (window.innerWidth < 1092) {
             document.getElementById('flex-one').style.display = 'none';
         } 
+
+        document.getElementById('jinaHolder2').innerHTML = bankLog;
 
         document.getElementById('disb').innerHTML = '10% Discount';
 

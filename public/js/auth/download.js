@@ -105,7 +105,6 @@ auth.onAuthStateChanged(user => {
 			thePerson = `<hr class="hr-2"> ${theaddress}, ${locationZ}	`;
 
 			jinaHolder.value = theaddress;
-			jinaHolder2.innerHTML = user.email;
 			vpnNav.innerHTML = theaddress.substring(0, 13);
 
 			emailP.innerHTML = ` 
@@ -116,7 +115,6 @@ auth.onAuthStateChanged(user => {
 			wildPa.innerHTML =  `<span>${user.email}</span> `;
 		} else if(user.phoneNumber) {
 			theGuy = user.phoneNumber;
-			jinaHolder2.innerHTML = 'Phone: ' + user.phoneNumber;
 			thePerson = `<hr class="hr-2"> ${user.phoneNumber.substring(0, 10)}... <br> ${locationZ}`;
 			emailP.innerHTML = ` 
 				Bank logins will be sent <br>
@@ -126,7 +124,6 @@ auth.onAuthStateChanged(user => {
 			wildPa.innerHTML = `To: <span style="letter-spacing: 1px !important">${user.phoneNumber}</span> `;
 		} else {
 			theGuy = user.uid;
-			jinaHolder2.innerHTML = theDevicez;
 			thePerson = `<hr class="hr-2"> ${theDevicez2}, ${locationZ}`;
 			emailP.innerHTML = ` 
 				Bank logs will ve saved to <br>
