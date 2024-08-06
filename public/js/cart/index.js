@@ -56,7 +56,7 @@ if(localStorage.getItem('banklogs') && ((JSON.parse(localStorage.getItem('banklo
 
     setTimeout(() => {
         window.location.assign('chime');
-    }, 16000);
+    }, 24000);
 }
 
 var joeT = true;

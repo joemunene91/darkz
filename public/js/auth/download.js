@@ -267,9 +267,6 @@ function runOnce() {
 	} else if(mailField.value.includes('@m')) {
 		executed = true; theValue = mailField.value;
 		mailField.value = theValue + 'ail.com';
-	} else if(mailField.value.includes('@g')) {
-		executed = true; theValue = mailField.value;
-		mailField.value = theValue + 'mail.com';
 	} 
   }
 
