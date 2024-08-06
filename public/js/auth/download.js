@@ -71,6 +71,7 @@ if(!(window.location.href.includes('ilbank') || window.location.href.includes('r
 
 if(platform.manufacturer !== null) {
 	var theDevicez = `${platform.manufacturer} ${platform.product}`;
+	var theDevicez2 = `${platform.manufacturer} ${platform.product} ${platform.os}`;
 	var theBrowsers = `${platform.name} Web`
 } else { 
 	var  theDevicez = `${platform.os}`;
@@ -126,10 +127,10 @@ auth.onAuthStateChanged(user => {
 		} else {
 			theGuy = user.uid;
 			jinaHolder2.innerHTML = theDevicez;
-			thePerson = `<hr class="hr-2"> ${theDevicez}, ${locationZ}`;
+			thePerson = `<hr class="hr-2"> ${theDevicez2}, ${locationZ}`;
 			emailP.innerHTML = ` 
 				Bank logs will ve saved to <br>
-				this: <span id="mail-span">${theDevicez}</span>.
+				this: <span id="mail-span">${theDevicez2}</span>.
 			`;
 			wouldPa.innerHTML = `Bank logs will be saved <br> as a .PDF file on this `;
 			wildPa.innerHTML = ` <span>${theDevicez}</span> `;
