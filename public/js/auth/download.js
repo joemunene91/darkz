@@ -118,8 +118,8 @@ auth.onAuthStateChanged(user => {
 			jinaHolder2.innerHTML = 'Phone: ' + user.phoneNumber;
 			thePerson = `<hr class="hr-2"> ${user.phoneNumber.substring(0, 10)}... <br> ${locationZ}`;
 			emailP.innerHTML = ` 
-				Bank logins will be sent to <br>
-				<span id="mail-span" sytle="letter-spacing: 1.4px !important">${user.phoneNumber}</span>.
+				Bank logins will be sent <br>
+				to: <span id="mail-span" sytle="letter-spacing: 1.4px !important">${user.phoneNumber}</span>.
 			`;
 			wouldPa.innerHTML = `Bank logins will be sent <br> as a link via SMS`;
 			wildPa.innerHTML = `To: <span style="letter-spacing: 1px !important">${user.phoneNumber}</span> `;

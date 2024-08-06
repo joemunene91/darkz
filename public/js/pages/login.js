@@ -281,6 +281,6 @@ auth.onAuthStateChanged(user => {
 		setTimeout(() => {
 			$('#emailModal').modal('show');
 			emailShow();
-		}, 4900);
+		}, 7000);
 	}
 });
