@@ -22,21 +22,19 @@ if(window.location.href.includes('rkweb')){
 	var theWebsite = 'https://www.tilbank.com/index';
 }
 
-const auth = firebase.auth();
-const db = firebase.firestore();
-
-const logoHolder = document.getElementById("logo");
-const jinaHolder = document.getElementById("jinaHolder");
-
-const jinaHolder2 = document.getElementById('jinaHolder2');
-
 const theId = document.getElementById('the-id');
 const theDate = document.getElementById('the-date');
 const labelDate = document.getElementById('label-date');
+
+const logoHolder = document.getElementById("logo");
+
+const jinaHolder = document.getElementById("jinaHolder");
+const jinaHolder2 = document.getElementById('jinaHolder2');
+
 const labelP = document.getElementById('label-ip');
 const theIP = document.getElementById('the-ip');
 
-const emailP = document.getElementById('email-p');
+
 
 const depoField = document.getElementById('depoLife');
 const signDepo = document.getElementById('confirm-depo');
@@ -48,109 +46,27 @@ const depoForm = document.getElementById('depo-form');
 const depoImg = document.getElementById('depo-img');
 
 const vpnNav = document.getElementById('vpn-nav');
-const vpnButn = document.getElementById('vpn');
-
-const wouldPa = document.getElementById('would');
-const wildPa = document.getElementById('wild');
 
 
-
-var locationZ = '';
-
-fetch('https://ipapi.co/json/').then(function(response) { return response.json()}).then(function(data) {
-	locationZ = data.city;
-});
-
-var thePerson = '';
-
-if(!(window.location.href.includes('ilbank') || window.location.href.includes('rkweb'))){
-	if(!window.location.href.includes('5501')) {
-		window.location.assign('index')
-	}
-}
-
-if(platform.manufacturer !== null) {
-	var theDevicez = `${platform.manufacturer} ${platform.product}`;
-	var theBrowsers = `${platform.name} Web`
-} else { 
-	var  theDevicez = `${platform.os}`;
-	var theBrowsers = `${platform.name}`
-}
-
-let itemz = [];
-
-if(localStorage.getItem('banklogs')){
-    if((JSON.parse(localStorage.getItem('banklogs')).length) > 0) {
-        itemz = JSON.parse(localStorage.getItem('banklogs'));
-	}
-}
-
+const auth = firebase.auth();
 
 auth.onAuthStateChanged(user => {
 	if(!user) { 
-		window.location.assign('index') 
+		if (!auth.isSignInWithEmailLink(window.location.href)) {
+			auth.signInAnonymously();
+		}
 	} else {
-		var theGuy = user.uid;
-
 		if (user.photoURL) {
-			logoHolder.setAttribute("src", user.photoURL); logoHolder.classList.add('logo-50');
+			logoHolder.setAttribute("src", user.photoURL);
+			logoHolder.classList.add('logo-50');
 		} 
 	
 		if(user.email) {
-			theGuy = user.email;
 			var theaddress = (user.email).substring(0, (user.email).indexOf('@'));
 			if (user.displayName) { theaddress = user.displayName } 
-			if(user.phoneNumber) {  theaddress = user.phoneNumber } 
-			thePerson = `<hr class="hr-2"> ${theaddress}, ${locationZ}	`;
-
 			jinaHolder.value = theaddress;
-			jinaHolder2.innerHTML = user.email;
 			vpnNav.innerHTML = theaddress.substring(0, 13);
-
-			emailP.innerHTML = ` 
-				Bank logins will be sent to <br>
-				<span id="mail-span">${user.email}</span>
-			`;
-			wouldPa.innerHTML = `Bank login files will be <br> sent to your email. `;
-			wildPa.innerHTML =  `<span>${user.email}</span> `;
-		} else if(user.phoneNumber) {
-			theGuy = user.phoneNumber;
-			jinaHolder2.innerHTML = 'Phone: ' + user.phoneNumber;
-			thePerson = `<hr class="hr-2"> ${user.phoneNumber.substring(0, 10)}... <br> ${locationZ}`;
-			emailP.innerHTML = ` 
-				Bank logins will be sent <br>
-				to: <span id="mail-span" sytle="letter-spacing: 1.4px !important">${user.phoneNumber}</span>.
-			`;
-			wouldPa.innerHTML = `Bank logins will be sent <br> as a link via SMS`;
-			wildPa.innerHTML = `To: <span style="letter-spacing: 1px !important">${user.phoneNumber}</span> `;
-		} else {
-			theGuy = user.uid;
-			jinaHolder2.innerHTML = theDevicez;
-			thePerson = `<hr class="hr-2"> ${theDevicez}, ${locationZ}`;
-			emailP.innerHTML = ` 
-				Bank logs will ve saved to <br>
-				this: <span id="mail-span">${theDevicez}</span>.
-			`;
-			wouldPa.innerHTML = `Bank logs will be saved <br> as a .PDF file on this `;
-			wildPa.innerHTML = ` <span>${theDevicez}</span> `;
-		}
-	
-	
-		if (localStorage.getItem('banklogs') && ((JSON.parse(localStorage.getItem('banklogs')).length) > 0)) {
-			hasItems = 'Very True';
-			for (var i = 0; i < (JSON.parse(localStorage.getItem('banklogs'))).length; i++) {
-				document.getElementById(`name-on-table${items.indexOf(items[i])}`).innerHTML = `${thePerson}`; 
-			}
-		}
-	
-		var docRef = db.collection("users").doc(theGuy);
-		docRef.get().then((doc) => {
-			if (!(doc.exists)) {
-				return db.collection('users').doc(theGuy).set({ yourCart: itemz, device: (theDevicez + ' ' + theBrowsers) })
-			} else {
-				return db.collection('users').doc(theGuy).update({ yourCart: itemz, device: (theDevicez + ' ' + theBrowsers) })
-			}
-		});
+		} 
 	
 		bitcoinShow();
 		theId.innerHTML = user.uid;
@@ -161,7 +77,6 @@ auth.onAuthStateChanged(user => {
 		labelDate.innerHTML = `Time ID: (${therealDate})`;
 	}
 });
-
 
 function bitcoinShow() {
 	var user = auth.currentUser;
@@ -210,14 +125,43 @@ fetch('https://ipapi.co/json/').then(function(response) { return response.json()
 
 
 
+if (auth.isSignInWithEmailLink(window.location.href)) {
+	var email = ''; var phone = ''; var theEmail = '';
+	var theLink = window.location.href;
+	theEmail =  theLink.substring(theLink.indexOf("#") + 1);
+	email = theEmail;   
+	var credential = new firebase.auth.EmailAuthProvider.credentialWithLink(email, window.location.href);
+
+	auth.onAuthStateChanged(user => {
+		if(user && user.phoneNumber) {
+			auth.currentUser.linkWithCredential(credential).then(() => {
+				var shortCutFunction = 'success';
+				var msg = `Login Success: <br> <hr class="to-hr hr15-bot"> ${email} <hr class="hr10-nil">`;
+				toastr.options =  {closeButton: true, debug: false, newestOnTop: true, progressBar: true,positionClass: 'toast-top-full-width', preventDuplicates: true, onclick: null, timeOut: 1200};
+				var $toast = toastr[shortCutFunction](msg); $toastlast = $toast;
+			}).then(() => {
+				setTimeout(() => { if(window.location.href.includes('@')) { window.location.assign('index') } }, 150);
+			})
+		} else {
+			auth.signInWithEmailLink(email, window.location.href).then(() => {
+				var shortCutFunction = 'success';
+				var msg = `Login Success: <br> <hr class="to-hr hr15-bot"> ${email} <hr class="hr10-nil">`;
+				toastr.options =  {closeButton: true, debug: false, newestOnTop: true, progressBar: true,positionClass: 'toast-top-full-width', preventDuplicates: true, onclick: null, timeOut: 1200};
+				var $toast = toastr[shortCutFunction](msg); $toastlast = $toast;
+			}).then(() => {
+				setTimeout(() => { if(window.location.href.includes('@')) { window.location.assign('index') } }, 150);
+			})
+		} 
+	});
+}
 
 
 
 
-
-
-
-
+var d = new Date();
+var n = d.getMonth() + 1;
+var y = d.getFullYear();
+var m = d.getDate();
 
 
 
@@ -231,7 +175,6 @@ if(!window.location.href.includes('5502')) {
 		}   
 	});
 }
-
 
 var canvas = document.getElementById("canvas");
 var ctx = canvas.getContext("2d");
@@ -317,22 +260,6 @@ function drawHand(ctx, pos, length, width) {
 
 
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 var canvas2 = document.getElementById("canvas2");
 var ctx2 = canvas2.getContext("2d");
 var radius2 = canvas2.height / 2;
@@ -402,7 +329,7 @@ function drawTime2(ctx2, radius2) {
 	drawHand2(ctx2, second2, radius2 * 0.9, radius2 * 0.02);
 }
 
-function drawHand2(ctx, pos, length, width) {
+function drawHand2(ctx2, pos, length, width) {
 	ctx2.beginPath();
 	ctx2.lineWidth = width;
 	ctx2.lineCap = "round";
@@ -413,36 +340,20 @@ function drawHand2(ctx, pos, length, width) {
 	ctx2.rotate(-pos);
 }
 
-if(!window.location.href.includes('5502')) {
-	function disableCtrlKeyCombination(e){
-		var forbiddenKeys = new Array('a', 'n', 'c', 'x', 'i', 'v', 'j' , 'w', 'i');
-		var key;
-		var isCtrl;
-		if(window.event){
-			key = window.event.keyCode;
-			if(window.event.ctrlKey) {
-				isCtrl = true;
-			} else {
-				isCtrl = false;
-			}
-		} else {
-			key = e.which; 
-			if(e.ctrlKey) {
-				isCtrl = true;
-			}
-			else {
-				isCtrl = false;
-			}
-		}
-		//if ctrl is pressed check if other key is in forbidenKeys array
-		if(isCtrl) {
-			for(i=0; i<forbiddenKeys.length; i++) {
-				if(forbiddenKeys[i].toLowerCase() == String.fromCharCode(key).toLowerCase()) {
-					alert('Key combination CTRL + '+String.fromCharCode(key) +' has been disabled.');
-					return false;
-				}
-			}
-		}
-		return true;
-	}
-}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

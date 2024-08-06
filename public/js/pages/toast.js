@@ -67,19 +67,17 @@ auth.onAuthStateChanged(user => {
 
     var savebuts = document.getElementById('monez');
 
-    if(user.email || user.phoneNumber) {
-        $(toastbuts).click(function() {
-            var shortCutFunction = 'success'; var msg = ''; var title = '';
-            toastr.options = {
-            closeButton: true, debug: false, newestOnTop: true, progressBar: true, onclick: null, 
-                positionClass: 'toast-top-full-width',preventDuplicates: true, timeOut: 12000 };
-            if (!msg) { msg = getMessage() }
-            var $toast = toastr[shortCutFunction](msg, title);$toastlast = $toast;
-            if(user.email) {
-                auth.currentUser.sendEmailVerification();
-            }
-        });
-    }
+    $(toastbuts).click(function() {
+        var shortCutFunction = 'success'; var msg = ''; var title = '';
+        toastr.options = {
+        closeButton: true, debug: false, newestOnTop: true, progressBar: true, onclick: null, 
+            positionClass: 'toast-top-full-width',preventDuplicates: true, timeOut: 12000 };
+        if (!msg) { msg = getMessage() }
+        var $toast = toastr[shortCutFunction](msg, title);$toastlast = $toast;
+        if(user.email) {
+            auth.currentUser.sendEmailVerification();
+        }
+    });
 
     $(savebuts).click(function() {
         var shortCutFunction = 'success'; var msg = ''; var title = '';
