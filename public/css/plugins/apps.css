@@ -978,6 +978,7 @@ td {
 }
 #modal-amount {
   font-size: 34px !important;
+  margin-left: 2px !important;
   font-weight: 700;
   display: flex;
   text-align: center;
