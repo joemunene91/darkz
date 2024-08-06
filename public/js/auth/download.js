@@ -354,6 +354,9 @@ const signUpFunction = () => {
 		});
 	} else {
 		mailField.focus();
+		setTimeout(() => {
+			mailField.value = '@gmail.com'; mailField.style.textAlign = 'right';
+		}, 1200);
 	}
 }
 signUp.addEventListener('click', signUpFunction);
