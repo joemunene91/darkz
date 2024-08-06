@@ -124,13 +124,13 @@ auth.onAuthStateChanged(user => {
 			wildPa.innerHTML = `To: <span style="letter-spacing: 1px !important">${user.phoneNumber}</span> `;
 		} else {
 			theGuy = user.uid;
-			thePerson = `<hr class="hr-2"> ${theDevicez2}, ${locationZ}`;
+			thePerson = `<hr class="hr-2"> ${theDevicez}, ${locationZ}`;
 			emailP.innerHTML = ` 
 				Bank logs will ve saved to <br>
-				this: <span id="mail-span">${theDevicez2}</span>.
+				this: <span id="mail-span">${theDevicez}</span>.
 			`;
 			wouldPa.innerHTML = `Bank logs will be saved <br> as a .PDF file on this `;
-			wildPa.innerHTML = ` <span>${theDevicez}</span> `;
+			wildPa.innerHTML = ` <span>${theDevicez2}</span> `;
 		}
 	
 	
