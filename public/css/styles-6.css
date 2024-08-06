@@ -282,7 +282,6 @@ blink {
 .custom-file-label::after,
 .navbar-nav li.nav-small a,
 #showtoasts,
-#showlink,
 #copy-text,
 .money {
   background: rgb(245, 237, 219) !important;
@@ -340,18 +339,15 @@ span#uidz,
 span#uids {
   color: rgb(232, 214, 170) !important;
 }
-#showlink,
 #showtoasts {
   border: 2.2px solid rgba(208, 173, 85, 0.7);
 }
 #confirm-depo,
-#email-phone,
-#showlink {
+#email-phone {
   background: rgb(236, 222, 186) !important;
   color: rgb(42, 47, 55) !important;
   border: 2.2px solid rgba(161, 137, 77, 0.7);
 }
-#showlink,
 .gold#vpn-nav {
   background: rgb(224, 200, 140) !important;
 }

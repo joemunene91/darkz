@@ -129,30 +129,6 @@ function updateCartTotal() {
     
     document.getElementById('theno1').innerHTML = 'Cart: ' + JSON.parse(localStorage.getItem('banklogs')).length + ' , Total: $' + total.toLocaleString();
 
-    var bankLog = (JSON.parse(localStorage.getItem('banklogs'))[0].account);
-    
-    if(JSON.parse(localStorage.getItem('banklogs')).length == 1) {
-        if(bankLog.includes('Huntington')) {
-            document.getElementsByClassName('huntington')[0].style.display = 'block';
-        } else if(bankLog.includes('America')) {
-            document.getElementsByClassName('bankofamerica')[0].style.display = 'block';
-        } else if(bankLog.includes('Chime')) {
-            document.getElementsByClassName('chime')[0].style.display = 'block';
-        } else if(bankLog.includes('Chase') || bankLog.includes('Truist')) {
-            document.getElementsByClassName('achtransfer')[0].style.display = 'block';
-        } else if(bankLog.includes('Citi')) {
-            document.getElementsByClassName('wiretransfer')[0].style.display = 'block';
-        } else if(bankLog.includes('Federal')) {
-            document.getElementsByClassName('navyfederal')[0].style.display = 'block';
-        } else if(bankLog.includes('P.N.C') || bankLog.includes('R.B.C')) {
-            document.getElementsByClassName('coinbase')[0].style.display = 'block';
-        } else if(bankLog.includes('Fargo')) {
-            document.getElementsByClassName('wellsfargo')[0].style.display = 'block';
-        } else if(bankLog.includes('Woodforest')) {
-            document.getElementsByClassName('woodforest')[0].style.display = 'block';
-        }
-    } 
-
     var id = setInterval(frame, 1000);
     if(!localStorage.getItem('timez-set')) {
         var jo = new Date(); var po = jo.getTime(); var p1ko = po/1000; var p1knoDecimalo = Math.trunc(p1ko);

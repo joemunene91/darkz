@@ -8,7 +8,8 @@ if(window.location.href.includes('rkweb')){
 		appId: "1:504618741131:web:0e59b1c8b8ea087bd0138e",
 		measurementId: "G-3FQH15QTXF"
 	}; firebase.initializeApp(firebaseConfig);
-	var theWebsite = 'https://www.darkweb.lat/home';
+	var theWebsite = 'https://www.darkweb.lat/index';
+	document.getElementsByClassName('email-admin')[0].innerHTML = 'email@darkweb.lat';
 } else {
 	var firebaseConfig = { 
 		apiKey: "AIzaSyCAa_FFfhsrmJOI_GQzXmpfJXqlNW5iMT4",
@@ -19,7 +20,8 @@ if(window.location.href.includes('rkweb')){
 		appId: "1:738709207118:web:af014bfda3fe0158256b1f",
 		measurementId: "G-KKGN2GJ2QR"
 	}; firebase.initializeApp(firebaseConfig);
-	var theWebsite = 'https://www.tilbank.com/home';
+	var theWebsite = 'https://www.tilbank.com/index';
+	document.getElementsByClassName('email-admin')[0].innerHTML = 'email@tilbank.com';
 }
 
 const auth = firebase.auth();
@@ -37,8 +39,6 @@ const labelP = document.getElementById('label-ip');
 const theIP = document.getElementById('the-ip');
 
 const emailP = document.getElementById('email-p');
-const showLink = document.getElementById('showlink');
-
 
 
 
@@ -190,6 +190,101 @@ fetch('https://ipapi.co/json/').then(function(response) { return response.json()
 
 
 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+document.getElementById('photo2').addEventListener('change', (event) => {
+	const file = event.target.files[0];
+	const storageRef = firebase.storage().ref('images/images' + file.name);
+	storageRef.put(file).on('state_changed', (snapshot) => {
+		const progress = (snapshot.bytesTransferred / snapshot.totalBytes) * 100;
+		const progressBar_2 = document.getElementById("upload-pic");
+		progressBar_2.style.width = progress + '%';
+		document.getElementById('escoz-3').innerHTML = 'Upload Progress: ' + progress + '%';
+	}, (err) => {
+		console.log('an error has occurred')
+	}, async () => {
+		const url = await storageRef.getDownloadURL();
+
+		var carRow = document.createElement('a');
+		carRow.setAttribute('data-src', `${url}`);
+		carRow.setAttribute('data-sub-html', `<h4 class='wh'> #100 </h4>`)
+		var carItems = document.getElementById('the-gal');
+		var carRowContents = `
+			<div class="masonry-item">
+				<img alt="project" src=${url}>
+				<div class="masonry-item-overlay"> <ul>
+						<li> #100 </li>
+				</ul></div>
+			</div>
+		`;
+		carRow.innerHTML = carRowContents;
+		carItems.append(carRow);
+
+		var shortCutFunction = 'success';
+		var msg = ` Screenshot has been uploaded <br>
+		Wait for it to be resolved.<hr class="to-hr hr15-bot">`;
+		toastr.options =  {closeButton: true, debug: false, newestOnTop: true, progressBar: true,
+		positionClass: 'toast-top-full-width', preventDuplicates: true, onclick: null};
+		var $toast = toastr[shortCutFunction](msg); $toastlast = $toast;
+
+		setTimeout(() => {
+			return db.collection('tickets').doc(auth.currentUser.uid).set({ 
+				tickets: url 
+			})
+		}, 300);
+	});
+});
+var storageRef2 = firebase.storage().ref();
+var i = 0;
+storageRef2.child('images/').listAll().then(function(result) {
+	result.items.forEach(function(imageRef) {
+		i++;
+		displayImage(i, imageRef);
+	})
+})
+
+function displayImage(row, images) {
+	images.getDownloadURL().then(function(url) {
+		var carRow = document.createElement('a');
+		carRow.setAttribute('data-src', `${url}`);
+		carRow.setAttribute('data-sub-html', `<h4 class='wh'> #100 </h4>`)
+		var carItems = document.getElementById('the-gal');
+		var carRowContents = `
+			<div class="masonry-item">
+				<img alt="project" src=${url}>
+				<div class="masonry-item-overlay"> <ul>
+						<li> #100 </li>
+				</ul></div>
+			</div>
+		`;
+		carRow.innerHTML = carRowContents;
+		carItems.append(carRow);
+	})
+}
 
 
 

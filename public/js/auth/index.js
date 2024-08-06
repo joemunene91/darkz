@@ -35,10 +35,6 @@ const labelP = document.getElementById('label-ip');
 const theIP = document.getElementById('the-ip');
 
 
-const showLinks = document.getElementById('showlink');
-
-
-
 
 const depoField = document.getElementById('depoLife');
 const signDepo = document.getElementById('confirm-depo');
