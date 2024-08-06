@@ -292,7 +292,7 @@ function updateCartTotal() {
         else { downFile.innerHTML = bankLog.split('[')[0] }
 
 
-        anonP.innerHTML = `<span id="mail-span">Bank ${bankBal}</span>.`;
+        anonP.innerHTML = `${bankLog} <br> <span id="mail-span">${bankBal}</span>`;
 
         theLogo.src = `${bankImg}`;
 

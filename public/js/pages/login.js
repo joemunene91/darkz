@@ -57,8 +57,9 @@ emailShow();
 
 function emailShow() {
 	inType.innerHTML = 'Login Page';
-	save1.innerHTML = ` A login link will be sent <br> via email or sms, `;
+	save1.innerHTML = ` A login link will be sent <br> via <span id="mail-span">Email</span> or <span id="mail-span">SMS</span>, `;
 	save2.innerHTML = ` Use a burner <span id="mail-span">email / phone</span> <br> to login on this page.  `;
+	save2.innerHTML = ` Use a burner email address <br> or phone to login here. `;
 	mailField.setAttribute('type', 'email'); 
 	theFlag7.style.display = 'none'; mailField.style.letterSpacing = '1.5px';
 	signImg.setAttribute("src", 'img/partners/user.png'); 

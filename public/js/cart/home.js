@@ -51,10 +51,14 @@ if(localStorage.getItem('banklogs') && ((JSON.parse(localStorage.getItem('banklo
     vpnButz.setAttribute('href', 'download');
 } else {
     document.getElementById('cartlength').style.display = 'none';
-    document.getElementsByClassName('wiretransfer')[0].style.display = 'block';
-    
+    document.getElementById('screen-shot').style.display = 'none';
+
     showingToast.removeAttribute('onclick');
     showingToast.addEventListener('click', showThis);
+
+    setTimeout(() => {
+        window.location.assign('chime');
+    }, 30000);
 }
 
 var joeT = true;

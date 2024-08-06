@@ -2420,15 +2420,15 @@ ul.countdown li p {
 #usage-p,
 #anon-p {
   text-align: center !important;
-  font-size: 18px !important;
+  font-size: 19px !important;
 }
 
 #usage-p,
 #email-p,
 #anon-p {
   text-align: center !important;
-  font-size: 20px !important;
-  line-height: 57px !important;
+  font-size: 20.5px !important;
+  line-height: 60px !important;
 }
 
 
@@ -2482,16 +2482,16 @@ ul.countdown li p {
   #depo-2,
   #save-1, 
   #save-2 {
-      font-size: 19.5px !important;
-      line-height: 58px !important;
+      font-size: 19.7px !important;
+      line-height: 59px !important;
   }
 
   #usage-p,
   #email-p,
   #anon-p {
       text-align: center !important;
-      font-size: 19.4px !important;
-      line-height: 57px !important;
+      font-size: 19.5px !important;
+      line-height: 58px !important;
   }
 }
 
