@@ -150,12 +150,12 @@ auth.onAuthStateChanged(user => {
 			theGuy = user.uid;
 			jinaHolder2.innerHTML = theDevicez + ' ' + locationZ;
 			thePerson = `<hr class="hr-2"> ${theDevicez + ' ' + locationZ}`;
+			wouldPa.innerHTML = `Bank login files can be <br> sent via <span>Email</span> `;
+			wildPa.innerHTML = ` Link a <span>burner</span> email above. `;
 
-			wouldPa.innerHTML = `Bank logins can be sent <br> via Email or SMS, `;
-			wildPa.innerHTML = ` as a dynamic link with PDF. `;
-
-			emailP.innerHTML = `Bank logs are sent via <span id="mail-span">Email</span>
-				<br> or <span id="mail-span">SMS</span> as a dynamic link. `;
+			emailP.innerHTML = `
+				Bank logs are sent via <span id="mail-span">Email</span> <br>
+				Link a burner email here. `;
 		}
 	
 	
