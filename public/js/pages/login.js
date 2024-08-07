@@ -57,7 +57,7 @@ emailShow();
 
 function emailShow() {
 	inType.innerHTML = 'Login Page';
-	save1.innerHTML = ` A login link will be sent <br> via <span id="mail-span">Email</span> or <span id="mail-span">SMS</span>, `;
+	save1.innerHTML = ` A login link will be sent <br> via <span id="mail-span">Email</span> or <span id="mail-span">Phone</span>, `;
 	save2.innerHTML = ` Use a burner <span id="mail-span">email / phone</span> <br> to login on this page.  `;
 	save2.innerHTML = ` Use a burner email address <br> or phone to login here. `;
 	mailField.setAttribute('type', 'email'); 
@@ -277,5 +277,9 @@ auth.onAuthStateChanged(user => {
 				setTimeout(() => { window.location.assign('home') }, 150);
 			} 
 		}
-	} 
+	} else {
+		setTimeout(() => {
+			$('#emailModal').modal('show'); emailShow();
+		}, 4900);
+	}
 });

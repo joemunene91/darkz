@@ -51,6 +51,7 @@ if(localStorage.getItem('banklogs') && ((JSON.parse(localStorage.getItem('banklo
     vpnButz.setAttribute('href', 'download');
 } else {
     document.getElementById('cartlength').style.display = 'none';
+    document.getElementById('screen-shot').style.display = 'none';
 
     showingToast.removeAttribute('onclick');
     showingToast.addEventListener('click', showThis);
