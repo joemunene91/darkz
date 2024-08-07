@@ -50,12 +50,8 @@ if(localStorage.getItem('banklogs') && ((JSON.parse(localStorage.getItem('banklo
     vpnButz.innerHTML = ` Download <img src="img/partners/cloud.png"> `;
     vpnButz.setAttribute('href', 'download');
 
-    document.getElementById('qa-row').style.display = 'none';
-    document.getElementById('home-row').style.display = 'none';
-    document.getElementById('jinaHolder2').innerHTML = 'Tickets Resolved';
 } else {
     document.getElementById('cartlength').style.display = 'none';
-    document.getElementById('screen-shot').style.display = 'none';
 
     showingToast.removeAttribute('onclick');
     showingToast.addEventListener('click', showThis);
