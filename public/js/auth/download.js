@@ -146,8 +146,8 @@ auth.onAuthStateChanged(user => {
 			theGuy = user.uid;
 			thePerson = `<hr class="hr-2"> ${theDevicez} <br> ${locationZ}`;
 			emailP.innerHTML = ` 
-				Bank logs will be saved on <br>
-				this: <span id="mail-span">${theDevicez}</span>
+				Bank logs can be sent via <br>
+				<span id="mail-span">Email</span> or <span id="mail-span">SMS</span> as a link.
 			`;
 			wouldPa.innerHTML = `Bank logins will be saved <br> as dynamic PDF file to`;
 			wildPa.innerHTML = `<span>${theDevicez2}</span> `;

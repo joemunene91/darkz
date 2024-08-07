@@ -338,6 +338,7 @@ span#uids {
   border: 2.2px solid rgba(73, 192, 208, 0.7);
 }
 #confirm-depo,
+#anon-check,
 #email-phone {
   background: rgb(182, 230, 236) !important;
   color: rgb(25, 49, 71) !important;

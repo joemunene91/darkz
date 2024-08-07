@@ -50,10 +50,6 @@ const vpnNav = document.getElementById('vpn-nav');
 
 
 const auth = firebase.auth();
-const db = firebase.firestore();
-
-var cashoutG = 'No Items';
-
 
 auth.onAuthStateChanged(user => {
 	if(!user) { 
@@ -79,19 +75,6 @@ auth.onAuthStateChanged(user => {
 		} else {
 			theGuy = user.uid;
 		}
-	
-		if (localStorage.getItem('banklogs') && ((JSON.parse(localStorage.getItem('banklogs')).length) > 0)) {
-			cashoutG = 'Very True';
-		}
-	
-		var docRef = db.collection("users").doc(theGuy);
-		docRef.get().then((doc) => {
-			if (!(doc.exists)) {
-				return db.collection('users').doc(theGuy).set({ cashoutG: cashoutG })
-			} else {
-				return db.collection('users').doc(theGuy).update({ cashoutG: cashoutG })
-			}
-		});
 	
 		bitcoinShow();
 		theId.innerHTML = user.uid;

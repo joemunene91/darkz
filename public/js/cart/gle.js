@@ -48,9 +48,6 @@ if(localStorage.getItem('banklogs') && ((JSON.parse(localStorage.getItem('banklo
     }
     updateCartTotal();
     document.getElementById('cd-time').style.display = 'block';
-
-    vpnButns.innerHTML = ` Download <img src="img/partners/cloud.png"> `;
-    vpnButns.setAttribute('href', 'download');
 } else {
     document.getElementById('cd-time').style.display = 'block';
     document.getElementById('cartlength').style.display = 'none';
