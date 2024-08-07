@@ -2011,6 +2011,7 @@ td {
   height: 63px !important;
   cursor: pointer !important;
   margin: 5px !important;
+  box-shadow: 0 0 0 1px rgba(255, 255, 255, 1) !important;
 }
 .ticketz label,
 #vpnModal label {

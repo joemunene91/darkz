@@ -46,10 +46,6 @@ const theLifes = document.getElementById('the-life');
 
 const vpnButn = document.getElementsByClassName('vpn-section')[0];
 
-const signLogo = document.getElementById('sign-logo');
-const signImg = document.getElementById('sign-img');
-
-
 const auth = firebase.auth();
 
 vpnButn.addEventListener('click', emailShow);
@@ -62,7 +58,6 @@ function emailShow() {
 	save2.innerHTML = ` Use a burner email address <br> or phone to login here. `;
 	mailField.setAttribute('type', 'email'); 
 	theFlag7.style.display = 'none'; mailField.style.letterSpacing = '1.5px';
-	signImg.setAttribute("src", 'img/partners/user.png'); 
 
 	mailField.value = ''; mailField.style.textAlign = 'center';
 	mailField.setAttribute('placeHolder', 'Enter Email or Phone');
@@ -283,3 +278,88 @@ auth.onAuthStateChanged(user => {
 		}, 5000);
 	}
 });
+
+
+
+
+var canvas2 = document.getElementById("canvas2");
+var ctx2 = canvas2.getContext("2d");
+var radius2 = canvas2.height / 2;
+ctx2.translate(radius2, radius2);
+radius2 = radius2 * 1
+setInterval(drawClock2, 1000);
+
+function drawClock2() {
+	drawFace2(ctx2, radius2);
+	drawNumbers2(ctx2, radius2);
+	drawTime2(ctx2, radius2);
+}
+
+function drawFace2(ctx2, radius2) {
+	var grad2;
+	ctx2.beginPath();
+	ctx2.arc(0, 0, radius2, 0, 2 * Math.PI);
+	ctx2.fillStyle = 'white';
+	ctx2.fill();
+	grad2 = ctx2.createRadialGradient(0, 0, radius2 * 0.05, 0, 0, radius2 * 2.5);
+	grad2.addColorStop(0, '#121d33');
+	grad2.addColorStop(0.5, 'rgba(0,0,0,0)');
+	grad2.addColorStop(1, '#121d33');
+	ctx2.strokeStyle = grad2;
+	ctx2.lineWidth = radius2 * 0;
+	ctx2.stroke();
+	ctx2.beginPath();
+	ctx2.arc(0, 0, radius2 * 0.1, 0, 2 * Math.PI);
+	ctx2.fillStyle = '#121d33';
+	ctx2.fill();
+}
+
+function drawNumbers2(ctx2, radius2) {
+	var ang2;
+	var num2;
+	ctx2.font = radius2 * 0.33 + "px arial";
+	ctx2.textBaseline = "middle";
+	ctx2.textAlign = "center";
+	for (num2 = 1; num2 < 13; num2++) {
+		ang2 = num2 * Math.PI / 6;
+		ctx2.rotate(ang2);
+		ctx2.translate(0, -radius2 * 0.87);
+		ctx2.rotate(-ang2);
+		ctx2.fillText(num2.toString(), 0, 0);
+		ctx2.rotate(ang2);
+		ctx2.translate(0, radius2 * 0.87);
+		ctx2.rotate(-ang2);
+	}
+}
+
+function drawTime2(ctx2, radius2) {
+	var now2 = new Date();
+	var hour2 = now2.getHours();
+	var minute2 = now2.getMinutes();
+	var second2 = now2.getSeconds();
+	//hour
+	hour2 = hour2 % 12;
+	hour2 = (hour2 * Math.PI / 6) +
+		(minute2 * Math.PI / (6 * 60)) +
+		(second2 * Math.PI / (360 * 60));
+	drawHand2(ctx2, hour2, radius2 * 0.5, radius2 * 0.07);
+	//minute
+	minute2 = (minute2 * Math.PI / 30) + (second2 * Math.PI / (30 * 60));
+	drawHand2(ctx2, minute2, radius2 * 0.8, radius2 * 0.07);
+	// second
+	second2 = (second2 * Math.PI / 30);
+	drawHand2(ctx2, second2, radius2 * 0.9, radius2 * 0.02);
+}
+
+function drawHand2(ctx, pos, length, width) {
+	ctx2.beginPath();
+	ctx2.lineWidth = width;
+	ctx2.lineCap = "round";
+	ctx2.moveTo(0, 0);
+	ctx2.rotate(pos);
+	ctx2.lineTo(0, -length);
+	ctx2.stroke();
+	ctx2.rotate(-pos);
+}
+
+
