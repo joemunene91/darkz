@@ -2429,7 +2429,7 @@ ul.countdown li p {
 #anon-p {
   text-align: center !important;
   font-size: 20.5px !important;
-  line-height: 60px !important;
+  line-height: 56px !important;
 }
 
 
@@ -2492,17 +2492,19 @@ ul.countdown li p {
   #anon-p {
       text-align: center !important;
       font-size: 19.5px !important;
-      line-height: 58px !important;
+      line-height: 56px !important;
   }
 }
 
 #usage-p {
   margin-bottom: -15px !important;
 }
-
+#anon-p {
+  margin-bottom: -10px !important;
+}
  
 .thehr {
-  opacity: 0.7 !important;
+  opacity: 0.5 !important;
 }
 @media screen and (max-width: 396px) {
   .modal-p {
