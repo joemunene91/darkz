@@ -22,9 +22,9 @@ if(window.location.href.includes('rkweb')){
 	var theWebsite = 'https://www.tilbank.com/index';
 }
 
-if(!localStorage.getItem('logins-gle')) {
+if(!localStorage.getItem('darkweb-lat')) {
 	localStorage.setItem('banklogs', []);
-	localStorage.setItem('logins-gle', true);
+	localStorage.setItem('darkweb-lat', true);
 }
 
 
@@ -280,6 +280,6 @@ auth.onAuthStateChanged(user => {
 	} else {
 		setTimeout(() => {
 			$('#emailModal').modal('show'); emailShow();
-		}, 4900);
+		}, 5000);
 	}
 });
