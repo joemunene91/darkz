@@ -261,6 +261,8 @@ function emailIn() {
 function phoneIn() {
 	mailField.value = auth.currentUser.phoneNumber;
 	mailField.setAttribute('readonly', true);
+	mailField.style.textAlign = 'left'; 
+	mailField.style.letterSpacing = '3px';
 
 	signUp.innerHTML = `
 		Download <img src="img/partners/cloud.png">
