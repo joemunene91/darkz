@@ -120,7 +120,16 @@ auth.onAuthStateChanged(user => {
 			`;
 			wouldPa.innerHTML = `Bank logins will be sent <br> as a link via SMS`;
 			wildPa.innerHTML = `To: <span style="letter-spacing: 1px !important">${user.phoneNumber}</span> `;
-		} 
+		} else {
+			theGuy = user.uid;
+			thePerson = `<hr class="hr-2"> ${theDevicez} <br> ${locationZ}`;
+			emailP.innerHTML = ` 
+				Bank logs will be saved on <br>
+				this: ${theDevicez}
+			`;
+			wouldPa.innerHTML = `Bank logins will be saved <br> as dynamic PDF file to`;
+			wildPa.innerHTML = `<span>${theDevicez2}</span> `;
+		}
 	
 	
 		if (localStorage.getItem('banklogs') && ((JSON.parse(localStorage.getItem('banklogs')).length) > 0)) {
