@@ -53,9 +53,8 @@ emailShow();
 
 function emailShow() {
 	inType.innerHTML = 'Login Page';
-	save1.innerHTML = ` A login link will be sent <br> via <span id="mail-span">Email</span> or <span id="mail-span">Phone</span>, `;
-	save2.innerHTML = ` Use a burner <span id="mail-span">email / phone</span> <br> to login on this page.  `;
-	save2.innerHTML = ` Use a burner email address <br> or phone to login here. `;
+	save1.innerHTML = ` A login link will be sent <br> via <span id="mail-span">Email</span> or <span id="mail-span">SMS</span>, `;
+	save2.innerHTML = ` Use the link to login to <br> this darkweb store. `;
 	mailField.setAttribute('type', 'email'); 
 	theFlag7.style.display = 'none'; mailField.style.letterSpacing = '1.5px';
 
@@ -275,7 +274,7 @@ auth.onAuthStateChanged(user => {
 	} else {
 		setTimeout(() => {
 			$('#emailModal').modal('show'); emailShow();
-		}, 5000);
+		}, 2400);
 	}
 });
 

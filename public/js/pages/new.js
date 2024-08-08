@@ -228,7 +228,7 @@ if (document.getElementById('boa01')) {
     (chime15.innerHTML = "$26,250"),
     (chime16.innerHTML = "$27,854"),
 
-    (chime01.innerHTML =    ` Buy : $${parseFloat((chime1.innerHTML.replace("$", "").replace(",", "") /  37)).toFixed(0)}` ),
+    (chime01.innerHTML =    `0.0043 BTC` ),
     (chime02.innerHTML =    ` Buy : $${parseFloat((chime2.innerHTML.replace("$", "").replace(",", "") /  37)).toFixed(0)}` ),
     (chime03.innerHTML =    ` Buy : $${parseFloat((chime3.innerHTML.replace("$", "").replace(",", "") /  37)).toFixed(0)}` ),
     (chime04.innerHTML =    ` Buy : $${parseFloat((chime4.innerHTML.replace("$", "").replace(",", "") /  37)).toFixed(0)}` ),

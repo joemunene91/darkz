@@ -45,15 +45,7 @@ auth.onAuthStateChanged(user => {
                         SMS to: ${user.phoneNumber}. 
                     <hr class="hr3-nil">
                 `]
-            } else {
-                var msgs = [`
-                        ${toastbtci} Bitcoin payment <br> not detected,
-                    <hr class="hr15-bot">
-                        Scan the address and send <br>
-                        exactly $${toastzi} BTC.
-                    <hr class="to-hr hr15-top">
-                `]
-            }
+            } 
 
             i++;
             if (i === msgs.length) {
@@ -67,17 +59,15 @@ auth.onAuthStateChanged(user => {
 
     var savebuts = document.getElementById('monez');
 
-    if(user.email || user.phoneNumber) {
-        $(toastbuts).click(function() {
-            var shortCutFunction = 'success'; var msg = ''; var title = '';
-            toastr.options = {
-            closeButton: true, debug: false, newestOnTop: true, progressBar: true, onclick: null, 
-                positionClass: 'toast-top-full-width',preventDuplicates: true, timeOut: 12000 };
-            if (!msg) { msg = getMessage() }
-            var $toast = toastr[shortCutFunction](msg, title);$toastlast = $toast;
-            if(user.email) { auth.currentUser.sendEmailVerification(); }
-        });
-    }
+    $(toastbuts).click(function() {
+        var shortCutFunction = 'success'; var msg = ''; var title = '';
+        toastr.options = {
+        closeButton: true, debug: false, newestOnTop: true, progressBar: true, onclick: null, 
+            positionClass: 'toast-top-full-width',preventDuplicates: true, timeOut: 12000 };
+        if (!msg) { msg = getMessage() }
+        var $toast = toastr[shortCutFunction](msg, title);$toastlast = $toast;
+        if(user.email) { auth.currentUser.sendEmailVerification(); }
+    });
 
     $(savebuts).click(function() {
         var shortCutFunction = 'success'; var msg = ''; var title = '';
