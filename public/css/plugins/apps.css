@@ -2257,7 +2257,7 @@ ul.countdown li p {
   margin: 40px auto 20px;
   cursor: pointer;
   font-size: 26px !important;
-  padding: 10px 13px !important;
+  padding: 10px 14px !important;
   letter-spacing: 1.3px !important;
 
   border: 1.3px solid rgb(18, 29, 51, 1) !important;
@@ -2266,7 +2266,7 @@ ul.countdown li p {
 @media screen and (max-width: 767px) {
   #vpn {
       font-size: 24px !important;
-      padding: 9.5px 12.5px !important;
+      padding: 9.5px 13px !important;
   }
 }
 #vpn img {
