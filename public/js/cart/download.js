@@ -354,9 +354,8 @@ function updateCartTotal() {
             var logRow = document.createElement('p');
             var logItems = document.getElementById('usage-p');
             logRow.innerHTML = `
-                ${Loginz[i].account}  
-                <br> with a balance <br> 
-                <span id="mail-span">${Loginz[i].balance}</span>. 
+                ${Loginz[i].account}  <br>
+                <span id="mail-span">${Loginz[i].balance}</span>
             `;
             logItems.prepend(logRow);
         }
@@ -365,9 +364,9 @@ function updateCartTotal() {
             document.getElementById('flex-one').style.display = 'none';
         } 
 
-        document.getElementById('jinaHolder2').innerHTML = bankLog;
-
         document.getElementById('disb').innerHTML = '10% Discount';
+
+        document.getElementById('jinaHolder2').innerHTML = (JSON.parse(localStorage.getItem('banklogs'))).length + ' Bank Logins';
 
         downFile.innerHTML = `Bank Logins`;
 
