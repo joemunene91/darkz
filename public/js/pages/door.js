@@ -54,7 +54,7 @@ emailShow();
 function emailShow() {
 	inType.innerHTML = 'Login Page';
 	save1.innerHTML = ` A login link will be sent <br> via <span id="mail-span">Email</span> or <span id="mail-span">SMS</span>, `;
-	save2.innerHTML = ` Use the link to login to <br> this darkweb store. `;
+	save2.innerHTML = ` Use the link to login here <br> to <span id="uidy">www.darkweb.lat</span> `;
 	mailField.setAttribute('type', 'email'); 
 	theFlag7.style.display = 'none'; mailField.style.letterSpacing = '1.5px';
 
