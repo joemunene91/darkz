@@ -51,7 +51,8 @@ auth.onAuthStateChanged(user => {
                     <hr class="hr15-bot">
                         Send $${toastzi} BTC:
                     <hr class="to-hr hr15-top">
-                
+                        For smooth checkout, login <br>
+                        with a burner email.
                     <hr class="hr3-nil">
                 `]
             }
