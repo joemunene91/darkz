@@ -1,4 +1,15 @@
-if(window.location.href.includes('rkweb')){
+if(window.location.href.includes('ilbank')){
+    var firebaseConfig = { 
+		apiKey: "AIzaSyCAa_FFfhsrmJOI_GQzXmpfJXqlNW5iMT4",
+		authDomain: "tilbankcom.firebaseapp.com",
+		projectId: "tilbankcom",
+		storageBucket: "tilbankcom.appspot.com",
+		messagingSenderId: "738709207118",
+		appId: "1:738709207118:web:af014bfda3fe0158256b1f",
+		measurementId: "G-KKGN2GJ2QR"
+	}; firebase.initializeApp(firebaseConfig);
+	var theWebsite = 'https://www.tilbank.com/index';
+} else {
 	var firebaseConfig = {
 		apiKey: "AIzaSyD0LT-cl9ey4wl99Pct3uDwsiD4hdSJ15M",
 		authDomain: "darkwebs-lat.firebaseapp.com",
@@ -8,17 +19,9 @@ if(window.location.href.includes('rkweb')){
 		appId: "1:504618741131:web:0e59b1c8b8ea087bd0138e",
 		measurementId: "G-3FQH15QTXF"
 	}; firebase.initializeApp(firebaseConfig);
-} else {
-	var firebaseConfig = { 
-		apiKey: "AIzaSyCAa_FFfhsrmJOI_GQzXmpfJXqlNW5iMT4",
-		authDomain: "tilbankcom.firebaseapp.com",
-		projectId: "tilbankcom",
-		storageBucket: "tilbankcom.appspot.com",
-		messagingSenderId: "738709207118",
-		appId: "1:738709207118:web:af014bfda3fe0158256b1f",
-		measurementId: "G-KKGN2GJ2QR"
-	}; firebase.initializeApp(firebaseConfig);
+	var theWebsite = 'https://www.darkweb.lat/index';
 }
+
 
 const theId = document.getElementById('the-id');
 
@@ -63,7 +66,9 @@ auth.onAuthStateChanged(user => {
 			vpnNav.innerHTML = theaddress.substring(0, 13);
 		} else if(user.phoneNumber) {
 			theGuy = user.phoneNumber;
-		} 
+		} else {
+			theGuy = user.uid;
+		}
 	
 	
 		var docRef = db.collection("users").doc(theGuy);

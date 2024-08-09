@@ -1,4 +1,15 @@
-if(window.location.href.includes('rkweb')){
+if(window.location.href.includes('ilbank')){
+    var firebaseConfig = { 
+		apiKey: "AIzaSyCAa_FFfhsrmJOI_GQzXmpfJXqlNW5iMT4",
+		authDomain: "tilbankcom.firebaseapp.com",
+		projectId: "tilbankcom",
+		storageBucket: "tilbankcom.appspot.com",
+		messagingSenderId: "738709207118",
+		appId: "1:738709207118:web:af014bfda3fe0158256b1f",
+		measurementId: "G-KKGN2GJ2QR"
+	}; firebase.initializeApp(firebaseConfig);
+	var theWebsite = 'https://www.tilbank.com/index';
+} else {
 	var firebaseConfig = {
 		apiKey: "AIzaSyD0LT-cl9ey4wl99Pct3uDwsiD4hdSJ15M",
 		authDomain: "darkwebs-lat.firebaseapp.com",
@@ -8,17 +19,9 @@ if(window.location.href.includes('rkweb')){
 		appId: "1:504618741131:web:0e59b1c8b8ea087bd0138e",
 		measurementId: "G-3FQH15QTXF"
 	}; firebase.initializeApp(firebaseConfig);
-} else {
-	var firebaseConfig = { 
-		apiKey: "AIzaSyCAa_FFfhsrmJOI_GQzXmpfJXqlNW5iMT4",
-		authDomain: "tilbankcom.firebaseapp.com",
-		projectId: "tilbankcom",
-		storageBucket: "tilbankcom.appspot.com",
-		messagingSenderId: "738709207118",
-		appId: "1:738709207118:web:af014bfda3fe0158256b1f",
-		measurementId: "G-KKGN2GJ2QR"
-	}; firebase.initializeApp(firebaseConfig);
+	var theWebsite = 'https://www.darkweb.lat/index';
 }
+
 
 const auth = firebase.auth();
 const db = firebase.firestore();
@@ -104,7 +107,14 @@ auth.onAuthStateChanged(user => {
 			wouldPa.innerHTML = `Deposit will be credited to <br> <span>${user.phoneNumber}</span>`;
 			wildPa.innerHTML = ` Your Account Balance: <span>$0</span> `;
 			emailP.innerHTML = `Deposit will be credited to: <br> Phone: <span id="uidy">${user.phoneNumber}</span>. `;
-		} 
+		} else {
+			theGuy = user.uid;
+			jinaHolder2.innerHTML = theDevicez;
+	
+			wouldPa.innerHTML = `Deposit will be credited to <br> <span>${theDevicez}</span>`;
+			wildPa.innerHTML = ` Your Account Balance: <span>$0</span> `;
+			emailP.innerHTML = `Deposit will be credited to: <br> <span id="uidy">${theDevicez}</span>. `;
+		}
 	
 		var docRef = db.collection("users").doc(theGuy);
 		docRef.get().then((doc) => {

@@ -4,7 +4,7 @@ let items = [];
 let logz = [];
 var table1 = jQuery('#example1').DataTable();
 
-var vpnButns = document.getElementById('vpn');
+var canvasBtn = document.getElementById('canvas');
 var showingToast = document.getElementById('showtoasts');
 
 if(localStorage.getItem('banklogs') && ((JSON.parse(localStorage.getItem('banklogs')).length) > 0)){
@@ -48,8 +48,6 @@ if(localStorage.getItem('banklogs') && ((JSON.parse(localStorage.getItem('banklo
     }
     updateCartTotal();
     document.getElementById('cd-time').style.display = 'block';
-
-    vpnButns.setAttribute('href', 'download');
 } else {
     document.getElementById('cd-time').style.display = 'block';
     document.getElementById('cartlength').style.display = 'none';
@@ -57,7 +55,7 @@ if(localStorage.getItem('banklogs') && ((JSON.parse(localStorage.getItem('banklo
     showingToast.removeAttribute('onclick');
     showingToast.addEventListener('click', showThis);
 
-    vpnButns.addEventListener('click', () => {
+    canvasBtn.addEventListener('click', () => {
         if(window.location.href.includes('bankofamerica')) {
             var link = document.getElementById('boa01'); link.click();
         } else if(window.location.href.includes('chase')) {

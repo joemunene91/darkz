@@ -465,7 +465,9 @@ padding: 6px 0 !important;
 
 
 
-
+#cd-time .section-heading h4 {
+  margin-bottom: -50px;
+}
 
 @media screen and (max-width: 1026px) {
   .col-12 {
