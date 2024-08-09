@@ -61,13 +61,11 @@ const codeField = document.getElementById('code');
 const signInWithPhoneButton = document.getElementById('signInWithPhone');
 
 const theFlag7 = document.getElementById('the-flag7');
-
 const theForm = document.getElementById('the-form');
 
 const inType = document.getElementById('invoice-type');
 const save1 = document.getElementById('save-1');
 const save2 = document.getElementById('save-2');
-
 const theLifes = document.getElementById('the-life');
 
 

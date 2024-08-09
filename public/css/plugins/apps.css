@@ -2580,6 +2580,7 @@ ul.countdown li p {
 }
 #depo-life,
 #code-life,
+#save-life,
 #the-life {
   display: flex !important;
   width: 93.4% !important;
@@ -2590,6 +2591,7 @@ ul.countdown li p {
   border-radius: 0.3px !important;
 }
 #depo-flag7,
+#save-flag7,
 #the-flag7 {
   width: 16.4%;
   border: none !important;
@@ -2597,6 +2599,7 @@ ul.countdown li p {
   margin: auto 7px !important;
 }
 #depoLife,
+#saveLife,
 #code,
 #inputLife {
   border-radius: 0.1px !important;
@@ -2631,6 +2634,7 @@ ul.countdown li p {
     letter-spacing: 1px !important;
   }
   #depoLife,
+  #saveLife,
   #code,
   #inputLife {
       padding: 0 7px !important;

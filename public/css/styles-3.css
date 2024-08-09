@@ -21,6 +21,7 @@
   border-top: 1.4px solid rgba(0, 115, 173, 0.5) !important;
 }
 #depoLife,
+#saveLife,
 #code,
 #inputLife {
   color: rgb(14, 49, 79) !important;
@@ -210,6 +211,7 @@ blink {
   color: rgb(64, 150, 194) !important;
 }
 #depo-life,
+#save-life,
 #code-life,
 #the-life {
   box-shadow: 1px 1px 2px 1px rgba(0, 115, 173, 0.5) !important;
