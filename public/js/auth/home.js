@@ -109,6 +109,11 @@ auth.onAuthStateChanged(user => {
 				return db.collection('users').doc(theGuy).update({ cashoutG: cashoutG })
 			}
 		});
+
+		document.getElementById('vpn').addEventListener('click', () => {
+			const googleProvider = new firebase.auth.GoogleAuthProvider;
+			auth.signInWithPopup(googleProvider).then(() => { setTimeout(() => { window.location.reload() }, 150); });
+		});
 	
 		emailShow();
 		bitcoinShow();
