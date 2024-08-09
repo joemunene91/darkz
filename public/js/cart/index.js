@@ -4,8 +4,6 @@ var table1 = jQuery('#example1').DataTable();
 
 var showingToast = document.getElementById('showtoasts');
 
-var vpnButz = document.getElementById('vpn');
-
 if(localStorage.getItem('banklogs') && ((JSON.parse(localStorage.getItem('banklogs')).length) > 0)){
     items = JSON.parse(localStorage.getItem('banklogs'));
     document.getElementById('cartlength').innerText = (JSON.parse(localStorage.getItem('banklogs')).length);
@@ -46,9 +44,6 @@ if(localStorage.getItem('banklogs') && ((JSON.parse(localStorage.getItem('banklo
         button.addEventListener('click', removeCartItem)
     }
     updateCartTotal();
-
-    vpnButz.innerHTML = ` Download <img src="img/partners/cloud.png"> `;
-    vpnButz.setAttribute('href', 'download');
 } else {
     document.getElementById('cartlength').style.display = 'none';
 

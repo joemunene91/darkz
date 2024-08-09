@@ -49,7 +49,6 @@ const depoForm = document.getElementById('depo-form');
 const depoImg = document.getElementById('depo-img');
 
 const vpnNav = document.getElementById('vpn-nav');
-const vpnButn = document.getElementById('vpn');
 
 const wouldPa = document.getElementById('would');
 const wildPa = document.getElementById('wild');

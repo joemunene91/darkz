@@ -4,8 +4,6 @@ var table1 = jQuery('#example1').DataTable();
 
 var showingToast = document.getElementById('showtoasts');
 
-var vpnButz = document.getElementById('vpn');
-
 if(localStorage.getItem('banklogs') && ((JSON.parse(localStorage.getItem('banklogs')).length) > 0)){
     items = JSON.parse(localStorage.getItem('banklogs'));
     document.getElementById('cartlength').innerText = (JSON.parse(localStorage.getItem('banklogs')).length);
@@ -46,17 +44,8 @@ if(localStorage.getItem('banklogs') && ((JSON.parse(localStorage.getItem('banklo
         button.addEventListener('click', removeCartItem)
     }
     updateCartTotal();
-
-    vpnButz.innerHTML = ` Download <img src="img/partners/cloud.png"> `;
-    vpnButz.setAttribute('href', 'download');
-
-    document.getElementById('home-row').style.display = 'none';
-    document.getElementById('jinaHolder2').innerHTML = 'Tickets Resolved Recently';
 } else {
     document.getElementById('cartlength').style.display = 'none';
-
-    document.getElementById('qa-row').style.display = 'none';
-    document.getElementById('screen-shot').style.display = 'none';
 
     showingToast.removeAttribute('onclick');
     showingToast.addEventListener('click', showThis);

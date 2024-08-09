@@ -288,6 +288,7 @@ blink {
 #vpnModal .modal-content,
 #profileModal .modal-content,
 #emailModal .modal-content,
+#codeModal .modal-content,
 #saveModal .modal-content,
 #exampleModal .modal-content {
   background: rgba(57, 82, 56, 0.5) !important;
@@ -326,6 +327,7 @@ blink {
 
 #vpnModal .modal-header .close img,
 #saveModal .modal-header .close img,
+#codeModal .modal-header .close img,
 #exampleModal .modal-header .close img,
 .btn-remove {
   border: 1.4px solid rgba(134, 188, 66, 0.7);
@@ -351,6 +353,7 @@ blink {
   box-shadow: 0 0 0 1px rgb(174, 210, 129) !important;
 }
 #canvas,
+#canvas3,
 #canvas2 {
   border: 1.4px solid #86bc42;
 }
