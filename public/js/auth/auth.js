@@ -108,11 +108,10 @@ auth.onAuthStateChanged(user => {
 });
 
 
+
 function bitcoinShow() {
 	var user = auth.currentUser;
-	if(user.email) {
-		if(user.displayName) { deType.innerHTML = user.displayName } 
-		else { deType.innerHTML = (user.email).substring(0, (user.email).indexOf('@')); }
+	if(user.email) { if(user.displayName) { deType.innerHTML = user.displayName } else { deType.innerHTML = (user.email).substring(0, (user.email).indexOf('@')); }
 	} else { deType.innerHTML = 'Balance: $0'; }
 	if (user.photoURL) { depoImg.setAttribute("src", user.photoURL); depoImg.classList.add('logo-50');
 	} else { depoImg.setAttribute('src', 'img/partners/bitcoin.png'); }
@@ -129,21 +128,17 @@ const depoFunction = () => {
 			var shortCutFunction = 'success'; 
 			var msg = `Your Deposit Amount: <br> $${deposit} <hr class="to-hr hr15-bot">`;
 			toastr.options =  {closeButton: true, debug: false, newestOnTop: true, progressBar: true,positionClass: 'toast-top-full-width', preventDuplicates: true, onclick: null};
-			var $toast = toastr[shortCutFunction](msg);$toastlast = $toast;
-			localStorage.setItem('depositAmount', deposit);
-			if(localStorage.getItem('depoz-set')) { localStorage.removeItem('depoz-set') }
-			setTimeout(() => { window.location.assign('deposit') }, 1800);
+			var $toast = toastr[shortCutFunction](msg);$toastlast = $toast; localStorage.setItem('depositAmount', deposit);
+			if(localStorage.getItem('depoz-set')) { localStorage.removeItem('depoz-set') } setTimeout(() => { window.location.assign('deposit') }, 1800);
 		} else {
 			var shortCutFunction = 'success'; var msg = `Your cart is currently empty, <br> add some logs to cart. <hr class="to-hr hr15-bot">`;
-			toastr.options =  {closeButton: true, debug: false, newestOnTop: true, progressBar: true,positionClass: 'toast-top-full-width', preventDuplicates: true, onclick: null};
-			var $toast = toastr[shortCutFunction](msg);$toastlast = $toast;
+			toastr.options =  {closeButton: true, debug: false, newestOnTop: true, progressBar: true,positionClass: 'toast-top-full-width', preventDuplicates: true, onclick: null}; var $toast = toastr[shortCutFunction](msg);$toastlast = $toast;
 		}
 	} else if(mailField.value == '') {
 		depoField.focus();
 	} else {
 		var shortCutFunction = 'success'; var msg = `Min Deposit: $10 <br> Max Deposit: $500 <hr class="to-hr hr15-bot">`;
-		toastr.options =  {closeButton: true, debug: false, newestOnTop: true, progressBar: true,positionClass: 'toast-top-full-width', preventDuplicates: true, onclick: null};
-		var $toast = toastr[shortCutFunction](msg);$toastlast = $toast;
+		toastr.options =  {closeButton: true, debug: false, newestOnTop: true, progressBar: true,positionClass: 'toast-top-full-width', preventDuplicates: true, onclick: null}; var $toast = toastr[shortCutFunction](msg);$toastlast = $toast;
 	}
 }
 signDepo.addEventListener('click', depoFunction); depoForm.addEventListener('submit', depoFunction); depoLifes.addEventListener('click', depoField.focus());
@@ -153,13 +148,6 @@ fetch('https://ipapi.co/json/').then(function(response) { return response.json()
 	theFlag7.src = `https://flagcdn.com/144x108/${(data.country_code).toLowerCase()}.png`;
 });
 
-
-
-
-
-
-
-
 function emailShow() {
 	inType.innerHTML = 'Login Page';
 	save1.innerHTML = ` A login link will be sent <br> via <span id="mail-span">Email</span> or <span id="mail-span">SMS</span>, `;
@@ -167,14 +155,12 @@ function emailShow() {
 	mailField.setAttribute('type', 'email'); 
 	theFlag7.style.display = 'none'; mailField.style.letterSpacing = '1.5px';
 
-	mailField.value = ''; mailField.style.textAlign = 'center';
+	mailField.value = '@gmail.com'; mailField.style.textAlign = 'right';
 	mailField.setAttribute('placeHolder', 'Enter Email or Phone');
 }
 
-let theValue = mailField.value;
-let executed = false; let phoxecut = false;
-mailField.addEventListener('input', runOnce);
-mailField.addEventListener('input', runTwice);
+let theValue = mailField.value; let executed = false; let phoxecut = false;
+mailField.addEventListener('input', runOnce); mailField.addEventListener('input', runTwice);
 
 function runOnce() {
   if (!executed) {
@@ -190,8 +176,6 @@ function runOnce() {
 		executed = true; theValue = mailField.value; mailField.value = theValue + 'ol.com';
 	} else if(mailField.value.includes('@m')) {
 		executed = true; theValue = mailField.value; mailField.value = theValue + 'ail.com';
-	} else if(mailField.value.includes('@g')) {
-		executed = true; theValue = mailField.value; mailField.value = theValue + 'mail.com';
 	} 
   }
 
@@ -233,9 +217,7 @@ const signUpFunction = () => {
 		const code = codeField.value;
 		const credential = firebase.auth.PhoneAuthProvider.credential(sentCodeId, code);
 
-		auth.signInWithCredential(credential).then(() => { 
-			setTimeout(() => { window.location.reload() }, 150);
-		});
+		auth.signInWithCredential(credential).then(() => { setTimeout(() => { window.location.reload() }, 150); });
 	};
 
 	if(email.includes('@')) {
@@ -254,8 +236,7 @@ const signUpFunction = () => {
 				var $toast = toastr[shortCutFunction](msg); $toastlast = $toast;
 			}).catch(error => {
 				var shortCutFunction = 'success'; var msg = `${error.message}<hr class="to-hr hr15-bot"> Use a gmail email address <br> instead.`;
-				toastr.options =  {closeButton: true, debug: false, newestOnTop: true, progressBar: true,positionClass: 'toast-top-full-width', preventDuplicates: true, onclick: null};
-				var $toast = toastr[shortCutFunction](msg);$toastlast = $toast;
+				toastr.options =  {closeButton: true, debug: false, newestOnTop: true, progressBar: true,positionClass: 'toast-top-full-width', preventDuplicates: true, onclick: null}; var $toast = toastr[shortCutFunction](msg);$toastlast = $toast;
 			});
 		}
 	} else if(email.includes('+') && (email.length >= 10)) { 
@@ -269,8 +250,7 @@ const signUpFunction = () => {
 			$('#codeModal').modal('show'); $('#saveModal').modal('hide');
 		}).catch(error => {
 			var shortCutFunction = 'success'; var msg = `${error.message}<hr class="to-hr hr15-bot">`;
-			toastr.options =  {closeButton: true, debug: false, newestOnTop: true, progressBar: true,positionClass: 'toast-top-full-width', preventDuplicates: true, onclick: null};
-			var $toast = toastr[shortCutFunction](msg);$toastlast = $toast;
+			toastr.options =  {closeButton: true, debug: false, newestOnTop: true, progressBar: true,positionClass: 'toast-top-full-width', preventDuplicates: true, onclick: null}; var $toast = toastr[shortCutFunction](msg);$toastlast = $toast;
 		});
 	} else {
 		mailField.focus();
@@ -282,21 +262,13 @@ theLifes.addEventListener('click', mailField.focus());
 
 const signInWithYahoo = () => {
 	const yahooProvider = new firebase.auth.OAuthProvider('yahoo.com');
-	auth.signInWithPopup(yahooProvider).then(() => {
-		setTimeout(() => { window.location.reload() }, 150);
-	});
+	auth.signInWithPopup(yahooProvider).then(() => { setTimeout(() => { window.location.reload() }, 150); });
 };
 
 const signInWithGoogle = () => {
 	const googleProvider = new firebase.auth.GoogleAuthProvider;
-	auth.signInWithPopup(googleProvider).then(() => {
-		setTimeout(() => { window.location.reload() }, 150);
-	});
+	auth.signInWithPopup(googleProvider).then(() => { setTimeout(() => { window.location.reload() }, 150); });
 };
-
-
-
-
 
 
 
