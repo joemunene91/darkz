@@ -154,8 +154,8 @@ auth.onAuthStateChanged(user => {
 			theGuy = user.uid;
 			thePerson = `<hr class="hr-2"> ${theDevicez} ${locationZ}`;
 			emailP.innerHTML = ` 
-				Bank logins will be saved <br>
-				as a <span id="uidy">.PDF</span> file on this:
+				Bank logs will be sent as <br>
+				a <span id="uidy">.PDF</span> file via gmail to:
 			`;
 			wouldPa.innerHTML = `For a smooth checkout <br> experience.`;
 			wildPa.innerHTML = ` Login with a burner email. `;
@@ -385,6 +385,10 @@ function anonIn() {
 	saveField.value = theDevicez2;
 	saveField.setAttribute('readonly', true);
 	saveFlag7.style.display = 'none';
+
+	document.getElementById('anon-check').innerHTML = `
+		Send Link <img src="img/partners/google.png">
+	`;
 }
 
 
