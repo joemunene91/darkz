@@ -1404,8 +1404,8 @@ td {
       left: -170%;
       width: 270%;
 
-      /* left: -850%; */
-      /* width: 950%; */
+      /* left: -820%;
+      width: 920%; */
   }
   .attr-nav {
       margin-right: 0 !important;
@@ -1475,6 +1475,9 @@ td {
   .attr-nav > ul > li.dropdown ul.dropdown-menu {
       left: -110%;
       width: 260%;
+
+      /* left: -57vw !important;
+      width: 99vw !important; */
   }
 
   .thegold img {
@@ -1492,10 +1495,13 @@ td {
       padding: 30px 10px !important;
   }
 }
-@media (max-width: 370px) {
+@media (max-width: 375px) {
   .attr-nav > ul > li.dropdown ul.dropdown-menu {
       left: -110%;
       width: 255%;
+
+      /* left: -59.5vw !important;
+      width: 99vw !important; */
   }
   .thegold img {
       height: 51px !important;
@@ -2538,7 +2544,7 @@ ul.countdown li p {
 }
 #save-1, 
 #save-2 {
-  letter-spacing: 0.85px !important;
+  letter-spacing: 0.75px !important;
 }
 @media screen and (max-width: 374px) {
   .modal-p {

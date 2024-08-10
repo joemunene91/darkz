@@ -53,7 +53,7 @@ if(localStorage.getItem('banklogs') && ((JSON.parse(localStorage.getItem('banklo
     vpnButo.innerHTML = `
         Download <img src="img/partners/cloud.png">    
     `;
-    vpnButo.setAttribute('href', 'download');
+    vpnButo.setAttribute('href', 'download')
 } else {
     document.getElementById('cd-time').style.display = 'block';
     document.getElementById('cartlength').style.display = 'none';
@@ -187,9 +187,9 @@ function addToCartClick(event) {
 
     updateCartTotal();
 
-    var linkz = document.getElementsByClassName('dropdown-toggle')[0]; linkz.click();
+    // var linkz = document.getElementsByClassName('dropdown-toggle')[0]; linkz.click();
 
-    // $('#profileModal').modal('show');
+    $('#profileModal').modal('show');
     $('#exampleModal').modal('hide');
     // event.preventDefault();
 

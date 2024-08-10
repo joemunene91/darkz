@@ -167,7 +167,7 @@ if(localStorage.getItem('banklogs')){
 
 
 
-document.getElementById('balance1').innerHTML = '$7,049';
+document.getElementById('balance1').innerHTML = '$7,249';
 document.getElementById('balance2').innerHTML = '$7,738';
 document.getElementById('balance3').innerHTML = '$5,815';
 document.getElementById('balance4').innerHTML = '$7,902';

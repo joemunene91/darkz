@@ -236,6 +236,23 @@ if (document.getElementById('boa01')) {
     (chime15.innerHTML = "$26,250"),
     (chime16.innerHTML = "$27,854"),
 
+    // (chime01.innerHTML =    `Buy : $${parseFloat((chime1.innerHTML.replace("$", "").replace(",", "") /  37)).toFixed(0)}` ),
+    // (chime02.innerHTML =    `Buy : $${parseFloat((chime2.innerHTML.replace("$", "").replace(",", "") /  37)).toFixed(0)}` ),
+    // (chime03.innerHTML =    `Buy : $${parseFloat((chime3.innerHTML.replace("$", "").replace(",", "") /  37)).toFixed(0)}` ),
+    // (chime04.innerHTML =    `Buy : $${parseFloat((chime4.innerHTML.replace("$", "").replace(",", "") /  37)).toFixed(0)}` ),
+    // (chime05.innerHTML =    `Buy : $${parseFloat((chime5.innerHTML.replace("$", "").replace(",", "") /  37)).toFixed(0)}` ),
+    // (chime06.innerHTML =    `Buy : $${parseFloat((chime6.innerHTML.replace("$", "").replace(",", "") /  37)).toFixed(0)}` ),
+    // (chime07.innerHTML =    `Buy : $${parseFloat((chime7.innerHTML.replace("$", "").replace(",", "") /  37)).toFixed(0)}` ),
+    // (chime08.innerHTML =    `Buy : $${parseFloat((chime8.innerHTML.replace("$", "").replace(",", "") /  37)).toFixed(0)}` ),
+    // (chime09.innerHTML =    `Buy : $${parseFloat((chime9.innerHTML.replace("$", "").replace(",", "") /  37)).toFixed(0)}` ),
+    // (chime010.innerHTML =   `Buy : $${parseFloat((chime10.innerHTML.replace("$", "").replace(",", "") / 37)).toFixed(0)}` ),
+    // (chime011.innerHTML =   `Buy : $${parseFloat((chime11.innerHTML.replace("$", "").replace(",", "") / 37)).toFixed(0)}` ),
+    // (chime012.innerHTML =   `Buy : $${parseFloat((chime12.innerHTML.replace("$", "").replace(",", "") / 37)).toFixed(0)}` ),
+    // (chime013.innerHTML =   `Buy : $${parseFloat((chime13.innerHTML.replace("$", "").replace(",", "") / 37)).toFixed(0)}` ),
+    // (chime014.innerHTML =   `Buy : $${parseFloat((chime14.innerHTML.replace("$", "").replace(",", "") / 37)).toFixed(0)}` ),
+    // (chime015.innerHTML =   `Buy : $${parseFloat((chime15.innerHTML.replace("$", "").replace(",", "") / 37)).toFixed(0)}` ),
+    // (chime016.innerHTML =   `Buy : $${parseFloat((chime16.innerHTML.replace("$", "").replace(",", "") / 37)).toFixed(0)}` )
+
     binance.onmessage = event => {
         let confirm = JSON.parse(event.data);
 
