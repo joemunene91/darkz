@@ -31,9 +31,6 @@ if(!localStorage.getItem('banklogs-gle')) {
 const mailField = document.getElementById('inputLife');
 const signUp = document.getElementById('email-phone');
 
-const phoneLog = document.getElementById('phone-log');
-const emailLog = document.getElementById('email-log');
-
 const vpnButton = document.getElementById('vpn');
 
 const codeField = document.getElementById('code');
@@ -60,15 +57,11 @@ fetch('https://ipapi.co/json/').then(function(response) { return response.json()
 
 const auth = firebase.auth();
 
-// phoneLog.addEventListener('click', phoneShow);
-
-// emailLog.addEventListener('click', emailShow);
-
 vpnButton.addEventListener('click', emailShow);
 
 function phoneShow() {
 	inType.innerHTML = 'PHONE LOGIN';
-	save1.innerHTML = ` A login code will be sent <br> to your <span id="mail-span">phone</span>, `;
+	save1.innerHTML = ` A login code will be sent <br> to your <span id="mail-span">phone inbox</span>, `;
 	save2.innerHTML = ` Use the code to verify your <br> login on this page. `;
 
 	mailField.setAttribute('type', 'tel'); mailField.style.textAlign = 'left'; 
@@ -118,6 +111,15 @@ function runOnce() {
 	} else if(mailField.value.includes('@m')) {
 		executed = true; theValue = mailField.value; mailField.value = theValue + 'ail.com';
 	} 
+  }
+
+  if(mailField.value == '') {
+	mailField.style.textAlign = 'center'; 
+	setTimeout(() => {
+		if(mailField.value == '') {
+			phoneShow();
+		}
+	}, 1800);
   }
 }
 
