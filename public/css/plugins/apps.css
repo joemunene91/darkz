@@ -1403,9 +1403,6 @@ td {
   .attr-nav > ul > li.dropdown ul.dropdown-menu {
       left: -170%;
       width: 270%;
-
-      left: -820%;
-      width: 920%;
   }
   .attr-nav {
       margin-right: 0 !important;
@@ -1475,9 +1472,6 @@ td {
   .attr-nav > ul > li.dropdown ul.dropdown-menu {
       left: -110%;
       width: 260%;
-
-      left: -57vw !important;
-      width: 99vw !important;
   }
 
   .thegold img {
@@ -1499,9 +1493,6 @@ td {
   .attr-nav > ul > li.dropdown ul.dropdown-menu {
       left: -110%;
       width: 255%;
-
-      left: -59.5vw !important;
-      width: 99vw !important;
   }
   .thegold img {
       height: 51px !important;
@@ -2264,9 +2255,9 @@ ul.countdown li p {
   font-size: 26px !important;
   padding: 10px 14px !important;
   letter-spacing: 2px !important;
-
-  border: 1.3px solid rgb(18, 29, 51, 1) !important;
-  box-shadow: 0 0 0 1px rgba(255, 255, 255, 0.73) !important;
+  background: rgb(255, 255, 100) !important;
+  border: 1.4px solid rgb(18, 29, 51, 1) !important;
+  box-shadow: 0 0 0 1.7px rgba(255, 255, 255, 0.85) !important;
 }
 @media screen and (max-width: 767px) {
   #vpn {

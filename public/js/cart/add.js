@@ -187,9 +187,7 @@ function addToCartClick(event) {
 
     updateCartTotal();
 
-    document.getElementsByClassName('dropdown-toggle')[0].click();
-
-    // $('#profileModal').modal('show');
+    $('#profileModal').modal('show');
     $('#exampleModal').modal('hide');
     // event.preventDefault();
 
@@ -377,7 +375,7 @@ function updateCartTotal() {
         var price4 = data.price.replace('Price: ','').replace(',','').replace('$','');
         total = total + (price4 * 1);
     });
-    // document.getElementById('thetot').innerHTML = `Cart:  <span>$${total.toLocaleString()}</span>`;
+    document.getElementById('thetot').innerHTML = `Cart:  <span>$${total.toLocaleString()}</span>`;
 
     document.getElementById('theno1').innerHTML = 'Cart: ' + JSON.parse(localStorage.getItem('banklogs')).length + ' , Total: $' + total.toLocaleString();
 
@@ -426,7 +424,7 @@ function updateCartTotal2() {
         var price4 = data.price.replace('Price: ','').replace(',','').replace('$','');
         total = total + (price4 * 1);
     });
-    // document.getElementById('thetot').innerHTML = `Cart:  <span>$${total.toLocaleString()}</span>`;
+    document.getElementById('thetot').innerHTML = `Cart:  <span>$${total.toLocaleString()}</span>`;
 
     document.getElementById('cartlength').innerText = (JSON.parse(localStorage.getItem('banklogs')).length);
     
