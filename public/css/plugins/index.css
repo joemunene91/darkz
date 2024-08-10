@@ -135,11 +135,11 @@
 }
 .port h4 a {
   color: #fff !important;
-  font-size: 32px;
-  line-height: 37px !important;
+  font-size: 33px;
+  line-height: 38px !important;
   font-weight: 600 !important;
   text-transform: uppercase !important;
-  letter-spacing: 3px !important;
+  letter-spacing: 4px !important;
 }
 .port a img {
   width: 100% !important;
@@ -227,7 +227,7 @@
 
 
 .border{
-  border: 1.9px solid rgba(135, 206, 235, 0.1) !important;
+  border: 2.6px solid rgba(135, 206, 235, 0.13) !important;
   margin: 20px auto !important;
 }
 
@@ -235,7 +235,7 @@
 @media screen and (max-width: 574px) {
   .border {
     margin: 65px auto !important;
-    border: 1.9px solid rgba(135, 206, 235, 0.2) !important;
+    border: 2px solid rgba(135, 206, 235, 0.2) !important;
    }
 }
 #clients {
@@ -302,17 +302,17 @@
 }
 @media screen and (max-width: 570px) {
   .banner-words-wrapper b {
-    font-size: 40px;
+    font-size: 39px;
   }
 }
 @media screen and (max-width: 397px) {
 .banner-words-wrapper b {
-  font-size: 38px;
+  font-size: 37px;
 }
 }
 @media screen and (max-width: 370px) {
 .banner-words-wrapper b {
-  font-size: 36px;
+  font-size: 35px;
 }
 }
 
@@ -341,22 +341,3 @@ blink {
   font-size: 23.1px !important;
   letter-spacing: 1.3px !important;
 }
-
-#vpn {
-  bottom: 52px !important;
-  letter-spacing: 1.6px !important;
-  font-size: 23px !important;
-  opacity: 0.7 !important;
-  padding: 7.5px 11px !important;
-
-  border: 1.3px solid rgb(31, 67, 87) !important;
-  background: rgb(164, 224, 232) !important;
-  box-shadow: 0 0 0 1px rgb(134, 213, 224) !important;
-}
-
-#vpn img {
-  width: 27.5px !important;
-  height: 30px !important;
-  margin: -3px 3px -1px 3px !important;
-}
-

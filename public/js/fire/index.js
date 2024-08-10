@@ -34,10 +34,6 @@ const signUp = document.getElementById('email-phone');
 const phoneLog = document.getElementById('phone-log');
 const emailLog = document.getElementById('email-log');
 
-const signYahoo = document.getElementById('signYahoo');
-
-const vpnButton = document.getElementsByClassName('vpn-section')[0];
-
 const codeField = document.getElementById('code');
 const signInWithPhoneButton = document.getElementById('signInWithPhone');
 
@@ -63,14 +59,12 @@ fetch('https://ipapi.co/json/').then(function(response) { return response.json()
 const auth = firebase.auth();
 
 phoneLog.addEventListener('click', phoneShow);
-vpnButton.addEventListener('click', yahooShow);
-signYahoo.addEventListener('click', yahooShow);
 
 emailLog.addEventListener('click', emailShow);
 
 function phoneShow() {
 	inType.innerHTML = 'PHONE LOGIN';
-	save1.innerHTML = ` A code will be sent to your <br> <span id="mail-span">phone number</span>, `;
+	save1.innerHTML = ` A login code will be sent <br> to your <span id="mail-span">phone</span>, `;
 	save2.innerHTML = ` Use the code to verify your <br> login on this page. `;
 
 	mailField.setAttribute('type', 'tel'); mailField.style.textAlign = 'left'; 
@@ -87,7 +81,7 @@ function phoneShow() {
 
 function emailShow() {
 	inType.innerHTML = 'EMAIL LOGIN';
-	save1.innerHTML = ` A link will be sent to your <br> <span id="mail-span">email inbox</span>, `;
+	save1.innerHTML = ` A login link will be sent <br> to your <span id="mail-span">email</span>, `;
 	save2.innerHTML = ` Use the link to verify your <br> login on this page. `;
 	mailField.setAttribute('type', 'email'); 
 	theFlag7.style.display = 'none'; mailField.style.letterSpacing = '1.5px';
@@ -97,15 +91,6 @@ function emailShow() {
 	setTimeout(() => {
 		mailField.style.textAlign = 'right'; mailField.value = '@gmail.com';
 	}, 1200);
-}
-
-function yahooShow() {
-	inType.innerHTML = 'YAHOO LOGIN';
-	save1.innerHTML = ` A link will be sent to your <br> <span id="mail-span">yahoo inbox</span>, `;
-	save2.innerHTML = ` Use the link to verify your <br> login on this page. `;
-	mailField.setAttribute('type', 'email'); 
-	theFlag7.style.display = 'none'; mailField.style.letterSpacing = '1.5px';
-	mailField.style.textAlign = 'right'; mailField.value = '@yahoo.com';
 }
 
 
