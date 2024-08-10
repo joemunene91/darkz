@@ -39,7 +39,7 @@ const depoLifes = document.getElementById('depo-life');
 const depoForm = document.getElementById('depo-form');
 const depoImg = document.getElementById('depo-img');
 
-const vpnNav = document.getElementById('vpn-nav');
+// const vpnNav = document.getElementById('vpn-nav');
 
 
 const auth = firebase.auth();
@@ -61,7 +61,7 @@ auth.onAuthStateChanged(user => {
 			theGuy = user.email;
 			var theaddress = (user.email).substring(0, (user.email).indexOf('@'));
 			if (user.displayName) { theaddress = user.displayName } 
-			vpnNav.innerHTML = theaddress.substring(0, 13);
+			// vpnNav.innerHTML = theaddress.substring(0, 13);
 		} else if(user.phoneNumber) {
 			theGuy = user.phoneNumber;
 		} 

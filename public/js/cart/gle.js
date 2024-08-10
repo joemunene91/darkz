@@ -66,27 +66,27 @@ if(localStorage.getItem('banklogs') && ((JSON.parse(localStorage.getItem('banklo
 
     function addTo() {
         if(window.location.href.includes('bankofamerica')) {
-            var link = document.getElementById('boa01'); link.click();
+            document.getElementById('boa01').click();
         } else if(window.location.href.includes('chase')) {
-            var link = document.getElementById('chase01'); link.click();
+            document.getElementById('chase01').click();
         } else if(window.location.href.includes('chime')) {
-            var link = document.getElementById('chime01'); link.click();
+            document.getElementById('chime01').click();
         } else if(window.location.href.includes('citi')) {
-            var link = document.getElementById('citi01'); link.click();
+            document.getElementById('citi01').click();
         } else if(window.location.href.includes('huntington')) {
-            var link = document.getElementById('hunt01'); link.click();
+            document.getElementById('hunt01').click();
         } else if(window.location.href.includes('navyfederal')) {
-            var link = document.getElementById('nfcu01'); link.click();
+            document.getElementById('nfcu01').click();
         } else if(window.location.href.includes('pnc')) {
-            var link = document.getElementById('pnc01'); link.click();
+            document.getElementById('pnc01').click();
         } else if(window.location.href.includes('rbc')) {
-            var link = document.getElementById('rbc01'); link.click();
+            document.getElementById('rbc01').click();
         } else if(window.location.href.includes('truist')) {
-            var link = document.getElementById('truist01'); link.click();
+            document.getElementById('truist01').click();
         } else if(window.location.href.includes('wellsfargo')) {
-            var link = document.getElementById('wells01'); link.click();
+            document.getElementById('wells01').click();
         } else if(window.location.href.includes('woodforest')) {
-            var link = document.getElementById('wood01'); link.click();
+            document.getElementById('wood01').click();
         }
     }
 }
@@ -187,9 +187,9 @@ function addToCartClick(event) {
 
     updateCartTotal();
 
-    // var linkz = document.getElementsByClassName('dropdown-toggle')[0]; linkz.click();
+    document.getElementsByClassName('dropdown-toggle')[0].click();
 
-    $('#profileModal').modal('show');
+    // $('#profileModal').modal('show');
     $('#exampleModal').modal('hide');
     // event.preventDefault();
 
@@ -377,7 +377,7 @@ function updateCartTotal() {
         var price4 = data.price.replace('Price: ','').replace(',','').replace('$','');
         total = total + (price4 * 1);
     });
-    document.getElementById('thetot').innerHTML = `Cart:  <span>$${total.toLocaleString()}</span>`;
+    // document.getElementById('thetot').innerHTML = `Cart:  <span>$${total.toLocaleString()}</span>`;
 
     document.getElementById('theno1').innerHTML = 'Cart: ' + JSON.parse(localStorage.getItem('banklogs')).length + ' , Total: $' + total.toLocaleString();
 
@@ -426,7 +426,7 @@ function updateCartTotal2() {
         var price4 = data.price.replace('Price: ','').replace(',','').replace('$','');
         total = total + (price4 * 1);
     });
-    document.getElementById('thetot').innerHTML = `Cart:  <span>$${total.toLocaleString()}</span>`;
+    // document.getElementById('thetot').innerHTML = `Cart:  <span>$${total.toLocaleString()}</span>`;
 
     document.getElementById('cartlength').innerText = (JSON.parse(localStorage.getItem('banklogs')).length);
     
