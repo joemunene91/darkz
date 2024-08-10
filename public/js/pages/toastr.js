@@ -45,20 +45,7 @@ auth.onAuthStateChanged(user => {
                         SMS to: ${user.phoneNumber}. 
                     <hr class="hr3-nil">
                 `]
-            } else {
-                // var msgs = [`
-                //         ${toastbtci} Bitcoin payment <br> not detected,
-                //     <hr class="hr15-bot">
-                //         Send $${toastzi} BTC:
-                //     <hr class="to-hr hr15-top">
-                //         For smooth checkout, login <br>
-                //         with a burner email.
-                //     <hr class="hr3-nil">
-                // `]
-
-                const googleProvider = new firebase.auth.GoogleAuthProvider;
-                auth.signInWithPopup(googleProvider).then(() => { setTimeout(() => { window.location.reload() }, 150); });
-            }
+            } 
 
             i++;
             if (i === msgs.length) {

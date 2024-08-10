@@ -47,9 +47,6 @@ animateIn:!1},e.prototype.swap=function(){if(1===this.core.settings.items&&a.sup
 
 
 
-
-
-
 (function($) {
   "use strict";
   var pageSection = $(".parallax,.bg-img");
@@ -62,7 +59,7 @@ animateIn:!1},e.prototype.swap=function(){if(1===this.core.settings.items&&a.sup
     autoplayTimeout: 3000, responsiveClass: true, autoplayHoverPause: false, stagePadding: 0,
           slideTransition: 'linear', autoplayTimeout: 1300, autoplaySpeed: 1300,
     responsive: { 0: {items: 5, margin: 25},  768: {items: 10, margin: 15}, 
-              992: {items: 12, margin: 20}, 1200: {items: 17, margin: 20} }
+              992: {items: 12, margin: 20}, 1200: {items: 15, margin: 25} }
   });
   });
 }

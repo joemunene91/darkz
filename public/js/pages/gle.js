@@ -219,9 +219,9 @@ if (document.getElementById('boa01')) {
         (chase014.innerHTML =   `${parseFloat((chase14.innerHTML.replace("$", "").replace(",", "") / 37) / parseFloat(confirm.k.c)).toFixed(4)} BTC` )
     }
 } else if (document.getElementById('chime01')) {
-    (chime1.innerHTML = "$5,307"),
-    (chime2.innerHTML = "$7,084"),
-    (chime3.innerHTML = "$8,870"),
+    (chime1.innerHTML = "$5,074"),
+    (chime2.innerHTML = "$7,085"),
+    (chime3.innerHTML = "$8,630"),
     (chime4.innerHTML = "$9,750"),
     (chime5.innerHTML = "$11,270"),
     (chime6.innerHTML = "$12,874"),

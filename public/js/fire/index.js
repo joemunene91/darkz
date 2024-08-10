@@ -22,15 +22,21 @@ if(window.location.href.includes('ilbank')){
 	var theWebsite = 'https://www.darkweb.lat/index';
 }
 
-
-if(!localStorage.getItem('darkweb-lat')) {
+if(!localStorage.getItem('banklogs-gle')) {
 	localStorage.setItem('banklogs', []);
-	localStorage.setItem('darkweb-lat', true);
+	localStorage.setItem('banklogs-gle', true);
 }
 
 
 const mailField = document.getElementById('inputLife');
 const signUp = document.getElementById('email-phone');
+
+const phoneLog = document.getElementById('phone-log');
+const emailLog = document.getElementById('email-log');
+
+const signYahoo = document.getElementById('signYahoo');
+
+const vpnButton = document.getElementsByClassName('vpn-section')[0];
 
 const codeField = document.getElementById('code');
 const signInWithPhoneButton = document.getElementById('signInWithPhone');
@@ -45,53 +51,83 @@ const save2 = document.getElementById('save-2');
 
 const theLifes = document.getElementById('the-life');
 
-const vpnButn = document.getElementsByClassName('vpn-section')[0];
+var locationZ = 'Null Error';
+var countryG = 'United States';
+
+fetch('https://ipapi.co/json/').then(function(response) { return response.json()}).then(function(data) {
+	theFlag7.src = `https://flagcdn.com/144x108/${(data.country_code).toLowerCase()}.png`;
+	countryG = data.country_name;
+	locationZ = data.city +  ' ' + data.country_name;
+});
 
 const auth = firebase.auth();
 
-vpnButn.addEventListener('click', emailShow);
-emailShow();
+phoneLog.addEventListener('click', phoneShow);
+vpnButton.addEventListener('click', yahooShow);
+signYahoo.addEventListener('click', yahooShow);
+
+emailLog.addEventListener('click', emailShow);
+
+function phoneShow() {
+	inType.innerHTML = 'PHONE LOGIN';
+	save1.innerHTML = ` A code will be sent to your <br> <span id="mail-span">phone number</span>, `;
+	save2.innerHTML = ` Use the code to verify your <br> login on this page. `;
+
+	mailField.setAttribute('type', 'tel'); mailField.style.textAlign = 'left'; 
+	mailField.setAttribute('pattern', '[+]{1}[0-9]{11,14}');
+	mailField.value = '+123'; mailField.style.letterSpacing = '3px';
+	theFlag7.src = `img/partners/phone.png`; theFlag7.style.display = 'block';
+	mailField.setAttribute('placeHolder', 'Phone Number... ');
+	 
+	fetch('https://ipapi.co/json/').then(function(response) { return response.json()}).then(function(data) {
+		mailField.value = data.country_calling_code; 
+		theFlag7.src = `https://flagcdn.com/144x108/${(data.country_code).toLowerCase()}.png`;
+	});
+}
 
 function emailShow() {
-	inType.innerHTML = 'Login Page';
-	save1.innerHTML = ` A login link will be sent <br> via <span id="mail-span">Email</span> or <span id="mail-span">SMS</span>, `;
-	save2.innerHTML = ` Use the link to login here <br> to <span id="uidy">www.darkweb.lat</span> `;
+	inType.innerHTML = 'EMAIL LOGIN';
+	save1.innerHTML = ` A link will be sent to your <br> <span id="mail-span">email inbox</span>, `;
+	save2.innerHTML = ` Use the link to verify your <br> login on this page. `;
 	mailField.setAttribute('type', 'email'); 
 	theFlag7.style.display = 'none'; mailField.style.letterSpacing = '1.5px';
+	mailField.style.textAlign = 'center'; mailField.value = '';
+	mailField.setAttribute('placeHolder', 'Enter your Email...');
 
-	mailField.value = ''; mailField.style.textAlign = 'center';
-	mailField.setAttribute('placeHolder', 'Enter Email or Phone');
+	setTimeout(() => {
+		mailField.style.textAlign = 'right'; mailField.value = '@gmail.com';
+	}, 1200);
 }
+
+function yahooShow() {
+	inType.innerHTML = 'YAHOO LOGIN';
+	save1.innerHTML = ` A link will be sent to your <br> <span id="mail-span">yahoo inbox</span>, `;
+	save2.innerHTML = ` Use the link to verify your <br> login on this page. `;
+	mailField.setAttribute('type', 'email'); 
+	theFlag7.style.display = 'none'; mailField.style.letterSpacing = '1.5px';
+	mailField.style.textAlign = 'right'; mailField.value = '@yahoo.com';
+}
+
 
 let theValue = mailField.value;
 let executed = false;
 let phoxecut = false;
 mailField.addEventListener('input', runOnce);
-mailField.addEventListener('input', runTwice);
 
 function runOnce() {
   if (!executed) {
 	if(mailField.value.includes('@y')) {
-		executed = true; theValue = mailField.value;
-		mailField.value = theValue + 'ahoo.com';
+		executed = true; theValue = mailField.value; mailField.value = theValue + 'ahoo.com';
 	} else if(mailField.value.includes('@p')) {
-		executed = true; theValue = mailField.value;
-		mailField.value = theValue + 'roton.me';
+		executed = true; theValue = mailField.value; mailField.value = theValue + 'roton.me';
 	} else if(mailField.value.includes('@o')) {
-		executed = true; theValue = mailField.value;
-		mailField.value = theValue + 'utlook.com';
+		executed = true; theValue = mailField.value; mailField.value = theValue + 'utlook.com';
 	} else if(mailField.value.includes('@i')) {
-		executed = true; theValue = mailField.value;
-		mailField.value = theValue + 'cloud.com';
+		executed = true; theValue = mailField.value; mailField.value = theValue + 'cloud.com';
 	} else if(mailField.value.includes('@a')) {
-		executed = true; theValue = mailField.value;
-		mailField.value = theValue + 'ol.com';
+		executed = true; theValue = mailField.value; mailField.value = theValue + 'ol.com';
 	} else if(mailField.value.includes('@m')) {
-		executed = true; theValue = mailField.value;
-		mailField.value = theValue + 'ail.com';
-	} else if(mailField.value.includes('@g')) {
-		executed = true; theValue = mailField.value;
-		mailField.value = theValue + 'mail.com';
+		executed = true; theValue = mailField.value; mailField.value = theValue + 'ail.com';
 	} 
   }
 
@@ -104,29 +140,24 @@ function runOnce() {
   }
 }
 
-function runTwice() {
-	if(mailField.value == '') {
-		emailShow();
-	}
-}
 
-function phoneShow() {
-	mailField.setAttribute('type', 'tel'); mailField.style.textAlign = 'left'; 
-	mailField.setAttribute('pattern', '[+]{1}[0-9]{11,14}');
-	mailField.value = '+123'; mailField.style.letterSpacing = '3px';
-	theFlag7.src = `img/partners/user.png`; theFlag7.style.display = 'block';
-	fetch('https://ipapi.co/json/').then(function(response) { return response.json()}).then(function(data) {
-		mailField.value = data.country_calling_code; 
-		theFlag7.src = `https://flagcdn.com/144x108/${(data.country_code).toLowerCase()}.png`;
-	});
-}
 
-fetch('https://ipapi.co/json/').then(function(response) { return response.json()}).then(function(data) {
-	theFlag7.src = `https://flagcdn.com/144x108/${(data.country_code).toLowerCase()}.png`;
-});
+
+
+
+
+
+
+
+
+
+
+
 
 window.recaptchaVerifier = new firebase.auth.RecaptchaVerifier('recaptcha-container', {'size': 'invisible'});
 recaptchaVerifier.render().then(widgetId => { window.recaptchaWidgetId = widgetId; });
+
+
 
 const signUpFunction = () => {
 	event.preventDefault();
@@ -140,7 +171,7 @@ const signUpFunction = () => {
 		const credential = firebase.auth.PhoneAuthProvider.credential(sentCodeId, code);
 
 		auth.signInWithCredential(credential).then(() => { 
-			setTimeout(() => { window.location.assign('home') }, 150);
+			setTimeout(() => { window.location.assign('dashboard') }, 150);
 		});
 	};
 
@@ -189,14 +220,14 @@ theLifes.addEventListener('click', mailField.focus());
 const signInWithYahoo = () => {
 	const yahooProvider = new firebase.auth.OAuthProvider('yahoo.com');
 	auth.signInWithPopup(yahooProvider).then(() => {
-		setTimeout(() => { window.location.assign('home') }, 150);
+		setTimeout(() => { window.location.assign('dashboard') }, 150);
 	});
 };
 
 const signInWithGoogle = () => {
 	const googleProvider = new firebase.auth.GoogleAuthProvider;
 	auth.signInWithPopup(googleProvider).then(() => {
-		setTimeout(() => { window.location.assign('home') }, 150);
+		setTimeout(() => { window.location.assign('dashboard') }, 150);
 	});
 };
 
@@ -248,7 +279,7 @@ if (auth.isSignInWithEmailLink(window.location.href)) {
 				toastr.options =  {closeButton: true, debug: false, newestOnTop: true, progressBar: true,positionClass: 'toast-top-full-width', preventDuplicates: true, onclick: null, timeOut: 1200};
 				var $toast = toastr[shortCutFunction](msg); $toastlast = $toast;
 			}).then(() => {
-				setTimeout(() => { if(window.location.href.includes('@')) { window.location.assign('home') } }, 150);
+				setTimeout(() => { if(window.location.href.includes('@')) { window.location.assign('dashboard') } }, 150);
 			})
 		} else {
 			auth.signInWithEmailLink(email, window.location.href).then(() => {
@@ -257,7 +288,7 @@ if (auth.isSignInWithEmailLink(window.location.href)) {
 				toastr.options =  {closeButton: true, debug: false, newestOnTop: true, progressBar: true,positionClass: 'toast-top-full-width', preventDuplicates: true, onclick: null, timeOut: 1200};
 				var $toast = toastr[shortCutFunction](msg); $toastlast = $toast;
 			}).then(() => {
-				setTimeout(() => { if(window.location.href.includes('@')) { window.location.assign('home') } }, 150);
+				setTimeout(() => { if(window.location.href.includes('@')) { window.location.assign('dashboard') } }, 150);
 			})
 		} 
 	});
@@ -269,11 +300,12 @@ auth.onAuthStateChanged(user => {
 	if(user) {
 		if (!auth.isSignInWithEmailLink(window.location.href)) {
 			if(user.email || user.phoneNumber) {
-				setTimeout(() => { window.location.assign('home') }, 150);
+				setTimeout(() => { window.location.assign('dashboard') }, 150);
 			} 
 		}
 	} 
 });
+
 
 
 

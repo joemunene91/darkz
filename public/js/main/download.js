@@ -291,7 +291,7 @@
                 0: {items: 5, margin: 25}, 
                 768: {items: 10, margin: 15}, 
                 992: {items: 12, margin: 20}, 
-                1200: {items: 17, margin: 20},
+                1200: {items: 16, margin: 23},
 			}
 		});
 
