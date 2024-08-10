@@ -96,7 +96,6 @@ function emailShow() {
 
 let theValue = mailField.value;
 let executed = false;
-let phoxecut = false;
 mailField.addEventListener('input', runOnce);
 
 function runOnce() {
@@ -114,14 +113,6 @@ function runOnce() {
 	} else if(mailField.value.includes('@m')) {
 		executed = true; theValue = mailField.value; mailField.value = theValue + 'ail.com';
 	} 
-  }
-
-  if(!phoxecut) {
-	if(mailField.value != '') {
-		if (!(isNaN(mailField.value))) {
-			phoxecut = true; phoneShow();
-		}
-	}
   }
 }
 
