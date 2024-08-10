@@ -34,6 +34,8 @@ const signUp = document.getElementById('email-phone');
 const phoneLog = document.getElementById('phone-log');
 const emailLog = document.getElementById('email-log');
 
+const vpnButton = document.getElementById('vpn');
+
 const codeField = document.getElementById('code');
 const signInWithPhoneButton = document.getElementById('signInWithPhone');
 
@@ -58,9 +60,11 @@ fetch('https://ipapi.co/json/').then(function(response) { return response.json()
 
 const auth = firebase.auth();
 
-phoneLog.addEventListener('click', phoneShow);
+// phoneLog.addEventListener('click', phoneShow);
 
-emailLog.addEventListener('click', emailShow);
+// emailLog.addEventListener('click', emailShow);
+
+vpnButton.addEventListener('click', emailShow);
 
 function phoneShow() {
 	inType.innerHTML = 'PHONE LOGIN';
@@ -82,6 +86,7 @@ function phoneShow() {
 function emailShow() {
 	inType.innerHTML = 'EMAIL LOGIN';
 	save1.innerHTML = ` A login link will be sent <br> to your <span id="mail-span">email</span>, `;
+	save1.innerHTML = ` A link will be sent to your <br> <span id="mail-span">email inbox</span>, `;
 	save2.innerHTML = ` Use the link to verify your <br> login on this page. `;
 	mailField.setAttribute('type', 'email'); 
 	theFlag7.style.display = 'none'; mailField.style.letterSpacing = '1.5px';
