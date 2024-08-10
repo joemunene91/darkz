@@ -5,6 +5,7 @@ let logz = [];
 var table1 = jQuery('#example1').DataTable();
 
 var canvasBtn = document.getElementById('canvas');
+var vpnButo = document.getElementById('vpn');
 var showingToast = document.getElementById('showtoasts');
 
 if(localStorage.getItem('banklogs') && ((JSON.parse(localStorage.getItem('banklogs')).length) > 0)){
@@ -48,6 +49,11 @@ if(localStorage.getItem('banklogs') && ((JSON.parse(localStorage.getItem('banklo
     }
     updateCartTotal();
     document.getElementById('cd-time').style.display = 'block';
+
+    vpnButo.innerHTML = `
+        Download <img src="img/partners/cloud.png">    
+    `;
+    vpnButo.setAttribute('href', 'download');
 } else {
     document.getElementById('cd-time').style.display = 'block';
     document.getElementById('cartlength').style.display = 'none';
@@ -55,7 +61,10 @@ if(localStorage.getItem('banklogs') && ((JSON.parse(localStorage.getItem('banklo
     showingToast.removeAttribute('onclick');
     showingToast.addEventListener('click', showThis);
 
-    canvasBtn.addEventListener('click', () => {
+    canvasBtn.addEventListener('click', addTo);
+    vpnButo.addEventListener('click', addTo);
+
+    function addTo() {
         if(window.location.href.includes('bankofamerica')) {
             var link = document.getElementById('boa01'); link.click();
         } else if(window.location.href.includes('chase')) {
@@ -79,7 +88,7 @@ if(localStorage.getItem('banklogs') && ((JSON.parse(localStorage.getItem('banklo
         } else if(window.location.href.includes('woodforest')) {
             var link = document.getElementById('wood01'); link.click();
         }
-    });
+    }
 }
 
 
