@@ -64,6 +64,10 @@
         "destination": "/wellsfargo.html"
       },
       {
+        "source": "/dashboard",
+        "destination": "/dashboard.html"
+      },
+      {
         "source": "/woodforest",
         "destination": "/woodforest.html"
       }
@@ -77,6 +81,11 @@
       {
         "source": "/download.html",
         "destination": "/download",
+        "type": 301
+      },
+      {
+        "source": "/dashboard.html",
+        "destination": "/dashboard",
         "type": 301
       },
       {
