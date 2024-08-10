@@ -74,9 +74,7 @@ const auth = firebase.auth();
 
 auth.onAuthStateChanged(user => {
 	if(!user) { 
-		if (!auth.isSignInWithEmailLink(window.location.href)) {
-			auth.signInAnonymously();
-		}
+		window.location.assign('index') 
 	} else {
 		var theGuy = user.uid;
 
@@ -93,9 +91,7 @@ auth.onAuthStateChanged(user => {
 			vpnNav.innerHTML = theaddress.substring(0, 13);
 		} else if(user.phoneNumber) {
 			theGuy = user.phoneNumber;
-		} else {
-            theGuy = user.uid;
-        }
+		} 
 
 		document.getElementById('vpn').addEventListener('click', () => {
 			const googleProvider = new firebase.auth.GoogleAuthProvider;
@@ -476,62 +472,6 @@ function drawHand2(ctx2, pos, length, width) {
 	ctx2.beginPath(); ctx2.lineWidth = width; ctx2.lineCap = "round"; ctx2.moveTo(0, 0);
 	ctx2.rotate(pos); ctx2.lineTo(0, -length); ctx2.stroke(); ctx2.rotate(-pos);
 }
-
-
-
-
-
-
-
-var canvas3 = document.getElementById("canvas3"); var ctx3 = canvas3.getContext("2d");
-var radius3 = canvas3.height / 2; ctx3.translate(radius3, radius3);
-radius3 = radius3 * 1; setInterval(drawClock3, 1000);
-
-function drawClock3() {
-	drawFace3(ctx3, radius3);
-	drawNumbers3(ctx3, radius3);
-	drawTime3(ctx3, radius3);
-}
-
-function drawFace3(ctx3, radius3) {
-	var grad3; ctx3.beginPath(); ctx3.arc(0, 0, radius3, 0, 2 * Math.PI);
-	ctx3.fillStyle = 'white'; ctx3.fill();
-	grad3 = ctx3.createRadialGradient(0, 0, radius3 * 0.05, 0, 0, radius3 * 2.5);
-	grad3.addColorStop(0, '#121d33'); grad3.addColorStop(0.5, 'rgba(0,0,0,0)'); grad3.addColorStop(1, '#121d33');
-	ctx3.strokeStyle = grad3; ctx3.lineWidth = radius3 * 0; ctx3.stroke(); ctx3.beginPath();
-	ctx3.arc(0, 0, radius3 * 0.1, 0, 2 * Math.PI); ctx3.fillStyle = '#121d33'; ctx3.fill();
-}
-
-function drawNumbers3(ctx3, radius3) {
-	var ang3; var num3; ctx3.font = radius2 * 0.33 + "px arial"; 
-	ctx3.textBaseline = "middle"; ctx3.textAlign = "center";
-	for (num3 = 1; num3 < 13; num3++) {
-		ang3 = num3 * Math.PI / 6; ctx3.rotate(ang3); ctx3.translate(0, -radius3 * 0.87); ctx3.rotate(-ang3);
-		ctx3.fillText(num3.toString(), 0, 0); ctx3.rotate(ang3); ctx3.translate(0, radius3 * 0.87); ctx3.rotate(-ang3);
-	}
-}
-
-function drawTime3(ctx3, radius3) {
-	var now3 = new Date(); var hour3 = now3.getHours();
-	var minute3 = now3.getMinutes(); var second3 = now3.getSeconds();
-	hour3 = hour3 % 12;
-	hour3 = (hour3 * Math.PI / 6) + (minute3 * Math.PI / (6 * 60)) + (second3 * Math.PI / (360 * 60));
-	drawHand3(ctx3, hour3, radius3 * 0.5, radius3 * 0.07);
-	minute3 = (minute3 * Math.PI / 30) + (second3 * Math.PI / (30 * 60));
-	drawHand3(ctx3, minute3, radius3 * 0.8, radius3 * 0.07);
-	second3 = (second3 * Math.PI / 30);
-	drawHand3(ctx3, second3, radius3 * 0.9, radius3 * 0.02);
-}
-
-function drawHand3(ctx3, pos, length, width) {
-	ctx3.beginPath(); ctx3.lineWidth = width; ctx3.lineCap = "round"; ctx3.moveTo(0, 0);
-	ctx3.rotate(pos); ctx3.lineTo(0, -length); ctx3.stroke(); ctx3.rotate(-pos);
-}
-
-
-
-
-
 
 
 

@@ -324,7 +324,6 @@ blink {
   box-shadow: 0 0 0 1px rgb(132, 144, 180) !important;
 }
 #canvas,
-#canvas3,
 #canvas2 {
   border: 1.4px solid #47588f;
 }

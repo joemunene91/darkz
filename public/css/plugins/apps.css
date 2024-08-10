@@ -2024,7 +2024,6 @@ td {
   margin: -5px auto -3px 5px !important;
   border-radius: 3px;
 }
-#canvas3,
 #canvas2 {
   border-radius: 50%;
   float: right !important;
@@ -2055,7 +2054,6 @@ td {
     margin-top: 10px !important;
     margin-bottom: 6px !important;
   }
-  #canvas3,
   #canvas2 {
     width: 60px !important;
     height: 60px !important;
