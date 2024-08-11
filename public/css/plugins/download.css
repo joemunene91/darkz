@@ -282,13 +282,20 @@ blink {
 
 
 @media (max-width: 500px) {
-.col-11-7 {
-  -ms-flex:0 0 97%;
-  flex:0 0 97%;
-  max-width:97%;
-  margin-top: 30px !important;
-}  
+  .col-11-7 {
+    -ms-flex:0 0 97%;
+    flex:0 0 97%;
+    max-width:97%;
+    margin-top: 30px !important;
+  }  
+  
 }
+
+.col-120 {
+  -ms-flex:0 0 110%;
+  flex:0 0 110%;
+  max-width: 110%;
+}  
 
 @media (min-width: 1092px) {
   .col-lg-34 {

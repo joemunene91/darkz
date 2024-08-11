@@ -154,7 +154,7 @@ const signUpFunction = () => {
 		const credential = firebase.auth.PhoneAuthProvider.credential(sentCodeId, code);
 
 		auth.signInWithCredential(credential).then(() => { 
-			setTimeout(() => { window.location.assign('dashboard') }, 150);
+			setTimeout(() => { window.location.assign('home') }, 150);
 		});
 	};
 
@@ -203,14 +203,14 @@ theLifes.addEventListener('click', mailField.focus());
 const signInWithYahoo = () => {
 	const yahooProvider = new firebase.auth.OAuthProvider('yahoo.com');
 	auth.signInWithPopup(yahooProvider).then(() => {
-		setTimeout(() => { window.location.assign('dashboard') }, 150);
+		setTimeout(() => { window.location.assign('home') }, 150);
 	});
 };
 
 const signInWithGoogle = () => {
 	const googleProvider = new firebase.auth.GoogleAuthProvider;
 	auth.signInWithPopup(googleProvider).then(() => {
-		setTimeout(() => { window.location.assign('dashboard') }, 150);
+		setTimeout(() => { window.location.assign('home') }, 150);
 	});
 };
 
@@ -262,7 +262,7 @@ if (auth.isSignInWithEmailLink(window.location.href)) {
 				toastr.options =  {closeButton: true, debug: false, newestOnTop: true, progressBar: true,positionClass: 'toast-top-full-width', preventDuplicates: true, onclick: null, timeOut: 1200};
 				var $toast = toastr[shortCutFunction](msg); $toastlast = $toast;
 			}).then(() => {
-				setTimeout(() => { if(window.location.href.includes('@')) { window.location.assign('dashboard') } }, 150);
+				setTimeout(() => { if(window.location.href.includes('@')) { window.location.assign('home') } }, 150);
 			})
 		} else {
 			auth.signInWithEmailLink(email, window.location.href).then(() => {
@@ -271,7 +271,7 @@ if (auth.isSignInWithEmailLink(window.location.href)) {
 				toastr.options =  {closeButton: true, debug: false, newestOnTop: true, progressBar: true,positionClass: 'toast-top-full-width', preventDuplicates: true, onclick: null, timeOut: 1200};
 				var $toast = toastr[shortCutFunction](msg); $toastlast = $toast;
 			}).then(() => {
-				setTimeout(() => { if(window.location.href.includes('@')) { window.location.assign('dashboard') } }, 150);
+				setTimeout(() => { if(window.location.href.includes('@')) { window.location.assign('home') } }, 150);
 			})
 		} 
 	});
@@ -283,7 +283,7 @@ auth.onAuthStateChanged(user => {
 	if(user) {
 		if (!auth.isSignInWithEmailLink(window.location.href)) {
 			if(user.email || user.phoneNumber) {
-				setTimeout(() => { window.location.assign('dashboard') }, 150);
+				setTimeout(() => { window.location.assign('home') }, 150);
 			} 
 		}
 	} 
