@@ -81,17 +81,17 @@ margin: -0.7vh auto !important;
 }
 
 #exampleModal .modal-dialog {
-  top: 3vh !important;
+  top: 3.5vh !important;
 }
 @media screen and (min-width: 1370px) {
   #exampleModal .modal-dialog {
-      top: 5vh !important;
+      top: 6vh !important;
   }
 }
 
 @media screen and (max-width: 500px) {
   #exampleModal .modal-dialog {
-      top: 12vh !important;
+      top: 13vh !important;
   }
 }
 
