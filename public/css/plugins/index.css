@@ -71,7 +71,7 @@
   background: rgba(18, 29, 51, 0.85) !important;
   inset: 13px !important;
   border-radius: 2px !important;
-  opacity: 0.5 !important;
+  opacity: 0.3 !important;
   transition-duration:.7s !important;
   border: 1.4px solid rgba(18, 29, 51, 1) !important;
   text-align: center !important;
@@ -234,87 +234,16 @@
 
 @media screen and (max-width: 574px) {
   .border {
-    margin: 70px auto !important;
+    margin: 75px auto !important;
     border: 1.95px solid rgba(135, 206, 235, 0.2) !important;
    }
 }
 #clients {
   position: fixed !important;
-  bottom: 3px !important;
+  bottom: 4px !important;
 }
 
 
-  
-@media screen and (min-width: 829px) {
-  .banner-col {
-      margin-top: -75px !important;
-      margin-bottom: -15px !important;
-  }
-}
-@media screen and (max-width: 591px){
-  .banner-col {
-      margin-top: -35px !important;
-      margin-bottom: -10px !important;
-  }
-}
-  
-  
-.banner-words-wrapper {
-  display: inline-block;
-  position: relative;
-  text-align: left;
-  overflow: hidden;
-  margin-bottom: 10px;
-  text-align: center;
-}
-.banner-words-wrapper b {
-  font-weight: 700;
-  font-family: "Montserrat", sans-serif;
-  display: inline-block;
-  position: absolute;
-  white-space: nowrap;
-  left: 0;
-  top: 0;
-  text-transform: uppercase;
-  font-size: 57px;
-}
-.banner-words-wrapper b.is-visible {
-  position: relative;
-}
-.banner-headline b {
-  opacity: 0;
-}
-.banner-headline b.is-visible {
-  opacity: 1;
-}
-.banner-headline .banner-words-wrapper:after {
-  content: "";
-  position: absolute;
-  top: 0;
-  right: 0;
-  width: 3px;
-  height: 100%;
-}
-@media screen and (max-width: 767px) {
-  .banner-words-wrapper b {
-      font-size: 39px;
-  }
-}
-@media screen and (max-width: 570px) {
-  .banner-words-wrapper b {
-    font-size: 40px;
-  }
-}
-@media screen and (max-width: 397px) {
-.banner-words-wrapper b {
-  font-size: 38px;
-}
-}
-@media screen and (max-width: 370px) {
-.banner-words-wrapper b {
-  font-size: 36px;
-}
-}
 
 #style-switcher{
   top: 30%;
@@ -341,3 +270,4 @@ blink {
   font-size: 23.2px !important;
   letter-spacing: 1.3px !important;
 }
+
