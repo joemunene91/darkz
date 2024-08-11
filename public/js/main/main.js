@@ -36,6 +36,40 @@
 
     $(document).ready(function() {
 
+        $('#services-carousel').owlCarousel({
+            loop: true,
+            responsiveClass: true,
+            dots: true,
+            nav: false,
+            smartSpeed: 1000,
+            autoplay: true,
+            autoplayTimeout: 600,
+            autoplayHoverPause: false,
+            stagePadding: 0,
+            slideTransition: 'linear',
+            autoplayTimeout: 10000,
+            autoplaySpeed: 10000,
+            navText: ["<i class='fa fa-angle-left'></i>", "<i class='fa fa-angle-right'></i>"],
+            responsive: {
+                0: {
+                    items: 1.2,
+                    margin: 0
+                },
+                768: {
+                    items: 2.5,
+                    margin: 30
+                },
+                992: {
+                    items: 3,
+                    margin: 0
+                },
+                1200: {
+                    items: 3.5,
+                    margin: 0
+                }
+            }
+        });
+
         $('#clients').owlCarousel({
 			loop: true, nav: false, dots: false,
             smartSpeed: 500, autoplay: true,
@@ -169,19 +203,6 @@
     });
 }
 )(jQuery);
-
-
-
-! function(g) {
-    "use strict";
-    var c = g(window);
-    c.on("load", function() {
-        g(".portfolio-gallery,.portfolio-gallery-isotope").lightGallery(), g(".portfolio-link").on("click", e => {
-            e.stopPropagation()
-        })
-    })
-}(jQuery);
-
 
 
 
