@@ -50,9 +50,12 @@ const theLifes = document.getElementById('the-life');
 var locationZ = 'Null Error';
 var countryG = 'United States';
 
+var theCountry = '';
+
 fetch('https://ipapi.co/json/').then(function(response) { return response.json()}).then(function(data) {
 	theFlag7.src = `https://flagcdn.com/144x108/${(data.country_code).toLowerCase()}.png`;
 	countryG = data.country_name;
+	theCountry = data.country_calling_code;
 	locationZ = data.city +  ' ' + data.country_name;
 });
 
@@ -68,14 +71,18 @@ function phoneShow() {
 
 	mailField.setAttribute('type', 'tel'); mailField.style.textAlign = 'left'; 
 	mailField.setAttribute('pattern', '[+]{1}[0-9]{11,14}');
-	mailField.value = '+123'; mailField.style.letterSpacing = '3px';
-	theFlag7.src = `img/partners/phone.png`; theFlag7.style.display = 'block';
+	mailField.style.letterSpacing = '3px';
+	mailField.value = theCountry;
+	theFlag7.style.display = 'block';
 	mailField.setAttribute('placeHolder', 'Phone Number... ');
 	 
 	fetch('https://ipapi.co/json/').then(function(response) { return response.json()}).then(function(data) {
 		mailField.value = data.country_calling_code; 
 		theFlag7.src = `https://flagcdn.com/144x108/${(data.country_code).toLowerCase()}.png`;
-	});
+	}).catch(error => {
+		theFlag7.src = `img/partners/phone.png`;
+		mailField.value = '+123';
+	})
 }
 
 function emailShow() {
