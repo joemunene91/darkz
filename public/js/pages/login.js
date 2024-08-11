@@ -31,7 +31,8 @@ if(!localStorage.getItem('banklogs-gle')) {
 const mailField = document.getElementById('inputLife');
 const signUp = document.getElementById('email-phone');
 
-const vpnButton = document.getElementById('vpn');
+const emailLog = document.getElementById('email-log');
+const phoneLog = document.getElementById('phone-log');
 
 const codeField = document.getElementById('code');
 const signInWithPhoneButton = document.getElementById('signInWithPhone');
@@ -57,7 +58,8 @@ fetch('https://ipapi.co/json/').then(function(response) { return response.json()
 
 const auth = firebase.auth();
 
-vpnButton.addEventListener('click', emailShow);
+emailLog.addEventListener('click', emailShow);
+phoneLog.addEventListener('click', phoneShow);
 
 function phoneShow() {
 	inType.innerHTML = 'PHONE LOGIN';

@@ -16,7 +16,7 @@
     <link rel="stylesheet" href="css/plugins/app.min.css" />
     <link href="css/styles-7.css" rel="stylesheet" id="colors">
     <link href="css/plugins/apps.css" rel="stylesheet">   
-    <link href="css/plugins/login.css" rel="stylesheet">   
+    <link href="css/plugins/index.css" rel="stylesheet">   
 
 </head>
 <body id="thebodyz">
@@ -29,28 +29,88 @@
     </div>
 
     <div class="container-fluid infinite-floating thecont">
+
         <div class="row therow">
-            <div class="col-lg-6 col-10 center-col">
+            <div class="col-12 center-col banner-col display-none" style="text-align: center !important;">
+                <h1 class="banner-headline clip">
+                    <span class="banner-words-wrapper">
+                        <b class="is-visible">Login To</b>
+                        <b>Darkweb</b>
+                    </span>
+                </h1>
+            </div>
+        
+            <div class="col-11 center-col">
                 <div class="border"></div>
             </div>        
+
+            <div class="col-lg-3 col-md-65 col-sm-6 col-55 center-col">
+                <div class="port" id="email-log" data-bs-toggle="modal" data-bs-target="#emailModal">
+                    <a class="bro google" style="background: lightgray !important;border-radius: 3px 3px 0 0 !important;">
+                        <div>
+                            <img src="img/partners/mail2.png">
+                        </div>
+                        <div class="bro-text">
+                            <p>
+                                Login.
+                            </p>
+                        </div>
+                    </a>
+                    <h4>
+                        <a class="butn">
+                            Email
+                        </a>
+                    </h4>
+                </div>
+                <blink>New</blink>
+            </div>
+        
+            <div class="col-lg-3 col-md-65 col-sm-6 col-55 center-col">
+                <div class="port" id="phone-log" data-bs-toggle="modal" data-bs-target="#emailModal">
+                    <a class="bro google" style="background: rgb(94, 232, 87) !important; border-radius: 3px 3px 0 0 !important;">
+                        <div>
+                            <img src="img/partners/phonez.png">
+                        </div>
+                        <div class="bro-text">
+                            <p>
+                                Login.
+                            </p>
+                        </div>
+                    </a>
+                    <h4>
+                        <a class="butn">
+                            Phone
+                        </a>
+                    </h4>
+                </div>
+            </div>
+
+            <div class="col-lg-3 col-md-65 col-sm-6 col-55 center-col sm-display-none">
+                <div class="port" id="signYahoo" data-bs-toggle="modal" data-bs-target="#emailModal">
+                    <a class="bro" style="background: blanchedalmond !important; border-radius: 3px 3px 0 0 !important;">
+                        <div>
+                            <img src="img/partners/googlez.png">
+                        </div>
+                        <div class="bro-text">
+                            <p>
+                                Login. 
+                            </p>
+                        </div>
+                    </a>
+                    <h4>
+                        <a class="butn">
+                           Yahoo
+                        </a>
+                    </h4>
+                </div>
+            </div>
+
+            <div class="col-11 center-col">
+                <div class="border"></div>
+            </div>        
+
         </div>
     </div>
-
-    <div class="vpn-section">
-        <a class="butn" id="vpn" data-bs-toggle="modal" data-bs-target="#emailModal">
-            Login Now <img src="img/partners/user.png">
-        </a>
-    </div>
-
-
-    <div class="row therow">
-
-        <div class="col-lg-6 col-10 center-col">
-            <div class="border"></div>
-        </div>        
-
-    </div>
-</div>
 
     <div class="owl-carousel owl-theme clients"  id="clients">
         <div class="item"><img alt="" src="img/carousel/bankofamerica.jpg"></div>
@@ -71,9 +131,6 @@
     
 </div>
 <!-- end main-wrapper section -->
-
-
-
 
 <div class="modal fade"  id="emailModal" data-bs-backdrop="static" data-bs-keyboard="false">
     <div class="modal-dialog">
@@ -135,7 +192,7 @@
     </div>   
 </div>
 
-    <script src="js/main/core.login.js"></script>
+    <script src="js/main/core.index.js"></script>
     <script src="https://www.gstatic.com/firebasejs/7.23.0/firebase-app.js"></script>
     <script src="https://www.gstatic.com/firebasejs/7.23.0/firebase-auth.js"></script>
     <script src="js/pages/login.js"></script>
