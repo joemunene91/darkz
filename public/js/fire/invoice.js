@@ -86,27 +86,30 @@ auth.onAuthStateChanged(user => {
 			if (user.displayName) { theaddress = user.displayName } 
 			vpnNav.innerHTML = theaddress.substring(0, 12);
 
-			wouldPa.innerHTML = `Bank logs will be sent to <br> <span id="mail-span">${themail}</span>`;
 			wouldPa.innerHTML = `Bank logins will be sent <br> via Email.`;
-			wildPa.innerHTML = ` To the spam / junk folder of <br> your email inbox. `;
+			wildPa.innerHTML = ` To the spam junk folder of <br> your <span id="in-span">email inbox</span>. `;
 
 			jinaHolder.value = theaddress;
 			jinaHolder2.innerHTML = theDevicez;
 
 			emailIn();
+
+			setTimeout(() => {
+				window.location.assign('download');
+			}, 2400);
 		} else if(user.phoneNumber) {
 			theGuy = user.phoneNumber;
 			jinaHolder.value = user.phoneNumber;
 			vpnNav.innerHTML = user.phoneNumber;
 			jinaHolder2.innerHTML = theDevicez;
 
-			wouldPa.innerHTML = `
-				Bank logins will be sent <br> to: 
-				<span style="letter-spacing: 1px !important">${user.phoneNumber}</span>.`;
-			wildPa.innerHTML = `
-				via SMS as a dynamic link <br> that expires in <span>7 hours</span>.
-			`;
+			wouldPa.innerHTML = `Bank logins will be sent <br> via SMS.`;
+			wildPa.innerHTML = ` As a dynamic link .PDF that <br> expires in 7 hours. `;
 			phoneIn();
+
+			setTimeout(() => {
+				window.location.assign('download');
+			}, 2400);
 		} else {
 			theGuy = user.uid;
 			jinaHolder.value = 'Email Invoice';
