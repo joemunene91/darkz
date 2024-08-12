@@ -1335,7 +1335,7 @@ td {
   text-transform: capitalize !important;
   font-size: 28px !important;
   padding: 14px !important;
-  letter-spacing: 1.7px !important;
+  letter-spacing: 1.8px !important;
   font-weight: 700 !important;
   box-shadow: 0 0 0 2px rgba(255, 255, 255, 0.85) !important;
 }
@@ -1348,7 +1348,7 @@ td {
   #showtoasts {
     font-size: 23.5px !important;
     padding: 11.75px !important;
-    letter-spacing: 1.4px !important;
+    letter-spacing: 1.6px !important;
   }
 
   #showtoasts {
