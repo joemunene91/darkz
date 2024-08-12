@@ -141,7 +141,7 @@ $('#exampleModal').on('show.bs.modal', function (event) {
 
         setTimeout(() => {
             addToCartClick();
-        }, 1000);
+        }, 600);
     }
 })
 
@@ -187,7 +187,7 @@ function addToCartClick(event) {
     $('#exampleModal').modal('hide');
     // event.preventDefault();
 
-    setTimeout(() => { window.location.assign('invoice') }, 1800);
+    setTimeout(() => { window.location.assign('invoice') }, 1200);
 }
 
 
