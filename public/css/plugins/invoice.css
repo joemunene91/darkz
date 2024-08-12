@@ -11,7 +11,7 @@
 @media screen and (max-width: 821px) {
     #logs-invoice {
         padding: 0px  10px !important;
-        height: 94vh !important;
+        height: 90vh !important;
     }
 }
 
@@ -44,12 +44,12 @@
 }
 @media screen and (max-width: 500px) {
     #invoice-div {
-        margin-top: 13vh;
+        margin-top: 14vh;
     }
 }
 @media screen and (max-width: 381px) {
     #invoice-div {
-        margin-top: 12vh;
+        margin-top: 13vh;
     }
 }
 
@@ -103,9 +103,9 @@
 }
 @media (max-width: 500px)  {
     .col-12 {
-      -ms-flex:0 0 96%;
-      flex:0 0 96%;
-      max-width: 96%;
+      -ms-flex:0 0 95%;
+      flex:0 0 95%;
+      max-width: 95%;
     }  
 }
 @media (max-width: 400px)  {
