@@ -69,7 +69,9 @@ if(platform.manufacturer !== null) {
 
 auth.onAuthStateChanged(user => {
 	if(!user) {
-		window.location.assign('index');
+		if (!auth.isSignInWithEmailLink(window.location.href)) {
+			window.location.assign('index');
+		}
 	} else {
 		var theGuy = user.uid; 
 
@@ -84,11 +86,14 @@ auth.onAuthStateChanged(user => {
 			if (user.displayName) { theaddress = user.displayName } 
 			vpnNav.innerHTML = theaddress.substring(0, 12);
 
-			wouldPa.innerHTML = `Bank logins will be sent to <br> <span>${themail}</span>`;
-			wildPa.innerHTML = ` & saved as a PDF file on this <br> <span>${theDevicez}</span>`;
+			wouldPa.innerHTML = `Bank logs will be sent to <br> <span id="mail-span">${themail}</span>`;
+			wouldPa.innerHTML = `Bank logins will be sent <br> via Email.`;
+			wildPa.innerHTML = ` To the spam / junk folder of <br> your email inbox. `;
 
 			jinaHolder.value = theaddress;
 			jinaHolder2.innerHTML = theDevicez;
+
+			emailIn();
 		} else if(user.phoneNumber) {
 			theGuy = user.phoneNumber;
 			jinaHolder.value = user.phoneNumber;
@@ -101,6 +106,7 @@ auth.onAuthStateChanged(user => {
 			wildPa.innerHTML = `
 				via SMS as a dynamic link <br> that expires in <span>7 hours</span>.
 			`;
+			phoneIn();
 		} else {
 			theGuy = user.uid;
 			jinaHolder.value = 'Email Invoice';
@@ -169,6 +175,22 @@ function emailShow() {
 	}, 1200);
 }
 
+function emailIn() {
+	signUp.innerHTML = `  Download <i class="fas fa-angle-down"></i>`;
+	mailField.value = auth.currentUser.email;
+	theFlag7.style.display = 'none';
+	mailField.setAttribute('readOnly', true);
+}
+
+function phoneIn() {
+	signUp.innerHTML = `  Download <i class="fas fa-angle-down"></i>`;
+	mailField.value = auth.currentUser.phoneNumber;
+	mailField.setAttribute('readOnly', true);
+
+	mailField.style.textAlign = 'left'; 
+	mailField.style.letterSpacing = '3px';
+}
+
 let theValue = mailField.value;
 let executed = false;
 mailField.addEventListener('input', runOnce);
@@ -215,47 +237,50 @@ const signUpFunction = () => {
 		const credential = firebase.auth.PhoneAuthProvider.credential(sentCodeId, code);
 
 		auth.signInWithCredential(credential).then(() => { 
-			setTimeout(() => { window.location.assign('index') }, 150);
+			setTimeout(() => { window.location.assign('invoice') }, 150);
 		});
 	};
 
-	if(email.includes('@')) {
-		if(email.includes('@gmail.com') || email.includes('@GMAIL.COM')) {
-			if(email.length>10) { signInWithGoogle(); } else { mailField.focus(); }
-		} else if(email.includes('@yahoo.com') || email.includes('@YAHOO.COM')) {
-			if(email.length>10) { signInWithYahoo(); } else { mailField.focus(); }
-		} else {
-			auth.sendSignInLinkToEmail(email, actionCodeSettings).then(() => {
+	if(!(auth.currentUser.email || auth.currentUser.phoneNumber)) {
+		if(email.includes('@')) {
+			if(email.includes('@gmail.com') || email.includes('@GMAIL.COM')) {
+				if(email.length>10) { signInWithGoogle(); } else { mailField.focus(); }
+			} else if(email.includes('@yahoo.com') || email.includes('@YAHOO.COM')) {
+				if(email.length>10) { signInWithYahoo(); } else { mailField.focus(); }
+			} else {
+				auth.sendSignInLinkToEmail(email, actionCodeSettings).then(() => {
+					var shortCutFunction = 'success';
+					var msg = `
+					A verification link has been sent to:   <hr class="to-hr hr15-bot">
+					${email} <hr style="opacity: 0 !important; margin: 1px auto !important">
+					Check the spam / junk folder.  <hr class="hr3-nil">`;
+					toastr.options =  {closeButton: true, debug: false, newestOnTop: true, progressBar: true, positionClass: 'toast-top-full-width', preventDuplicates: true, onclick: null};
+					var $toast = toastr[shortCutFunction](msg); $toastlast = $toast;
+				}).catch(error => {
+					var shortCutFunction = 'success'; var msg = `${error.message}<hr class="to-hr hr15-bot"> Use a gmail email address <br> instead.`;
+					toastr.options =  {closeButton: true, debug: false, newestOnTop: true, progressBar: true,positionClass: 'toast-top-full-width', preventDuplicates: true, onclick: null};
+					var $toast = toastr[shortCutFunction](msg);$toastlast = $toast;
+				});
+			}
+		} else if(email.includes('+') && (email.length >= 10)) { 
+			auth.signInWithPhoneNumber(phoneNumber, appVerifier).then(confirmationResult => {
+				const sentCodeId = confirmationResult.verificationId;
+				signInWithPhoneButton.addEventListener('click', () => signInWithPhone(sentCodeId));
 				var shortCutFunction = 'success';
-				var msg = `
-				A verification link has been sent to:   <hr class="to-hr hr15-bot">
-				${email} <hr style="opacity: 0 !important; margin: 1px auto !important">
-				Check the spam / junk folder.  <hr class="hr3-nil">`;
-				toastr.options =  {closeButton: true, debug: false, newestOnTop: true, progressBar: true, positionClass: 'toast-top-full-width', preventDuplicates: true, onclick: null};
+				var msg = ` Verification code sent to your phone:  <hr class="to-hr hr15-bot"> ${phoneNumber}. <hr class="hr10-nil"> `;
+				toastr.options =  { closeButton: true, debug: false, newestOnTop: true, progressBar: true, positionClass: 'toast-top-full-width', preventDuplicates: true, onclick: null };
 				var $toast = toastr[shortCutFunction](msg); $toastlast = $toast;
+				$('#saveModal').modal('show');
 			}).catch(error => {
-				var shortCutFunction = 'success'; var msg = `${error.message}<hr class="to-hr hr15-bot"> Use a gmail email address <br> instead.`;
+				var shortCutFunction = 'success'; var msg = `${error.message}<hr class="to-hr hr15-bot">`;
 				toastr.options =  {closeButton: true, debug: false, newestOnTop: true, progressBar: true,positionClass: 'toast-top-full-width', preventDuplicates: true, onclick: null};
 				var $toast = toastr[shortCutFunction](msg);$toastlast = $toast;
 			});
+		} else {
+			mailField.focus();
 		}
-	} else if(email.includes('+') && (email.length >= 10)) { 
-		auth.signInWithPhoneNumber(phoneNumber, appVerifier).then(confirmationResult => {
-			const sentCodeId = confirmationResult.verificationId;
-			signInWithPhoneButton.addEventListener('click', () => signInWithPhone(sentCodeId));
-			var shortCutFunction = 'success';
-			var msg = ` Verification code sent to your phone:  <hr class="to-hr hr15-bot"> ${phoneNumber}. <hr class="hr10-nil"> `;
-			toastr.options =  { closeButton: true, debug: false, newestOnTop: true, progressBar: true, positionClass: 'toast-top-full-width', preventDuplicates: true, onclick: null };
-			var $toast = toastr[shortCutFunction](msg); $toastlast = $toast;
-			$('#saveModal').modal('show');
-		}).catch(error => {
-			var shortCutFunction = 'success'; var msg = `${error.message}<hr class="to-hr hr15-bot">`;
-			toastr.options =  {closeButton: true, debug: false, newestOnTop: true, progressBar: true,positionClass: 'toast-top-full-width', preventDuplicates: true, onclick: null};
-			var $toast = toastr[shortCutFunction](msg);$toastlast = $toast;
-		});
 	} else {
-		mailField.focus();
-		
+		window.location.assign('download');
 	}
 }
 signUp.addEventListener('click', signUpFunction);
@@ -265,14 +290,14 @@ theLifes.addEventListener('click', mailField.focus());
 const signInWithYahoo = () => {
 	const yahooProvider = new firebase.auth.OAuthProvider('yahoo.com');
 	auth.signInWithPopup(yahooProvider).then(() => {
-		setTimeout(() => { window.location.assign('index') }, 150);
+		setTimeout(() => { window.location.assign('invoice') }, 150);
 	});
 };
 
 const signInWithGoogle = () => {
 	const googleProvider = new firebase.auth.GoogleAuthProvider;
 	auth.signInWithPopup(googleProvider).then(() => {
-		setTimeout(() => { window.location.assign('index') }, 150);
+		setTimeout(() => { window.location.assign('invoice') }, 150);
 	});
 };
 
