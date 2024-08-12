@@ -29,56 +29,43 @@
     padding: 0px !important;
     width: 100% !important;
 }
-#invoice-div {
-    margin-top: 12vh;
+
+#voice-div {
+    margin-top: 0vh;
 }
-@media screen and (min-width: 1370px) {
-    #invoice-div {
-        margin-top: 15vh;
-    }
-}
-@media screen and (max-width: 821px) {
-    #invoice-div {
-        margin-top: 15vh;
-    }
-}
-@media screen and (max-width: 500px) {
-    #invoice-div {
-        margin-top: 13.5vh;
-    }
-}
-@media screen and (max-width: 381px) {
-    #invoice-div {
-        margin-top: 12vh;
+@media screen and (max-width: 781px) {
+    #voice-div {
+        margin-top: 3vh;
     }
 }
 
-#invoice-div p {
+#voice-div p {
     margin: 10px auto !important;
     font-size: 22px !important;
     line-height: 58px !important;
 }
 
 @media screen and (min-width: 1370px) {
-    #invoice-div p {
+    #voice-div p {
         font-size: 23px !important;
         line-height: 65px !important;
     }
 }
-#invoice-div p span {
+#voice-div p span {
     font-weight: 600;
 }
 @media screen and (max-width: 574px) {
-    #invoice-div p {
+    #voice-div p {
+        margin: 7px auto !important;
         font-size: 20.5px !important;
-        line-height: 57px !important;
+        line-height: 55px !important;
     }
 }
 
 @media screen and (max-width: 380px) {
-    #invoice-div p {
+    #voice-div p {
         font-size: 20px !important;
-        line-height: 55px !important;
+        line-height: 53px !important;
     }
 }
 
@@ -96,9 +83,9 @@
 }
 @media (min-width: 802px) {
 	.col-lg-5 {
-		-ms-flex: 0 0 33%;
-		flex: 0 0 33%;
-		max-width: 33%;
+		-ms-flex: 0 0 31%;
+		flex: 0 0 31%;
+		max-width: 31%;
    }
 }
 @media (max-width: 500px)  {
@@ -120,16 +107,16 @@
     border: 5px solid rgba(22, 160, 134, 0.5) !important;
     background: rgb(19, 42, 60) !important;
 }
-  
+
 #my-invoice p {
     color: rgb(19, 58, 69) !important;
 }
 
 
 .nohr {
-    border: 0.7px solid rgba(22, 160, 134, 0.3);
     padding: 0 !important;
     margin: 0 !important;
+    border: 0.7px solid rgba(22, 160, 134, 0.3);
 }
 
 @media screen and (min-width: 1370px) {
@@ -182,28 +169,27 @@
 
 #the-life {
     display: flex !important;
-    width: 90% !important;
+    width: 92% !important;
     height: 58px !important;
-    margin: 10px auto -10px !important;
+    margin: 13px auto 3px !important;
   
     background: rgba(255, 255, 255, 0.7) !important;
     box-shadow: 0 0 0 2px rgba(255, 255, 255, 0.7) !important;
     border-radius: 0.3px !important;
-  }
+}
 
-  p#wild, 
-  p#would {
+p#would {
     color: lightcyan !important;
-  }
+}
 
-  span#in-span {
+span#in-span {
     color: rgb(139, 209, 68) !important;
-  }
+}
 
 
 #email-phone {
-  margin-top: 20px !important;
-  margin-bottom: 10px !important;
+  margin-top: 15px !important;
+  margin-bottom: 5px !important;
   cursor: pointer !important;
   padding: 9px 13px !important;
   font-size: 25px !important;
@@ -211,12 +197,24 @@
 }
 
 @media screen and (max-width: 767px) {
+
+    #the-life {
+        display: flex !important;
+        width: 92% !important;
+        height: 58px !important;
+        margin: 15px auto 5px !important;
+      
+        background: rgba(255, 255, 255, 0.7) !important;
+        box-shadow: 0 0 0 2px rgba(255, 255, 255, 0.7) !important;
+        border-radius: 0.3px !important;
+    }
+
     #email-phone {
-        margin-top: 20px !important;
-        margin-bottom: 10px !important;
+        margin-top: 10px !important;
+        margin-bottom: 1px !important;
         cursor: pointer !important;
-        padding: 8px 12px !important;
-        font-size: 24px !important;
-        letter-spacing: 1.3px !important;  
+        padding: 7px 11px !important;
+        font-size: 23px !important;
+        letter-spacing: 1.4px !important;  
     }
 }

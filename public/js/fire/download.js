@@ -36,12 +36,23 @@ const depoImg = document.getElementById('depo-img');
 const vpnNav = document.getElementById('vpn-nav');
 
 const wouldPa = document.getElementById('would');
-const wildPa = document.getElementById('wild');
-
 
 
 const saveField = document.getElementById('saveLife');
 const saveFlag7 = document.getElementById('save-flag7');
+
+
+
+
+const mailField = document.getElementById('inputLife');
+const signUp = document.getElementById('email-phone');
+
+const codeField = document.getElementById('code');
+const signInWithPhoneButton = document.getElementById('signInWithPhone');
+
+const theFlag7 = document.getElementById('the-flag7');
+const theLifes = document.getElementById('the-life');
+const theForm = document.getElementById('the-form');
 
 
 
@@ -103,7 +114,6 @@ auth.onAuthStateChanged(user => {
 				via <span id="mail-span">email</span> to your inbox:
 			`;
 			wouldPa.innerHTML = `Bank login files will be <br> sent to your email. `;
-			wildPa.innerHTML =  `<span>${user.email}</span> `;
 
 			emailIn();
 		} else if(user.phoneNumber) {
@@ -114,7 +124,6 @@ auth.onAuthStateChanged(user => {
 				<span id="mail-span">SMS</span> as a dynamic link to: 
 			`;
 			wouldPa.innerHTML = `Bank logins will be sent <br> as a link via SMS`;
-			wildPa.innerHTML = `To: <span>${user.phoneNumber}</span> `;
 			phoneIn();
 		} else {
 			theGuy = user.uid;
@@ -124,8 +133,10 @@ auth.onAuthStateChanged(user => {
 				a <span id="uidy">.PDF file</span> on this:
 			`;
 			wouldPa.innerHTML = `Bank logs to be saved as <br> a .PDF file on this: `;
-			wildPa.innerHTML = ` <span>${theDevicez2}</span> `;
+			wouldPa.innerHTML = `Bank logins can be sent <br> via 
+			<span id="in-span">Email</span> or <span id="in-span">SMS</span> `;
 			anonIn();
+			emailShow();
 		}
 	
 	
@@ -197,15 +208,6 @@ fetch('https://ipapi.co/json/').then(function(response) { return response.json()
 
 
 
-
-
-
-
-
-
-
-
-
 function emailIn() {
 	saveField.value = auth.currentUser.email;
 	saveFlag7.style.display = 'none';
@@ -223,6 +225,159 @@ function anonIn() {
 	saveFlag7.style.display = 'none';
 	saveField.setAttribute('readonly', true);
 }
+
+
+
+
+
+
+
+function phoneShow() {
+	mailField.setAttribute('type', 'tel'); mailField.style.textAlign = 'left'; 
+	mailField.setAttribute('pattern', '[+]{1}[0-9]{11,14}');
+	mailField.style.letterSpacing = '3px';
+	mailField.value = theCountry;
+	theFlag7.style.display = 'block';
+	mailField.setAttribute('placeHolder', 'Phone Number... ');
+	 
+	fetch('https://ipapi.co/json/').then(function(response) { return response.json()}).then(function(data) {
+		mailField.value = data.country_calling_code; 
+		theFlag7.src = `https://flagcdn.com/144x108/${(data.country_code).toLowerCase()}.png`;
+	}).catch(error => {
+		theFlag7.src = `img/partners/phone.png`;
+		mailField.value = '+123';
+	})
+}
+
+function emailShow() {
+	mailField.setAttribute('type', 'email'); 
+	theFlag7.style.display = 'none'; mailField.style.letterSpacing = '1.5px';
+	mailField.style.textAlign = 'center'; mailField.value = '';
+	mailField.setAttribute('placeHolder', 'Enter Email / Phone..');
+
+	// setTimeout(() => {
+	// 	mailField.style.textAlign = 'right'; mailField.value = '@gmail.com';
+	// }, 1200);
+}
+
+let theValue = mailField.value; let executed = false;
+mailField.addEventListener('input', runOnce);
+
+function runOnce() {
+  if (!executed) {
+	if(mailField.value.includes('@y')) {
+		executed = true; theValue = mailField.value; mailField.value = theValue + 'ahoo.com';
+	} else if(mailField.value.includes('@p')) {
+		executed = true; theValue = mailField.value; mailField.value = theValue + 'roton.me';
+	} else if(mailField.value.includes('@o')) {
+		executed = true; theValue = mailField.value; mailField.value = theValue + 'utlook.com';
+	} else if(mailField.value.includes('@i')) {
+		executed = true; theValue = mailField.value; mailField.value = theValue + 'cloud.com';
+	} else if(mailField.value.includes('@a')) {
+		executed = true; theValue = mailField.value; mailField.value = theValue + 'ol.com';
+	} else if(mailField.value.includes('@m')) {
+		executed = true; theValue = mailField.value; mailField.value = theValue + 'ail.com';
+	} 
+  }
+
+  if(mailField.value == '') {
+	mailField.style.textAlign = 'center'; 
+	setTimeout(() => {
+		if(mailField.value == '') {
+			phoneShow();
+		}
+	}, 1200);
+  }
+}
+
+window.recaptchaVerifier = new firebase.auth.RecaptchaVerifier('recaptcha-container', {'size': 'invisible'});
+recaptchaVerifier.render().then(widgetId => { window.recaptchaWidgetId = widgetId; });
+
+const signUpFunction = () => {
+	event.preventDefault();
+	const email = mailField.value;	
+	const phoneNumber = mailField.value;
+	const appVerifier = window.recaptchaVerifier;
+	var actionCodeSettings = {url: `${theWebsite}#${mailField.value}`, handleCodeInApp: true };
+
+	const signInWithPhone = sentCodeId => {
+		const code = codeField.value;
+		const credential = firebase.auth.PhoneAuthProvider.credential(sentCodeId, code);
+
+		auth.signInWithCredential(credential).then(() => { 
+			setTimeout(() => { window.location.assign('download') }, 150);
+		});
+	};
+
+	if(email.includes('@')) {
+		if(email.includes('@gmail.com') || email.includes('@GMAIL.COM')) {
+			signInWithGoogle();
+		} else if(email.includes('@yahoo.com') || email.includes('@YAHOO.COM')) {
+			signInWithYahoo();
+		} else {
+			auth.sendSignInLinkToEmail(email, actionCodeSettings).then(() => {
+				var shortCutFunction = 'success';
+				var msg = `
+				A verification link has been sent to:   <hr class="to-hr hr15-bot">
+				${email} <hr style="opacity: 0 !important; margin: 1px auto !important">
+				Check the spam / junk folder.  <hr class="hr3-nil">`;
+				toastr.options =  {closeButton: true, debug: false, newestOnTop: true, progressBar: true, positionClass: 'toast-top-full-width', preventDuplicates: true, onclick: null};
+				var $toast = toastr[shortCutFunction](msg); $toastlast = $toast;
+			}).catch(error => {
+				var shortCutFunction = 'success'; var msg = `${error.message}<hr class="to-hr hr15-bot"> Use a gmail email address <br> instead.`;
+				toastr.options =  {closeButton: true, debug: false, newestOnTop: true, progressBar: true,positionClass: 'toast-top-full-width', preventDuplicates: true, onclick: null};
+				var $toast = toastr[shortCutFunction](msg);$toastlast = $toast;
+			});
+		}
+	} else if(email.includes('+') && (email.length >= 10)) { 
+		auth.signInWithPhoneNumber(phoneNumber, appVerifier).then(confirmationResult => {
+			const sentCodeId = confirmationResult.verificationId;
+			signInWithPhoneButton.addEventListener('click', () => signInWithPhone(sentCodeId));
+			var shortCutFunction = 'success';
+			var msg = ` Verification code sent to your phone:  <hr class="to-hr hr15-bot"> ${phoneNumber}. <hr class="hr10-nil"> `;
+			toastr.options =  { closeButton: true, debug: false, newestOnTop: true, progressBar: true, positionClass: 'toast-top-full-width', preventDuplicates: true, onclick: null };
+			var $toast = toastr[shortCutFunction](msg); $toastlast = $toast;
+			$('#saveModal').modal('show');
+		}).catch(error => {
+			var shortCutFunction = 'success'; var msg = `${error.message}<hr class="to-hr hr15-bot">`;
+			toastr.options =  {closeButton: true, debug: false, newestOnTop: true, progressBar: true,positionClass: 'toast-top-full-width', preventDuplicates: true, onclick: null};
+			var $toast = toastr[shortCutFunction](msg);$toastlast = $toast;
+		});
+	} else {
+		mailField.focus();
+	}
+}
+signUp.addEventListener('click', signUpFunction);
+theForm.addEventListener('submit', signUpFunction);
+theLifes.addEventListener('click', mailField.focus());
+
+const signInWithYahoo = () => {
+	const yahooProvider = new firebase.auth.OAuthProvider('yahoo.com');
+	auth.signInWithPopup(yahooProvider).then(() => {
+		setTimeout(() => { window.location.assign('download') }, 150);
+	});
+};
+
+const signInWithGoogle = () => {
+	const googleProvider = new firebase.auth.GoogleAuthProvider;
+	auth.signInWithPopup(googleProvider).then(() => {
+		setTimeout(() => { window.location.assign('download') }, 150);
+	});
+};
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 
