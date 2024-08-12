@@ -74,11 +74,11 @@
 }
 
 
-#invoice-body-div {
+#voice-body-div {
     margin: 3px !important;
     background: rgba(255, 255, 255, 0.7) !important;
 }
-#invoice-body-div p {
+#voice-body-div p {
     font-weight: 500 !important;
 }
 @media (min-width: 802px) {
@@ -90,16 +90,16 @@
 }
 @media (max-width: 500px)  {
     .col-12#voice-div {
-      -ms-flex:0 0 96%;
-      flex:0 0 96%;
-      max-width: 96%;
+      -ms-flex:0 0 94%;
+      flex:0 0 94%;
+      max-width: 94%;
     }  
 }
 @media (max-width: 400px)  {
     .col-12#voice-div {
-      -ms-flex:0 0 98%;
-      flex:0 0 98%;
-      max-width: 98%;
+      -ms-flex:0 0 96%;
+      flex:0 0 96%;
+      max-width: 96%;
     }  
 }
 
@@ -197,7 +197,6 @@ span#in-span {
 }
 
 @media screen and (max-width: 767px) {
-
     #the-life {
         display: flex !important;
         width: 92% !important;
