@@ -7,6 +7,7 @@ var firebaseConfig = {
 	appId: "1:504618741131:web:0e59b1c8b8ea087bd0138e",
 	measurementId: "G-3FQH15QTXF"
 }; firebase.initializeApp(firebaseConfig);
+var theWebsite = 'https://www.darkweb.lat/index';
 
 const auth = firebase.auth();
 const db = firebase.firestore();
