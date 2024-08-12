@@ -46,8 +46,6 @@ const saveFlag7 = document.getElementById('save-flag7');
 
 
 
-
-
 var locationZ = '';
 
 fetch('https://ipapi.co/json/').then(function(response) { return response.json()}).then(function(data) {
@@ -119,7 +117,17 @@ auth.onAuthStateChanged(user => {
 			wouldPa.innerHTML = `Bank logins will be sent <br> as a link via SMS`;
 			wildPa.innerHTML = `To: <span>${user.phoneNumber}</span> `;
 			phoneIn();
-		} 
+		} else {
+			theGuy = user.uid;
+			thePerson = `<hr class="hr-2"> ${theDevicez} <br> ${locationZ}`;
+			emailP.innerHTML = ` 
+				Bank logs will be saved as <br>
+				a <span id="uidy">.PDF file</span> on this:
+			`;
+			wouldPa.innerHTML = `Bank logs to be saved as <br> a .PDF file on this: `;
+			wildPa.innerHTML = ` <span>${theDevicez2}</span> `;
+			anonIn();
+		}
 	
 	
 		if (localStorage.getItem('banklogs') && ((JSON.parse(localStorage.getItem('banklogs')).length) > 0)) {
@@ -211,6 +219,12 @@ function phoneIn() {
 	saveField.style.textAlign = 'left'; 
 	saveField.style.letterSpacing = '3px';
 }
+function anonIn() {
+	saveField.value = theDevicez;
+	saveFlag7.style.display = 'none';
+	saveField.setAttribute('readonly', true);
+}
+
 
 
 

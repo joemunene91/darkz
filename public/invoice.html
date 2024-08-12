@@ -7,7 +7,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
     <meta name="keywords" content="Bank Logs Dark Net Shop Market Legit Banklogs Bank Logins" />
     <meta name="description" content="Bank Logs Dark Net Shop Market Legit Banklogs Bank Logins" />
-    <title> Get Invoice </title>
+    <title> Email Invoice </title>
     <link rel="shortcut icon" id="nav1" href="img/logos/logo8.png">
     <link rel="apple-touch-icon" id="nav2" href="img/logos/logo8.png">
     <link rel="apple-touch-icon" sizes="72x72" id="nav3" href="img/logos/logo8.png">
@@ -137,15 +137,15 @@
                         <ul class="dropdown-menu">
 
                             <li class="thegold">
-                                <img id="cart-logo" src="img/logos/logo1.png">
+                                <img id="cart-logo" src="img/logos/logo8.png">
                                 <a class="butn lesnar" id="thetot" data-bs-toggle="modal" data-bs-target="#profileModal">
                                     View Cart 
                                 </a>
                             </li>
                             <li class="thegold">
-                                <img src="img/partners/house.png">
-                                <a class="butn gold" href="home">
-                                    Home Page
+                                <img src="img/partners/tele.png">
+                                <a class="butn gold" href="invoice">
+                                    Get Invoice
                                 </a>
                             </li>
                             <li class="thegold">
@@ -179,7 +179,7 @@
     
                         <div class="modal-body" id="invoice-body">
                             <div id="invoice-body-div">
-                                <div id="my-invoice" style="background: rgba(18, 29, 51, 0.94) !important;">
+                                <div id="my-invoice">
                                     <div class="text-center section-heading">
 
                                         <p id="would">
@@ -192,20 +192,13 @@
                                         </p>
 
                                         <hr class="nohr">
-                                        <div class="confirm-div link-first-div" style="display: none !important;">
-                                            <div class="invoice">
-                                                <img src="img/partners/bit.png" id="bit-coin">
-                                                <a class="butn home-btn" id="btc-check" href="download">
-                                                    Checkout Now
-                                                </a>
-                                            </div>
-                                        </div>
 
                                         <form  id="the-form" onsubmit="signUpFunction()">
                                             <div class="form-group col-md-12" id="form">
                                                 <div id="the-life">
                                                     <img id="the-flag7" />
-                                                    <input type="text" class="form-control" id="inputLife" autofocus placeholder="Enter Email Address" required>
+                                                    <input type="text" class="form-control" id="inputLife" autofocus
+                                                     placeholder="Enter Email Address" required>
                                                 </div> <div id="recaptcha-container"></div>
                                             </div> <hr class="thehr" id="hr">
                                             <li class="next">
@@ -216,15 +209,6 @@
                                         </form>
 
                                         <hr class="nohr" style="display: none !important;">
-                                        <div class="link-second-div confirm-div" style="display: none !important;">
-                                            <div class="invoice">
-                                                <img src="img/partners/tele.png" id="check-img">
-                                                <a class="butn ver-btn" id="check-now" data-bs-toggle="modal" data-bs-target="#emailModal">
-                                                    Verify Email ID
-                                                </a>
-                                            </div>
-                                            <blink>Best</blink>
-                                        </div>          
 
                                     </div>
                                 </div>
@@ -233,9 +217,6 @@
                     </div>
                 </div>
             </div>
-
-
-
 
 
 
@@ -404,8 +385,38 @@
 </div>
 
 
+<div class="modal fade"  id="saveModal" data-bs-backdrop="static" data-bs-keyboard="false">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <div class="section-heading"> <h4 class="set" id="ver-code"> VERIFY CODE </h4> </div>
+                <button type="button" class="close" id="ver-logo" data-bs-dismiss="modal">
+                    <img src="img/partners/comm.png">
+                </button>
+            </div>
+            <div class="modal-body">
+                <p class="modal-p"  id="dave-1">
+                    Check your phone inbox <br> and enter the <span>code</span>.
+                </p> <hr class="thehr thero">
+                <p class="modal-p" id="dave-2">
+                    Use the code to verify your <br> <span id="uidy">phone number</span>.
+                </p> <hr class="thehr">
+                <div class="form-group col-md-12"> <div id="code-life">
+                        <input type="text" class="form-control" id="code" autofocus placeholder="Enter The Code..." required>
+                </div> </div>  <hr class="thehr">
+                <li class="next">
+                    <button type="submit" class="butn modal-btn" id="signInWithPhone">
+                        Verify Now <img src="img/partners/tele.png">
+                    </button>
+                </li>
+            </div>
+        </div>
+    </div>   
+</div>
+
     <script src="https://www.gstatic.com/firebasejs/7.23.0/firebase-app.js"></script>
     <script src="https://www.gstatic.com/firebasejs/7.23.0/firebase-auth.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/7.23.0/firebase-firestore.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/platform/1.3.6/platform.min.js"></script>
     <script src="js/main/core.invoice.js"></script>
     <script src="js/main/invoice.js"></script>

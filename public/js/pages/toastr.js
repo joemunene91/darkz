@@ -45,7 +45,16 @@ auth.onAuthStateChanged(user => {
                         SMS to: ${user.phoneNumber}. 
                     <hr class="hr3-nil">
                 `]
-            } 
+            } else {
+                var msgs = [`
+                        ${toastbtci} Bitcoin payment <br> not detected,
+                    <hr class="hr15-bot">
+                        Send $${toastzi} BTC:
+                    <hr class="to-hr hr15-top">
+               
+                    <hr class="hr3-nil">
+                `]
+            }
 
             i++;
             if (i === msgs.length) {
