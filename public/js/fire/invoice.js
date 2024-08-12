@@ -110,7 +110,6 @@ auth.onAuthStateChanged(user => {
 		} else {
 			theGuy = user.uid;
 			jinaHolder.value = 'Email Invoice';
-			jinaHolder2.innerHTML = theDevicez;
 
 			emailShow();
 			wouldPa.innerHTML = `

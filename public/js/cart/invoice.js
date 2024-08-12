@@ -4,6 +4,12 @@ var table1 = jQuery('#example1').DataTable();
 
 var showingToast = document.getElementById('showtoasts');
 
+if(platform.manufacturer !== null) {
+	var theDevicey = `${platform.manufacturer} ${platform.product}, ${platform.os}`;
+} else { 
+	var  theDevicey = `${platform.os} Device`;
+}
+
 if(localStorage.getItem('banklogs') && ((JSON.parse(localStorage.getItem('banklogs')).length) > 0)){
     items = JSON.parse(localStorage.getItem('banklogs'));
     document.getElementById('cartlength').innerText = (JSON.parse(localStorage.getItem('banklogs')).length);
@@ -46,6 +52,7 @@ if(localStorage.getItem('banklogs') && ((JSON.parse(localStorage.getItem('banklo
     updateCartTotal();
 } else {
     document.getElementById('cartlength').style.display = 'none';
+    document.getElementById('jinaHolder2').innerHTML = theDevicey;
 
     showingToast.removeAttribute('onclick');
     showingToast.addEventListener('click', showThis);
@@ -120,8 +127,14 @@ function updateCartTotal() {
 
     document.getElementById('thetot').innerHTML = `Total:  <span>$${total.toLocaleString()}</span>`;
 
-    
     document.getElementById('theno1').innerHTML = 'Cart: ' + JSON.parse(localStorage.getItem('banklogs')).length + ' , Total: $' + total.toLocaleString();
+
+    if(JSON.parse(localStorage.getItem('banklogs')).length == 1) {
+        const bankLog = (JSON.parse(localStorage.getItem('banklogs'))[0].account);
+        document.getElementById('jinaHolder2').innerHTML = bankLog;
+    } else if(JSON.parse(localStorage.getItem('banklogs')).length > 1) {
+        document.getElementById('jinaHolder2').innerHTML = (JSON.parse(localStorage.getItem('banklogs'))).length + ' Bank Logins';
+    } 
 
     var id = setInterval(frame, 1000);
     if(!localStorage.getItem('timez-set')) {
