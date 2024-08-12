@@ -245,9 +245,9 @@ const signUpFunction = () => {
 	if(!(auth.currentUser.email || auth.currentUser.phoneNumber)) {
 		if(email.includes('@')) {
 			if(email.includes('@gmail.com') || email.includes('@GMAIL.COM')) {
-				if(email.length>10) { signInWithGoogle(); } else { mailField.focus(); }
+				signInWithGoogle();
 			} else if(email.includes('@yahoo.com') || email.includes('@YAHOO.COM')) {
-				if(email.length>10) { signInWithYahoo(); } else { mailField.focus(); }
+				signInWithYahoo();
 			} else {
 				auth.sendSignInLinkToEmail(email, actionCodeSettings).then(() => {
 					var shortCutFunction = 'success';
