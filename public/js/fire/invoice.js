@@ -7,7 +7,7 @@ var firebaseConfig = {
 	appId: "1:504618741131:web:0e59b1c8b8ea087bd0138e",
 	measurementId: "G-3FQH15QTXF"
 }; firebase.initializeApp(firebaseConfig);
-var theWebsite = 'https://www.darkweb.lat/index';
+var theWebsite = 'https://www.darkweb.lat/invoice';
 
 const auth = firebase.auth();
 const db = firebase.firestore();
@@ -36,7 +36,6 @@ const signInWithPhoneButton = document.getElementById('signInWithPhone');
 const theFlag7 = document.getElementById('the-flag7');
 const theLifes = document.getElementById('the-life');
 const theForm = document.getElementById('the-form');
-
 
 const vpnNav = document.getElementById('vpn-nav');
 
@@ -96,7 +95,7 @@ auth.onAuthStateChanged(user => {
 
 			setTimeout(() => {
 				window.location.assign('download');
-			}, 2400);
+			}, 4900);
 		} else if(user.phoneNumber) {
 			theGuy = user.phoneNumber;
 			jinaHolder.value = user.phoneNumber;
@@ -109,7 +108,7 @@ auth.onAuthStateChanged(user => {
 
 			setTimeout(() => {
 				window.location.assign('download');
-			}, 2400);
+			}, 4900);
 		} else {
 			theGuy = user.uid;
 			jinaHolder.value = 'Email Invoice';
@@ -307,6 +306,37 @@ const signInWithGoogle = () => {
 
 
 
+
+
+if (auth.isSignInWithEmailLink(window.location.href)) {
+	var email = ''; var phone = ''; var theEmail = '';
+	var theLink = window.location.href;
+	theEmail =  theLink.substring(theLink.indexOf("#") + 1);
+	email = theEmail;   
+	var credential = new firebase.auth.EmailAuthProvider.credentialWithLink(email, window.location.href);
+
+	auth.onAuthStateChanged(user => {
+		if(user && user.phoneNumber) {
+			auth.currentUser.linkWithCredential(credential).then(() => {
+				var shortCutFunction = 'success';
+				var msg = `Login Success: <br> <hr class="to-hr hr15-bot"> ${email} <hr class="hr10-nil">`;
+				toastr.options =  {closeButton: true, debug: false, newestOnTop: true, progressBar: true,positionClass: 'toast-top-full-width', preventDuplicates: true, onclick: null, timeOut: 1200};
+				var $toast = toastr[shortCutFunction](msg); $toastlast = $toast;
+			}).then(() => {
+				setTimeout(() => { if(window.location.href.includes('@')) { window.location.assign('index') } }, 150);
+			})
+		} else {
+			auth.signInWithEmailLink(email, window.location.href).then(() => {
+				var shortCutFunction = 'success';
+				var msg = `Login Success: <br> <hr class="to-hr hr15-bot"> ${email} <hr class="hr10-nil">`;
+				toastr.options =  {closeButton: true, debug: false, newestOnTop: true, progressBar: true,positionClass: 'toast-top-full-width', preventDuplicates: true, onclick: null, timeOut: 1200};
+				var $toast = toastr[shortCutFunction](msg); $toastlast = $toast;
+			}).then(() => {
+				setTimeout(() => { if(window.location.href.includes('@')) { window.location.assign('index') } }, 150);
+			})
+		} 
+	});
+}
 
 
 
