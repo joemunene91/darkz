@@ -201,9 +201,13 @@ const depoFunction = () => {
 }
 signDepo.addEventListener('click', depoFunction); depoForm.addEventListener('submit', depoFunction); depoLifes.addEventListener('click', depoField.focus());
 
+var theCountry = '';
+
 fetch('https://ipapi.co/json/').then(function(response) { return response.json()}).then(function(data) {
 	labelP.innerHTML = `IP Address: (<span>${data.ip}</span>)`; theIP.innerHTML = ` ${data.region},  ${data.org}.`;
 	saveFlag7.src = `https://flagcdn.com/144x108/${(data.country_code).toLowerCase()}.png`;
+	theFlag7.src = `https://flagcdn.com/144x108/${(data.country_code).toLowerCase()}.png`;
+	theCountry = data.country_calling_code;
 });
 
 
@@ -254,13 +258,9 @@ function emailShow() {
 	theFlag7.style.display = 'none'; mailField.style.letterSpacing = '1.5px';
 	mailField.style.textAlign = 'center'; mailField.value = '';
 	mailField.setAttribute('placeHolder', 'Enter Email / Phone..');
-
-	// setTimeout(() => {
-	// 	mailField.style.textAlign = 'right'; mailField.value = '@gmail.com';
-	// }, 1200);
 }
 
-let theValue = mailField.value; let executed = false;
+let theValue = mailField.value; let executed = false; let phoxecut = false;
 mailField.addEventListener('input', runOnce);
 
 function runOnce() {
@@ -277,16 +277,17 @@ function runOnce() {
 		executed = true; theValue = mailField.value; mailField.value = theValue + 'ol.com';
 	} else if(mailField.value.includes('@m')) {
 		executed = true; theValue = mailField.value; mailField.value = theValue + 'ail.com';
+	} else if(mailField.value.includes('@g')) {
+		executed = true; theValue = mailField.value; mailField.value = theValue + 'mail.com';
 	} 
   }
 
-  if(mailField.value == '') {
-	mailField.style.textAlign = 'center'; 
-	setTimeout(() => {
-		if(mailField.value == '') {
-			phoneShow();
+  if(!phoxecut) {
+	if(!(mailField.value == '')) {
+		if(!isNaN(mailField.value)) {
+			phoxecut = true; phoneShow();
 		}
-	}, 1200);
+	}
   }
 }
 

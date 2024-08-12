@@ -82,21 +82,21 @@
     font-weight: 500 !important;
 }
 @media (min-width: 802px) {
-	.col-lg-5 {
+	.col-lg-5#voice-div {
 		-ms-flex: 0 0 31%;
 		flex: 0 0 31%;
 		max-width: 31%;
    }
 }
 @media (max-width: 500px)  {
-    .col-12 {
+    .col-12#voice-div {
       -ms-flex:0 0 96%;
       flex:0 0 96%;
       max-width: 96%;
     }  
 }
 @media (max-width: 400px)  {
-    .col-12 {
+    .col-12#voice-div {
       -ms-flex:0 0 98%;
       flex:0 0 98%;
       max-width: 98%;
