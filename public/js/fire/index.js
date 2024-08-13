@@ -58,27 +58,20 @@ auth.onAuthStateChanged(user => {
 			var theaddress = themail.substring(0, themail.indexOf('@'));
 			if (user.displayName) { theaddress = user.displayName } 
 
-			wouldPa.innerHTML = `Bank logins will be sent <br> via Email.`;
-			wildPa.innerHTML = ` As a dynamic link with .PDF `;
+			wouldPa.innerHTML = `Bank login files will be <br> sent via <span id="in-span">Email</span>.`;
+			wildPa.innerHTML = ` A dynamic link with .PDF `;
 
 			jinaHolder.value = theaddress;
 			jinaHolder2.innerHTML = user.email;
-
 			emailIn();
-
-			setTimeout(() => {
-				window.location.assign('home');
-			}, 1200);
+			setTimeout(() => { window.location.assign('home') }, 1200);
 		} else if(user.phoneNumber) {
 			jinaHolder.value = user.phoneNumber;
 
-			wouldPa.innerHTML = `Bank logins will be sent <br> via SMS.`;
-			wildPa.innerHTML = ` As a dynamic link with .PDF `;
+			wouldPa.innerHTML = `Bank login files will be <br> sent via <span id="in-span">SMS</span>.`;
+			wildPa.innerHTML = ` A dynamic link with .PDF `;
 			phoneIn();
-
-			setTimeout(() => {
-				window.location.assign('home');
-			}, 1200);
+			setTimeout(() => { window.location.assign('home') }, 1200);
 		} 
 
 		theId.innerHTML = user.uid;
@@ -95,6 +88,7 @@ var theCountry = '';
 fetch('https://ipapi.co/json/').then(function(response) { return response.json()}).then(function(data) {
 	theCountry = data.country_calling_code;
 	labelP.innerHTML = `IP Address: (<span>${data.ip}</span>)`; theIP.innerHTML = ` ${data.region},  ${data.org}.`;
+	theFlag7.src = `https://flagcdn.com/144x108/${(data.country_code).toLowerCase()}.png`;
 });
 
 function phoneShow() {
@@ -132,9 +126,9 @@ function phoneIn() {
 	signUp.innerHTML = `  Download <i class="fas fa-angle-down"></i>`;
 	mailField.value = auth.currentUser.phoneNumber;
 	mailField.setAttribute('readOnly', true);
-
+	theFlag7.style.display = 'block';
 	mailField.style.textAlign = 'left'; 
-	mailField.style.letterSpacing = '3px';
+	mailField.style.letterSpacing = '5px';
 }
 
 let theValue = mailField.value; let executed = false; let phoxecut = false;
