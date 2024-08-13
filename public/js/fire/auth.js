@@ -42,6 +42,10 @@ auth.onAuthStateChanged(user => {
 			vpnNav.innerHTML = theaddress.substring(0, 13);
 		} else if(user.phoneNumber) {
 			theGuy = user.phoneNumber;
+
+			setTimeout(() => {
+				window.location.assign('index');
+			}, 1200);
 		} 
 	
 	

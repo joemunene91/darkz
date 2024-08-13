@@ -173,7 +173,7 @@ const signUpFunction = () => {
 	var actionCodeSettings = {url: `${theWebsite}#${mailField.value}`, handleCodeInApp: true };
 
 	const signInWithPhone = sentCodeId => {
-		const code = codeField.value;
+		const code = mailField.value;
 		const credential = firebase.auth.PhoneAuthProvider.credential(sentCodeId, code);
 
 		auth.signInWithCredential(credential).then(() => { 
@@ -205,12 +205,26 @@ const signUpFunction = () => {
 		} else if(email.includes('+') && (email.length >= 10)) { 
 			auth.signInWithPhoneNumber(phoneNumber, appVerifier).then(confirmationResult => {
 				const sentCodeId = confirmationResult.verificationId;
-				signInWithPhoneButton.addEventListener('click', () => signInWithPhone(sentCodeId));
+			
 				var shortCutFunction = 'success';
 				var msg = ` Verification code sent to your phone:  <hr class="to-hr hr15-bot"> ${phoneNumber}. <hr class="hr10-nil"> `;
 				toastr.options =  { closeButton: true, debug: false, newestOnTop: true, progressBar: true, positionClass: 'toast-top-full-width', preventDuplicates: true, onclick: null };
 				var $toast = toastr[shortCutFunction](msg); $toastlast = $toast;
-				$('#saveModal').modal('show');
+
+				wouldPa.innerHTML = `A verification code sent <br> to: <span id="in-span">${phoneNumber}</span>`;
+				wildPa.innerHTML = ` Enter the login code here. `;
+
+				mailField.value = ''; mailField.style.textAlign = 'center'; 
+				mailField.setAttribute('placeHolder', 'Enter the Code...');
+				mailField.focus();
+
+				signUp.removeEventListener('click', signUpFunction);
+				theForm.removeEventListener('submit', signUpFunction);
+
+				theForm.addEventListener('submit', () => signInWithPhone(sentCodeId))
+				signUp.addEventListener('click', () => signInWithPhone(sentCodeId));
+
+				theFlag7.src = `img/partners/comm.png`;
 			}).catch(error => {
 				var shortCutFunction = 'success'; var msg = `${error.message}<hr class="to-hr hr15-bot">`;
 				toastr.options =  {closeButton: true, debug: false, newestOnTop: true, progressBar: true,positionClass: 'toast-top-full-width', preventDuplicates: true, onclick: null};
