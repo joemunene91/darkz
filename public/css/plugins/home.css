@@ -11,7 +11,7 @@
 @media screen and (max-width: 821px) {
     #logs-invoice {
         padding: 0px 10px !important;
-        height: 87vh !important;
+        height: 85vh !important;
     }
 }
 
@@ -207,7 +207,10 @@
   cursor: pointer !important;
   padding: 9px 13px !important;
   font-size: 25px !important;
-  letter-spacing: 1.4px !important;
+  letter-spacing: 1.8px !important;
+}
+#email-phone img {
+    border-radius: 0 !important;
 }
 
 @media screen and (max-width: 767px) {
@@ -217,6 +220,6 @@
         cursor: pointer !important;
         padding: 8px 12px !important;
         font-size: 24px !important;
-        letter-spacing: 1.3px !important;  
+        letter-spacing: 1.5px !important;  
     }
 }

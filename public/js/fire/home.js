@@ -7,10 +7,9 @@ var firebaseConfig = {
 	appId: "1:504618741131:web:0e59b1c8b8ea087bd0138e",
 	measurementId: "G-3FQH15QTXF"
 }; firebase.initializeApp(firebaseConfig);
-var theWebsite = 'https://www.darkweb.lat/invoice';
+var theWebsite = 'https://www.darkweb.lat/index';
 
 const auth = firebase.auth();
-const db = firebase.firestore();
 
 const logoHolder = document.getElementById("logo");
 const jinaHolder = document.getElementById("jinaHolder");
@@ -38,20 +37,6 @@ const theLifes = document.getElementById('the-life');
 const theForm = document.getElementById('the-form');
 
 const vpnNav = document.getElementById('vpn-nav');
-
-var locationZ = '';
-
-fetch('https://ipapi.co/json/').then(function(response) { return response.json()}).then(function(data) {
-	locationZ = data.city + ' ' + data.country_name;
-});
-
-let itemz = [];
-
-if(localStorage.getItem('banklogs')){
-    if((JSON.parse(localStorage.getItem('banklogs')).length) > 0) {
-        itemz = JSON.parse(localStorage.getItem('banklogs'));
-	}
-}
 
 
 auth.onAuthStateChanged(user => {
@@ -98,26 +83,15 @@ auth.onAuthStateChanged(user => {
 			}, 4900);
 		} else {
 			theGuy = user.uid;
-			jinaHolder.value = 'Email Invoice';
-
 			emailShow();
 			wouldPa.innerHTML = `
-				Bank log files can be sent <br>
+				A login link will be sent <br>
 				via <span id="in-span">Email</span> or <span id="in-span">SMS</span>
 			`;
 			wildPa.innerHTML = `
-				Link a burner email / phone 
+				Use the link to login here.
 			`;
 		}
-
-		var docRef = db.collection("users").doc(theGuy);
-		docRef.get().then((doc) => {
-			if (!(doc.exists)) {
-				return db.collection('users').doc(theGuy).set({ wishList: itemz })
-			} else {
-				return db.collection('users').doc(theGuy).update({ wishList: itemz })
-			}
-		});
 
 		theId.innerHTML = user.uid;
 		let theDatez2 = new Date(user.metadata.b * 1);

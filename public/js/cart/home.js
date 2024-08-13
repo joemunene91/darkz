@@ -122,12 +122,12 @@ function updateCartTotal() {
 
     document.getElementById('theno1').innerHTML = 'Cart: ' + JSON.parse(localStorage.getItem('banklogs')).length + ' , Total: $' + total.toLocaleString();
 
-    if(JSON.parse(localStorage.getItem('banklogs')).length == 1) {
-        const bankLog = (JSON.parse(localStorage.getItem('banklogs'))[0].account);
-        document.getElementById('jinaHolder2').innerHTML = bankLog;
-    } else if(JSON.parse(localStorage.getItem('banklogs')).length > 1) {
-        document.getElementById('jinaHolder2').innerHTML = (JSON.parse(localStorage.getItem('banklogs'))).length + ' Bank Logins';
-    } 
+    // if(JSON.parse(localStorage.getItem('banklogs')).length == 1) {
+    //     const bankLog = (JSON.parse(localStorage.getItem('banklogs'))[0].account);
+    //     document.getElementById('jinaHolder2').innerHTML = bankLog;
+    // } else if(JSON.parse(localStorage.getItem('banklogs')).length > 1) {
+    //     document.getElementById('jinaHolder2').innerHTML = (JSON.parse(localStorage.getItem('banklogs'))).length + ' Bank Logins';
+    // } 
 
     var id = setInterval(frame, 1000);
     if(!localStorage.getItem('timez-set')) {
