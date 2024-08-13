@@ -284,7 +284,6 @@ blink {
 
 #vpnModal .modal-content,
 #profileModal .modal-content,
-#saveModal .modal-content,
 #exampleModal .modal-content {
   background: rgba(57, 82, 56, 0.5) !important;
   border: 1.4px solid rgba(134, 188, 66, 0.7) !important;
@@ -321,7 +320,6 @@ blink {
 }
 
 #vpnModal .modal-header .close img,
-#saveModal .modal-header .close img,
 #exampleModal .modal-header .close img,
 .btn-remove {
   border: 1.4px solid rgba(134, 188, 66, 0.7);

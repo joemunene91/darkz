@@ -29,9 +29,6 @@ const vpnNav = document.getElementById('vpn-nav');
 const mailField = document.getElementById('inputLife');
 const signUp = document.getElementById('anon-check');
 
-const codeField = document.getElementById('code');
-const signInWithPhoneButton = document.getElementById('signInWithPhone');
-
 const theFlag7 = document.getElementById('the-flag7');
 const theLifes = document.getElementById('the-life');
 const theForm = document.getElementById('the-form');
