@@ -2530,7 +2530,7 @@ ul.countdown li p {
     margin: auto 7px !important;
   }
 }
-#code,
+
 #inputLife {
   border-radius: 0.1px !important;
   font-weight: 600 !important;
@@ -2545,17 +2545,14 @@ ul.countdown li p {
   font-size: 22.3px !important;
 }
 
-#code::placeholder,
 #inputLife::placeholder {
   letter-spacing: 1.1px !important;
 }
 
 @media screen and (max-width: 767px) {
-  #code::placeholder,
   #inputLife::placeholder {
       letter-spacing: 0.7px !important;
   }
-  #code,
   #inputLife {
       padding: 0 7px !important;
       letter-spacing: 2px !important;
