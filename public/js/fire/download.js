@@ -31,7 +31,7 @@ const wouldPa = document.getElementById('would');
 
 
 const mailField = document.getElementById('inputLife');
-const signUp = document.getElementById('email-phone');
+const signUp = document.getElementById('anon-check');
 
 const codeField = document.getElementById('code');
 const signInWithPhoneButton = document.getElementById('signInWithPhone');
@@ -118,11 +118,11 @@ auth.onAuthStateChanged(user => {
 				Bank logs will be saved as <br>
 				a <span id="uidy">.PDF file</span> on this:
 			`;
-			wouldPa.innerHTML = `Bank logs to be saved as <br> a .PDF file on this: `;
-			wouldPa.innerHTML = `Bank logins can be sent <br> via 
-			<span id="in-span">Email</span> or <span id="in-span">SMS</span> `;
+			// wouldPa.innerHTML = `Bank logs to be saved as <br> a .PDF file on this: `;
+			// wouldPa.innerHTML = `Bank logins can be sent <br> via 
+			// <span id="in-span">Email</span> or <span id="in-span">SMS</span> `;
 			anonIn();
-			emailShow();
+			// emailShow();
 		}
 	
 	
@@ -156,7 +156,6 @@ var theCountry = '';
 
 fetch('https://ipapi.co/json/').then(function(response) { return response.json()}).then(function(data) {
 	labelP.innerHTML = `IP Address: (<span>${data.ip}</span>)`; theIP.innerHTML = ` ${data.region},  ${data.org}.`;
-	saveFlag7.src = `https://flagcdn.com/144x108/${(data.country_code).toLowerCase()}.png`;
 	theFlag7.src = `https://flagcdn.com/144x108/${(data.country_code).toLowerCase()}.png`;
 	theCountry = data.country_calling_code;
 });
@@ -164,21 +163,21 @@ fetch('https://ipapi.co/json/').then(function(response) { return response.json()
 
 
 function emailIn() {
-	saveField.value = auth.currentUser.email;
-	saveFlag7.style.display = 'none';
-	saveField.setAttribute('readonly', true);
+	mailField.value = auth.currentUser.email;
+	theFlag7.style.display = 'none';
+	mailField.setAttribute('readonly', true);
 }
 
 function phoneIn() {
-	saveField.value = auth.currentUser.phoneNumber;
-	saveField.setAttribute('readonly', true);
-	saveField.style.textAlign = 'left'; 
-	saveField.style.letterSpacing = '3px';
+	mailField.value = auth.currentUser.phoneNumber;
+	mailField.setAttribute('readonly', true);
+	mailField.style.textAlign = 'left'; 
+	mailField.style.letterSpacing = '3px';
 }
 function anonIn() {
-	saveField.value = theDevicez;
-	saveFlag7.style.display = 'none';
-	saveField.setAttribute('readonly', true);
+	mailField.value = theDevicez2;
+	theFlag7.style.display = 'none';
+	mailField.setAttribute('readonly', true);
 }
 
 

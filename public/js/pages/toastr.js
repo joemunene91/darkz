@@ -55,10 +55,9 @@ auth.onAuthStateChanged(user => {
                 var msgs = [`
                         ${toastbtci} Bitcoin payment <br> not detected,
                     <hr class="hr15-bot">
+                        Scan the address and <br>
                         Send $${toastzi} BTC:
                     <hr class="to-hr hr15-top">
-                        For a smooth checkout, link <br>
-                        a burner email / phone.
                     <hr class="hr3-nil">
                 `]
                 theGuys = user.uid;

@@ -731,9 +731,9 @@ td.burro {
     -webkit-column-gap: 2px;
     column-gap: 2px;
 
-    -moz-column-count: 12;
-    -webkit-column-count: 12;
-    column-count: 12;
+    -moz-column-count: 11;
+    -webkit-column-count: 11;
+    column-count: 11;
 }
 .masonry-4 a {
     display: block;
@@ -745,9 +745,9 @@ td.burro {
 
 @media screen and (min-width: 768px) {
     .masonry-4 {
-        -moz-column-count: 11;
-        -webkit-column-count: 11;
-        column-count: 11;
+        -moz-column-count: 13;
+        -webkit-column-count: 13;
+        column-count: 13;
 
         margin: 3px 0;
         padding: 0;
