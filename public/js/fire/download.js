@@ -295,7 +295,9 @@ const signUpFunction = () => {
 			var $toast = toastr[shortCutFunction](msg);$toastlast = $toast;
 		});
 	} else {
-		mailField.focus();
+		if(mailField.value != '') {
+			mailField.focus();
+		}
 	}
 }
 signUp.addEventListener('click', signUpFunction);
