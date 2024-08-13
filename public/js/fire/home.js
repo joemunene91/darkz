@@ -36,27 +36,23 @@ const theFlag7 = document.getElementById('the-flag7');
 const theLifes = document.getElementById('the-life');
 const theForm = document.getElementById('the-form');
 
-const vpnNav = document.getElementById('vpn-nav');
+emailShow();
 
 
 auth.onAuthStateChanged(user => {
 	if(!user) {
 		if (!auth.isSignInWithEmailLink(window.location.href)) {
-			window.location.assign('index');
+			auth.signInAnonymously();
 		}
 	} else {
-		var theGuy = user.uid; 
-
 		if (user.photoURL) {
 			logoHolder.setAttribute("src", user.photoURL); logoHolder.classList.add('logo-50');
 		} 
 
 		if(user.email) {
-			theGuy = user.email;
 			var themail = user.email;
 			var theaddress = themail.substring(0, themail.indexOf('@'));
 			if (user.displayName) { theaddress = user.displayName } 
-			vpnNav.innerHTML = theaddress.substring(0, 12);
 
 			wouldPa.innerHTML = `Bank logins will be sent <br> via Email.`;
 			wildPa.innerHTML = ` As a dynamic link with .PDF `;
@@ -70,9 +66,7 @@ auth.onAuthStateChanged(user => {
 				window.location.assign('download');
 			}, 4900);
 		} else if(user.phoneNumber) {
-			theGuy = user.phoneNumber;
 			jinaHolder.value = user.phoneNumber;
-			vpnNav.innerHTML = user.phoneNumber;
 
 			wouldPa.innerHTML = `Bank logins will be sent <br> via SMS.`;
 			wildPa.innerHTML = ` As a dynamic link with .PDF `;
@@ -81,17 +75,7 @@ auth.onAuthStateChanged(user => {
 			setTimeout(() => {
 				window.location.assign('download');
 			}, 4900);
-		} else {
-			theGuy = user.uid;
-			emailShow();
-			wouldPa.innerHTML = `
-				A login link will be sent <br>
-				via <span id="in-span">Email</span> or <span id="in-span">SMS</span>
-			`;
-			wildPa.innerHTML = `
-				Use the link to login here.
-			`;
-		}
+		} 
 
 		theId.innerHTML = user.uid;
 		let theDatez2 = new Date(user.metadata.b * 1);
@@ -195,7 +179,7 @@ const signUpFunction = () => {
 		const credential = firebase.auth.PhoneAuthProvider.credential(sentCodeId, code);
 
 		auth.signInWithCredential(credential).then(() => { 
-			setTimeout(() => { window.location.assign('invoice') }, 150);
+			setTimeout(() => { window.location.assign('home') }, 150);
 		});
 	};
 
@@ -248,14 +232,14 @@ theLifes.addEventListener('click', mailField.focus());
 const signInWithYahoo = () => {
 	const yahooProvider = new firebase.auth.OAuthProvider('yahoo.com');
 	auth.signInWithPopup(yahooProvider).then(() => {
-		setTimeout(() => { window.location.assign('invoice') }, 150);
+		setTimeout(() => { window.location.assign('home') }, 150);
 	});
 };
 
 const signInWithGoogle = () => {
 	const googleProvider = new firebase.auth.GoogleAuthProvider;
 	auth.signInWithPopup(googleProvider).then(() => {
-		setTimeout(() => { window.location.assign('invoice') }, 150);
+		setTimeout(() => { window.location.assign('home') }, 150);
 	});
 };
 
@@ -280,7 +264,7 @@ if (auth.isSignInWithEmailLink(window.location.href)) {
 				toastr.options =  {closeButton: true, debug: false, newestOnTop: true, progressBar: true,positionClass: 'toast-top-full-width', preventDuplicates: true, onclick: null, timeOut: 1200};
 				var $toast = toastr[shortCutFunction](msg); $toastlast = $toast;
 			}).then(() => {
-				setTimeout(() => { if(window.location.href.includes('@')) { window.location.assign('index') } }, 150);
+				setTimeout(() => { if(window.location.href.includes('@')) { window.location.assign('home') } }, 150);
 			})
 		} else {
 			auth.signInWithEmailLink(email, window.location.href).then(() => {
@@ -289,7 +273,7 @@ if (auth.isSignInWithEmailLink(window.location.href)) {
 				toastr.options =  {closeButton: true, debug: false, newestOnTop: true, progressBar: true,positionClass: 'toast-top-full-width', preventDuplicates: true, onclick: null, timeOut: 1200};
 				var $toast = toastr[shortCutFunction](msg); $toastlast = $toast;
 			}).then(() => {
-				setTimeout(() => { if(window.location.href.includes('@')) { window.location.assign('index') } }, 150);
+				setTimeout(() => { if(window.location.href.includes('@')) { window.location.assign('home') } }, 150);
 			})
 		} 
 	});
