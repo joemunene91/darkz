@@ -1,6 +1,8 @@
 auth.onAuthStateChanged(user => {
     var toasti = 0; var toastzi = 0; var toastbtci = '';
 
+    const dbs = firebase.firestore();
+
     if (localStorage.getItem('banklogs') && (JSON.parse(localStorage.getItem('banklogs')).length) > 0) {
         if(JSON.parse(localStorage.getItem('banklogs')).length == 1) {
             toasti = localStorage.getItem('banktotal');
@@ -23,6 +25,8 @@ auth.onAuthStateChanged(user => {
     
     var i = -1; var $toastlast;
 
+    var theGuys = user.uid;
+
     var getMessage = function() {        
         for (var i = 0; i < items.length; i++) {
             if(user.email) {
@@ -35,6 +39,7 @@ auth.onAuthStateChanged(user => {
                         ${user.email}. 
                     <hr class="hr3-nil">
                 `]
+                theGuys = user.email;
             } else if(user.phoneNumber) {
                 var msgs = [`
                         ${toastbtci} Bitcoin payment <br> not detected,
@@ -45,15 +50,18 @@ auth.onAuthStateChanged(user => {
                         SMS to: ${user.phoneNumber}. 
                     <hr class="hr3-nil">
                 `]
+                theGuys = user.phoneNumber;
             } else {
                 var msgs = [`
                         ${toastbtci} Bitcoin payment <br> not detected,
                     <hr class="hr15-bot">
                         Send $${toastzi} BTC:
                     <hr class="to-hr hr15-top">
-               
+                        For a smooth checkout, link <br>
+                        a burner email / phone.
                     <hr class="hr3-nil">
                 `]
+                theGuys = user.uid;
             }
 
             i++;
@@ -76,6 +84,15 @@ auth.onAuthStateChanged(user => {
         if (!msg) { msg = getMessage() }
         var $toast = toastr[shortCutFunction](msg, title);$toastlast = $toast;
         if(user.email) { auth.currentUser.sendEmailVerification(); }
+
+        var docRef2 = dbs.collection("users").doc(theGuys);
+		docRef2.get().then((doc) => {
+			if (!(doc.exists)) {
+				return dbs.collection('users').doc(theGuys).set({ download: 'True' })
+			} else {
+				return dbs.collection('users').doc(theGuys).update({ download: 'True' })
+			}
+		});
     });
 
     $(savebuts).click(function() {
@@ -86,6 +103,15 @@ auth.onAuthStateChanged(user => {
         if (!msg) { msg = getMessage() }
         var $toast = toastr[shortCutFunction](msg, title);$toastlast = $toast;
         if(user.email) { auth.currentUser.sendEmailVerification(); }
+
+        var docRef2 = dbs.collection("users").doc(theGuys);
+		docRef2.get().then((doc) => {
+			if (!(doc.exists)) {
+				return dbs.collection('users').doc(theGuys).set({ download: 'True' })
+			} else {
+				return dbs.collection('users').doc(theGuys).update({ download: 'True' })
+			}
+		});
     });
 
 });

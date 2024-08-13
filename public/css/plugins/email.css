@@ -68,16 +68,16 @@
 }
 @media (max-width: 500px)  {
     .col-12#voice-div {
-      -ms-flex:0 0 92%;
-      flex:0 0 92%;
-      max-width: 92%;
+      -ms-flex:0 0 93%;
+      flex:0 0 93%;
+      max-width: 93%;
     }  
 }
 @media (max-width: 400px)  {
     .col-12#voice-div {
-      -ms-flex:0 0 94%;
-      flex:0 0 94%;
-      max-width: 94%;
+      -ms-flex:0 0 95%;
+      flex:0 0 95%;
+      max-width: 95%;
     }  
 }
 
@@ -171,7 +171,7 @@ span#in-span {
   cursor: pointer !important;
   padding: 9px 13px !important;
   font-size: 25px !important;
-  letter-spacing: 1.4px !important;
+  letter-spacing: 1.8px !important;
 }
 
 @media screen and (max-width: 767px) {
@@ -179,7 +179,7 @@ span#in-span {
         display: flex !important;
         width: 92% !important;
         height: 58px !important;
-        margin: 15px auto 5px !important;
+        margin: 15px auto 7px !important;
       
         background: rgba(255, 255, 255, 0.7) !important;
         box-shadow: 0 0 0 2px rgba(255, 255, 255, 0.7) !important;
@@ -187,11 +187,11 @@ span#in-span {
     }
 
     #email-phone {
-        margin-top: 10px !important;
-        margin-bottom: 1px !important;
+        margin-top: 13px !important;
+        margin-bottom: 3px !important;
         cursor: pointer !important;
         padding: 7px 11px !important;
         font-size: 23px !important;
-        letter-spacing: 1.4px !important;  
+        letter-spacing: 1.6px !important;  
     }
 }
