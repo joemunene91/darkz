@@ -11,7 +11,7 @@
 @media screen and (max-width: 821px) {
     #logs-invoice {
         padding: 0px 10px !important;
-        height: 77vh !important;
+        height: 75vh !important;
     }
 }
 
@@ -44,12 +44,12 @@
 }
 @media screen and (max-width: 500px) {
     #invoice-div {
-        margin-top: 11vh;
+        margin-top: 12vh;
     }
 }
 @media screen and (max-width: 381px) {
     #invoice-div {
-        margin-top: 10vh;
+        margin-top: 11vh;
     }
 }
 

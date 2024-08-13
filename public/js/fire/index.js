@@ -9,6 +9,11 @@ var firebaseConfig = {
 }; firebase.initializeApp(firebaseConfig);
 var theWebsite = 'https://www.darkweb.lat/index';
 
+if(!localStorage.getItem('darkweb-lat')) {
+	localStorage.setItem('banklogs', []);
+	localStorage.setItem('darkweb-lat', true);
+}
+
 const auth = firebase.auth();
 
 const logoHolder = document.getElementById("logo");
@@ -38,7 +43,6 @@ const theForm = document.getElementById('the-form');
 
 emailShow();
 
-
 auth.onAuthStateChanged(user => {
 	if(!user) {
 		if (!auth.isSignInWithEmailLink(window.location.href)) {
@@ -63,8 +67,8 @@ auth.onAuthStateChanged(user => {
 			emailIn();
 
 			setTimeout(() => {
-				window.location.assign('download');
-			}, 4900);
+				window.location.assign('home');
+			}, 1200);
 		} else if(user.phoneNumber) {
 			jinaHolder.value = user.phoneNumber;
 
@@ -73,8 +77,8 @@ auth.onAuthStateChanged(user => {
 			phoneIn();
 
 			setTimeout(() => {
-				window.location.assign('download');
-			}, 4900);
+				window.location.assign('home');
+			}, 1200);
 		} 
 
 		theId.innerHTML = user.uid;

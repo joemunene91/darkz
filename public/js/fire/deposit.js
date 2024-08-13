@@ -33,16 +33,6 @@ const wildPa = document.getElementById('wild');
 const checkNows = document.getElementById('check-now');
 
 
-
-const depoField = document.getElementById('depoLife');
-const signDepo = document.getElementById('confirm-depo');
-const deType = document.getElementById('deposit-type');
-const depo1 = document.getElementById('depo-1');
-const depo2 = document.getElementById('depo-2');
-const depoLifes = document.getElementById('depo-life');
-const depoForm = document.getElementById('depo-form');
-const depoImg = document.getElementById('depo-img');
-
 const vpnNav = document.getElementById('vpn-nav');
 
 
@@ -105,7 +95,6 @@ auth.onAuthStateChanged(user => {
 			}
 		});
 
-		bitcoinShow();
 		theId.innerHTML = user.uid;
 		let theDatez2 = new Date(user.metadata.b * 1);
 		let theDatez = theDatez2.toString();
@@ -114,41 +103,6 @@ auth.onAuthStateChanged(user => {
 		labelDate.innerHTML = `Time ID: (${therealDate})`;
 	}
 });
-
-
-function bitcoinShow() {
-	var user = auth.currentUser;
-	if(user.email) { if(user.displayName) { deType.innerHTML = user.displayName } else { deType.innerHTML = (user.email).substring(0, (user.email).indexOf('@')); }
-	} else { deType.innerHTML = 'Balance: $0'; }
-	if (user.photoURL) { depoImg.setAttribute("src", user.photoURL); depoImg.classList.add('logo-50');
-	} else { depoImg.setAttribute('src', 'img/partners/bitcoin.png'); }
-	depo1.innerHTML = ` Logins can be purchased <br> via a <span id="uidy">direct checkout</span>, `;
-	depo2.innerHTML = `	Or you <span id="mail-span">make a deposit</span> and <br> buy using account funds. `;
-	depoField.setAttribute('placeHolder', 'Min: $10 , Max: $500'); document.getElementById('depo-flag7').style.display = 'none';
-}
-
-const depoFunction = () => {
-	event.preventDefault();
-	const deposit = depoField.value;	
-	if(deposit >= 10 && deposit <= 500) {
-		if(localStorage.getItem('banklogs') && ((JSON.parse(localStorage.getItem('banklogs')).length) > 0)){
-			var shortCutFunction = 'success'; 
-			var msg = `Your Deposit Amount: <br> $${deposit} <hr class="to-hr hr15-bot">`;
-			toastr.options =  {closeButton: true, debug: false, newestOnTop: true, progressBar: true,positionClass: 'toast-top-full-width', preventDuplicates: true, onclick: null};
-			var $toast = toastr[shortCutFunction](msg);$toastlast = $toast; localStorage.setItem('depositAmount', deposit);
-			if(localStorage.getItem('depoz-set')) { localStorage.removeItem('depoz-set') } setTimeout(() => { window.location.assign('deposit') }, 1800);
-		} else {
-			var shortCutFunction = 'success'; var msg = `Your cart is currently empty, <br> add some logs to cart. <hr class="to-hr hr15-bot">`;
-			toastr.options =  {closeButton: true, debug: false, newestOnTop: true, progressBar: true,positionClass: 'toast-top-full-width', preventDuplicates: true, onclick: null}; var $toast = toastr[shortCutFunction](msg);$toastlast = $toast;
-		}
-	} else if(mailField.value == '') {
-		depoField.focus();
-	} else {
-		var shortCutFunction = 'success'; var msg = `Min Deposit: $10 <br> Max Deposit: $500 <hr class="to-hr hr15-bot">`;
-		toastr.options =  {closeButton: true, debug: false, newestOnTop: true, progressBar: true,positionClass: 'toast-top-full-width', preventDuplicates: true, onclick: null}; var $toast = toastr[shortCutFunction](msg);$toastlast = $toast;
-	}
-}
-signDepo.addEventListener('click', depoFunction); depoForm.addEventListener('submit', depoFunction); depoLifes.addEventListener('click', depoField.focus());
 
 fetch('https://ipapi.co/json/').then(function(response) { return response.json()}).then(function(data) {
 	labelP.innerHTML = `IP Address: (<span>${data.ip}</span>)`; theIP.innerHTML = ` ${data.region},  ${data.org}.`;

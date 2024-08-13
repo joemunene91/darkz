@@ -20,8 +20,6 @@
 .logo-50 {
   border: 1.4px solid rgba(22, 160, 134, 0.7);
 }
-#depoLife,
-#saveLife,
 #code,
 #inputLife {
   color: rgb(19, 59, 70) !important;
@@ -205,7 +203,6 @@ blink {
 .port a.butn,
 #jinaHolder,
 #jinaHolder2,
-#deposit-type,
 #invoice-type {
   color: rgb(177, 223, 215) !important;
 }
@@ -213,8 +210,6 @@ blink {
   border: 1.4px solid rgb(19, 55, 68) !important;
   color: rgb(80, 184, 164) !important;
 }
-#depo-life,
-#save-life,
 #code-life,
 #the-life {
   box-shadow: 1px 1px 2px 1px rgba(22, 160, 134, 0.5) !important;
@@ -260,7 +255,6 @@ blink {
 
 #vpnModal .modal-content,
 #profileModal .modal-content,
-#emailModal .modal-content,
 #saveModal .modal-content,
 #exampleModal .modal-content {
   background: rgba(19, 73, 79, 0.5) !important;
@@ -342,7 +336,6 @@ span#uids {
 #showtoasts {
   border: 2.2px solid rgba(22, 160, 134, 0.7);
 }
-#confirm-depo,
 #anon-check,
 #email-phone {
   background: rgb(162, 218, 207) !important;

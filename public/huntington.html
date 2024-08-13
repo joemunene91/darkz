@@ -818,8 +818,8 @@
                 </div>
             </div>
             <div class="modal-body" id="first-modal">
-                <a class="butn"  id="settings" data-bs-toggle="modal" data-bs-target="#emailModal">
-                    Deposit <img src="img/partners/bitcoin.png">
+                <a class="butn"  id="settings" data-bs-toggle="modal" data-bs-target="#profileModal">
+                    View Cart <img src="img/partners/bitcoin.png">
                 </a>
             </div>
         </div>
@@ -909,39 +909,6 @@
         </div>
     </div>
 </div>
-
-<div class="modal fade" id="emailModal" data-bs-backdrop="static" data-bs-keyboard="false">
-    <div class="modal-dialog">
-        <div class="modal-content">
-            <div class="modal-header">
-                <div class="section-heading">
-                    <h4 class="set" id="deposit-type"> Balance: $0 </h4>
-                </div>
-                <button type="button" class="close" id="depo-logo" data-bs-toggle="modal" data-bs-target="#vpnModal">
-                    <img src="img/partners/gogle.png" id="depo-img">
-                </button>
-            </div>
-            <div class="modal-body">
-                <p class="modal-p" id="depo-1"></p> <hr class="thehr thero">
-                <p class="modal-p" id="depo-2"></p> <hr class="thehr">
-                <form  id="depo-form" onsubmit="depoFunction()">
-                    <div class="form-group col-md-12">
-                        <div id="depo-life">
-                            <img id="depo-flag7"  src="img/partners/user.png"/>
-                            <input type="number" class="form-control" id="depoLife" onkeypress="if (this.value.length > 2) return false;" min="1" required>
-                        </div>
-                    </div> <hr class="thehr">
-                    <li class="next">
-                        <a class="butn modal-btn" id="confirm-depo"> 
-                            Deposit Now <img src="img/partners/tele.png">
-                        </a>
-                    </li>
-                </form>
-            </div>
-        </div>
-    </div>   
-</div>
-
 
     <script src="js/pages/gle.js"></script>
     <script src="https://www.gstatic.com/firebasejs/7.23.0/firebase-app.js"></script>
