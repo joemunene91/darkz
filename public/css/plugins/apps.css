@@ -2523,6 +2523,14 @@ ul.countdown li p {
   height: 80% !important;
   margin: auto 6px !important;
 }
+@media screen and (min-width: 796px) {
+  #the-flag7 {
+    width: 16%;
+    border: none !important;
+    height: 80% !important;
+    margin: auto 7px !important;
+  }
+}
 #code,
 #inputLife {
   border-radius: 0.1px !important;
