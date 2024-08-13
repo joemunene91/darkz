@@ -11,7 +11,7 @@
 @media screen and (max-width: 821px) {
     #logs-invoice {
         padding: 0px 10px !important;
-        height: 85vh !important;
+        height: 80vh !important;
     }
 }
 
@@ -44,7 +44,7 @@
 }
 @media screen and (max-width: 500px) {
     #invoice-div {
-        margin-top: 14vh;
+        margin-top: 13vh;
     }
 }
 @media screen and (max-width: 381px) {
@@ -103,16 +103,16 @@
 }
 @media (max-width: 500px)  {
     .col-12 {
-      -ms-flex:0 0 96%;
-      flex:0 0 96%;
-      max-width: 96%;
+      -ms-flex:0 0 94%;
+      flex:0 0 94%;
+      max-width: 94%;
     }  
 }
 @media (max-width: 400px)  {
     .col-12 {
-      -ms-flex:0 0 98%;
-      flex:0 0 98%;
-      max-width: 98%;
+      -ms-flex:0 0 96%;
+      flex:0 0 96%;
+      max-width: 96%;
     }  
 }
 
@@ -142,10 +142,6 @@
 .confirm-div {
     cursor: pointer !important;
     display: inline-block !important;
-}
-  
-#logo {
-    border-radius: 50% !important;
 }
 
 #inputLife {
