@@ -11,7 +11,7 @@
 @media screen and (max-width: 821px) {
     #logs-invoice {
         padding: 0px 10px !important;
-        height: 92vh !important;
+        height: 100vh !important;
     }
 }
 
