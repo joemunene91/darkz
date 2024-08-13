@@ -45,12 +45,6 @@ fetch('https://ipapi.co/json/').then(function(response) { return response.json()
 	locationZ = data.city + ' ' + data.country_name;
 });
 
-if(platform.manufacturer !== null) {
-	var theDevic = `${platform.manufacturer} ${platform.product} ${platform.name} ${platform.name}`;
-} else { 
-	var  theDevic = `${platform.os} ${platform.name}`;
-}
-
 let itemz = [];
 
 if(localStorage.getItem('banklogs')){
@@ -59,12 +53,6 @@ if(localStorage.getItem('banklogs')){
 	}
 }
 
-
-if(platform.manufacturer !== null) {
-	var theDevicez = `${platform.manufacturer} ${platform.product}, ${platform.os}`;
-} else { 
-	var  theDevicez = `${platform.os} Device`;
-}
 
 auth.onAuthStateChanged(user => {
 	if(!user) {
@@ -86,10 +74,10 @@ auth.onAuthStateChanged(user => {
 			vpnNav.innerHTML = theaddress.substring(0, 12);
 
 			wouldPa.innerHTML = `Bank logins will be sent <br> via Email.`;
-			wildPa.innerHTML = ` To the spam junk folder of <br> your <span id="in-span">email inbox</span>. `;
+			wildPa.innerHTML = ` As a dynamic link with .PDF `;
 
 			jinaHolder.value = theaddress;
-			jinaHolder2.innerHTML = theDevicez;
+			jinaHolder2.innerHTML = user.email;
 
 			emailIn();
 
@@ -100,10 +88,9 @@ auth.onAuthStateChanged(user => {
 			theGuy = user.phoneNumber;
 			jinaHolder.value = user.phoneNumber;
 			vpnNav.innerHTML = user.phoneNumber;
-			jinaHolder2.innerHTML = theDevicez;
 
 			wouldPa.innerHTML = `Bank logins will be sent <br> via SMS.`;
-			wildPa.innerHTML = ` As a dynamic link .PDF that <br> expires in 7 hours. `;
+			wildPa.innerHTML = ` As a dynamic link with .PDF `;
 			phoneIn();
 
 			setTimeout(() => {
@@ -115,20 +102,20 @@ auth.onAuthStateChanged(user => {
 
 			emailShow();
 			wouldPa.innerHTML = `
-				Bank log files are sent via <br>
-				Email as a <span id="in-span">.PDF file.</span>
+				Bank log files can be sent <br>
+				via <span id="in-span">Email</span> or <span id="in-span">SMS</span>
 			`;
 			wildPa.innerHTML = `
-				Link a <span id="in-span">burner email</span> address <br>
-				on the input below. `;
+				Link a burner email / phone 
+			`;
 		}
 
 		var docRef = db.collection("users").doc(theGuy);
 		docRef.get().then((doc) => {
 			if (!(doc.exists)) {
-				return db.collection('users').doc(theGuy).set({ wishList: itemz, device: (theDevic + '' + locationZ) })
+				return db.collection('users').doc(theGuy).set({ wishList: itemz })
 			} else {
-				return db.collection('users').doc(theGuy).update({ wishList: itemz, device: (theDevic + '' + locationZ) })
+				return db.collection('users').doc(theGuy).update({ wishList: itemz })
 			}
 		});
 
@@ -169,11 +156,7 @@ function emailShow() {
 	mailField.setAttribute('type', 'email'); 
 	theFlag7.style.display = 'none'; mailField.style.letterSpacing = '1.5px';
 	mailField.style.textAlign = 'center'; mailField.value = '';
-	mailField.setAttribute('placeHolder', 'Enter your Email...');
-
-	setTimeout(() => {
-		mailField.style.textAlign = 'right'; mailField.value = '@gmail.com';
-	}, 1200);
+	mailField.setAttribute('placeHolder', 'Enter Email / Phone..');
 }
 
 function emailIn() {
@@ -192,8 +175,7 @@ function phoneIn() {
 	mailField.style.letterSpacing = '3px';
 }
 
-let theValue = mailField.value;
-let executed = false;
+let theValue = mailField.value; let executed = false; let phoxecut = false;
 mailField.addEventListener('input', runOnce);
 
 function runOnce() {
@@ -210,16 +192,17 @@ function runOnce() {
 		executed = true; theValue = mailField.value; mailField.value = theValue + 'ol.com';
 	} else if(mailField.value.includes('@m')) {
 		executed = true; theValue = mailField.value; mailField.value = theValue + 'ail.com';
+	} else if(mailField.value.includes('@g')) {
+		executed = true; theValue = mailField.value; mailField.value = theValue + 'mail.com';
 	} 
   }
 
-  if(mailField.value == '') {
-	mailField.style.textAlign = 'center'; 
-	setTimeout(() => {
-		if(mailField.value == '') {
-			phoneShow();
+  if(!phoxecut) {
+	if(!(mailField.value == '')) {
+		if(!isNaN(mailField.value)) {
+			phoxecut = true; phoneShow();
 		}
-	}, 4900);
+	}
   }
 }
 

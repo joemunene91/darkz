@@ -4,12 +4,6 @@ var table1 = jQuery('#example1').DataTable();
 
 var showingToast = document.getElementById('showtoasts');
 
-if(platform.manufacturer !== null) {
-	var theDevicey = `${platform.manufacturer} ${platform.product}, ${platform.os}`;
-} else { 
-	var  theDevicey = `${platform.os} Device`;
-}
-
 if(localStorage.getItem('banklogs') && ((JSON.parse(localStorage.getItem('banklogs')).length) > 0)){
     items = JSON.parse(localStorage.getItem('banklogs'));
     document.getElementById('cartlength').innerText = (JSON.parse(localStorage.getItem('banklogs')).length);
@@ -52,7 +46,6 @@ if(localStorage.getItem('banklogs') && ((JSON.parse(localStorage.getItem('banklo
     updateCartTotal();
 } else {
     document.getElementById('cartlength').style.display = 'none';
-    document.getElementById('jinaHolder2').innerHTML = theDevicey;
 
     showingToast.removeAttribute('onclick');
     showingToast.addEventListener('click', showThis);
