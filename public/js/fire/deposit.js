@@ -84,7 +84,11 @@ auth.onAuthStateChanged(user => {
 			wouldPa.innerHTML = `Deposit will be credited to <br> <span>${user.phoneNumber}</span>`;
 			wildPa.innerHTML = ` Your Account Balance: <span>$0</span> `;
 			emailP.innerHTML = `Deposit will be credited to: <br> Phone: <span id="uidy">${user.phoneNumber}</span>. `;
-		} 
+		} else if(user.isAnonymous) {
+			setTimeout(() => {
+				window.location.assign('index');
+			}, 1200);
+		}
 	
 		var docRef = db.collection("users").doc(theGuy);
 		docRef.get().then((doc) => {

@@ -102,7 +102,7 @@ auth.onAuthStateChanged(user => {
 				Bank logins will be sent via <br>
 				<span id="mail-span">SMS</span> as a dynamic link to:  `;
 			phoneIn();
-		} else {
+		} else if(user.isAnonymous) {
 			theGuy = user.uid;
 			thePerson = `<hr class="hr-2"> ${theDevicez} <br> ${locationZ}`;
 			emailP.innerHTML = ` 

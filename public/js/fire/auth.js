@@ -42,11 +42,11 @@ auth.onAuthStateChanged(user => {
 			vpnNav.innerHTML = theaddress.substring(0, 13);
 		} else if(user.phoneNumber) {
 			theGuy = user.phoneNumber;
-
+		} else if(user.isAnonymous) {
 			setTimeout(() => {
 				window.location.assign('index');
 			}, 1200);
-		} 
+		}
 	
 	
 		var docRef = db.collection("users").doc(theGuy);

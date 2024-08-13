@@ -57,7 +57,6 @@ if(localStorage.getItem('banklogs') && ((JSON.parse(localStorage.getItem('banklo
     showingToast.removeAttribute('onclick');
     showingToast.addEventListener('click', showThis);
 
-    canvasBtn.addEventListener('click', addTo);
     document.getElementById('vpn').addEventListener('click', addTo);
 
     function addTo() {
