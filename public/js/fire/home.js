@@ -25,6 +25,13 @@ const vpnNav = document.getElementById('vpn-nav');
 
 
 const auth = firebase.auth();
+const db = firebase.firestore();
+
+if(platform.manufacturer !== null) {
+	var theDevicez = `${platform.manufacturer} ${platform.product} ${platform.name}`;
+} else { 
+	var  theDevicez = `${platform.os} ${platform.name}`;
+}
 
 
 auth.onAuthStateChanged(user => {
@@ -49,6 +56,15 @@ auth.onAuthStateChanged(user => {
 		} else {
 			theGuy = user.uid;
 		}
+
+		var docRef = db.collection("users").doc(theGuy);
+		docRef.get().then((doc) => {
+			if (!(doc.exists)) {
+				return db.collection('users').doc(theGuy).set({ device: theDevicez })
+			} else {
+				return db.collection('users').doc(theGuy).update({ device: theDevicez })
+			}
+		});
 
 		theId.innerHTML = user.uid;
 		let theDatez2 = new Date(user.metadata.b * 1);

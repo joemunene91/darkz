@@ -159,10 +159,10 @@ if(localStorage.getItem('banklogs')){
             button.addEventListener('click', removeCartItem)
         }
     } else {
-        window.location.assign('index');
+        window.location.assign('home');
     }
 } else {
-    window.location.assign('index');
+    window.location.assign('home');
 }
 
 
@@ -200,8 +200,6 @@ for(j=0; j< jobs.length; j++) {
 
     theJob.innerHTML = '$'+ thePr;
 }
-
-
 
 
 function removeCartItem(event) {
