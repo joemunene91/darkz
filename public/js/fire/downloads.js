@@ -83,7 +83,6 @@ auth.onAuthStateChanged(user => {
 				Bank logins will be sent to: <br>
 				<span id="mail-span">${user.email}</span>.
 			`;
-			emailIn();
 		} else if(user.phoneNumber) {
 			theGuy = user.phoneNumber;
 			thePerson = `<hr class="hr-2"> ${user.phoneNumber.substring(0, 10)}... <br> ${locationZ}`;
