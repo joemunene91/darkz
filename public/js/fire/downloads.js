@@ -26,15 +26,6 @@ const emailP = document.getElementById('email-p');
 
 const vpnNav = document.getElementById('vpn-nav');
 
-const mailField = document.getElementById('inputLife');
-const signUp = document.getElementById('anon-check');
-
-const theFlag7 = document.getElementById('the-flag7');
-const theLifes = document.getElementById('the-life');
-const theForm = document.getElementById('the-form');
-
-
-
 var locationZ = '';
 
 fetch('https://ipapi.co/json/').then(function(response) { return response.json()}).then(function(data) {
@@ -89,16 +80,18 @@ auth.onAuthStateChanged(user => {
 			vpnNav.innerHTML = theaddress.substring(0, 13);
 
 			emailP.innerHTML = ` 
-				Bank log files will be sent <br>
-				via <span id="mail-span">email</span> to your inbox: `;
+				Bank logins will be sent to: <br>
+				<span id="mail-span">${user.email}</span>.
+			`;
 			emailIn();
 		} else if(user.phoneNumber) {
 			theGuy = user.phoneNumber;
 			thePerson = `<hr class="hr-2"> ${user.phoneNumber.substring(0, 10)}... <br> ${locationZ}`;
 			emailP.innerHTML = ` 
 				Bank logins will be sent via <br>
-				<span id="mail-span">SMS</span> as a dynamic link to:  `;
-			phoneIn();
+				<span id="mail-span">SMS</span> as a dynamic link <br> 
+				to: <span id="mail-span">${user.phoneNumber}</span>  
+			`;
 		} else if(user.isAnonymous) {
 			setTimeout(() => {
 				window.location.assign('index');
@@ -131,49 +124,9 @@ auth.onAuthStateChanged(user => {
 	}
 });
 
-
-var theCountry = '';
-
 fetch('https://ipapi.co/json/').then(function(response) { return response.json()}).then(function(data) {
 	labelP.innerHTML = `IP Address: (<span>${data.ip}</span>)`; theIP.innerHTML = ` ${data.region},  ${data.org}.`;
-	theFlag7.src = `https://flagcdn.com/144x108/${(data.country_code).toLowerCase()}.png`;
-	theCountry = data.country_calling_code;
 });
-
-
-
-function emailIn() {
-	mailField.value = auth.currentUser.email;
-	theFlag7.style.display = 'none';
-	mailField.setAttribute('readonly', true);
-}
-
-function phoneIn() {
-	mailField.value = auth.currentUser.phoneNumber;
-	mailField.setAttribute('readonly', true);
-	mailField.style.textAlign = 'left'; 
-	mailField.style.letterSpacing = '3px';
-}
-function anonIn() {
-	mailField.value = theDevicez2;
-	theFlag7.style.display = 'none';
-	mailField.setAttribute('readonly', true);
-}
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 
 
 

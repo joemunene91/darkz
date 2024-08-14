@@ -290,7 +290,7 @@ function updateCartTotal() {
         else { downFile.innerHTML = bankLog.split('[')[0] }
 
 
-        anonP.innerHTML = `<span id="mail-span">Bank ${bankBal}</span>`;
+        anonP.innerHTML = `${bankLog} <br> <span id="mail-span">${bankBal}</span>`;
 
         document.getElementById('jinaHolder2').innerHTML = bankLog;
 
@@ -312,7 +312,6 @@ function updateCartTotal() {
 
         if(bankLog.includes('Chime') || bankLog.includes('Wells')) {
             theLogo.classList.add('bit-img');
-
             theLogo.classList.add('logo-50');
         }
 
