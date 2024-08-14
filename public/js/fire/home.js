@@ -54,7 +54,9 @@ auth.onAuthStateChanged(user => {
 		} else if(user.phoneNumber) {
 			theGuy = user.phoneNumber;
 		} else if(user.isAnonymous) {
-			theGuy = user.uid;
+			setTimeout(() => {
+				window.location.assign('index');
+			}, 1200);
 		}
 
 		var docRef = db.collection("users").doc(theGuy);

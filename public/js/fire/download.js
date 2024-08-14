@@ -100,15 +100,9 @@ auth.onAuthStateChanged(user => {
 				<span id="mail-span">SMS</span> as a dynamic link to:  `;
 			phoneIn();
 		} else if(user.isAnonymous) {
-			theGuy = user.uid;
-			thePerson = `<hr class="hr-2"> ${theDevicez} <br> ${locationZ}`;
-			emailP.innerHTML = ` 
-				Bank logs will be saved as <br>
-				a <span id="uidy">.PDF file</span> on this:`;
 			setTimeout(() => {
 				window.location.assign('index');
 			}, 1200);
-			anonIn();
 		}
 	
 	
