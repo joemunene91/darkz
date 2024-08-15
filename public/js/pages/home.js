@@ -25,9 +25,7 @@ emailShow();
 
 auth.onAuthStateChanged(user => {
 	if(!user) {
-		if (!auth.isSignInWithEmailLink(window.location.href)) {
-			auth.signInAnonymously();
-		}
+		auth.signInAnonymously();
 	} else {
 		if(user.email) {
 			wouldPa.innerHTML = `Bank login files will be <br> sent via <span id="in-span">Email</span>.`;
