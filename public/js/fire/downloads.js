@@ -92,9 +92,13 @@ auth.onAuthStateChanged(user => {
 				to: <span id="mail-span">${user.phoneNumber}</span>  
 			`;
 		} else if(user.isAnonymous) {
-			setTimeout(() => {
-				window.location.assign('index');
-			}, 1200);
+			theGuy = user.uid;
+
+			thePerson = `<hr class="hr-2"> ${theDevicez}, ${locationZ}`;
+			emailP.innerHTML = ` 
+				Bank logs will be saved to: <br>
+				<span id="mail-span">${theDevicez2}</span>
+			`;
 		}
 	
 	

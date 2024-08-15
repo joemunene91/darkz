@@ -1,45 +1,89 @@
+.bg-animate{
+    background-position:0 0;
+    background-repeat:repeat-x;
+    animation:animatedBackground 70s linear infinite 
+}
+
+#logs-invoice {
+    padding: 0px 10px !important;
+    height: 100vh !important;
+}
+@media screen and (max-width: 821px) {
+    #logs-invoice {
+        padding: 0px 10px !important;
+        height: 100vh !important;
+    }
+}
+
+#logs-invoice div {
+    overflow: hidden !important;
+}
+
+#logs-invoice .section-heading h4 {
+    color: #121d33;
+}
+
+
 #my-invoice {
     margin: 3px !important;
     padding: 0px !important;
     width: 100% !important;
 }
-
-#voice-div {
-    margin-top: 0vh;
+#invoice-div {
+    margin-top: -1vh;
+    margin-bottom: 0vh;
 }
-@media screen and (max-width: 781px) {
-    #voice-div {
-        margin-top: 3vh;
+@media screen and (min-width: 1370px) {
+    #invoice-div {
+        margin-top: 0vh;
+        margin-bottom: 0vh;
+    }
+}
+@media screen and (max-width: 821px) {
+    #invoice-div {
+        margin-top: 2vh;
+        margin-bottom: 1vh;
+    }
+}
+@media screen and (max-width: 500px) {
+    #invoice-div {
+        margin-top: 0vh;
+        margin-bottom: 3vh !important;
+    }
+}
+@media screen and (max-width: 400px) {
+    #invoice-div {
+        margin-top: 0vh;
+        margin-bottom: 3vh !important;
     }
 }
 
-#voice-div p {
+#invoice-div p {
     margin: 10px auto !important;
-    font-size: 22px !important;
-    line-height: 58px !important;
+    font-size: 23px !important;
+    line-height: 60px !important;
 }
 
 @media screen and (min-width: 1370px) {
-    #voice-div p {
-        font-size: 23px !important;
-        line-height: 65px !important;
+    #invoice-div p {
+        font-size: 24px !important;
+        line-height: 68px !important;
     }
 }
-#voice-div p span {
+#invoice-div p span {
     font-weight: 600;
 }
 @media screen and (max-width: 574px) {
-    #voice-div p {
-        margin: 10px auto !important;
+    #invoice-div p {
         font-size: 20.5px !important;
-        line-height: 57px !important;
+        line-height: 62px !important;
     }
 }
 
 @media screen and (max-width: 380px) {
-    #voice-div p {
+    #invoice-div p {
         font-size: 20px !important;
-        line-height: 55px !important;
+        line-height: 59px !important;
     }
 }
 
@@ -48,36 +92,32 @@
 }
 
 
-#voice-body-div {
-    display: flex;
-    justify-content: center;
-    margin: 5px 0;
-
+#invoice-body-div {
     margin: 3px !important;
     background: rgba(255, 255, 255, 0.7) !important;
 }
-#voice-body-div p {
+#invoice-body-div p {
     font-weight: 500 !important;
 }
 @media (min-width: 802px) {
-	.col-lg-5#voice-div {
+	.col-lg-5#invoice-div {
 		-ms-flex: 0 0 31%;
 		flex: 0 0 31%;
 		max-width: 31%;
    }
 }
 @media (max-width: 500px)  {
-    .col-12#voice-div {
-      -ms-flex:0 0 93%;
-      flex:0 0 93%;
-      max-width: 93%;
+    .col-12#invoice-div {
+      -ms-flex:0 0 94%;
+      flex:0 0 94%;
+      max-width: 94%;
     }  
 }
 @media (max-width: 400px)  {
-    .col-12#voice-div {
-      -ms-flex:0 0 95%;
-      flex:0 0 95%;
-      max-width: 95%;
+    .col-12#invoice-div {
+      -ms-flex:0 0 96%;
+      flex:0 0 96%;
+      max-width: 96%;
     }  
 }
 
@@ -85,16 +125,16 @@
     border: 5px solid rgba(22, 160, 134, 0.5) !important;
     background: rgb(19, 42, 60) !important;
 }
-
+  
 #my-invoice p {
     color: rgb(19, 58, 69) !important;
 }
 
 
 .nohr {
+    border: 0.7px solid rgba(22, 160, 134, 0.3);
     padding: 0 !important;
     margin: 0 !important;
-    border: 0.7px solid rgba(22, 160, 134, 0.3);
 }
 
 @media screen and (min-width: 1370px) {
@@ -108,11 +148,6 @@
     cursor: pointer !important;
     display: inline-block !important;
 }
-  
-#logo {
-    border-radius: 50% !important;
-}
-
 #inputLife {
   border-radius: 0.1px !important;
   font-weight: 600 !important;
@@ -139,7 +174,7 @@
       padding: 0 7px !important;
       letter-spacing: 2px !important;
       align-items: center !important;
-      font-size: 22px !important;
+      font-size: 22.5px !important;
       height: 95% !important;
   }
 }
@@ -147,22 +182,23 @@
 
 #the-life {
     display: flex !important;
-    width: 92% !important;
+    width: 91% !important;
     height: 58px !important;
-    margin: 13px auto 3px !important;
+    margin: 10px auto 0px !important;
   
     background: rgba(255, 255, 255, 0.7) !important;
     box-shadow: 0 0 0 2px rgba(255, 255, 255, 0.7) !important;
     border-radius: 0.3px !important;
-}
+  }
 
-p#would {
+  p#wild, 
+  p#would {
     color: lightcyan !important;
-}
+  }
 
-span#in-span {
+  span#in-span {
     color: rgb(139, 209, 68) !important;
-}
+  }
 
 
 #email-phone {
@@ -173,25 +209,21 @@ span#in-span {
   font-size: 25px !important;
   letter-spacing: 1.8px !important;
 }
+#email-phone img {
+    border-radius: 0 !important;
+    height: 33px !important;
+    width: 33px !important;
+}
 
 @media screen and (max-width: 767px) {
-    #the-life {
-        display: flex !important;
-        width: 92% !important;
-        height: 58px !important;
-        margin: 15px auto 7px !important;
-      
-        background: rgba(255, 255, 255, 0.7) !important;
-        box-shadow: 0 0 0 2px rgba(255, 255, 255, 0.7) !important;
-        border-radius: 0.3px !important;
-    }
-
     #email-phone {
-        margin-top: 13px !important;
-        margin-bottom: 3px !important;
+        margin-top: 15px !important;
+        margin-bottom: 5px !important;
         cursor: pointer !important;
-        padding: 7px 11px !important;
-        font-size: 23px !important;
-        letter-spacing: 1.6px !important;  
+        padding: 8px 12px !important;
+        font-size: 24px !important;
+        letter-spacing: 1.5px !important;  
     }
 }
+
+

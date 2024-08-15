@@ -43,9 +43,7 @@ auth.onAuthStateChanged(user => {
 		} else if(user.phoneNumber) {
 			theGuy = user.phoneNumber;
 		} else if(user.isAnonymous) {
-			setTimeout(() => {
-				window.location.assign('index');
-			}, 1200);
+			theGuy = user.uid;
 		}
 	
 	

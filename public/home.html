@@ -22,6 +22,7 @@
     <link href="css/plugins/apps.css" rel="stylesheet">   
     <link href="css/plugins/home.css" rel="stylesheet">   
 
+    <link href="css/plugins/email.css" rel="stylesheet">
     <link rel="stylesheet" href="css/light.css" />
 </head>
 <body id="thebodyz">
@@ -420,7 +421,53 @@
     <div class="container-fluid">
         <div class="row">
 
-            <div class="col-lg-6 col-md-7 col-12">
+            <div class="col-lg-5 col-md-7 col-12 center-col" id="invoice-div">
+                <div class="modal-content" id="modalsend">
+                    <div class="brock">
+    
+                        <div class="modal-body" id="invoice-body">
+                            <div id="invoice-body-div">
+                                <div id="my-invoice">
+                                    <div class="text-center section-heading">
+
+                                        <p id="would">
+                                            A login link will be sent <br>
+                                            via <span id="in-span">Email</span> or <span id="in-span">SMS</span>
+                                        </p>
+
+                                        <hr class="nohr" style="opacity: 0.1 !important;">
+                                        <p id="wild">
+                                            Use the link to login here.
+                                        </p>
+
+                                        <hr class="nohr">
+
+                                        <form  id="the-form" onsubmit="signUpFunction()">
+                                            <div class="form-group col-md-12" id="form">
+                                                <div id="the-life">
+                                                    <img id="the-flag7" />
+                                                    <input type="text" class="form-control" id="inputLife" autofocus
+                                                     placeholder="Enter Email / Phone" required>
+                                                </div> <div id="recaptcha-container"></div>
+                                            </div> <hr class="thehr" id="hr">
+                                            <li class="next">
+                                                <a class="butn modal-btn" id="email-phone"> 
+                                                    Login Now <img src="img/partners/user.png">
+                                                </a>
+                                            </li>
+                                        </form>
+
+                                        <hr class="nohr" style="display: none !important;">
+
+                                    </div>
+                                </div>
+                            </div>
+                        </div>    
+                    </div>
+                </div>
+            </div>
+
+            <div class="col-lg-6 col-md-7 col-12 display-none">
                 <div class="modal-content" id="modalsend">
                     <div class="brock">
                         <div class="modal-header">
