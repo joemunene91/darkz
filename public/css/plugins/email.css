@@ -48,7 +48,7 @@
 @media screen and (max-width: 500px) {
     #invoice-div {
         margin-top: 0vh;
-        margin-bottom: 3vh !important;
+        margin-bottom: 4vh !important;
     }
 }
 @media screen and (max-width: 400px) {
