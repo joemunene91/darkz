@@ -250,7 +250,7 @@ if (document.getElementById('boa01')) {
         (chase014.innerHTML =   `Buy : $${parseFloat((chase14.innerHTML.replace("$", "").replace(",", "") / 37)).toFixed(0)}` )
     }
 } else if (document.getElementById('chime01')) {
-    (chime1.innerHTML = "$4,274"),
+    (chime1.innerHTML = "$4,275"),
     (chime2.innerHTML = "$6,085"),
     (chime3.innerHTML = "$7,630"),
     (chime4.innerHTML = "$8,750"),
