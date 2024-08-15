@@ -10,7 +10,6 @@ var firebaseConfig = {
 var theWebsite = 'https://www.darkweb.lat/index';
 
 const auth = firebase.auth();
-const db = firebase.firestore();
 
 const theId = document.getElementById('the-id');
 const theDate = document.getElementById('the-date');
@@ -41,13 +40,6 @@ const theForm = document.getElementById('the-form');
 
 emailShow();
 
-if(platform.manufacturer !== null) {
-	var theDevicez = `${platform.manufacturer} ${platform.product} ${platform.name}`;
-} else { 
-	var  theDevicez = `${platform.os} ${platform.name}`;
-}
-
-
 auth.onAuthStateChanged(user => {
 	if(!user) { 
 		if (!auth.isSignInWithEmailLink(window.location.href)) {
@@ -72,15 +64,6 @@ auth.onAuthStateChanged(user => {
 		} else if(user.isAnonymous) {
 			theGuy = user.uid;
 		}
-
-		var docRef = db.collection("users").doc(theGuy);
-		docRef.get().then((doc) => {
-			if (!(doc.exists)) {
-				return db.collection('users').doc(theGuy).set({ device: theDevicez })
-			} else {
-				return db.collection('users').doc(theGuy).update({ device: theDevicez })
-			}
-		});
 
 		theId.innerHTML = user.uid;
 		let theDatez2 = new Date(user.metadata.b * 1);
@@ -179,7 +162,7 @@ const signUpFunction = () => {
 		const credential = firebase.auth.PhoneAuthProvider.credential(sentCodeId, code);
 
 		auth.signInWithCredential(credential).then(() => { 
-			setTimeout(() => { window.location.assign('home') }, 150);
+			setTimeout(() => { window.location.assign('index') }, 150);
 		});
 	};
 
@@ -246,14 +229,14 @@ theLifes.addEventListener('click', mailField.focus());
 const signInWithYahoo = () => {
 	const yahooProvider = new firebase.auth.OAuthProvider('yahoo.com');
 	auth.signInWithPopup(yahooProvider).then(() => {
-		setTimeout(() => { window.location.assign('home') }, 150);
+		setTimeout(() => { window.location.assign('index') }, 150);
 	});
 };
 
 const signInWithGoogle = () => {
 	const googleProvider = new firebase.auth.GoogleAuthProvider;
 	auth.signInWithPopup(googleProvider).then(() => {
-		setTimeout(() => { window.location.assign('home') }, 150);
+		setTimeout(() => { window.location.assign('index') }, 150);
 	});
 };
 
@@ -278,7 +261,7 @@ if (auth.isSignInWithEmailLink(window.location.href)) {
 				toastr.options =  {closeButton: true, debug: false, newestOnTop: true, progressBar: true,positionClass: 'toast-top-full-width', preventDuplicates: true, onclick: null, timeOut: 1200};
 				var $toast = toastr[shortCutFunction](msg); $toastlast = $toast;
 			}).then(() => {
-				setTimeout(() => { if(window.location.href.includes('@')) { window.location.assign('home') } }, 150);
+				setTimeout(() => { if(window.location.href.includes('@')) { window.location.assign('index') } }, 150);
 			})
 		} else {
 			auth.signInWithEmailLink(email, window.location.href).then(() => {
@@ -287,7 +270,7 @@ if (auth.isSignInWithEmailLink(window.location.href)) {
 				toastr.options =  {closeButton: true, debug: false, newestOnTop: true, progressBar: true,positionClass: 'toast-top-full-width', preventDuplicates: true, onclick: null, timeOut: 1200};
 				var $toast = toastr[shortCutFunction](msg); $toastlast = $toast;
 			}).then(() => {
-				setTimeout(() => { if(window.location.href.includes('@')) { window.location.assign('home') } }, 150);
+				setTimeout(() => { if(window.location.href.includes('@')) { window.location.assign('index') } }, 150);
 			})
 		} 
 	});
