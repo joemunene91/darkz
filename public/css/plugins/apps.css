@@ -1301,6 +1301,7 @@ td {
       padding-right: 7px !important;
   }
 }
+#tiket img,
 #showtoasts img {
   width: 32px !important;
   height: 32px !important;
@@ -1309,6 +1310,7 @@ td {
   border-radius:  0 !important;
 }
 @media (max-width: 780px) {
+  #tiket img,
   #showtoasts img {
     width: 27.5px !important;
     height: 27.5px !important;
@@ -1326,7 +1328,7 @@ td {
 
 
 
-
+#tiket,
 #showtoasts {
   text-transform: capitalize !important;
   font-size: 28px !important;
@@ -1335,18 +1337,26 @@ td {
   font-weight: 700 !important;
   box-shadow: 0 0 0 2px rgba(255, 255, 255, 0.85) !important;
 }
+#tiket,
 #showtoasts {
   float: right !important;
   margin: 25px 75px !important;
 }
 
+#tiket {
+  margin: 15px 30px !important;
+  padding: 10px !important;
+  font-size: 25px !important;
+}
+
 @media (max-width: 570px) {
+  #tiket,
   #showtoasts {
     font-size: 23.5px !important;
     padding: 11.75px !important;
     letter-spacing: 1.6px !important;
   }
-
+  #tiket,
   #showtoasts {
     float: right !important;
     margin: 14px 21px !important;
@@ -1526,17 +1536,20 @@ td {
   color: #fff !important;
   font-size: 25px !important;
 }
+#uploadModal .modal-dialog,
 #exampleModal .modal-dialog,
 #vpnModal .modal-dialog {
   top: 7vh !important;
 }
 @media screen and (min-width: 1370px) {
+  #uploadModal .modal-dialog,
   #exampleModal .modal-dialog,
   #vpnModal .modal-dialog {
       top: 11vh !important;
   }
 }
 @media screen and (max-width: 1025px) {
+  #uploadModal .modal-dialog,
   #exampleModal .modal-dialog,
   #vpnModal .modal-dialog {
       top: 20vh !important;
@@ -1544,6 +1557,7 @@ td {
   }
 }
 @media screen and (max-width: 825px) {
+  #uploadModal .modal-dialog,
   #exampleModal .modal-dialog,
   #vpnModal .modal-dialog {
       top: 20vh !important;
@@ -1552,6 +1566,7 @@ td {
 }
 
 @media screen and (max-width: 570px) {
+  #uploadModal .modal-dialog,
   #exampleModal .modal-dialog,
   #vpnModal .modal-dialog {
       top: 15vh !important;
@@ -1559,6 +1574,7 @@ td {
   }
 }
 @media screen and (max-width: 420px) {
+  #uploadModal .modal-dialog,
   #exampleModal .modal-dialog,
   #vpnModal .modal-dialog {
       top: 15vh !important;
@@ -1568,6 +1584,7 @@ td {
 
 
 @media screen and (max-width: 376px) {
+  #uploadModal .modal-dialog,
   #exampleModal .modal-dialog,
   #vpnModal .modal-dialog {
       top: 15vh !important;
@@ -1578,12 +1595,12 @@ td {
   display: grid;
   cursor: pointer !important;
 }
-
+#uploadModal .modal-dialog,
 #vpnModal .modal-dialog,
 #exampleModal .modal-dialog {
   background: transparent !important;
 }
-
+#uploadModal .modal-header,
 #vpnModal .modal-header,
 #exampleModal .modal-header {
   margin: 2px;
@@ -1591,18 +1608,18 @@ td {
   border-bottom: none;
 }
 
-
+#uploadModal .modal-header img,
 #vpnModal .modal-header img,
 #exampleModal .modal-header img {
   width: 70px;
 }
 
-
+#uploadModal .modal-header h4.modal-title,
 #vpnModal .modal-header h4.modal-title,
 #exampleModal .modal-header h4.modal-title {
   font-weight: 600;
 }
-
+#uploadModal .modal-header .close img,
 #vpnModal .modal-header .close img,
 #exampleModal .modal-header .close img {
   width: 30px;
@@ -1610,14 +1627,14 @@ td {
   border-radius: 50%;
   opacity: 1 !important;
 }
-
+#uploadModal .modal-footer,
 #vpnModal .modal-footer,
 #exampleModal .modal-footer {
   margin: 4px;
   border-top: none;
   padding: 0;
 }
-
+#uploadModal .modal-body,
 #vpnModal .modal-body,
 #exampleModal .modal-body {
   margin: 0;
@@ -1631,6 +1648,7 @@ td {
 
 @media screen and (min-width: 1025px) {
   .modal-dialog,
+  #uploadModal .modal-content,
   #vpnModal .modal-content,
   #exampleModal .modal-dialog {
       max-width: 28vw !important;
@@ -1639,6 +1657,7 @@ td {
 
 @media screen and (min-width: 1370px) {
   .modal-dialog,
+  #uploadModal .modal-content,
   #vpnModal .modal-content,
   #exampleModal .modal-dialog {
       max-width: 24.7vw !important;

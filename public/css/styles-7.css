@@ -246,7 +246,7 @@ blink {
 .owl-carousel .owl-nav button.owl-prev {
   border: 1.4px solid rgba(73, 192, 208, 1);
 }
-
+#uploadModal .modal-content,
 #vpnModal .modal-content,
 #profileModal .modal-content,
 #exampleModal .modal-content {
@@ -270,6 +270,7 @@ blink {
 .custom-file-label::after,
 .navbar-nav li.nav-small a,
 #showtoasts,
+#tiket,
 #copy-text,
 .money {
   background: rgb(216, 242, 245) !important;
@@ -285,7 +286,7 @@ blink {
 .account {
   border: 1.4px solid rgba(73, 192, 208, 0.3);
 }
-
+#uploadModal .modal-header .close img,
 #vpnModal .modal-header .close img,
 #exampleModal .modal-header .close img,
 .btn-remove {
@@ -326,6 +327,7 @@ span#uidz,
 span#uids {
     color: rgb(164, 224, 232) !important;
 }
+#tiket,
 #showtoasts {
   border: 2.2px solid rgba(73, 192, 208, 0.7);
 }

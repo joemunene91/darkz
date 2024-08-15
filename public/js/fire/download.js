@@ -94,7 +94,7 @@ auth.onAuthStateChanged(user => {
 		} else if(user.isAnonymous) {
 			theGuy = user.uid;
 
-			thePerson = `<hr class="hr-2"> ${theDevicez}, ${locationZ}`;
+			thePerson = `<hr class="hr-2"> ${theDevicez} ${locationZ}`;
 			emailP.innerHTML = ` 
 				Bank logs will be saved to: <br>
 				<span id="mail-span">${theDevicez2}</span>
