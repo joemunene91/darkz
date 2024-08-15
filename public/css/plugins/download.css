@@ -831,12 +831,31 @@ td.burro {
     padding: 7px !important;
     text-transform: uppercase !important;
     letter-spacing: 0.7px !important;
-    font-size: 21.5px !important;
+    font-size: 21.2px !important;
     font-weight: 600;
     margin-bottom: 14px !important;
     width: 100% !important;
     border-radius: 0 !important;
     margin-top: 10px !important;
+}
+@media screen and (max-width: 768px) {
+  .custom-file-label {
+    position: absolute;
+    top: 0;
+    right: 0;
+    left: 0;
+    z-index: 1;
+    height: 42.3px !important;
+    padding: 7px !important;
+    text-transform: uppercase !important;
+    letter-spacing: 0.7px !important;
+    font-size: 21px !important;
+    font-weight: 600;
+    margin-bottom: 14px !important;
+    width: 100% !important;
+    border-radius: 0 !important;
+    margin-top: 10px !important;
+}
 }
 .custom-file-label::after {
     position: absolute;
