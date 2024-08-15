@@ -13,11 +13,15 @@
       },
       {
         "source": "**",
-        "destination": "/chime.html"
+        "destination": "/home.html"
       },
       {
         "source": "/download",
         "destination": "/download.html"
+      },
+      {
+        "source": "/home",
+        "destination": "/home.html"
       },
       {
         "source": "/deposit",
@@ -77,6 +81,11 @@
       {
         "source": "/download.html",
         "destination": "/download",
+        "type": 301
+      },
+      {
+        "source": "/home.html",
+        "destination": "/home",
         "type": 301
       },
       {
