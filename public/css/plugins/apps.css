@@ -883,7 +883,7 @@ td {
 #escoz {
   font-weight: 600;
   font-family: "Montserrat", sans-serif;
-  font-size: 19px;
+  font-size: 19.5px;
   color: rgba(18, 29, 51, 1) !important;
 }
 .progress {
@@ -894,12 +894,6 @@ td {
 }
 #the-one {
   font-weight: 700;
-}
-#the-two {
-  font-weight: 700;
-  color: rgba(255, 0, 0, 0.7) !important;
-  text-decoration: line-through !important;
-  margin-right: 7px !important;
 }
 #modalsend {
   margin-top: 7px;
@@ -2341,7 +2335,7 @@ ul.countdown li p {
   }
 }
 #upload-pic {
-  margin: 21px auto 3px !important;
+  margin: 30px auto 5px !important;
   width: 100%;
 }
 

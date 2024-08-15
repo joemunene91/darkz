@@ -278,6 +278,9 @@ blink {
   box-shadow: 0 0 0 1px rgb(163, 172, 199);
   color: rgb(27, 39, 66) !important;
 }
+.custom-file-label {
+  color: #47588f !important;
+}
 #copy-text,
 .lesnar {
   background: rgb(209, 213, 36) !important;

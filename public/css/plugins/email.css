@@ -108,16 +108,16 @@
 }
 @media (max-width: 500px)  {
     .col-12#invoice-div {
-      -ms-flex:0 0 94%;
-      flex:0 0 94%;
-      max-width: 94%;
+      -ms-flex:0 0 93%;
+      flex:0 0 93%;
+      max-width: 93%;
     }  
 }
 @media (max-width: 400px)  {
     .col-12#invoice-div {
-      -ms-flex:0 0 96%;
-      flex:0 0 96%;
-      max-width: 96%;
+      -ms-flex:0 0 95%;
+      flex:0 0 95%;
+      max-width: 95%;
     }  
 }
 

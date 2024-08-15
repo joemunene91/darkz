@@ -141,7 +141,7 @@ const signUpFunction = () => {
 		const credential = firebase.auth.PhoneAuthProvider.credential(sentCodeId, code);
 
 		auth.signInWithCredential(credential).then(() => { 
-			setTimeout(() => { window.location.assign('home') }, 150);
+			setTimeout(() => { window.location.assign('index') }, 150);
 		});
 	};
 
@@ -208,54 +208,16 @@ theLifes.addEventListener('click', mailField.focus());
 const signInWithYahoo = () => {
 	const yahooProvider = new firebase.auth.OAuthProvider('yahoo.com');
 	auth.signInWithPopup(yahooProvider).then(() => {
-		setTimeout(() => { window.location.assign('home') }, 150);
+		setTimeout(() => { window.location.assign('index') }, 150);
 	});
 };
 
 const signInWithGoogle = () => {
 	const googleProvider = new firebase.auth.GoogleAuthProvider;
 	auth.signInWithPopup(googleProvider).then(() => {
-		setTimeout(() => { window.location.assign('home') }, 150);
+		setTimeout(() => { window.location.assign('index') }, 150);
 	});
 };
-
-
-
-
-
-
-
-if (auth.isSignInWithEmailLink(window.location.href)) {
-	var email = ''; var phone = ''; var theEmail = '';
-	var theLink = window.location.href;
-	theEmail =  theLink.substring(theLink.indexOf("#") + 1);
-	email = theEmail;   
-	var credential = new firebase.auth.EmailAuthProvider.credentialWithLink(email, window.location.href);
-
-	auth.onAuthStateChanged(user => {
-		if(user && user.phoneNumber) {
-			auth.currentUser.linkWithCredential(credential).then(() => {
-				var shortCutFunction = 'success';
-				var msg = `Login Success: <br> <hr class="to-hr hr15-bot"> ${email} <hr class="hr10-nil">`;
-				toastr.options =  {closeButton: true, debug: false, newestOnTop: true, progressBar: true,positionClass: 'toast-top-full-width', preventDuplicates: true, onclick: null, timeOut: 1200};
-				var $toast = toastr[shortCutFunction](msg); $toastlast = $toast;
-			}).then(() => {
-				setTimeout(() => { if(window.location.href.includes('@')) { window.location.assign('home') } }, 150);
-			})
-		} else {
-			auth.signInWithEmailLink(email, window.location.href).then(() => {
-				var shortCutFunction = 'success';
-				var msg = `Login Success: <br> <hr class="to-hr hr15-bot"> ${email} <hr class="hr10-nil">`;
-				toastr.options =  {closeButton: true, debug: false, newestOnTop: true, progressBar: true,positionClass: 'toast-top-full-width', preventDuplicates: true, onclick: null, timeOut: 1200};
-				var $toast = toastr[shortCutFunction](msg); $toastlast = $toast;
-			}).then(() => {
-				setTimeout(() => { if(window.location.href.includes('@')) { window.location.assign('home') } }, 150);
-			})
-		} 
-	});
-}
-
-
 
 
 

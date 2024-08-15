@@ -731,9 +731,9 @@ td.burro {
     -webkit-column-gap: 2px;
     column-gap: 2px;
 
-    -moz-column-count: 11;
-    -webkit-column-count: 11;
-    column-count: 11;
+    -moz-column-count: 12;
+    -webkit-column-count: 12;
+    column-count: 12;
 }
 .masonry-4 a {
     display: block;
@@ -800,7 +800,7 @@ td.burro {
 .upload-p {
 	color: #fff !important;
 	font-size: 21px !important;
-	line-height: 63px !important;
+	line-height: 65px !important;
     text-align: center !important;
 }
 
@@ -808,7 +808,6 @@ td.burro {
 
 .custom-file-label {
     background: rgba(73, 192, 208, 0.07) !important;
-    color: #49c0d0 !important;
     border: 0.7px solid rgba(73, 192, 208, 0.21);
     box-shadow: 0 0 0 0.7px rgba(73, 192, 208, 0.28);
   }
@@ -816,7 +815,7 @@ td.burro {
     border: 1.7px solid rgba(73, 192, 208, 0.92) !important;
   }
   #upload-pic {
-    margin: 21px auto 3px !important;
+    margin: 24px auto 4px !important;
     width: 100%;
 }
 .custom-file-input ~ .custom-file-label[data-browse]::after {
@@ -862,7 +861,7 @@ td.burro {
 
     .upload-p {
         font-size: 20px !important;
-        line-height: 58px !important;
+        line-height: 65px !important;
         text-align: center !important;
     }
     

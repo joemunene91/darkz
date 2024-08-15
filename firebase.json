@@ -40,10 +40,6 @@
         "destination": "/citi.html"
       },
       {
-        "source": "/home",
-        "destination": "/home.html"
-      },
-      {
         "source": "/huntington",
         "destination": "/huntington.html"
       },
@@ -64,10 +60,6 @@
         "destination": "/wellsfargo.html"
       },
       {
-        "source": "/invoice",
-        "destination": "/invoice.html"
-      },
-      {
         "source": "/woodforest",
         "destination": "/woodforest.html"
       }
@@ -81,11 +73,6 @@
       {
         "source": "/download.html",
         "destination": "/download",
-        "type": 301
-      },
-      {
-        "source": "/invoice.html",
-        "destination": "/invoice",
         "type": 301
       },
       {
@@ -116,11 +103,6 @@
       {
         "source": "/citi.html",
         "destination": "/citi",
-        "type": 301
-      },
-      {
-        "source": "/home.html",
-        "destination": "/home",
         "type": 301
       },
       {
