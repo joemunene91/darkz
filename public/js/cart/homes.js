@@ -44,13 +44,8 @@ if(localStorage.getItem('banklogs') && ((JSON.parse(localStorage.getItem('banklo
         button.addEventListener('click', removeCartItem)
     }
     updateCartTotal();
-
-    document.getElementById('vpn').setAttribute('data-bs-target', '#profileModal');
-
-    // document.getElementById('charv').classList.remove('sm-display-none');
 } else {
     document.getElementById('cartlength').style.display = 'none';
-    document.getElementById('vpn').style.display = 'none';
 
     showingToast.removeAttribute('onclick');
     showingToast.addEventListener('click', showThis);
