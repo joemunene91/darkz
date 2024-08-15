@@ -30,26 +30,26 @@
     width: 100% !important;
 }
 #invoice-div {
-    margin-top: 1vh;
+    margin-top: 12vh;
 }
 @media screen and (min-width: 1370px) {
     #invoice-div {
-        margin-top: 3vh;
+        margin-top: 15vh;
     }
 }
 @media screen and (max-width: 821px) {
     #invoice-div {
-        margin-top: 5vh;
+        margin-top: 15vh;
     }
 }
 @media screen and (max-width: 500px) {
     #invoice-div {
-        margin-top: 7vh;
+        margin-top: 13vh;
     }
 }
 @media screen and (max-width: 400px) {
     #invoice-div {
-        margin-top: 5vh;
+        margin-top: 11vh;
     }
 }
 
@@ -220,12 +220,4 @@
         letter-spacing: 1.5px !important;  
     }
 }
-
-@media screen and (max-width: 821px) {
-    #clients {
-        position: fixed !important;
-        bottom: 3px !important;
-    }
-}
-
 
