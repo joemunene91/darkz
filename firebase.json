@@ -12,10 +12,6 @@
         "destination": "/index.html"
       },
       {
-        "source": "**",
-        "destination": "/home.html"
-      },
-      {
         "source": "/download",
         "destination": "/download.html"
       },
