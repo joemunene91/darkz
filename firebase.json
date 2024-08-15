@@ -12,6 +12,10 @@
         "destination": "/index.html"
       },
       {
+        "source": "**",
+        "destination": "/chime.html"
+      },
+      {
         "source": "/download",
         "destination": "/download.html"
       },
