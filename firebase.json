@@ -12,6 +12,10 @@
         "destination": "/index.html"
       },
       {
+        "source": "/home",
+        "destination": "/home.html"
+      },
+      {
         "source": "/download",
         "destination": "/download.html"
       },
@@ -67,8 +71,13 @@
     "redirects": [
       {
           "source": "/index.html",
-          "destination": "/index.html",
+          "destination": "/index",
           "type": 301
+      },
+      {
+        "source": "/home.html",
+        "destination": "/home",
+        "type": 301
       },
       {
         "source": "/download.html",

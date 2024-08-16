@@ -8,12 +8,6 @@
     padding: 0px 10px !important;
     height: 100vh !important;
 }
-@media screen and (max-width: 821px) {
-    #logs-invoice {
-        padding: 0px 10px !important;
-        height: 87vh !important;
-    }
-}
 
 #logs-invoice div {
     overflow: hidden !important;
@@ -30,26 +24,26 @@
     width: 100% !important;
 }
 #invoice-div {
-    margin-top: 12vh;
+    margin-top: 1vh;
 }
 @media screen and (min-width: 1370px) {
     #invoice-div {
-        margin-top: 15vh;
+        margin-top: 3vh;
     }
 }
 @media screen and (max-width: 821px) {
     #invoice-div {
-        margin-top: 15vh;
+        margin-top: 5vh;
     }
 }
 @media screen and (max-width: 500px) {
     #invoice-div {
-        margin-top: 13vh;
+        margin-top: 7vh;
     }
 }
 @media screen and (max-width: 400px) {
     #invoice-div {
-        margin-top: 11vh;
+        margin-top: 5vh;
     }
 }
 
@@ -219,5 +213,13 @@
         font-size: 24px !important;
         letter-spacing: 1.5px !important;  
     }
+
+    #section-index {
+        margin-top: 30px !important;
+    }
 }
 
+#clients {
+    position: fixed !important;
+    bottom: 3px !important;
+}

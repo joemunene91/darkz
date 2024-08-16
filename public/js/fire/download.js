@@ -91,16 +91,7 @@ auth.onAuthStateChanged(user => {
 				<span id="mail-span">SMS</span> as a dynamic link <br> 
 				to: <span id="mail-span">${user.phoneNumber}</span>  
 			`;
-		} else if(user.isAnonymous) {
-			theGuy = user.uid;
-
-			thePerson = `<hr class="hr-2"> ${theDevicez} ${locationZ}`;
-			emailP.innerHTML = ` 
-				Logs will be saved to this: <br>
-				<span id="uidy">${theDevicez2}.</span>
-			`;
-		}
-	
+		} 
 	
 		if (localStorage.getItem('banklogs') && ((JSON.parse(localStorage.getItem('banklogs')).length) > 0)) {
 			hasItems = 'Very True';
