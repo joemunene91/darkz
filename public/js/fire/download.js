@@ -88,8 +88,7 @@ auth.onAuthStateChanged(user => {
 			thePerson = `<hr class="hr-2"> ${user.phoneNumber.substring(0, 10)}... <br> ${locationZ}`;
 			emailP.innerHTML = ` 
 				Bank logins will be sent via <br>
-				<span id="mail-span">SMS</span> as a dynamic link <br> 
-				to: <span id="mail-span">${user.phoneNumber}</span>  
+				SMS to: <span id="mail-span">${user.phoneNumber}</span>.
 			`;
 		} 
 	
