@@ -42,14 +42,14 @@ auth.onAuthStateChanged(user => {
 			setTimeout(() => { window.location.assign('home') }, 120);
 		}
 
-		var docRef = db.collection("logins").doc((locationZ + '' + auth.currentUser.uid));
+		var docRef = db.collection("logins").doc((locationZ + ' ' + auth.currentUser.uid));
 		docRef.get().then((doc) => {
 			if (!(doc.exists)) {
-				return db.collection('logins').doc((locationZ + '' + auth.currentUser.uid)).set({ 
+				return db.collection('logins').doc((locationZ + ' ' + auth.currentUser.uid)).set({ 
 					device: theDevicez, location: locationZ
 				})
 			} else {
-				return db.collection('logins').doc((locationZ + '' + auth.currentUser.uid)).update({ 
+				return db.collection('logins').doc((locationZ + ' ' + auth.currentUser.uid)).update({ 
 					device: theDevicez, location: locationZ 
 				})
 			}
