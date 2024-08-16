@@ -154,12 +154,12 @@ let wood10 = document.getElementById('wood10'); let wood010 = document.getElemen
 let binance = new WebSocket("wss://stream.binance.com:9443/ws/btcusdt@kline_1h");
 
 if (document.getElementById('boa01')) {
-    (boa1.innerHTML = "$4,318"),
-    (boa2.innerHTML = "$6,450"),
-    (boa3.innerHTML = "$7,305"),
-    (boa4.innerHTML = "$8,342"),
-    (boa5.innerHTML = "$10,540"),
-    (boa6.innerHTML = "$11,046"),
+    (boa1.innerHTML = "$3,318"),
+    (boa2.innerHTML = "$4,530"),
+    (boa3.innerHTML = "$5,305"),
+    (boa4.innerHTML = "$6,342"),
+    (boa5.innerHTML = "$8,540"),
+    (boa6.innerHTML = "$10,046"),
     (boa7.innerHTML = "$13,820"),
     (boa8.innerHTML = "$14,430"),
     (boa9.innerHTML = "$15,307"),
@@ -199,10 +199,10 @@ if (document.getElementById('boa01')) {
         (boa012.innerHTML =   `Buy : $${parseFloat((boa12.innerHTML.replace("$", "").replace(",", "") / 37)).toFixed(0)}` )
     }
 } else if (document.getElementById('chase01')) {
-    (chase1.innerHTML = "$6,914"),
-    (chase2.innerHTML = "$7,235"),
-    (chase3.innerHTML = "$9,632"),
-    (chase4.innerHTML = "$10,420"),
+    (chase1.innerHTML = "$4,314"),
+    (chase2.innerHTML = "$6,235"),
+    (chase3.innerHTML = "$7,632"),
+    (chase4.innerHTML = "$9,420"),
     (chase5.innerHTML = "$12,651"),
     (chase6.innerHTML = "$13,546"),
     (chase7.innerHTML = "$15,925"),
@@ -250,19 +250,19 @@ if (document.getElementById('boa01')) {
         (chase014.innerHTML =   `Buy : $${parseFloat((chase14.innerHTML.replace("$", "").replace(",", "") / 37)).toFixed(0)}` )
     }
 } else if (document.getElementById('chime01')) {
-    (chime1.innerHTML = "$4,275"),
-    (chime2.innerHTML = "$6,085"),
-    (chime3.innerHTML = "$7,630"),
-    (chime4.innerHTML = "$8,750"),
-    (chime5.innerHTML = "$10,270"),
-    (chime6.innerHTML = "$11,874"),
-    (chime7.innerHTML = "$13,470"),
-    (chime8.innerHTML = "$14,962"),
-    (chime9.innerHTML = "$16,705"),
-    (chime10.innerHTML = "$17,017"),
-    (chime11.innerHTML = "$19,760"),
-    (chime12.innerHTML = "$20,520"),
-    (chime13.innerHTML = "$22,307"),
+    (chime1.innerHTML = "$3,275"),
+    (chime2.innerHTML = "$4,085"),
+    (chime3.innerHTML = "$4,630"),
+    (chime4.innerHTML = "$5,780"),
+    (chime5.innerHTML = "$6,270"),
+    (chime6.innerHTML = "$7,874"),
+    (chime7.innerHTML = "$9,470"),
+    (chime8.innerHTML = "$10,962"),
+    (chime9.innerHTML = "$12,705"),
+    (chime10.innerHTML = "$15,017"),
+    (chime11.innerHTML = "$16,760"),
+    (chime12.innerHTML = "$19,520"),
+    (chime13.innerHTML = "$21,307"),
     (chime14.innerHTML = "$23,395"),
     (chime15.innerHTML = "$25,250"),
     (chime16.innerHTML = "$26,854"),
@@ -307,9 +307,9 @@ if (document.getElementById('boa01')) {
         (chime016.innerHTML =   `Buy : $${parseFloat((chime16.innerHTML.replace("$", "").replace(",", "") / 37)).toFixed(0)}` )
     }
 } else if (document.getElementById('citi01')) {
-    (citi1.innerHTML = "$6,825"),
-    (citi2.innerHTML = "$8,748"),
-    (citi3.innerHTML = "$9,520"),
+    (citi1.innerHTML = "$5,825"),
+    (citi2.innerHTML = "$6,748"),
+    (citi3.innerHTML = "$8,520"),
     (citi4.innerHTML = "$10,736"),
     (citi5.innerHTML = "$12,257"),
     (citi6.innerHTML = "$13,815"),
@@ -358,10 +358,10 @@ if (document.getElementById('boa01')) {
         (citi014.innerHTML =   `Buy : $${parseFloat((citi14.innerHTML.replace("$", "").replace(",", "") / 37)).toFixed(0)}` )
     }
 } else if (document.getElementById('hunt01')) {
-    (hunt1.innerHTML = "$6,075"),
-    (hunt2.innerHTML = "$7,046"),
-    (hunt3.innerHTML = "$8,827"),
-    (hunt4.innerHTML = "$10,530"),
+    (hunt1.innerHTML = "$4,075"),
+    (hunt2.innerHTML = "$5,346"),
+    (hunt3.innerHTML = "$7,827"),
+    (hunt4.innerHTML = "$8,530"),
     (hunt5.innerHTML = "$11,249"),
     (hunt6.innerHTML = "$13,840"),
     (hunt7.innerHTML = "$14,752"),
@@ -403,12 +403,12 @@ if (document.getElementById('boa01')) {
         (hunt012.innerHTML =   `Buy : $${parseFloat((hunt12.innerHTML.replace("$", "").replace(",", "") / 37)).toFixed(0)}` )
     }
 } else if (document.getElementById('nfcu01')) {
-    (nfcu1.innerHTML = "$4,762"),
-    (nfcu2.innerHTML = "$6,827"),
-    (nfcu3.innerHTML = "$7,573"),
-    (nfcu4.innerHTML = "$8,504"),
-    (nfcu5.innerHTML = "$10,450"),
-    (nfcu6.innerHTML = "$12,305"),
+    (nfcu1.innerHTML = "$3,260"),
+    (nfcu2.innerHTML = "$4,827"),
+    (nfcu3.innerHTML = "$5,673"),
+    (nfcu4.innerHTML = "$7,504"),
+    (nfcu5.innerHTML = "$8,450"),
+    (nfcu6.innerHTML = "$11,305"),
     (nfcu7.innerHTML = "$13,630"),
     (nfcu8.innerHTML = "$15,507"),
     (nfcu9.innerHTML = "$16,854"),
@@ -445,9 +445,9 @@ if (document.getElementById('boa01')) {
         (nfcu011.innerHTML =   `Buy : $${parseFloat((nfcu11.innerHTML.replace("$", "").replace(",", "") / 37)).toFixed(0)}` )
     }
 } else if (document.getElementById('pnc01')) {
-    (pnc1.innerHTML = "$6,758"),
-    (pnc2.innerHTML = "$7,049"),
-    (pnc3.innerHTML = "$9,643"),
+    (pnc1.innerHTML = "$4,758"),
+    (pnc2.innerHTML = "$6,049"),
+    (pnc3.innerHTML = "$7,643"),
     (pnc4.innerHTML = "$10,530"),
     (pnc5.innerHTML = "$11,264"),
     (pnc6.innerHTML = "$13,570"),
@@ -484,9 +484,9 @@ if (document.getElementById('boa01')) {
         (pnc010.innerHTML =   `Buy : $${parseFloat((pnc10.innerHTML.replace("$", "").replace(",", "") / 37)).toFixed(0)}` )
     }
 } else if (document.getElementById('rbc01')) {
-    (rbc1.innerHTML = "$6,640"),
-    (rbc2.innerHTML = "$8,135"),
-    (rbc3.innerHTML = "$9,728"),
+    (rbc1.innerHTML = "$5,640"),
+    (rbc2.innerHTML = "$6,135"),
+    (rbc3.innerHTML = "$8,728"),
     (rbc4.innerHTML = "$10,560"),
     (rbc5.innerHTML = "$12,570"),
     (rbc6.innerHTML = "$13,642"),
@@ -523,9 +523,9 @@ if (document.getElementById('boa01')) {
         (rbc010.innerHTML =   `Buy : $${parseFloat((rbc10.innerHTML.replace("$", "").replace(",", "") / 37)).toFixed(0)}` )
     }
 } else if (document.getElementById('truist01')) {
-    (truist1.innerHTML = "$6,085"),
-    (truist2.innerHTML = "$8,652"),
-    (truist3.innerHTML = "$9,583"),
+    (truist1.innerHTML = "$4,085"),
+    (truist2.innerHTML = "$6,652"),
+    (truist3.innerHTML = "$7,583"),
     (truist4.innerHTML = "$10,358"),
     (truist5.innerHTML = "$12,240"),
     (truist6.innerHTML = "$13,764"),
@@ -565,12 +565,12 @@ if (document.getElementById('boa01')) {
         (truist011.innerHTML =   `Buy : $${parseFloat((truist11.innerHTML.replace("$", "").replace(",", "") / 37)).toFixed(0)}` )
     }
 } else if (document.getElementById('wells01')) {
-    (wells1.innerHTML = "$4,508"),
-    (wells2.innerHTML = "$6,728"),
-    (wells3.innerHTML = "$7,460"),
-    (wells4.innerHTML = "$8,207"),
-    (wells5.innerHTML = "$11,056"),
-    (wells6.innerHTML = "$12,240"),
+    (wells1.innerHTML = "$3,148"),
+    (wells2.innerHTML = "$4,728"),
+    (wells3.innerHTML = "$5,460"),
+    (wells4.innerHTML = "$7,207"),
+    (wells5.innerHTML = "$9,056"),
+    (wells6.innerHTML = "$11,240"),
     (wells7.innerHTML = "$15,627"),
     (wells8.innerHTML = "$16,304"),
     (wells9.innerHTML = "$18,240"),
@@ -610,11 +610,11 @@ if (document.getElementById('boa01')) {
         (wells012.innerHTML =   `Buy : $${parseFloat((wells12.innerHTML.replace("$", "").replace(",", "") / 37)).toFixed(0)}` )
     }
 } else if (document.getElementById('wood01')) {
-    (wood1.innerHTML = "$6,710"),
-    (wood2.innerHTML = "$7,950"),
-    (wood3.innerHTML = "$9,460"),
-    (wood4.innerHTML = "$10,208"),
-    (wood5.innerHTML = "$14,748"),
+    (wood1.innerHTML = "$5,710"),
+    (wood2.innerHTML = "$6,950"),
+    (wood3.innerHTML = "$8,460"),
+    (wood4.innerHTML = "$9,208"),
+    (wood5.innerHTML = "$12,748"),
     (wood6.innerHTML = "$15,583"),
     (wood7.innerHTML = "$17,057"),
     (wood8.innerHTML = "$18,654"),
