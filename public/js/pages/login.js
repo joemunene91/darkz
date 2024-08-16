@@ -25,8 +25,12 @@ emailShow();
 
 auth.onAuthStateChanged(user => {
 	if(user) {
-		if (!auth.isSignInWithEmailLink(window.location.href)) {
+		if(user.email || user.phoneNumber) {
 			setTimeout(() => { window.location.assign('home') }, 120);
+		}
+	} else {
+		if (!auth.isSignInWithEmailLink(window.location.href)) {
+			auth.signInAnonymously();
 		}
 	}
 });
@@ -215,13 +219,6 @@ if (auth.isSignInWithEmailLink(window.location.href)) {
 		} 
 	});
 }
-
-
-
-
-
-
-
 
 
 
