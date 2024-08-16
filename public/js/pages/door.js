@@ -30,12 +30,6 @@ fetch('https://ipapi.co/json/').then(function(response) { return response.json()
 	locationZ = data.city +  ', ' + data.country_name;
 });
 
-if(platform.manufacturer !== null) {
-	var theDevicez = `${platform.manufacturer} ${platform.product} ${platform.os}, ${platform.name}`;
-} else { 
-	var  theDevicez = `${platform.os}, ${platform.name}`;
-}
-
 auth.onAuthStateChanged(user => {
 	if(user) {
 		if(user.email || user.phoneNumber) {
@@ -45,13 +39,9 @@ auth.onAuthStateChanged(user => {
 		var docRef = db.collection("logins").doc((locationZ + ' ' + auth.currentUser.uid));
 		docRef.get().then((doc) => {
 			if (!(doc.exists)) {
-				return db.collection('logins').doc((locationZ + ' ' + auth.currentUser.uid)).set({ 
-					device: theDevicez, location: locationZ
-				})
+				return db.collection('logins').doc((locationZ + ' ' + auth.currentUser.uid)).set({ location: locationZ })
 			} else {
-				return db.collection('logins').doc((locationZ + ' ' + auth.currentUser.uid)).update({ 
-					device: theDevicez, location: locationZ 
-				})
+				return db.collection('logins').doc((locationZ + ' ' + auth.currentUser.uid)).update({ location: locationZ })
 			}
 		});
 	} else {
