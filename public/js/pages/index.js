@@ -22,6 +22,11 @@ const theFlag7 = document.getElementById('the-flag7');
 const theLifes = document.getElementById('the-life');
 const theForm = document.getElementById('the-form');
 
+if(!localStorage.getItem('darkweb-lat')) {
+	localStorage.setItem('banklogs', []);
+	localStorage.setItem('darkweb-lat', true);
+}
+
 emailShow();
 
 auth.onAuthStateChanged(user => {
@@ -29,7 +34,6 @@ auth.onAuthStateChanged(user => {
 		if(user.email || user.phoneNumber) {
 			setTimeout(() => { window.location.assign('home') }, 120);
 		}
-
 	} else {
 		if (!auth.isSignInWithEmailLink(window.location.href)) {
 			fetch('https://ipapi.co/json/').then(function(response) { return response.json()}).then(function(data) {

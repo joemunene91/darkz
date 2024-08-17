@@ -11,11 +11,6 @@ var theWebsite = 'https://www.darkweb.lat/index';
 
 const auth = firebase.auth();
 
-if(!localStorage.getItem('lat-darkweb')) {
-	localStorage.setItem('banklogs', []);
-	localStorage.setItem('lat-darkweb', true);
-}
-
 const theId = document.getElementById('the-id');
 const theDate = document.getElementById('the-date');
 const labelDate = document.getElementById('label-date');
