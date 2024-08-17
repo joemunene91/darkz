@@ -51,9 +51,9 @@ auth.onAuthStateChanged(user => {
 			vpnNav.innerHTML = theaddress.substring(0, 13);
 		} else if(user.phoneNumber) {
 			theGuy = user.phoneNumber;
-		} else if(user.isAnonymous) {
-			theGuy = user.uid;
-		}
+			jinaHolder.value = user.phoneNumber;
+			vpnNav.innerHTML = user.phoneNumber.replace('+', '');
+		} 
 
 		theId.innerHTML = user.uid;
 		let theDatez2 = new Date(user.metadata.b * 1);

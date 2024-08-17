@@ -92,7 +92,7 @@ if(localStorage.getItem('banklogs')){
                 var price2 = items[i].price;
                 var balance3 = balance2.replace('Balance: ', '');
                 var price3 = price2.replace('Price: ', 'Save: ');
-                var cartItems3 = document.getElementsByClassName('xenon3')[0];
+                var cartItems3 = document.getElementsByClassName('xenon4')[0];
                 var cartRowContents3 = `
                     <div class="pricing-list highlight">
                         <div class="pricing-list-price">
@@ -115,7 +115,7 @@ if(localStorage.getItem('banklogs')){
                     </div>
                 `;
                 cartRow3.innerHTML = cartRowContents3;
-                cartItems3.prepend(cartRow3);
+                cartItems3.append(cartRow3);
             } else {
                 var cartRow3 = document.createElement('div');
                 cartRow3.classList.add('col-lg-3', 'col-xl-2', 'col-md-3', 'col-6');
@@ -123,7 +123,7 @@ if(localStorage.getItem('banklogs')){
                 var price2 = items[i].price;
                 var balance3 = balance2.replace('Balance: ', '');
                 var price3 = price2.replace('Price: ', 'Save: ');
-                var cartItems3 = document.getElementsByClassName('xenon3')[0];
+                var cartItems3 = document.getElementsByClassName('xenon4')[0];
                 var cartRowContents3 = `
                     <div class="pricing-list">
                         <div class="pricing-list-price">
@@ -146,7 +146,7 @@ if(localStorage.getItem('banklogs')){
                     </div>
                 `;
                 cartRow3.innerHTML = cartRowContents3;
-                cartItems3.prepend(cartRow3);
+                cartItems3.append(cartRow3);
     
             }    
         }

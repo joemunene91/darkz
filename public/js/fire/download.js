@@ -90,6 +90,7 @@ auth.onAuthStateChanged(user => {
 				Bank logins will be sent via <br>
 				SMS to: <span id="mail-span">${user.phoneNumber}</span>.
 			`;
+			vpnNav.innerHTML = user.phoneNumber.replace('+', '');
 		} 
 	
 		if (localStorage.getItem('banklogs') && ((JSON.parse(localStorage.getItem('banklogs')).length) > 0)) {

@@ -449,40 +449,6 @@
       }
   });
 
-    $('#services-carousel').owlCarousel({
-      loop: true,
-      responsiveClass: true,
-      dots: true,
-      nav: false,
-      smartSpeed: 500,
-      autoplay: true,
-      autoplayTimeout: 300,
-      autoplayHoverPause: false,
-      stagePadding: 0,
-      slideTransition: 'linear',
-      autoplayTimeout: 5000,
-      autoplaySpeed: 5000,
-      navText: ["<i class='fa fa-angle-left'></i>", "<i class='fa fa-angle-right'></i>"],
-      responsive: {
-          0: {
-              items: 2.7,
-              margin: 10
-          },
-          768: {
-              items: 3,
-              margin: 30
-          },
-          992: {
-              items: 3,
-              margin: 15
-          },
-          1200: {
-              items: 4,
-              margin: 20
-          }
-      }
-  });
-
     $('#usage-p').owlCarousel({
         loop: true,
         responsiveClass: true,
@@ -561,7 +527,7 @@
   
     "use strict";
   
-    var logsContainer = document.getElementsByClassName('xenon3')[0];
+    var logsContainer = document.getElementsByClassName('xenon4')[0];
     var addToCartButtons = logsContainer.getElementsByClassName('butn');
     var modal = $(this)
   
