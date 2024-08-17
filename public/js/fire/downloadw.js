@@ -70,20 +70,26 @@ auth.onAuthStateChanged(user => {
 			vpnNav.innerHTML = theaddress.substring(0, 13);
 
 			emailP.innerHTML = ` 
-				Bank log files will be sent <br>
-				via email as a link to: <br>
+				Bank logins will be sent to <br>
 				<span id="mail-span">${user.email}</span>.
 			`;
 		} else if(user.phoneNumber) {
 			theGuy = user.phoneNumber;
 			thePerson = `<hr class="hr-2"> ${user.phoneNumber.substring(0, 10)}... <br> ${locationZ}`;
 			emailP.innerHTML = ` 
-				Bank log files will be sent <br>
-				via SMS as a dynamic link <br>
-				to: <span id="mail-span" style="letter-spacing: 1.4px !important">${user.phoneNumber}</span>.
+				Bank logs will be sent via <br>
+				SMS to: <span id="mail-span" style="letter-spacing: 1px !important">${user.phoneNumber}</span>.
 			`;
 			vpnNav.innerHTML = user.phoneNumber.replace('+', '');
-		} 
+		} else {
+			theGuy = user.uid;
+			thePerson = `<hr class="hr-2"> User Not <br> Logged In`;
+			emailP.innerHTML = ` 
+				Bank log files can only be <br>
+				sent via <span id="mail-span">Email</span> or <span id="mail-span">SMS</span>.
+			`;
+			document.getElementById('anon-check').innerHTML = `Login Now <img src="img/partners/user.png">`;
+		}
 	
 		if (localStorage.getItem('banklogs') && ((JSON.parse(localStorage.getItem('banklogs')).length) > 0)) {
 			hasItems = 'Very True';

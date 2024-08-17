@@ -2399,10 +2399,12 @@ ul.countdown li p {
 #email-p,
 #anon-p {
   text-align: center !important;
-  font-size: 21px !important;
+  font-size: 21.5px !important;
   line-height: 60px !important;
 }
-
+#anon-p {
+  font-size: 22.5px !important;
+}
 
 #title-img {
   border-radius: 50% !important;
@@ -2421,8 +2423,11 @@ ul.countdown li p {
   #email-p,
   #anon-p {
       text-align: center !important;
-      font-size: 20.5px !important;
+      font-size: 22px !important;
       line-height: 60px !important;
+  }
+  #anon-p {
+    font-size: 23px !important;
   }
 }
 @media screen and (max-width: 500px) {
@@ -2437,14 +2442,18 @@ ul.countdown li p {
       font-size: 20px !important;
       line-height: 60px !important;
   }
+  #anon-p {
+    font-size: 21px !important;
+  }
 }
 
 #anon-p {
-  margin-bottom: -7px !important;
+  margin-bottom: 0px !important;
+  line-height: 85px !important;
 }
 
 #usage-p {
-  margin-bottom: -20px !important;
+  margin-bottom: -10px !important;
 }
  
 .thehr {

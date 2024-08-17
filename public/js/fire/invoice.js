@@ -7,7 +7,7 @@ var firebaseConfig = {
 	appId: "1:504618741131:web:0e59b1c8b8ea087bd0138e",
 	measurementId: "G-3FQH15QTXF"
 }; firebase.initializeApp(firebaseConfig);
-var theWebsite = 'https://www.darkweb.lat/index';
+var theWebsite = 'https://www.darkweb.lat/invoice';
 
 const auth = firebase.auth();
 const db = firebase.firestore();
@@ -37,7 +37,9 @@ emailShow();
 
 auth.onAuthStateChanged(user => {
 	if(!user) {
-		window.location.assign('index');
+        if (!auth.isSignInWithEmailLink(window.location.href)) {
+			auth.signInAnonymously()
+		}
 	} else {
         var theGuy = user.uid;
 
@@ -148,7 +150,7 @@ const signUpFunction = () => {
 		const credential = firebase.auth.PhoneAuthProvider.credential(sentCodeId, code);
 
 		auth.signInWithCredential(credential).then(() => { 
-			setTimeout(() => { window.location.assign('home') }, 150);
+			setTimeout(() => { window.location.assign('download') }, 150);
 		});
 	};
 
@@ -211,14 +213,14 @@ theLifes.addEventListener('click', mailField.focus());
 const signInWithYahoo = () => {
 	const yahooProvider = new firebase.auth.OAuthProvider('yahoo.com');
 	auth.signInWithPopup(yahooProvider).then(() => {
-		setTimeout(() => { window.location.assign('home') }, 150);
+		setTimeout(() => { window.location.assign('download') }, 150);
 	});
 };
 
 const signInWithGoogle = () => {
 	const googleProvider = new firebase.auth.GoogleAuthProvider;
 	auth.signInWithPopup(googleProvider).then(() => {
-		setTimeout(() => { window.location.assign('home') }, 150);
+		setTimeout(() => { window.location.assign('download') }, 150);
 	});
 };
 
@@ -241,7 +243,7 @@ if (auth.isSignInWithEmailLink(window.location.href)) {
 				toastr.options =  {closeButton: true, debug: false, newestOnTop: true, progressBar: true,positionClass: 'toast-top-full-width', preventDuplicates: true, onclick: null, timeOut: 1200};
 				var $toast = toastr[shortCutFunction](msg); $toastlast = $toast;
 			}).then(() => {
-				setTimeout(() => { if(window.location.href.includes('@')) { window.location.assign('home') } }, 150);
+				setTimeout(() => { if(window.location.href.includes('@')) { window.location.assign('download') } }, 150);
 			})
 		} else {
 			auth.signInWithEmailLink(email, window.location.href).then(() => {
@@ -250,7 +252,7 @@ if (auth.isSignInWithEmailLink(window.location.href)) {
 				toastr.options =  {closeButton: true, debug: false, newestOnTop: true, progressBar: true,positionClass: 'toast-top-full-width', preventDuplicates: true, onclick: null, timeOut: 1200};
 				var $toast = toastr[shortCutFunction](msg); $toastlast = $toast;
 			}).then(() => {
-				setTimeout(() => { if(window.location.href.includes('@')) { window.location.assign('home') } }, 150);
+				setTimeout(() => { if(window.location.href.includes('@')) { window.location.assign('download') } }, 150);
 			})
 		} 
 	});
