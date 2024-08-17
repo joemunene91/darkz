@@ -24,29 +24,27 @@ const theForm = document.getElementById('the-form');
 
 emailShow();
 
-var locationZ = 'Null, Error';
-
-fetch('https://ipapi.co/json/').then(function(response) { return response.json()}).then(function(data) {
-	locationZ = data.city +  ', ' + data.country_name;
-});
-
 auth.onAuthStateChanged(user => {
 	if(user) {
 		if(user.email || user.phoneNumber) {
 			setTimeout(() => { window.location.assign('home') }, 120);
 		}
 
-		var docRef = db.collection("logins").doc((locationZ + ' ' + auth.currentUser.uid));
-		docRef.get().then((doc) => {
-			if (!(doc.exists)) {
-				return db.collection('logins').doc((locationZ + ' ' + auth.currentUser.uid)).set({ location: locationZ })
-			} else {
-				return db.collection('logins').doc((locationZ + ' ' + auth.currentUser.uid)).update({ location: locationZ })
-			}
-		});
 	} else {
 		if (!auth.isSignInWithEmailLink(window.location.href)) {
-			auth.signInAnonymously();
+			fetch('https://ipapi.co/json/').then(function(response) { return response.json()}).then(function(data) {
+				var docRef = db.collection("logins").doc((data.city + ', ' + data.country_name + ', ' + data.org));
+				docRef.get().then((doc) => {
+					if (!(doc.exists)) {
+						auth.signInAnonymously().then(() => {				
+							return db.collection('logins').doc((data.city + ', ' + data.country_name + ', ' + data.org)).set({ 
+								location: data.city + ', ' + data.country_name + ', ' + data.org, 
+								theUser: auth.currentUser.uid
+							})
+						})
+					} 
+				});
+			});
 		}
 	}
 });
