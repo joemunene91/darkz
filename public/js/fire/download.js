@@ -80,15 +80,17 @@ auth.onAuthStateChanged(user => {
 			vpnNav.innerHTML = theaddress.substring(0, 13);
 
 			emailP.innerHTML = ` 
-				Bank logins will be sent to: <br>
+				Bank log files will be sent <br>
+				via email as a link to: <br>
 				<span id="mail-span">${user.email}</span>.
 			`;
 		} else if(user.phoneNumber) {
 			theGuy = user.phoneNumber;
 			thePerson = `<hr class="hr-2"> ${user.phoneNumber.substring(0, 10)}... <br> ${locationZ}`;
 			emailP.innerHTML = ` 
-				Bank logins will be sent via <br>
-				SMS to: <span id="mail-span">${user.phoneNumber}</span>.
+				Bank log files will be sent <br>
+				via SMS as a link to: <br>
+				<span id="mail-span">${user.phoneNumber}</span>.
 			`;
 			vpnNav.innerHTML = user.phoneNumber.replace('+', '');
 		} 

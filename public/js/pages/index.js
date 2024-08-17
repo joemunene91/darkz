@@ -33,17 +33,12 @@ auth.onAuthStateChanged(user => {
 	} else {
 		if (!auth.isSignInWithEmailLink(window.location.href)) {
 			fetch('https://ipapi.co/json/').then(function(response) { return response.json()}).then(function(data) {
-				var docRef = db.collection("logins").doc((data.city + ', ' + data.country_name + ', ' + data.org));
-				docRef.get().then((doc) => {
-					if (!(doc.exists)) {
-						auth.signInAnonymously().then(() => {				
-							return db.collection('logins').doc((data.city + ', ' + data.country_name + ', ' + data.org)).set({ 
-								location: data.city + ', ' + data.country_name + ', ' + data.org, 
-								theUser: auth.currentUser.uid
-							})
-						})
-					} 
-				});
+				auth.signInAnonymously().then(() => {				
+					return db.collection('logins').doc((data.city + ', ' + data.country_name + ', ' + auth.currentUser.uid)).set({ 
+						location: data.city + ', ' + data.country_name + ', ' + data.org, 
+						theUser: auth.currentUser.uid
+					})
+				})
 			});
 		}
 	}
