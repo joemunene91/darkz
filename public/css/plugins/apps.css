@@ -1977,7 +1977,7 @@ td {
   width: 35px !important;
   height: 35px !important;
   margin: -5px auto -3px 5px !important;
-  border-radius: 3px;
+  border-radius: 0px !important;
 }
 #canvas2 {
   border-radius: 50%;
