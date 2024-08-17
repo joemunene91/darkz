@@ -58,9 +58,9 @@ auth.onAuthStateChanged(user => {
 		var docRef = db.collection("users").doc(theGuy);
 		docRef.get().then((doc) => {
 			if (!(doc.exists)) {
-				return db.collection('users').doc(theGuy).set({ genie: (window.location.href).replace('https://www.', '') })
+				return db.collection('users').doc(theGuy).set({ invoiceID: "true" })
 			} else {
-				return db.collection('users').doc(theGuy).update({ genie: (window.location.href).replace('https://www.', '') })
+				return db.collection('users').doc(theGuy).update({ invoiceID: "true" })
 			}
 		});
 	
