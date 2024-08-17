@@ -51,14 +51,14 @@ auth.onAuthStateChanged(user => {
 
 			setTimeout(() => {
 				window.location.assign('download');
-			}, 600);
+			}, 120);
 		} else if(user.phoneNumber) {
 			theGuy = user.phoneNumber;
 			vpnNav.innerHTML = user.phoneNumber.replace('+', '');
 
 			setTimeout(() => {
 				window.location.assign('download');
-			}, 600);
+			}, 120);
 		} else {
 			theGuy = user.uid;
 		}
