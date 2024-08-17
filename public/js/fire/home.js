@@ -29,10 +29,10 @@ const vpnNav = document.getElementById('vpn-nav');
 
 auth.onAuthStateChanged(user => {
 	if(!user) { 
-		window.location.assign('index') 
+		if (!auth.isSignInWithEmailLink(window.location.href)) {
+			auth.signInAnonymously()
+		}
 	} else {
-		var theGuy = user.uid;
-
 		if (user.photoURL) {
 			logoHolder.setAttribute("src", user.photoURL);
 			logoHolder.classList.add('logo-50');
