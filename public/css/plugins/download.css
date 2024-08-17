@@ -21,17 +21,11 @@
       margin-top: 85px;
   }
 }
-.xenon3 {
-  margin: 0 -20px !important;
+@media screen and (min-width: 826px) {
+  .xenon4 div.col-lg-3 {
+    margin-top: 50px !important;
+  }  
 }
-
-
-
-section#logsection2 .dataTables_wrapper .dataTables_paginate,
-section#logsection2 .dataTables_wrapper dataTables_length {
-  display: block;
-}
-
 
 .thehr.thero {
   opacity: 0.375 !important;
@@ -281,30 +275,7 @@ blink {
 }
 
 
-@media (max-width: 500px) {
-  .col-11-7 {
-    -ms-flex:0 0 97%;
-    flex:0 0 97%;
-    max-width:97%;
-    margin-top: 30px !important;
-  }  
-  
-}
-
-.col-120 {
-  -ms-flex:0 0 110%;
-  flex:0 0 110%;
-  max-width: 110%;
-}  
-
 @media (min-width: 1092px) {
-  .col-lg-34 {
-    -ms-flex: 0 0 30%;
-    flex: 0 0 30%;
-    max-width: 30%;
-    margin: 5px auto !important;
-  }
-
   .col-xl-2 {
   -ms-flex: 0 0 16.3%;
   flex: 0 0 16.3%;
@@ -474,13 +445,6 @@ padding: 6px 0 !important;
 }
 
 @media (min-width: 900px) {
-  .col-lg-65 {
-      -ms-flex:0 0 68%;
-      flex:0 0 68%;
-      max-width: 68%;
-  }  
-
-
   .col-lg-53 {
     -ms-flex:0 0 40%;
     flex:0 0 40%;
@@ -491,26 +455,7 @@ padding: 6px 0 !important;
     -ms-flex:0 0 30%;
     flex:0 0 30%;
     max-width: 30%;
-  }  
-
-  .col-lg-45 {
-      -ms-flex:0 0 30%;
-      flex:0 0 30%;
-      max-width: 30%;
-  }  
-
-  
-  .col-lg-79 {
-    -ms-flex:0 0 70%;
-    flex:0 0 70%;
-    max-width: 70%;
-  }  
-
-  .col-lg-81 {
-    -ms-flex:0 0 74%;
-    flex:0 0 74%;
-    max-width: 74%;
-  }  
+  } 
 
   .col-lg-41 {
       -ms-flex:0 0 26%;
@@ -731,9 +676,9 @@ td.burro {
     -webkit-column-gap: 2px;
     column-gap: 2px;
 
-    -moz-column-count: 12;
-    -webkit-column-count: 12;
-    column-count: 12;
+    -moz-column-count: 13;
+    -webkit-column-count: 13;
+    column-count: 13;
 }
 .masonry-4 a {
     display: block;
@@ -745,9 +690,9 @@ td.burro {
 
 @media screen and (min-width: 768px) {
     .masonry-4 {
-        -moz-column-count: 14;
-        -webkit-column-count: 14;
-        column-count: 14;
+        -moz-column-count: 13;
+        -webkit-column-count: 13;
+        column-count: 13;
 
         margin: 3px 0;
         padding: 0;

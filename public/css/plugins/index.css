@@ -5,26 +5,6 @@
     }
 }
 
-@media (min-width: 900px) {
-    .col-lg-65 {
-        -ms-flex:0 0 68%;
-        flex:0 0 68%;
-        max-width: 68%;
-    }  
-
-    .col-lg-75 {
-        -ms-flex:0 0 55%;
-        flex:0 0 55%;
-        max-width: 55%;
-    }
-
-    .col-lg-45 {
-        -ms-flex:0 0 32%;
-        flex:0 0 32%;
-        max-width: 32%;
-    }  
-}
-
 .fa-sync-alt {
     margin-left: 5px !important;
 }
@@ -150,23 +130,6 @@ section#sales .dataTables_wrapper dataTables_length {
 
 #modalsend .brock {
 	background: rgba(18, 29, 51, 0.5) !important;
-}
-
-
-
-
-@media (min-width: 900px) {
-    .col-lg-65 {
-        -ms-flex:0 0 68%;
-        flex:0 0 68%;
-        max-width: 68%;
-    }  
-
-    .col-lg-45 {
-        -ms-flex:0 0 32%;
-        flex:0 0 32%;
-        max-width: 32%;
-    }  
 }
 
 

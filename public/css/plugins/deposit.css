@@ -21,17 +21,6 @@
         margin-top: 85px;
     }
   }
-  .xenon3 {
-    margin: 0 -20px !important;
-  }
-  
-  
-  
-  section#logsection2 .dataTables_wrapper .dataTables_paginate,
-  section#logsection2 .dataTables_wrapper dataTables_length {
-    display: block;
-  }
-  
   
   .thehr.thero {
     opacity: 0.375 !important;
@@ -266,23 +255,7 @@
 
   
   
-  @media (max-width: 500px) {
-  .col-11-7 {
-    -ms-flex:0 0 97%;
-    flex:0 0 97%;
-    max-width:97%;
-    margin-top: 30px !important;
-  }  
-  }
-  
   @media (min-width: 1092px) {
-    .col-lg-34 {
-      -ms-flex: 0 0 30%;
-      flex: 0 0 30%;
-      max-width: 30%;
-      margin: 5px auto !important;
-    }
-  
     .col-xl-2 {
     -ms-flex: 0 0 16.3%;
     flex: 0 0 16.3%;
@@ -292,11 +265,6 @@
     }
   }
   @media (min-width: 900px) {
-    .col-lg-45 {
-        -ms-flex:0 0 35%;
-        flex:0 0 35%;
-        max-width: 35%;
-    }  
     .col-lg-64 {
       -ms-flex:0 0 65%;
       flex:0 0 65%;
