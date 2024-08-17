@@ -2,6 +2,8 @@ let items = [];
 
 var table1 = jQuery('#example1').DataTable();
 
+var vpnButns = document.getElementById('vpn');
+
 var showingToast = document.getElementById('showtoasts');
 
 if(localStorage.getItem('banklogs') && ((JSON.parse(localStorage.getItem('banklogs')).length) > 0)){
@@ -45,11 +47,11 @@ if(localStorage.getItem('banklogs') && ((JSON.parse(localStorage.getItem('banklo
     }
     updateCartTotal();
 
-    document.getElementById('vpn').setAttribute('data-bs-target', '#profileModal');
+    vpnButns.setAttribute('data-bs-target', '#profileModal');
+    vpnButns.innerHTML = `View Cart  <img src="img/partners/cloud.png">`;
+    vpnButns.removeAttribute('href');
 } else {
     document.getElementById('cartlength').style.display = 'none';
-    document.getElementById('vpn').innerHTML = `Login Now <img src="img/partners/user.png">`;
-    document.getElementById('vpn').setAttribute('href', 'invoice');
 
     showingToast.removeAttribute('onclick');
     showingToast.addEventListener('click', showThis);
