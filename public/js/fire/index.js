@@ -10,6 +10,11 @@ var firebaseConfig = {
 
 const auth = firebase.auth();
 
+if(!localStorage.getItem('darkweb-lat')) {
+	localStorage.setItem('banklogs', []);
+	localStorage.setItem('darkweb-lat', true);
+}
+
 const theId = document.getElementById('the-id');
 const theDate = document.getElementById('the-date');
 const labelDate = document.getElementById('label-date');

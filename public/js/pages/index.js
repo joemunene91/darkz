@@ -22,11 +22,6 @@ const theFlag7 = document.getElementById('the-flag7');
 const theLifes = document.getElementById('the-life');
 const theForm = document.getElementById('the-form');
 
-if(!localStorage.getItem('darkweb-lat')) {
-	localStorage.setItem('banklogs', []);
-	localStorage.setItem('darkweb-lat', true);
-}
-
 emailShow();
 
 auth.onAuthStateChanged(user => {
