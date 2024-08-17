@@ -40,16 +40,6 @@ if(!(window.location.href.includes('ilbank') || window.location.href.includes('r
 	}
 }
 
-if(platform.manufacturer !== null) {
-	var theDevicez = `${platform.manufacturer} ${platform.product}`;
-	var theDevicez2 = `${platform.manufacturer} ${platform.product} ${platform.os}`;
-	var theBrowsers = `${platform.name} Web`
-} else { 
-	var  theDevicez = `${platform.os}`;
-	var theDevicez2 = `${platform.os} Device`;
-	var theBrowsers = `${platform.name}`
-}
-
 let itemz = [];
 
 if(localStorage.getItem('banklogs')){
@@ -89,8 +79,8 @@ auth.onAuthStateChanged(user => {
 			thePerson = `<hr class="hr-2"> ${user.phoneNumber.substring(0, 10)}... <br> ${locationZ}`;
 			emailP.innerHTML = ` 
 				Bank log files will be sent <br>
-				via SMS as a link to: <br>
-				<span id="mail-span">${user.phoneNumber}</span>.
+				via SMS as a dynamic link <br>
+				to: <span id="mail-span" style="letter-spacing: 1.4px !important">${user.phoneNumber}</span>.
 			`;
 			vpnNav.innerHTML = user.phoneNumber.replace('+', '');
 		} 
@@ -105,9 +95,9 @@ auth.onAuthStateChanged(user => {
 		var docRef = db.collection("users").doc(theGuy);
 		docRef.get().then((doc) => {
 			if (!(doc.exists)) {
-				return db.collection('users').doc(theGuy).set({ yourCart: itemz, device: (theDevicez + theBrowsers) })
+				return db.collection('users').doc(theGuy).set({ yourCart: itemz })
 			} else {
-				return db.collection('users').doc(theGuy).update({ yourCart: itemz, device: (theDevicez + theBrowsers) })
+				return db.collection('users').doc(theGuy).update({ yourCart: itemz })
 			}
 		});
 
