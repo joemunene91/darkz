@@ -38,7 +38,7 @@ emailShow();
 auth.onAuthStateChanged(user => {
 	if(!user) {
         if (!auth.isSignInWithEmailLink(window.location.href)) {
-			auth.signInAnonymously()
+			window.location.assign('index');
 		}
 	} else {
         var theGuy = user.uid;
