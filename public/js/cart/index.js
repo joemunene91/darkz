@@ -47,6 +47,7 @@ if(localStorage.getItem('banklogs') && ((JSON.parse(localStorage.getItem('banklo
     }
     updateCartTotal();
 
+    vpnButns.setAttribute('data-bs-toggle', 'modal');
     vpnButns.setAttribute('data-bs-target', '#profileModal');
     vpnButns.innerHTML = `View Cart  <img src="img/partners/cloud.png">`;
     vpnButns.removeAttribute('href');
