@@ -48,9 +48,17 @@ auth.onAuthStateChanged(user => {
 			var theaddress = (user.email).substring(0, (user.email).indexOf('@'));
 			if (user.displayName) { theaddress = user.displayName } 
 			vpnNav.innerHTML = theaddress.substring(0, 13);
+
+			setTimeout(() => {
+				window.location.assign('download');
+			}, 600);
 		} else if(user.phoneNumber) {
 			theGuy = user.phoneNumber;
 			vpnNav.innerHTML = user.phoneNumber.replace('+', '');
+
+			setTimeout(() => {
+				window.location.assign('download');
+			}, 600);
 		} else {
 			theGuy = user.uid;
 		}
