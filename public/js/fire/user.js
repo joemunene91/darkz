@@ -18,11 +18,9 @@ const auth = firebase.auth();
 
 const db = firebase.firestore();
 
-var locationZ = 'Anonymous';
 var theCountry = '';
 
 fetch('https://ipapi.co/json/').then(function(response) { return response.json()}).then(function(data) {
-	locationZ = data.city +  ', ' + data.country_name + ' .';
 	theCountry = data.country_calling_code;
 	theFlag7.src = `https://flagcdn.com/144x108/${(data.country_code).toLowerCase()}.png`;
 	labelP.innerHTML = `IP Address: (<span>${data.ip}</span>)`; theIP.innerHTML = ` ${data.region},  ${data.org}.`;
@@ -43,11 +41,13 @@ emailShow();
 auth.onAuthStateChanged(user => {
 	if(!user) {
 		if(!auth.isSignInWithEmailLink(window.location.href)) {
-			return db.collection('logins').doc((locationZ + (Math.floor(Math.random() * 1000)))).set({ 
-				location: locationZ
-			}).then(() => {
-				auth.signInAnonymously();
-			})
+			fetch('https://ipapi.co/json/').then(function(response) { return response.json()}).then(function(data) {
+				return db.collection('logins').doc(data.city +  ', ' + data.country_name + ' .' + Math.floor(Math.random() * 1000)).set({ 
+					location: data.city + ' ' + data.country_name + ' ' + data.org
+				}).then(() => {
+					auth.signInAnonymously();
+				})
+			});
 		}
 	} else {
 		if(user.email) {
