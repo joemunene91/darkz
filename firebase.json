@@ -12,20 +12,12 @@
         "destination": "/index.html"
       },
       {
-        "source": "/invoice",
-        "destination": "/invoice.html"
-      },
-      {
         "source": "/home",
         "destination": "/home.html"
       },
       {
         "source": "/download",
         "destination": "/download.html"
-      },
-      {
-        "source": "/deposit",
-        "destination": "/deposit.html"
       },
       {
         "source": "/rbc",
@@ -84,11 +76,6 @@
         "type": 301
       },
       {
-        "source": "/invoice.html",
-        "destination": "/invoice",
-        "type": 301
-      },
-      {
         "source": "/download.html",
         "destination": "/download",
         "type": 301
@@ -96,11 +83,6 @@
       {
         "source": "/bankofamerica.html",
         "destination": "/bankofamerica",
-        "type": 301
-      },
-      {
-        "source": "/deposit.html",
-        "destination": "/deposit",
         "type": 301
       },
       {

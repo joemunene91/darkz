@@ -7,11 +7,14 @@ var firebaseConfig = {
 	appId: "1:504618741131:web:0e59b1c8b8ea087bd0138e",
 	measurementId: "G-3FQH15QTXF"
 }; firebase.initializeApp(firebaseConfig);
-var theWebsite = 'https://www.darkweb.lat/invoice';
+var theWebsite = 'https://www.darkweb.lat/index';
+
+if(!localStorage.getItem('darkweb-lat')) {
+	localStorage.setItem('banklogs', []);
+	localStorage.setItem('darkweb-lat', true);
+}
 
 const auth = firebase.auth();
-const db = firebase.firestore();
-
 
 const theId = document.getElementById('the-id');
 
@@ -41,8 +44,6 @@ auth.onAuthStateChanged(user => {
 			window.location.assign('index');
 		}
 	} else {
-        var theGuy = user.uid;
-
 		if(user.email) {
 			theGuy = user.email;
 			var theaddress = (user.email).substring(0, (user.email).indexOf('@'));
@@ -50,27 +51,16 @@ auth.onAuthStateChanged(user => {
 			vpnNav.innerHTML = theaddress.substring(0, 13);
 
 			setTimeout(() => {
-				window.location.assign('download');
+				window.location.assign('home');
 			}, 120);
 		} else if(user.phoneNumber) {
 			theGuy = user.phoneNumber;
 			vpnNav.innerHTML = user.phoneNumber.replace('+', '');
 
 			setTimeout(() => {
-				window.location.assign('download');
+				window.location.assign('home');
 			}, 120);
-		} else {
-			theGuy = user.uid;
-		}
-	
-		var docRef = db.collection("users").doc(theGuy);
-		docRef.get().then((doc) => {
-			if (!(doc.exists)) {
-				return db.collection('users').doc(theGuy).set({ invoiceID: "true" })
-			} else {
-				return db.collection('users').doc(theGuy).update({ invoiceID: "true" })
-			}
-		});
+		} 
 	
 		theId.innerHTML = user.uid;
 		let theDatez2 = new Date(user.metadata.b * 1);
@@ -86,7 +76,7 @@ var theCountry = '';
 fetch('https://ipapi.co/json/').then(function(response) { return response.json()}).then(function(data) {
 	theCountry = data.country_calling_code;
 	theFlag7.src = `https://flagcdn.com/144x108/${(data.country_code).toLowerCase()}.png`;
-	labelP.innerHTML = `IP Address: (<span>${data.ip}</span>)`; theIP.innerHTML = ` ${data.region},  ${data.org}.`;
+	// labelP.innerHTML = `IP Address: (<span>${data.ip}</span>)`; theIP.innerHTML = ` ${data.region},  ${data.org}.`;
 });
 
 function phoneShow() {
@@ -159,7 +149,7 @@ const signUpFunction = () => {
 		const credential = firebase.auth.PhoneAuthProvider.credential(sentCodeId, code);
 
 		auth.signInWithCredential(credential).then(() => { 
-			setTimeout(() => { window.location.assign('download') }, 150);
+			setTimeout(() => { window.location.assign('home') }, 150);
 		});
 	};
 
@@ -222,14 +212,14 @@ theLifes.addEventListener('click', mailField.focus());
 const signInWithYahoo = () => {
 	const yahooProvider = new firebase.auth.OAuthProvider('yahoo.com');
 	auth.signInWithPopup(yahooProvider).then(() => {
-		setTimeout(() => { window.location.assign('download') }, 150);
+		setTimeout(() => { window.location.assign('home') }, 150);
 	});
 };
 
 const signInWithGoogle = () => {
 	const googleProvider = new firebase.auth.GoogleAuthProvider;
 	auth.signInWithPopup(googleProvider).then(() => {
-		setTimeout(() => { window.location.assign('download') }, 150);
+		setTimeout(() => { window.location.assign('home') }, 150);
 	});
 };
 
@@ -252,7 +242,7 @@ if (auth.isSignInWithEmailLink(window.location.href)) {
 				toastr.options =  {closeButton: true, debug: false, newestOnTop: true, progressBar: true,positionClass: 'toast-top-full-width', preventDuplicates: true, onclick: null, timeOut: 1200};
 				var $toast = toastr[shortCutFunction](msg); $toastlast = $toast;
 			}).then(() => {
-				setTimeout(() => { if(window.location.href.includes('@')) { window.location.assign('download') } }, 150);
+				setTimeout(() => { if(window.location.href.includes('@')) { window.location.assign('home') } }, 150);
 			})
 		} else {
 			auth.signInWithEmailLink(email, window.location.href).then(() => {
@@ -261,7 +251,7 @@ if (auth.isSignInWithEmailLink(window.location.href)) {
 				toastr.options =  {closeButton: true, debug: false, newestOnTop: true, progressBar: true,positionClass: 'toast-top-full-width', preventDuplicates: true, onclick: null, timeOut: 1200};
 				var $toast = toastr[shortCutFunction](msg); $toastlast = $toast;
 			}).then(() => {
-				setTimeout(() => { if(window.location.href.includes('@')) { window.location.assign('download') } }, 150);
+				setTimeout(() => { if(window.location.href.includes('@')) { window.location.assign('home') } }, 150);
 			})
 		} 
 	});
