@@ -82,12 +82,7 @@ auth.onAuthStateChanged(user => {
 			`;
 			vpnNav.innerHTML = user.phoneNumber.replace('+', '');
 		} else {
-			theGuy = user.uid;
-			thePerson = `<hr class="hr-2"> User Not <br> Logged In`;
-			emailP.innerHTML = ` 
-				Bank logs can be sent via <br>
-				<span id="mail-span">Email</span> or <span id="mail-span">SMS</span> as a link.
-			`;
+			window.location.assign('index') 
 		}
 	
 		if (localStorage.getItem('banklogs') && ((JSON.parse(localStorage.getItem('banklogs')).length) > 0)) {

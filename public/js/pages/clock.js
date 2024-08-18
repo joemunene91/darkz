@@ -95,17 +95,7 @@ auth.onAuthStateChanged(user => {
                     <hr class="hr3-nil">
                 `]
                 theGuys = user.phoneNumber;
-            } else {
-                theGuys = user.uid;
-                var msgs = [`
-                        You are currently not <br>
-                        logged in.
-                    <hr class="to-hr hr15-bot">
-                `]
-                setTimeout(() => {
-                    window.location.assign('invoice');
-                }, 1200);
-            }
+            } 
 
             i++;
             if (i === msgs.length) {
