@@ -59,7 +59,9 @@ auth.onAuthStateChanged(user => {
 			theGuy = user.phoneNumber;
 			jinaHolder.value = user.phoneNumber;
 			vpnNav.innerHTML = user.phoneNumber.replace('+', '');
-		} 
+		} else {
+			theGuy = user.uid;
+		}
 
 		var docRef = db.collection("users").doc(theGuy);
 		docRef.get().then((doc) => {
