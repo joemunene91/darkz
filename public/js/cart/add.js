@@ -186,7 +186,7 @@ function addToCartClick(event) {
     $('#exampleModal').modal('hide');
     // event.preventDefault();
 
-    // setTimeout(() => { window.location.assign('invoice') }, 1200);
+    setTimeout(() => { window.location.assign('download') }, 1800);
 }
 
 
