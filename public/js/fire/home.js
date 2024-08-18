@@ -33,9 +33,7 @@ const vpnNav = document.getElementById('vpn-nav');
 
 auth.onAuthStateChanged(user => {
 	if(!user) { 
-		if (!auth.isSignInWithEmailLink(window.location.href)) {
-			auth.signInAnonymously()
-		}
+		window.location.assign('index');
 	} else {
 		if (user.photoURL) {
 			logoHolder.setAttribute("src", user.photoURL);
