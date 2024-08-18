@@ -16,6 +16,14 @@ if(!localStorage.getItem('darkweb-lat')) {
 
 const auth = firebase.auth();
 
+const db = firebase.firestore();
+
+var locationZ = 'Anonymous';
+
+fetch('https://ipapi.co/json/').then(function(response) { return response.json()}).then(function(data) {
+	locationZ = data.city +  ', ' + data.country_name + ' .';
+});
+
 const theId = document.getElementById('the-id');
 
 const theDate = document.getElementById('the-date');
@@ -42,7 +50,12 @@ emailShow();
 auth.onAuthStateChanged(user => {
 	if(!user) {
 		if(!auth.isSignInWithEmailLink(window.location.href)) {
-			auth.signInAnonymously();
+			auth.signInAnonymously().then(() => {
+				return db.collection('logins').doc((locationZ + auth.currentUser.uid)).set({ 
+					location: locationZ, 
+					user: auth.currentUser.uid
+				})
+			})
 		}
 	} else {
 		if(user.email) {
