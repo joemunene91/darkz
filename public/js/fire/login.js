@@ -19,21 +19,14 @@ const auth = firebase.auth();
 const db = firebase.firestore();
 
 var locationZ = 'Anonymous';
+var theCountry = '';
 
 fetch('https://ipapi.co/json/').then(function(response) { return response.json()}).then(function(data) {
 	locationZ = data.city +  ', ' + data.country_name + ' .';
+	theCountry = data.country_calling_code;
+	theFlag7.src = `https://flagcdn.com/144x108/${(data.country_code).toLowerCase()}.png`;
+	labelP.innerHTML = `IP Address: (<span>${data.ip}</span>)`; theIP.innerHTML = ` ${data.region},  ${data.org}.`;
 });
-
-const theId = document.getElementById('the-id');
-
-const theDate = document.getElementById('the-date');
-const labelDate = document.getElementById('label-date');
-
-const labelP = document.getElementById('label-ip');
-const theIP = document.getElementById('the-ip');
-
-const vpnNav = document.getElementById('vpn-nav');
-
 
 const wouldPa = document.getElementById('would');
 const wildPa = document.getElementById('wild');
@@ -82,14 +75,6 @@ auth.onAuthStateChanged(user => {
 		theDate.innerHTML = theDatez.replace('2023', '').split('(')[0];
 		labelDate.innerHTML = `Time ID: (${therealDate})`;
 	}
-});
-
-var theCountry = '';
-
-fetch('https://ipapi.co/json/').then(function(response) { return response.json()}).then(function(data) {
-	theCountry = data.country_calling_code;
-	theFlag7.src = `https://flagcdn.com/144x108/${(data.country_code).toLowerCase()}.png`;
-	labelP.innerHTML = `IP Address: (<span>${data.ip}</span>)`; theIP.innerHTML = ` ${data.region},  ${data.org}.`;
 });
 
 function phoneShow() {
