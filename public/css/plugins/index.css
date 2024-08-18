@@ -8,12 +8,6 @@
     padding: 0px 10px !important;
     height: 100vh !important;
 }
-@media screen and (max-width: 821px) {
-    #logs-invoice {
-        padding: 0px 10px !important;
-        height: 98vh !important;
-    }
-}
 #logs-invoice div {
     overflow: hidden !important;
 }
