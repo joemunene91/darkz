@@ -8,7 +8,12 @@
     padding: 0px 10px !important;
     height: 100vh !important;
 }
-
+@media screen and (max-width: 821px) {
+    #logs-invoice {
+        padding: 0px 10px !important;
+        height: 92vh !important;
+    }
+}
 #logs-invoice div {
     overflow: hidden !important;
 }
@@ -65,14 +70,14 @@
 @media screen and (max-width: 574px) {
     #invoice-div p {
         font-size: 20.5px !important;
-        line-height: 62px !important;
+        line-height: 65px !important;
     }
 }
 
 @media screen and (max-width: 380px) {
     #invoice-div p {
         font-size: 20px !important;
-        line-height: 59px !important;
+        line-height: 62px !important;
     }
 }
 
@@ -97,16 +102,16 @@
 }
 @media (max-width: 500px)  {
     .col-12 {
-      -ms-flex:0 0 94%;
-      flex:0 0 94%;
-      max-width: 94%;
+      -ms-flex:0 0 93%;
+      flex:0 0 93%;
+      max-width: 93%;
     }  
 }
 @media (max-width: 400px)  {
     .col-12 {
-      -ms-flex:0 0 96%;
-      flex:0 0 96%;
-      max-width: 96%;
+      -ms-flex:0 0 95%;
+      flex:0 0 95%;
+      max-width: 95%;
     }  
 }
 
