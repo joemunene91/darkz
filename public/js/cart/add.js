@@ -290,7 +290,7 @@ function addItemToCart(price, balance, account,website, image,info1,info2,info3,
 
     showingToast.removeEventListener('click', showThis);
     showingToast.addEventListener('click', () => {
-        window.location.assign('invoice');
+        window.location.assign('download');
     });
 
     addToLocalStorage(price, balance, account,website,image,info1,info2,info3,info4,info5,info6);
