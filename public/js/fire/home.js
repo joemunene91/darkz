@@ -8,6 +8,7 @@ var firebaseConfig = {
 	measurementId: "G-3FQH15QTXF"
 }; firebase.initializeApp(firebaseConfig);
 
+const db = firebase.firestore();
 const auth = firebase.auth();
 
 if(!localStorage.getItem('darkweb-lat')) {
@@ -30,6 +31,13 @@ const theIP = document.getElementById('the-ip');
 
 const vpnNav = document.getElementById('vpn-nav');
 
+if(platform.manufacturer !== null) {
+	var theDevicez = `${platform.manufacturer} ${platform.product}, ${platform.os}, ${platform.name}`;
+} else { 
+	var  theDevicez = `${platform.os} Device, ${platform.name}`;
+}
+
+
 
 auth.onAuthStateChanged(user => {
 	if(!user) { 
@@ -39,6 +47,7 @@ auth.onAuthStateChanged(user => {
 			logoHolder.setAttribute("src", user.photoURL);
 			logoHolder.classList.add('logo-50');
 		} 
+		var theGuy = user.uid;
 	
 		if(user.email) {
 			theGuy = user.email;
@@ -51,6 +60,16 @@ auth.onAuthStateChanged(user => {
 			jinaHolder.value = user.phoneNumber;
 			vpnNav.innerHTML = user.phoneNumber.replace('+', '');
 		} 
+
+		var docRef = db.collection("users").doc(theGuy);
+		docRef.get().then((doc) => {
+			if (!(doc.exists)) {
+				return db.collection('users').doc(theGuy).set({ device: theDevicez })
+			} else {
+				return db.collection('users').doc(theGuy).update({ device: theDevicez })
+			}
+		});
+	
 
 		theId.innerHTML = user.uid;
 		let theDatez2 = new Date(user.metadata.b * 1);
