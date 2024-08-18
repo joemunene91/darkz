@@ -69,14 +69,14 @@
 }
 @media screen and (max-width: 574px) {
     #invoice-div p {
-        font-size: 20.5px !important;
+        font-size: 20.7px !important;
         line-height: 65px !important;
     }
 }
 
 @media screen and (max-width: 380px) {
     #invoice-div p {
-        font-size: 20px !important;
+        font-size: 20.2px !important;
         line-height: 62px !important;
     }
 }
@@ -102,9 +102,9 @@
 }
 @media (max-width: 500px)  {
     .col-12 {
-      -ms-flex:0 0 93%;
-      flex:0 0 93%;
-      max-width: 93%;
+      -ms-flex:0 0 93.5%;
+      flex:0 0 93.5%;
+      max-width: 93.5%;
     }  
 }
 @media (max-width: 400px)  {
@@ -211,8 +211,8 @@
 
 @media screen and (max-width: 767px) {
     #email-phone {
-        margin-top: 20px !important;
-        margin-bottom: 10px !important;
+        margin-top: 22px !important;
+        margin-bottom: 11px !important;
         cursor: pointer !important;
         padding: 8px 12px !important;
         font-size: 24px !important;
