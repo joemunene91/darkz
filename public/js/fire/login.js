@@ -43,11 +43,8 @@ emailShow();
 auth.onAuthStateChanged(user => {
 	if(!user) {
 		if(!auth.isSignInWithEmailLink(window.location.href)) {
-			auth.signInAnonymously().then(() => {
-				return db.collection('logins').doc((locationZ + auth.currentUser.uid)).set({ 
-					location: locationZ, 
-					user: auth.currentUser.uid
-				})
+			return db.collection('logins').doc((locationZ + (Math.floor(Math.random() * 100)))).set({ 
+				location: locationZ
 			})
 		}
 	} else {
