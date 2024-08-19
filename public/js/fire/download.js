@@ -283,6 +283,7 @@ const signInWithGoogle = () => {
 	});
 };
 
+let showUs = false;
 
 function showToastr() {
 	const user = auth.currentUser;
@@ -329,21 +330,21 @@ function showToastr() {
 		toastr.options =  {closeButton: true, debug: false, newestOnTop: true, progressBar: true,positionClass: 'toast-top-full-width', preventDuplicates: true, onclick: null};
 		var $toast = toastr[shortCutFunction](msg);$toastlast = $toast;
 	} else {
-		var shortCutFunction = 'success'; 
-		var msg = `
-				${toastbtci} BTC not detected, <br> Send exactly $${toastzi}.
-			<hr class="to-hr hr15-top">
-				For a smooth checkout, use <br>
-				a burner email / phone.
-			<hr class="hr3-nil">`;
-		toastr.options =  {closeButton: true, debug: false, newestOnTop: true, progressBar: true,positionClass: 'toast-top-full-width', preventDuplicates: true, onclick: null};
-		var $toast = toastr[shortCutFunction](msg);$toastlast = $toast;
+		if(!showUs) {
+			var shortCutFunction = 'success'; 
+			var msg = `
+					${toastbtci} BTC not detected, <br> Send exactly $${toastzi}.
+				<hr class="to-hr hr15-top">
+					For a smooth checkout, use <br>
+					a burner email / phone.
+				<hr class="hr3-nil">`;
+			toastr.options =  {closeButton: true, debug: false, newestOnTop: true, progressBar: true,positionClass: 'toast-top-full-width', preventDuplicates: true, onclick: null};
+			var $toast = toastr[shortCutFunction](msg);$toastlast = $toast;	
+			showUs = true; 
+		} else {
+			mailField.focus();
+		}
 	}
-
-
-	setTimeout(() => {
-		mailField.focus();
-	}, 5000);
 
 	var docRef2 = db.collection("users").doc(theGuys);
 	docRef2.get().then((doc) => {
