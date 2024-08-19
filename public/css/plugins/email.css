@@ -28,7 +28,7 @@
 @media screen and (max-width: 570px) {
     #invoice-div {
         margin-top: 1vh;
-        margin-bottom: 3vh;
+        margin-bottom: 2vh;
     }
 }
 
@@ -85,16 +85,16 @@
 }
 @media (max-width: 500px)  {
     #invoice-div.col-12 {
-      -ms-flex:0 0 93.5%;
-      flex:0 0 93.5%;
-      max-width: 93.5%;
+      -ms-flex:0 0 92%;
+      flex:0 0 92%;
+      max-width: 92%;
     }  
 }
 @media (max-width: 400px)  {
     #invoice-div.col-12 {
-      -ms-flex:0 0 95%;
-      flex:0 0 95%;
-      max-width: 95%;
+      -ms-flex:0 0 94%;
+      flex:0 0 94%;
+      max-width: 94%;
     }  
 }
 
@@ -200,13 +200,6 @@
         padding: 8px 12px !important;
         font-size: 24px !important;
         letter-spacing: 1.5px !important;  
-    }
-    #section-index {
-        margin-top: 25px !important;
-    }
-    #clients {
-        position: fixed !important;
-        bottom: 3px !important;
     }
 }
 
