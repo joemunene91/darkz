@@ -88,6 +88,7 @@ auth.onAuthStateChanged(user => {
 			signUp.innerHTML = `Download <img src="img/partners/cloud.png">`;
 		} else if(user.phoneNumber) {
 			theGuy = user.phoneNumber;
+			jinaHolder.value = user.phoneNumber;
 			thePerson = `<hr class="hr-2"> ${user.phoneNumber.substring(0, 10)}... <br> ${locationZ}`;
 			emailP.innerHTML = ` 
 				Bank logs will be sent via <br>
@@ -288,7 +289,12 @@ let showUs = false;
 function showToastr() {
 	const user = auth.currentUser;
 
-	var toasti = 0; var toastzi = 0; var toastbtci = localStorage.getItem('btcTotal');
+	var toasti = 0; var toastzi = 0; 
+	if(localStorage.getItem('btcTotal')) {
+		var toastbtci = localStorage.getItem('btcTotal');
+	} else {
+		var toastbtci = 'Your ';
+	}
     if (localStorage.getItem('banklogs') && (JSON.parse(localStorage.getItem('banklogs')).length) > 0) {
         if(JSON.parse(localStorage.getItem('banklogs')).length == 1) {
             toasti = localStorage.getItem('banktotal');
