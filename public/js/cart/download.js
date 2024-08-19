@@ -337,7 +337,7 @@ function updateCartTotal() {
             var logItems = document.getElementById('usage-p');
             logRow.innerHTML = `
                 ${Loginz[i].account}  <br>
-                <span id="mail-span">${Loginz[i].balance}</span>
+                <span id="uidy">${Loginz[i].balance}</span>
             `;
             logItems.prepend(logRow);
         }
