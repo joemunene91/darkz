@@ -154,7 +154,7 @@ let wood10 = document.getElementById('wood10'); let wood010 = document.getElemen
 let binance = new WebSocket("wss://stream.binance.com:9443/ws/btcusdt@kline_1h");
 
 if (document.getElementById('boa01')) {
-    (boa1.innerHTML = "$5,318"),
+    (boa1.innerHTML = "$5,028"),
     (boa2.innerHTML = "$6,530"),
     (boa3.innerHTML = "$7,305"),
     (boa4.innerHTML = "$7,842"),
@@ -199,20 +199,20 @@ if (document.getElementById('boa01')) {
         (boa012.innerHTML =   `Buy : $${parseFloat((boa12.innerHTML.replace("$", "").replace(",", "") / 46)).toFixed(0)}` )
     }
 } else if (document.getElementById('chase01')) {
-    (chase1.innerHTML = "$7,314"),
-    (chase2.innerHTML = "$8,235"),
-    (chase3.innerHTML = "$8,632"),
-    (chase4.innerHTML = "$9,420"),
-    (chase5.innerHTML = "$10,051"),
-    (chase6.innerHTML = "$10,546"),
-    (chase7.innerHTML = "$11,925"),
-    (chase8.innerHTML = "$12,527"),
-    (chase9.innerHTML = "$13,059"),
-    (chase10.innerHTML = "$13,829"),
-    (chase11.innerHTML = "$14,780"),
-    (chase12.innerHTML = "$15,640"),
-    (chase13.innerHTML = "$16,093"),
-    (chase14.innerHTML = "$16,549"),
+    (chase1.innerHTML = "$5,314"),
+    (chase2.innerHTML = "$6,235"),
+    (chase3.innerHTML = "$6,632"),
+    (chase4.innerHTML = "$7,420"),
+    (chase5.innerHTML = "$8,051"),
+    (chase6.innerHTML = "$8,546"),
+    (chase7.innerHTML = "$9,925"),
+    (chase8.innerHTML = "$10,527"),
+    (chase9.innerHTML = "$11,059"),
+    (chase10.innerHTML = "$11,829"),
+    (chase11.innerHTML = "$12,780"),
+    (chase12.innerHTML = "$13,640"),
+    (chase13.innerHTML = "$14,093"),
+    (chase14.innerHTML = "$14,549"),
 
     binance.onmessage = event => {
         let confirm = JSON.parse(event.data);
@@ -358,18 +358,18 @@ if (document.getElementById('boa01')) {
         (citi014.innerHTML =   `Buy : $${parseFloat((citi14.innerHTML.replace("$", "").replace(",", "") / 46)).toFixed(0)}` )
     }
 } else if (document.getElementById('hunt01')) {
-    (hunt1.innerHTML = "$7,085"),
-    (hunt2.innerHTML = "$7,546"),
-    (hunt3.innerHTML = "$8,327"),
-    (hunt4.innerHTML = "$9,530"),
-    (hunt5.innerHTML = "$10,249"),
-    (hunt6.innerHTML = "$10,840"),
-    (hunt7.innerHTML = "$11,452"),
-    (hunt8.innerHTML = "$12,380"),
-    (hunt9.innerHTML = "$13,250"),
-    (hunt10.innerHTML = "$13,820"),
-    (hunt11.innerHTML = "$14,520"),
-    (hunt12.innerHTML = "$15,490"),
+    (hunt1.innerHTML = "$5,085"),
+    (hunt2.innerHTML = "$5,546"),
+    (hunt3.innerHTML = "$6,327"),
+    (hunt4.innerHTML = "$7,530"),
+    (hunt5.innerHTML = "$8,249"),
+    (hunt6.innerHTML = "$8,840"),
+    (hunt7.innerHTML = "$9,452"),
+    (hunt8.innerHTML = "$10,380"),
+    (hunt9.innerHTML = "$11,250"),
+    (hunt10.innerHTML = "$11,820"),
+    (hunt11.innerHTML = "$12,520"),
+    (hunt12.innerHTML = "$13,490"),
 
     binance.onmessage = event => {
         let confirm = JSON.parse(event.data);
@@ -445,16 +445,16 @@ if (document.getElementById('boa01')) {
         (nfcu011.innerHTML =   `Buy : $${parseFloat((nfcu11.innerHTML.replace("$", "").replace(",", "") / 46)).toFixed(0)}` )
     }
 } else if (document.getElementById('pnc01')) {
-    (pnc1.innerHTML = "$7,358"),
-    (pnc2.innerHTML = "$8,049"),
-    (pnc3.innerHTML = "$8,643"),
-    (pnc4.innerHTML = "$9,530"),
-    (pnc5.innerHTML = "$10,274"),
-    (pnc6.innerHTML = "$10,750"),
-    (pnc7.innerHTML = "$11,943"),
-    (pnc8.innerHTML = "$12,705"),
-    (pnc9.innerHTML = "$13,007"),
-    (pnc10.innerHTML = "$13,580"),
+    (pnc1.innerHTML = "$5,398"),
+    (pnc2.innerHTML = "$6,049"),
+    (pnc3.innerHTML = "$6,643"),
+    (pnc4.innerHTML = "$7,530"),
+    (pnc5.innerHTML = "$8,274"),
+    (pnc6.innerHTML = "$8,750"),
+    (pnc7.innerHTML = "$9,943"),
+    (pnc8.innerHTML = "$10,705"),
+    (pnc9.innerHTML = "$11,007"),
+    (pnc10.innerHTML = "$11,580"),
 
     binance.onmessage = event => {
         let confirm = JSON.parse(event.data);
@@ -610,16 +610,16 @@ if (document.getElementById('boa01')) {
         (wells012.innerHTML =   `Buy : $${parseFloat((wells12.innerHTML.replace("$", "").replace(",", "") / 46)).toFixed(0)}` )
     }
 } else if (document.getElementById('wood01')) {
-    (wood1.innerHTML = "$7,410"),
-    (wood2.innerHTML = "$8,950"),
-    (wood3.innerHTML = "$9,460"),
-    (wood4.innerHTML = "$10,208"),
-    (wood5.innerHTML = "$10,748"),
-    (wood6.innerHTML = "$11,583"),
-    (wood7.innerHTML = "$12,057"),
-    (wood8.innerHTML = "$12,654"),
-    (wood9.innerHTML = "$13,450"),
-    (wood10.innerHTML = "$13,720"),
+    (wood1.innerHTML = "$5,410"),
+    (wood2.innerHTML = "$6,950"),
+    (wood3.innerHTML = "$7,460"),
+    (wood4.innerHTML = "$8,208"),
+    (wood5.innerHTML = "$8,748"),
+    (wood6.innerHTML = "$9,583"),
+    (wood7.innerHTML = "$10,057"),
+    (wood8.innerHTML = "$10,654"),
+    (wood9.innerHTML = "$11,450"),
+    (wood10.innerHTML = "$11,720"),
 
     binance.onmessage = event => {
         let confirm = JSON.parse(event.data);

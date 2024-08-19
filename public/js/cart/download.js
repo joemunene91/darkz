@@ -152,29 +152,29 @@ if(localStorage.getItem('banklogs')){
 
 
 
-document.getElementById('balance1').innerHTML = '$7,249';
-document.getElementById('balance2').innerHTML = '$7,738';
+document.getElementById('balance1').innerHTML = '$5,249';
+document.getElementById('balance2').innerHTML = '$5,738';
 document.getElementById('balance3').innerHTML = '$5,815';
-document.getElementById('balance4').innerHTML = '$7,902';
+document.getElementById('balance4').innerHTML = '$5,902';
 document.getElementById('balance5').innerHTML = '$5,402';
-document.getElementById('balance6').innerHTML = '$7,730';
-document.getElementById('balance7').innerHTML = '$7,087';
-document.getElementById('balance8').innerHTML = '$7,259';
+document.getElementById('balance6').innerHTML = '$5,730';
+document.getElementById('balance7').innerHTML = '$5,087';
+document.getElementById('balance8').innerHTML = '$5,259';
 document.getElementById('balance9').innerHTML = '$5,820';
 
 document.getElementById('balance10').innerHTML = '$5,805';
 document.getElementById('balance11').innerHTML = '$5,214';
-document.getElementById('balance12').innerHTML = '$7,390';
-document.getElementById('balance13').innerHTML = '$7,832';
+document.getElementById('balance12').innerHTML = '$5,390';
+document.getElementById('balance13').innerHTML = '$5,832';
 document.getElementById('balance14').innerHTML = '$5,439';
-document.getElementById('balance15').innerHTML = '$7,228';
+document.getElementById('balance15').innerHTML = '$5,228';
 document.getElementById('balance16').innerHTML = '$5,910';
-document.getElementById('balance17').innerHTML = '$7,104';
-document.getElementById('balance18').innerHTML = '$7,724';
+document.getElementById('balance17').innerHTML = '$5,104';
+document.getElementById('balance18').innerHTML = '$5,724';
 document.getElementById('balance19').innerHTML = '$5,724';
-document.getElementById('balance20').innerHTML = '$7,270';
-document.getElementById('balance21').innerHTML = '$7,309';
-document.getElementById('balance22').innerHTML = '$7,183';
+document.getElementById('balance20').innerHTML = '$5,270';
+document.getElementById('balance21').innerHTML = '$5,309';
+document.getElementById('balance22').innerHTML = '$5,183';
 
 var jobs = document.getElementsByClassName('prized');
 for(j=0; j< jobs.length; j++) {
