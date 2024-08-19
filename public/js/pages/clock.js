@@ -75,9 +75,7 @@ auth.onAuthStateChanged(user => {
         for (var i = 0; i < items.length; i++) {
             if(user.email) {
                 var msgs = [`
-                        ${toastbtci} Bitcoin payment <br> not detected,
-                    <hr class="hr15-bot">
-                        Send $${toastzi} BTC:
+                        ${toastbtci} BTC not detected <br> Send exactly $${toastzi}.
                     <hr class="to-hr hr15-top">
                         A verification email sent to: <br>
                         ${user.email}. 
@@ -86,22 +84,19 @@ auth.onAuthStateChanged(user => {
                 theGuys = user.email;
             } else if(user.phoneNumber) {
                 var msgs = [`
-                        ${toastbtci} Bitcoin payment <br> not detected,
-                    <hr class="hr15-bot">
-                        Send $${toastzi} BTC:
+                        ${toastbtci} BTC not detected <br> Send exactly $${toastzi}.
                     <hr class="to-hr hr15-top">
-                        Bank logins will be sent via <br> 
-                        SMS to: ${user.phoneNumber}. 
+                        Logs will be sent via SMS to: <br>
+                        ${user.phoneNumber}. 
                     <hr class="hr3-nil">
                 `]
                 theGuys = user.phoneNumber;
             } else {
                 var msgs = [`
-                        ${toastbtci} Bitcoin payment <br> not detected,
-                    <hr class="hr15-bot">
-                        Send $${toastzi} BTC:
+                        ${toastbtci} BTC not detected <br> Send exactly $${toastzi}.
                     <hr class="to-hr hr15-top">
-                        You are also not logged in <br>
+                        You are also required to <br>
+                        login with Email / SMS.
                     <hr class="hr3-nil">
                 `]
                 theGuys = user.uid;
