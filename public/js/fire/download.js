@@ -109,6 +109,7 @@ auth.onAuthStateChanged(user => {
 			document.getElementById('showtoasts').addEventListener('click', emailShow);
 			document.getElementById('vpn').addEventListener('click', emailShow);
 			document.getElementById('monez').addEventListener('click', emailShow);
+			document.getElementById('thetot').addEventListener('click', emailShow);
 		}
 	
 		if (localStorage.getItem('banklogs') && ((JSON.parse(localStorage.getItem('banklogs')).length) > 0)) {
