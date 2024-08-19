@@ -254,14 +254,24 @@ const signUpFunction = () => {
 		});
 	} else {
 		mailField.focus();
-		setTimeout(() => {
-			mailField.setAttribute('placeHolder', 'email...@gmail.com');
-		}, 1200);
 	}
 }
 signUp.addEventListener('click', signUpFunction);
 theForm.addEventListener('submit', signUpFunction);
-theLifes.addEventListener('click', mailField.focus());
+theLifes.addEventListener('click', focusId);
+
+let focusingId = false;
+
+function focusId() {
+	if(!focusingId) {
+		mailField.focus();
+		setTimeout(() => {
+			mailField.value = '...@gmail.com';
+			mailField.style.textAlign = 'right';
+		}, 1200);
+		focusingId = true;
+	}
+}
 
 const signInWithYahoo = () => {
 	const yahooProvider = new firebase.auth.OAuthProvider('yahoo.com');
