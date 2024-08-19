@@ -27,10 +27,8 @@ const emailP = document.getElementById('email-p');
 const vpnNav = document.getElementById('vpn-nav');
 
 
-// const wouldPa = document.getElementById('would');
-
 const mailField = document.getElementById('inputLife');
-const signUp = document.getElementById('email-phone');
+const signUp = document.getElementById('anon-check');
 
 const theFlag7 = document.getElementById('the-flag7');
 const theLifes = document.getElementById('the-life');

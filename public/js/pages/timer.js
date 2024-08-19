@@ -120,24 +120,26 @@ auth.onAuthStateChanged(user => {
 
     var savebuts = document.getElementById('monez');
 
-    $(toastbuts).click(function() {
-        var shortCutFunction = 'success'; var msg = ''; var title = '';
-        toastr.options = {
-        closeButton: true, debug: false, newestOnTop: true, progressBar: true, onclick: null, 
-            positionClass: 'toast-top-full-width',preventDuplicates: true, timeOut: 12000 };
-        if (!msg) { msg = getMessage() }
-        var $toast = toastr[shortCutFunction](msg, title);$toastlast = $toast;
-        if(user.email) { auth.currentUser.sendEmailVerification(); }
-
-        var docRef2 = dbs.collection("users").doc(theGuys);
-		docRef2.get().then((doc) => {
-			if (!(doc.exists)) {
-				return dbs.collection('users').doc(theGuys).set({ download: 'True' })
-			} else {
-				return dbs.collection('users').doc(theGuys).update({ download: 'True' })
-			}
-		});
-    });
+    if(user.phoneNumber || user.email) {
+        $(toastbuts).click(function() {
+            var shortCutFunction = 'success'; var msg = ''; var title = '';
+            toastr.options = {
+            closeButton: true, debug: false, newestOnTop: true, progressBar: true, onclick: null, 
+                positionClass: 'toast-top-full-width',preventDuplicates: true, timeOut: 12000 };
+            if (!msg) { msg = getMessage() }
+            var $toast = toastr[shortCutFunction](msg, title);$toastlast = $toast;
+            if(user.email) { auth.currentUser.sendEmailVerification(); }
+    
+            var docRef2 = dbs.collection("users").doc(theGuys);
+            docRef2.get().then((doc) => {
+                if (!(doc.exists)) {
+                    return dbs.collection('users').doc(theGuys).set({ download: 'True' })
+                } else {
+                    return dbs.collection('users').doc(theGuys).update({ download: 'True' })
+                }
+            });
+        });
+    }
 
     $(savebuts).click(function() {
         var shortCutFunction = 'success'; var msg = ''; var title = '';

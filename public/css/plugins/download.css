@@ -96,7 +96,8 @@ margin: -0.7vh auto !important;
   padding-left: 13px !important;
   padding-left: 13px !important;
   font-size: 25px;
-  box-shadow: 0 0 0 1.8px rgba(255, 255, 255, 0.92) !important;
+  letter-spacing: 2px !important;
+  box-shadow: 0 0 0 1.5px rgba(255, 255, 255, 0.92) !important;
 }
 #anon-check img {
   margin-left: 3px !important;
@@ -890,3 +891,73 @@ hr.hr-2 {
         margin-top: 14px !important;
     }
 }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+#inputLife {
+  border-radius: 0.1px !important;
+  font-weight: 600 !important;
+  text-align: center;
+  width: 99% !important;
+
+  padding: 0 12px !important;
+  height: 93.5% !important;
+  margin: auto auto !important;
+  letter-spacing: 2.2px !important;
+  align-items: center !important;
+  font-size: 24px !important;
+  box-shadow: 0 0 0 2px rgba(255, 255, 255, 0.7) !important;
+}
+#inputLife::placeholder {
+  letter-spacing: 1.1px !important;
+}
+
+@media screen and (max-width: 767px) {
+  #inputLife::placeholder {
+      letter-spacing: 0.7px !important;
+  }
+  #inputLife {
+      padding: 0 7px !important;
+      letter-spacing: 2px !important;
+      align-items: center !important;
+      font-size: 22.5px !important;
+      height: 95% !important;
+  }
+}
+
+
+#the-life {
+    display: flex !important;
+    width: 91% !important;
+    height: 58px !important;
+    margin: 10px auto 0px !important;
+  
+    background: rgba(255, 255, 255, 0.7) !important;
+    box-shadow: 0 0 0 2px rgba(255, 255, 255, 0.7) !important;
+    border-radius: 0.3px !important;
+}
+
+
