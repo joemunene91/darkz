@@ -259,26 +259,24 @@
   
   
   
-      window.addEventListener("load", () => {
-      if ( localStorage.getItem('banklogs') && (JSON.parse(localStorage.getItem('banklogs')).length) > 0) {   
-        const tooltip3 = chart3.tooltip;
-        tooltip3.setActiveElements([{
-            datasetIndex: 0,
-            index: 0
-        }]);
-        chart3.update();
-  
-  
-        const tooltip4 = chart4.tooltip;
-        tooltip4.setActiveElements([{
-            datasetIndex: 0,
-            index: 0
-        }]);
-        chart4.update();
-  
-      }
-  
-    });
+
+    if ( localStorage.getItem('banklogs') && (JSON.parse(localStorage.getItem('banklogs')).length) > 0) {   
+      const tooltip3 = chart3.tooltip;
+      tooltip3.setActiveElements([{
+          datasetIndex: 0,
+          index: 0
+      }]);
+      chart3.update();
+
+
+      const tooltip4 = chart4.tooltip;
+      tooltip4.setActiveElements([{
+          datasetIndex: 0,
+          index: 0
+      }]);
+      chart4.update();
+
+    }
   
     $('#clients').owlCarousel({
 			loop: true, nav: false, dots: false,
@@ -331,7 +329,7 @@
   });
 
   $('#ach-carousel').owlCarousel({
-      loop: true, responsiveClass: true, dots: true, nav: false, smartSpeed: 1000, autoplay: true, autoplayTimeout: 600, 
+      loop: true, responsiveClass: true, dots: false, nav: false, smartSpeed: 1000, autoplay: true, autoplayTimeout: 600, 
       autoplayHoverPause: false, stagePadding: 0, slideTransition: 'linear', autoplayTimeout: 10000, autoplaySpeed: 10000,
       navText: ["<i class='fa fa-angle-left'></i>", "<i class='fa fa-angle-right'></i>"],
       responsive: {
