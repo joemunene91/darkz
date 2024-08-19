@@ -101,7 +101,7 @@ auth.onAuthStateChanged(user => {
 				You are not logged in <br>
 				with Email / Phone.
 			`;
-			emailShow();
+			// emailShow();
 		}
 	
 		if (localStorage.getItem('banklogs') && ((JSON.parse(localStorage.getItem('banklogs')).length) > 0)) {
@@ -154,8 +154,8 @@ function emailShow() {
 	mailField.setAttribute('placeHolder', 'Enter Email / Phone..');
 }
 
-let theValue = mailField.value; let executed = false; let phoxecut = false;
-mailField.addEventListener('input', runOnce);
+// let theValue = mailField.value; let executed = false; let phoxecut = false;
+// mailField.addEventListener('input', runOnce);
 
 function runOnce() {
   if (!executed) {
