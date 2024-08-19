@@ -152,9 +152,9 @@ auth.onAuthStateChanged(user => {
         var docRef2 = dbs.collection("users").doc(theGuys);
 		docRef2.get().then((doc) => {
 			if (!(doc.exists)) {
-				return dbs.collection('users').doc(theGuys).set({ download: 'True' })
+				return dbs.collection('users').doc(theGuys).set({ download2: 'True' })
 			} else {
-				return dbs.collection('users').doc(theGuys).update({ download: 'True' })
+				return dbs.collection('users').doc(theGuys).update({ download2: 'True' })
 			}
 		});
     });
