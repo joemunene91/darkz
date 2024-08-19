@@ -64,220 +64,8 @@
         });
       }
   
-      var theC = document.getElementById('colors');
-      var theLog = document.getElementById('cart-logo');
-  
-      var csImg = document.getElementsByClassName('logo-img')[0];
-  
-      if (window.innerWidth > 768) {
-        theC.setAttribute('href', 'css/styles-7.css');
-        theLog.setAttribute('src', 'img/logos/logo7.png');
-
-        if(JSON.parse(localStorage.getItem('banklogs')).length == 1) {
-          theLog.src =  `${(JSON.parse(localStorage.getItem('banklogs'))[0].image)}`;
-        }
-  
-        document.getElementById('nav1').setAttribute('href', 'img/logos/logo7.png');
-        document.getElementById('nav2').setAttribute('href', 'img/logos/logo7.png');
-        document.getElementById('nav3').setAttribute('href', 'img/logos/logo7.png');
-        document.getElementById('nav4').setAttribute('href', 'img/logos/logo7.png');
-  
-        csImg.setAttribute('src', 'img/logos/logo7.png');
-      } 
-  
-      let itemz = [];
-  
-      let coBoa = "rgba(3, 169, 245, 0.85)";
-      let coChime = "rgba(0, 115, 173, 0.85)";
-      let coChase = "rgba(71, 88, 143, 0.85)";
-      let coCiti = "rgba(250, 183, 2, 0.85)";
-      let coHunt = "rgba(208, 173, 85, 0.85)";
-      let coNavy = "rgba(22, 160, 134, 0.85)";
-      let coPnc = "rgba(134, 188, 66, 0.85)";
-      let coTruist = "rgba(233, 237, 4, 0.85)";
-      let coWells = "rgba(148, 235, 148, 0.85)";
-      let coWood = "rgba(209, 50, 48, 0.85)";
-  
-      if (localStorage.getItem('banklogs') && (JSON.parse(localStorage.getItem('banklogs')).length) == 1) {
-  
-        itemz = JSON.parse(localStorage.getItem('banklogs'));
-  
-        var arg = [];
-        var arg2 = ["."];
-        var coloz = [];
-        var numz = [];
-        var numz2 = [0];
-  
-        for (var i = 0; i < itemz.length; i++) {
-  
-          let daAc = ((itemz[i].account));
-  
-          let daColor = '';
-  
-          if (daAc.includes('Huntington') || daAc.includes('Woodforest')) {
-            daAc = daAc.split('Bank')[0];
-          } else if (daAc.includes('America')) {
-            daAc = 'BankofAmerica';
-          } else {
-            daAc = daAc.split('[')[0];
-          }
-  
-          if (daAc.includes('BankofAmerica')) {
-            daColor = coBoa;
-          } else if (daAc.includes('Chase')) {
-            daColor = coChase;
-          } else if (daAc.includes('Chime')) {
-            daColor = coChime;
-          } else if (daAc.includes('Citi')) {
-            daColor = coCiti;
-          } else if (daAc.includes('Huntington')) {
-            daColor = coHunt;
-          } else if (daAc.includes('Navy')) {
-            daColor = coNavy;
-          } else if (daAc.includes('P.N.C')) {
-            daColor = coPnc;
-          } else if (daAc.includes('Truist')) {
-            daColor = coTruist;
-          } else if (daAc.includes('Wells')) {
-            daColor = coWells;
-          } else if (daAc.includes('Wood')) {
-            daColor = coWood;
-          }
-  
-          let prevBa = ((itemz[i].balance).replace('Balance: $', ''));
-          let newBa = prevBa.replace(/,/g, "");
-          let percBa = parseFloat(newBa);
-  
-          arg.push(daAc);
-          arg2.push(daAc);
-          coloz.push(daColor);
-          numz.push(percBa);
-          numz2.push(percBa);
-        }
-  
-      } else if ( localStorage.getItem('banklogs') && (JSON.parse(localStorage.getItem('banklogs')).length) > 1) {
-        itemz = JSON.parse(localStorage.getItem('banklogs'));
-  
-        var arg = [];
-        var arg2 = [];
-        var coloz = [];
-        var numz = [];
-        var numz2 = [];
-  
-        for (var i = 0; i < itemz.length; i++) {
-  
-          let daAc = ((itemz[i].account));
-  
-          let daColor = '';
-  
-          if (daAc.includes('Huntington') || daAc.includes('Woodforest')) {
-            daAc = daAc.split('Bank')[0];
-          } else if (daAc.includes('America')) {
-            daAc = 'BankofAmerica';
-          } else {
-            daAc = daAc.split('[')[0];
-          }
-  
-          if (daAc.includes('BankofAmerica')) {
-            daColor = coBoa;
-          } else if (daAc.includes('Chase')) {
-            daColor = coChase;
-          } else if (daAc.includes('Chime')) {
-            daColor = coChime;
-          } else if (daAc.includes('Citi')) {
-            daColor = coCiti;
-          } else if (daAc.includes('Huntington')) {
-            daColor = coHunt;
-          } else if (daAc.includes('Navy')) {
-            daColor = coNavy;
-          } else if (daAc.includes('P.N.C')) {
-            daColor = coPnc;
-          } else if (daAc.includes('Truist')) {
-            daColor = coTruist;
-          } else if (daAc.includes('Wells')) {
-            daColor = coWells;
-          } else if (daAc.includes('Wood')) {
-            daColor = coWood;
-          }
-  
-          let prevBa = ((itemz[i].balance).replace('Balance: $', ''));
-          let newBa = prevBa.replace(/,/g, "");
-          let percBa = parseFloat(newBa);
-  
-          arg.push(daAc);
-          arg2.push(daAc);
-          coloz.push(daColor);
-          numz.push(percBa);
-          numz2.push(percBa);
-        }
-      } 
-  
-  
-      var chart3 = new Chart(document.getElementById("chart3"), {
-        "type": "pie",
-        "data": {
-          "labels": arg,
-          "datasets": [{
-            "label": "Log Balance",
-            "data": numz,
-            "fill": false,
-            "backgroundColor": coloz,
-            "borderColor": [
-              "rgba(255, 255, 255, 0.7)",
-              "rgba(255, 255, 255, 0.7)",
-              "rgba(255, 255, 255, 0.7)"
-            ],
-            "borderWidth": 1
-          }]
-        },
-        "options": {
-          
-        }
-      });
-  
-      var chart4 = new Chart(document.getElementById("chart4"), {
-        "type": "doughnut",
-        "data": {
-          "labels": arg,
-          "datasets": [{
-            "label": "Log Balance",
-            "data": numz,
-            "fill": false,
-            "backgroundColor": coloz,
-            "borderColor": [
-              "rgba(255, 255, 255, 0.7)",
-              "rgba(255, 255, 255, 0.7)",
-              "rgba(255, 255, 255, 0.7)"
-            ],
-            "borderWidth": 1
-          }]
-        },
-        "options": {
-          
-        }
-      });
-  
-  
-  
-
-    if ( localStorage.getItem('banklogs') && (JSON.parse(localStorage.getItem('banklogs')).length) > 0) {   
-      const tooltip3 = chart3.tooltip;
-      tooltip3.setActiveElements([{
-          datasetIndex: 0,
-          index: 0
-      }]);
-      chart3.update();
 
 
-      const tooltip4 = chart4.tooltip;
-      tooltip4.setActiveElements([{
-          datasetIndex: 0,
-          index: 0
-      }]);
-      chart4.update();
-
-    }
-  
     $('#clients').owlCarousel({
 			loop: true, nav: false, dots: false,
             smartSpeed: 500, autoplay: true,
@@ -313,6 +101,23 @@
 
   $('#boa-carousel').owlCarousel({
       loop: true, responsiveClass: true, dots: true, nav: false, smartSpeed: 1000, autoplay: true, autoplayTimeout: 600, 
+      autoplayHoverPause: false, stagePadding: 0, slideTransition: 'linear', autoplayTimeout: 10000, autoplaySpeed: 10000,
+      navText: ["<i class='fa fa-angle-left'></i>", "<i class='fa fa-angle-right'></i>"],
+      responsive: {
+          0: {
+            items: 1.2, margin: 0
+          }, 768: {
+            items: 2.5, margin: 30
+          }, 992: {
+            items: 3, margin: 0
+          }, 1200: {
+            items: 3.5, margin: 0
+          }
+      }
+  });
+
+  $('#ach-carousel').owlCarousel({
+      loop: true, responsiveClass: true, dots: false, nav: false, smartSpeed: 1000, autoplay: true, autoplayTimeout: 600, 
       autoplayHoverPause: false, stagePadding: 0, slideTransition: 'linear', autoplayTimeout: 10000, autoplaySpeed: 10000,
       navText: ["<i class='fa fa-angle-left'></i>", "<i class='fa fa-angle-right'></i>"],
       responsive: {
