@@ -1764,14 +1764,22 @@ td {
 }
 @media screen and (max-width: 506px) {
   .port a img {
-      height: 150px;
+      height: 155px;
   }
   .port h4 a {
-      font-size: 20px;
+      font-size: 21px;
       line-height: 30px !important;
   }
 }
 @media screen and (max-width: 396px) {
+  .port a img {
+      height: 145px;
+  }
+  .port h4 a {
+      font-size: 20px;
+  }
+}
+@media screen and (max-width: 376px) {
   .port a img {
       height: 140px;
   }
@@ -1779,20 +1787,12 @@ td {
       font-size: 19px;
   }
 }
-@media screen and (max-width: 376px) {
+@media screen and (max-width: 370px) {
   .port a img {
       height: 135px;
   }
   .port h4 a {
       font-size: 18px;
-  }
-}
-@media screen and (max-width: 370px) {
-  .port a img {
-      height: 130px;
-  }
-  .port h4 a {
-      font-size: 17px;
   }
 }
 @media screen and (max-width: 1092px) {
