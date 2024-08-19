@@ -67,10 +67,12 @@ auth.onAuthStateChanged(user => {
 			if (user.displayName) { theaddress = user.displayName } 
 			jinaHolder.value = theaddress;
 			vpnNav.innerHTML = theaddress.substring(0, 13);
+			document.getElementById('invoice-div').style.display = 'none';
 		} else if(user.phoneNumber) {
 			theGuy = user.phoneNumber;
 			jinaHolder.value = user.phoneNumber;
 			vpnNav.innerHTML = user.phoneNumber.replace('+', '');
+			document.getElementById('invoice-div').style.display = 'none';
 		} else {
 			theGuy = user.uid;
 		}
