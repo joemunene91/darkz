@@ -85,17 +85,19 @@ auth.onAuthStateChanged(user => {
 			`;
 			document.getElementById('form').style.display = 'none';
 			document.getElementById('hr').style.display = 'none';
+			signUp.innerHTML = `Download <img src="img/partners/cloud.png">`;
 		} else if(user.phoneNumber) {
 			theGuy = user.phoneNumber;
 			thePerson = `<hr class="hr-2"> ${user.phoneNumber.substring(0, 10)}... <br> ${locationZ}`;
 			emailP.innerHTML = ` 
 				Bank logs will be sent via <br>
-				SMS as a dynamic link file  <br>
+				SMS as a dynamic link file <br>
 				to: <span id="mail-span" style="letter-spacing: 1px !important">${user.phoneNumber}</span>.
 			`;
 			vpnNav.innerHTML = user.phoneNumber.replace('+', '');
 			document.getElementById('form').style.display = 'none';
 			document.getElementById('hr').style.display = 'none';
+			signUp.innerHTML = `Download <img src="img/partners/cloud.png">`;
 		} else {
 			theGuy = user.uid;
 			thePerson = `<hr class="hr-2"> User Not <br> Logged In`;
