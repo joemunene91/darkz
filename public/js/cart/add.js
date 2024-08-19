@@ -48,8 +48,6 @@ if(localStorage.getItem('banklogs') && ((JSON.parse(localStorage.getItem('banklo
     }
     updateCartTotal();
     document.getElementById('cd-time').style.display = 'block';
-
-    document.getElementById('vpn').setAttribute('data-bs-target', '#profileModal');
 } else {
     document.getElementById('cd-time').style.display = 'block';
     document.getElementById('cartlength').style.display = 'none';
@@ -57,7 +55,7 @@ if(localStorage.getItem('banklogs') && ((JSON.parse(localStorage.getItem('banklo
     showingToast.removeAttribute('onclick');
     showingToast.addEventListener('click', showThis);
 
-    document.getElementById('vpn').addEventListener('click', addTo);
+    document.getElementById('thetot').addEventListener('click', addTo);
 
     function addTo() {
         if(window.location.href.includes('bankofamerica')) {
