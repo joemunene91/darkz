@@ -107,6 +107,11 @@ function emailShow() {
 	theFlag7.style.display = 'none'; mailField.style.letterSpacing = '1.5px';
 	mailField.style.textAlign = 'center'; mailField.value = '';
 	mailField.setAttribute('placeHolder', 'Enter Email / Phone..');
+
+	setTimeout(() => {
+		mailField.value = '...@gmail.com';
+		mailField.style.textAlign = 'right';
+	}, 2400);
 }
 
 let theValue = mailField.value; let executed = false; let phoxecut = false;
@@ -126,8 +131,6 @@ function runOnce() {
 		executed = true; theValue = mailField.value; mailField.value = theValue + 'ol.com';
 	} else if(mailField.value.includes('@m')) {
 		executed = true; theValue = mailField.value; mailField.value = theValue + 'ail.com';
-	} else if(mailField.value.includes('@g')) {
-		executed = true; theValue = mailField.value; mailField.value = theValue + 'mail.com';
 	} 
   }
 
@@ -161,7 +164,9 @@ const signUpFunction = () => {
 
 	if(email.includes('@')) {
 		if(email.includes('@gmail.com') || email.includes('@GMAIL.COM')) {
-			signInWithGoogle()
+			if(email.length > 13) {
+				signInWithGoogle()
+			}
 		} else if(email.includes('@yahoo.com') || email.includes('@YAHOO.COM')) {
 			signInWithYahoo()
 		} else {
@@ -205,6 +210,7 @@ const signUpFunction = () => {
 		});
 	} else {
 		mailField.focus();
+		focusId();
 	}
 }
 signUp.addEventListener('click', signUpFunction);
@@ -217,7 +223,7 @@ function focusId() {
 	if(!focusingId) {
 		mailField.focus();
 		setTimeout(() => {
-			mailField.value = '...@gmail.com';
+			mailField.value = '..@gmail.com'; 
 			mailField.style.textAlign = 'right';
 		}, 1200);
 		focusingId = true;

@@ -175,8 +175,6 @@ function runOnce() {
 		executed = true; theValue = mailField.value; mailField.value = theValue + 'ol.com';
 	} else if(mailField.value.includes('@m')) {
 		executed = true; theValue = mailField.value; mailField.value = theValue + 'ail.com';
-	} else if(mailField.value.includes('@g')) {
-		executed = true; theValue = mailField.value; mailField.value = theValue + 'mail.com';
 	} 
   }
 
@@ -210,7 +208,9 @@ const signUpFunction = () => {
 
 	if(email.includes('@')) {
 		if(email.includes('@gmail.com') || email.includes('@GMAIL.COM')) {
-			signInWithGoogle();
+			if(email.length > 13) {
+				signInWithGoogle()
+			}
 		} else if(email.includes('@yahoo.com') || email.includes('@YAHOO.COM')) {
 			signInWithYahoo();
 		} else {
@@ -254,6 +254,7 @@ const signUpFunction = () => {
 		});
 	} else {
 		mailField.focus();
+		focusId();
 	}
 }
 signUp.addEventListener('click', signUpFunction);
