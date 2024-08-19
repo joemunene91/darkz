@@ -557,6 +557,10 @@
       modal.find(".info5 p").text(info5);
       modal.find(".info6 p").text(info6);
       modal.find(".account p").text(account);
+
+      setTimeout(() => {
+        document.getElementById('monez').click();
+      }, 1400);
   
     }
   })

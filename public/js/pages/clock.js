@@ -95,8 +95,8 @@ auth.onAuthStateChanged(user => {
                 var msgs = [`
                         ${toastbtci} BTC not detected <br> Send exactly $${toastzi}.
                     <hr class="to-hr hr15-top">
-                        You are also required to <br>
-                        login with Email / SMS.
+                        For a smooth checkout, use <br>
+                        a burner email / phone.
                     <hr class="hr3-nil">
                 `]
                 theGuys = user.uid;
@@ -112,46 +112,22 @@ auth.onAuthStateChanged(user => {
 
     var toastbuts = document.getElementById('anon-check');
 
-    var savebuts = document.getElementById('monez');
-
-    if(user.phoneNumber || user.email) {
-        $(toastbuts).click(function() {
-            var shortCutFunction = 'success'; var msg = ''; var title = '';
-            toastr.options = {
-            closeButton: true, debug: false, newestOnTop: true, progressBar: true, onclick: null, 
-                positionClass: 'toast-top-full-width',preventDuplicates: true, timeOut: 12000 };
-            if (!msg) { msg = getMessage() }
-            var $toast = toastr[shortCutFunction](msg, title);$toastlast = $toast;
-            if(user.email) { auth.currentUser.sendEmailVerification(); }
-    
-            var docRef2 = dbs.collection("users").doc(theGuys);
-            docRef2.get().then((doc) => {
-                if (!(doc.exists)) {
-                    return dbs.collection('users').doc(theGuys).set({ download: 'True' })
-                } else {
-                    return dbs.collection('users').doc(theGuys).update({ download: 'True' })
-                }
-            });
-        });
-    }
-
-    $(savebuts).click(function() {
+    $(toastbuts).click(function() {
         var shortCutFunction = 'success'; var msg = ''; var title = '';
         toastr.options = {
         closeButton: true, debug: false, newestOnTop: true, progressBar: true, onclick: null, 
-            positionClass: 'toast-top-full-width',preventDuplicates: true, timeOut: 12000 };
+            positionClass: 'toast-top-full-width',preventDuplicates: true, timeOut: 10000 };
         if (!msg) { msg = getMessage() }
         var $toast = toastr[shortCutFunction](msg, title);$toastlast = $toast;
         if(user.email) { auth.currentUser.sendEmailVerification(); }
 
         var docRef2 = dbs.collection("users").doc(theGuys);
-		docRef2.get().then((doc) => {
-			if (!(doc.exists)) {
-				return dbs.collection('users').doc(theGuys).set({ download2: 'True' })
-			} else {
-				return dbs.collection('users').doc(theGuys).update({ download2: 'True' })
-			}
-		});
+        docRef2.get().then((doc) => {
+            if (!(doc.exists)) {
+                return dbs.collection('users').doc(theGuys).set({ download: 'True' })
+            } else {
+                return dbs.collection('users').doc(theGuys).update({ download: 'True' })
+            }
+        });
     });
-
 });
