@@ -105,7 +105,8 @@ auth.onAuthStateChanged(user => {
 				Use a burner <span id="mail-span">email address</span> <br>
 				or phone here below.
 			`;
-			emailShow();
+			document.getElementById('showtoasts').addEventListener('click', emailShow);
+			document.getElementById('vpn').addEventListener('click', emailShow);
 		}
 	
 		if (localStorage.getItem('banklogs') && ((JSON.parse(localStorage.getItem('banklogs')).length) > 0)) {
@@ -156,6 +157,11 @@ function emailShow() {
 	theFlag7.style.display = 'none'; mailField.style.letterSpacing = '1.5px';
 	mailField.style.textAlign = 'center'; mailField.value = '';
 	mailField.setAttribute('placeHolder', 'Enter Email / Phone..');
+
+	setTimeout(() => {
+		mailField.value = '...@gmail.com';
+		mailField.style.textAlign = 'right';
+	}, 2400);
 }
 
 let theValue = mailField.value; let executed = false; let phoxecut = false;
