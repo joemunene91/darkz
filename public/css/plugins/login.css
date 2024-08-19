@@ -47,7 +47,7 @@
 }
 
 #invoice-div p {
-    margin: 15px auto !important;
+    margin: 14px auto !important;
     font-size: 23px !important;
     line-height: 65px !important;
 }
@@ -64,14 +64,14 @@
 @media screen and (max-width: 574px) {
     #invoice-div p {
         font-size: 21px !important;
-        line-height: 65px !important;
+        line-height: 62px !important;
     }
 }
 
 @media screen and (max-width: 380px) {
     #invoice-div p {
         font-size: 20.5px !important;
-        line-height: 62px !important;
+        line-height: 60px !important;
     }
 }
 
