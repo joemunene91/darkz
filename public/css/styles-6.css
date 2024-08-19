@@ -500,3 +500,7 @@ span#mail-span {
   border: 1.4px solid rgba(208, 173, 85, 0.7) !important;
   box-shadow: 0px 5px 10px 0px rgba(208, 173, 85, 0.3);
 }
+#services-carousel button.owl-prev,
+#services-carousel button.owl-next {
+  border: 2.1px solid #d0ad55 !important;
+}
