@@ -47,8 +47,8 @@
             autoplayHoverPause: false,
             stagePadding: 0,
             slideTransition: 'linear',
-            autoplayTimeout: 7000,
-            autoplaySpeed: 7000,
+            autoplayTimeout: 10000,
+            autoplaySpeed: 10000,
             navText: ["<i class='fa fa-angle-left'></i>", "<i class='fa fa-angle-right'></i>"],
             responsive: {
                 0: {
