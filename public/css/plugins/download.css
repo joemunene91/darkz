@@ -85,7 +85,7 @@ margin: -0.7vh auto !important;
 
 @media screen and (max-width: 500px) {
   #exampleModal .modal-dialog {
-      top: 11vh !important;
+      top: 12vh !important;
   }
 }
 
