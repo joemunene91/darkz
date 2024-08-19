@@ -4,18 +4,6 @@
     animation:animatedBackground 70s linear infinite 
 }
 
-#logs-invoice {
-    padding: 0px 10px !important;
-    height: 100vh !important;
-}
-#logs-invoice div {
-    overflow: hidden !important;
-}
-
-#logs-invoice .section-heading h4 {
-    color: #121d33;
-}
-
 
 #my-invoice {
     margin: 3px !important;
@@ -23,21 +11,22 @@
     width: 100% !important;
 }
 #invoice-div {
-    margin-top: 12vh;
+    margin-top: 1vh;
 }
 @media screen and (min-width: 1370px) {
     #invoice-div {
-        margin-top: 15vh;
+        margin-top: 3vh;
     }
 }
 @media screen and (max-width: 821px) {
     #invoice-div {
-        margin-top: 15vh;
+        margin-top: 3vh;
     }
 }
 @media screen and (max-width: 570px) {
     #invoice-div {
-        margin-top: 11vh;
+        margin-top: 1vh;
+        margin-bottom: 3vh;
     }
 }
 
@@ -83,21 +72,21 @@
     font-weight: 500 !important;
 }
 @media (min-width: 802px) {
-	.col-lg-5 {
-		-ms-flex: 0 0 33%;
-		flex: 0 0 33%;
-		max-width: 33%;
+	#invoice-div.col-lg-5 {
+		-ms-flex: 0 0 31%;
+		flex: 0 0 31%;
+		max-width: 31%;
    }
 }
 @media (max-width: 500px)  {
-    .col-12 {
+    #invoice-div.col-12 {
       -ms-flex:0 0 93.5%;
       flex:0 0 93.5%;
       max-width: 93.5%;
     }  
 }
 @media (max-width: 400px)  {
-    .col-12 {
+    #invoice-div.col-12 {
       -ms-flex:0 0 95%;
       flex:0 0 95%;
       max-width: 95%;

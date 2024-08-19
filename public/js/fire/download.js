@@ -82,7 +82,12 @@ auth.onAuthStateChanged(user => {
 			`;
 			vpnNav.innerHTML = user.phoneNumber.replace('+', '');
 		} else {
-			window.location.assign('index') 
+			theGuy = user.uid;
+			thePerson = `<hr class="hr-2"> User Not <br> Logged In`;
+			emailP.innerHTML = ` 
+				You are not logged in <br>
+				with Email / Phone.
+			`;
 		}
 	
 		if (localStorage.getItem('banklogs') && ((JSON.parse(localStorage.getItem('banklogs')).length) > 0)) {
