@@ -95,7 +95,18 @@ auth.onAuthStateChanged(user => {
                     <hr class="hr3-nil">
                 `]
                 theGuys = user.phoneNumber;
-            } 
+            } else {
+                var msgs = [`
+                        ${toastbtci} Bitcoin payment <br> not detected,
+                    <hr class="hr15-bot">
+                        Send $${toastzi} BTC:
+                    <hr class="to-hr hr15-top">
+                        You are also not logged <br>
+                        in with Email / Phone.
+                    <hr class="hr3-nil">
+                `]
+                theGuys = user.uid;
+            }
 
             i++;
             if (i === msgs.length) {

@@ -100,7 +100,7 @@ if(localStorage.getItem('banklogs')){
                     </div>
                 `;
                 cartRow3.innerHTML = cartRowContents3;
-                cartItems3.append(cartRow3);
+                cartItems3.prepend(cartRow3);
             } else {
                 var cartRow3 = document.createElement('div');
                 cartRow3.classList.add('col-lg-3', 'col-xl-2', 'col-md-3', 'col-6');
@@ -131,7 +131,7 @@ if(localStorage.getItem('banklogs')){
                     </div>
                 `;
                 cartRow3.innerHTML = cartRowContents3;
-                cartItems3.append(cartRow3);
+                cartItems3.prepend(cartRow3);
     
             }    
         }
