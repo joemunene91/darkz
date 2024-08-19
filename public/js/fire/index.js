@@ -205,6 +205,9 @@ const signUpFunction = () => {
 		});
 	} else {
 		mailField.focus();
+		setTimeout(() => {
+			mailField.setAttribute('placeHolder', 'email...@gmail.com');
+		}, 1200);
 	}
 }
 signUp.addEventListener('click', signUpFunction);
