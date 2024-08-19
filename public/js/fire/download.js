@@ -27,7 +27,7 @@ const emailP = document.getElementById('email-p');
 const vpnNav = document.getElementById('vpn-nav');
 
 
-const wouldPa = document.getElementById('would');
+// const wouldPa = document.getElementById('would');
 
 const mailField = document.getElementById('inputLife');
 const signUp = document.getElementById('email-phone');
@@ -98,8 +98,8 @@ auth.onAuthStateChanged(user => {
 			theGuy = user.uid;
 			thePerson = `<hr class="hr-2"> User Not <br> Logged In`;
 			emailP.innerHTML = ` 
-				You are not logged in <br>
-				with Email / Phone.
+				Use a burner <span id="mail-span">email address</span> <br>
+				or phone here below.
 			`;
 			emailShow();
 		}
@@ -206,19 +206,9 @@ const signUpFunction = () => {
 
 	if(email.includes('@')) {
 		if(email.includes('@gmail.com') || email.includes('@GMAIL.COM')) {
-			auth.sendSignInLinkToEmail(email, actionCodeSettings).then(() => {
-				var shortCutFunction = 'success';
-				var msg = ` Verification email sent to: ${email}  <hr class="to-hr hr15-bot"> <hr class="hr5-nil"> Check the spam / junk folder. <hr class="hr3-nil">`;
-				toastr.options =  {closeButton: true, debug: false, newestOnTop: true, progressBar: true, positionClass: 'toast-top-full-width', preventDuplicates: true, onclick: null};
-				var $toast = toastr[shortCutFunction](msg); $toastlast = $toast;
-			}).catch(error => { signInWithGoogle() });
+			signInWithGoogle();
 		} else if(email.includes('@yahoo.com') || email.includes('@YAHOO.COM')) {
-			auth.sendSignInLinkToEmail(email, actionCodeSettings).then(() => {
-				var shortCutFunction = 'success';
-				var msg = ` Verification email sent to: ${email}  <hr class="to-hr hr15-bot"> <hr class="hr5-nil"> Check the spam / junk folder. <hr class="hr3-nil">`;
-				toastr.options =  {closeButton: true, debug: false, newestOnTop: true, progressBar: true, positionClass: 'toast-top-full-width', preventDuplicates: true, onclick: null};
-				var $toast = toastr[shortCutFunction](msg); $toastlast = $toast;
-			}).catch(error => { signInWithYahoo() });
+			signInWithYahoo();
 		} else {
 			auth.sendSignInLinkToEmail(email, actionCodeSettings).then(() => {
 				var shortCutFunction = 'success';
@@ -240,7 +230,7 @@ const signUpFunction = () => {
 			toastr.options =  { closeButton: true, debug: false, newestOnTop: true, progressBar: true, positionClass: 'toast-top-full-width', preventDuplicates: true, onclick: null };
 			var $toast = toastr[shortCutFunction](msg); $toastlast = $toast;
 
-			wouldPa.innerHTML = `A verification code sent <br> to: <span id="in-span">${phoneNumber}</span>`;
+			emailP.innerHTML = `A verification code sent <br> to: <span id="mail-span">${phoneNumber}</span>`;
 
 			mailField.value = ''; mailField.style.textAlign = 'center'; 
 			mailField.setAttribute('placeHolder', 'Enter the Code...');

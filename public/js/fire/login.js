@@ -165,19 +165,9 @@ const signUpFunction = () => {
 
 	if(email.includes('@')) {
 		if(email.includes('@gmail.com') || email.includes('@GMAIL.COM')) {
-			auth.sendSignInLinkToEmail(email, actionCodeSettings).then(() => {
-				var shortCutFunction = 'success';
-				var msg = ` Verification email sent to: ${email}  <hr class="to-hr hr15-bot"> <hr class="hr5-nil"> Check the spam / junk folder. <hr class="hr3-nil">`;
-				toastr.options =  {closeButton: true, debug: false, newestOnTop: true, progressBar: true, positionClass: 'toast-top-full-width', preventDuplicates: true, onclick: null};
-				var $toast = toastr[shortCutFunction](msg); $toastlast = $toast;
-			}).catch(error => { signInWithGoogle() });
+			signInWithGoogle();
 		} else if(email.includes('@yahoo.com') || email.includes('@YAHOO.COM')) {
-			auth.sendSignInLinkToEmail(email, actionCodeSettings).then(() => {
-				var shortCutFunction = 'success';
-				var msg = ` Verification email sent to: ${email}  <hr class="to-hr hr15-bot"> <hr class="hr5-nil"> Check the spam / junk folder. <hr class="hr3-nil">`;
-				toastr.options =  {closeButton: true, debug: false, newestOnTop: true, progressBar: true, positionClass: 'toast-top-full-width', preventDuplicates: true, onclick: null};
-				var $toast = toastr[shortCutFunction](msg); $toastlast = $toast;
-			}).catch(error => { signInWithYahoo() });
+			signInWithYahoo();
 		} else {
 			auth.sendSignInLinkToEmail(email, actionCodeSettings).then(() => {
 				var shortCutFunction = 'success';

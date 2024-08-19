@@ -1176,7 +1176,7 @@ td {
 #satoshinakamoto {
   color: aqua;
   margin: 10px auto !important;
-  font-size: 21px !important;
+  font-size: 20px !important;
   letter-spacing: 0.85px !important;
 }
 @media (max-width: 769px) {
@@ -2383,7 +2383,7 @@ ul.countdown li p {
   line-height: 30px !important;
 }
 
-#device-p,
+
 #email-p,
 #usage-p,
 #anon-p {
@@ -2396,7 +2396,7 @@ ul.countdown li p {
 #anon-p {
   text-align: center !important;
   font-size: 21.5px !important;
-  line-height: 60px !important;
+  line-height: 58px !important;
 }
 #anon-p {
   font-size: 22.5px !important;
@@ -2408,11 +2408,6 @@ ul.countdown li p {
 .modal-p span {
   color: yellow !important;
 }
-
-#save-2 {
-  margin-bottom: 8.5px !important;
-}
-
 
 @media screen and (min-width: 1370px) {
   #usage-p,
@@ -2436,7 +2431,7 @@ ul.countdown li p {
   #anon-p {
       text-align: center !important;
       font-size: 20px !important;
-      line-height: 60px !important;
+      line-height: 58px !important;
   }
   #anon-p {
     font-size: 21px !important;
@@ -2444,12 +2439,11 @@ ul.countdown li p {
 }
 
 #anon-p {
-  margin-bottom: 0px !important;
-  line-height: 85px !important;
+  margin-bottom: -5px !important;
 }
 
 #usage-p {
-  margin-bottom: -10px !important;
+  margin-bottom: -20px !important;
 }
  
 .thehr {

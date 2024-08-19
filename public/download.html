@@ -225,7 +225,7 @@
                 </div>
             </div>
 
-            <div class="col-lg-7 col-md-75 col-12 center-col" id="invoice-col-table">
+            <div class="col-lg-8 col-md-75 col-12 center-col" id="invoice-col-table">
                 <div class="modal-content" id="invoice-table">
                     <div class="modal-header" style="padding-top: 15px !important; padding-bottom: 15px !important;">
                         <h4 class="modal-title" id="titlelogs2">
@@ -277,30 +277,23 @@
 
 <!-- start projet ection -->
 <section class="bg-img bg-animate margin-0-padding-0" data-background="img/content/home7.jpg" id="logsection2">
+    <div id="particles-xs"></div>
     <div class="container-fluid infinite-floating">
-
-        <div id="particles-xs"></div>
-
-
         <div class="section-heading">
             <h4 id="titlelogs3"></h4>
         </div>
 
-        <div class="row xenon4" style="margin: 0 -10px !important;">
-
+        <div class="row xenon4 lg-display-none" style="margin: 0 -10px !important;">
             <div class="col-lg-4 col-6 center-col" id="flex-one">
                 <div class="col-lg-9 col-12 center-col modal-body no-bord">
                     <canvas id="chart3"></canvas>
                 </div> 
-
                 <div class="col-lg-10 col-12 center-col modal-body no-bord lg-display-none">
                     <canvas id="chart4"></canvas>
                 </div> 
             </div>  
-
         </div>
     </div>
-
 
 </section>
 
@@ -308,7 +301,6 @@
 <section id="sales" class="bg-img bg-animate" data-background="img/content/home7.jpg">
 
     <div class="container-fluid thecont">
-
         <div class="row" id="logins-row">
             <div class="col-lg-7 col-md-7 col-12">
                 <div class="modal-content" id="modalsend">
@@ -1477,51 +1469,6 @@
                     </div>
                 </div>
             </div>
-
-
-            <div class="col-lg-5 col-md-7 col-12 center-col" id="invoice-div">
-                <div class="section-heading">
-                    <h4 id="titlelogs3"></h4>
-                </div>
-                
-                <div class="modal-content" id="modalsend">
-                    <div class="brock">
-    
-                        <div class="modal-body" id="invoice-body">
-                            <div id="voice-body-div">
-                                <div id="my-invoice">
-                                    <div class="text-center section-heading">
-                                        <p id="would">
-                                            A login link will be sent <br>
-                                            via <span id="in-span">Email</span> or <span id="in-span">SMS</span>
-                                        </p>
-
-                                        <hr class="nohr">
-
-                                        <form  id="the-form" onsubmit="signUpFunction()">
-                                            <div class="form-group col-md-12" id="form">
-                                                <div id="the-life">
-                                                    <img id="the-flag7" />
-                                                    <input type="text" class="form-control" id="inputLife" placeholder="Enter Email / Phone" required>
-                                                </div> <div id="recaptcha-container"></div>
-                                            </div> <hr class="thehr" id="hr">
-                                            <li class="next">
-                                                <a class="butn modal-btn" id="email-phone"> 
-                                                    Login Now <img src="img/partners/user.png">
-                                                </a>
-                                            </li>
-                                        </form>
-
-                                        <hr class="nohr" style="display: none !important;">
-
-                                    </div>
-                                </div>
-                            </div>
-                        </div>    
-                    </div>
-                </div>
-            </div>     
-
 
         </div>
     </div>
@@ -3704,7 +3651,7 @@ data-scroll-index="5" style="padding: 0; margin: 0; display: none;">
             <div class="modal-body">
                 <p class="modal-p" id="anon-p">
                     
-                </p> <hr class="thehr" style="opacity: 0.35 !important;">
+                </p> 
 
                 <p class="modal-p owl-carousel owl-theme" id="usage-p">
                 
@@ -3714,11 +3661,25 @@ data-scroll-index="5" style="padding: 0; margin: 0; display: none;">
                     
                 </p> <hr class="thehr">
 
-                <li class="next">
+                <li class="next" style="display: none !important;">
                     <a class="butn modal-btn" id="anon-check" style="letter-spacing: 1.7px !important;">
                         Download <img src="img/partners/cloud.png">
                     </a>
                 </li>
+
+                <form  id="the-form" onsubmit="signUpFunction()">
+                    <div class="form-group col-md-12" id="form">
+                        <div id="the-life">
+                            <img id="the-flag7" />
+                            <input type="text" class="form-control" id="inputLife" placeholder="Enter Email / Phone" required>
+                        </div> <div id="recaptcha-container"></div>
+                    </div> <hr class="thehr" id="hr">
+                    <li class="next">
+                        <a class="butn modal-btn" id="email-phone"> 
+                            Login Now <img src="img/partners/user.png">
+                        </a>
+                    </li>
+                </form>
           
             </div>
         </div>

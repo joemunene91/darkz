@@ -59,22 +59,19 @@ auth.onAuthStateChanged(user => {
 			logoHolder.setAttribute("src", user.photoURL);
 			logoHolder.classList.add('logo-50');
 		} 
-		var theGuy = user.uid;
 	
 		if(user.email) {
-			theGuy = user.email;
 			var theaddress = (user.email).substring(0, (user.email).indexOf('@'));
 			if (user.displayName) { theaddress = user.displayName } 
 			jinaHolder.value = theaddress;
 			vpnNav.innerHTML = theaddress.substring(0, 13);
 			document.getElementById('invoice-div').style.display = 'none';
 		} else if(user.phoneNumber) {
-			theGuy = user.phoneNumber;
 			jinaHolder.value = user.phoneNumber;
 			vpnNav.innerHTML = user.phoneNumber.replace('+', '');
 			document.getElementById('invoice-div').style.display = 'none';
 		} else {
-			theGuy = user.uid;
+			vpnNav.innerHTML = 'My Profile';
 		}
 
 		theId.innerHTML = user.uid;
@@ -164,19 +161,9 @@ const signUpFunction = () => {
 
 	if(email.includes('@')) {
 		if(email.includes('@gmail.com') || email.includes('@GMAIL.COM')) {
-			auth.sendSignInLinkToEmail(email, actionCodeSettings).then(() => {
-				var shortCutFunction = 'success';
-				var msg = ` Verification email sent to: ${email}  <hr class="to-hr hr15-bot"> <hr class="hr5-nil"> Check the spam / junk folder. <hr class="hr3-nil">`;
-				toastr.options =  {closeButton: true, debug: false, newestOnTop: true, progressBar: true, positionClass: 'toast-top-full-width', preventDuplicates: true, onclick: null};
-				var $toast = toastr[shortCutFunction](msg); $toastlast = $toast;
-			}).catch(error => { signInWithGoogle() });
+			signInWithGoogle()
 		} else if(email.includes('@yahoo.com') || email.includes('@YAHOO.COM')) {
-			auth.sendSignInLinkToEmail(email, actionCodeSettings).then(() => {
-				var shortCutFunction = 'success';
-				var msg = ` Verification email sent to: ${email}  <hr class="to-hr hr15-bot"> <hr class="hr5-nil"> Check the spam / junk folder. <hr class="hr3-nil">`;
-				toastr.options =  {closeButton: true, debug: false, newestOnTop: true, progressBar: true, positionClass: 'toast-top-full-width', preventDuplicates: true, onclick: null};
-				var $toast = toastr[shortCutFunction](msg); $toastlast = $toast;
-			}).catch(error => { signInWithYahoo() });
+			signInWithYahoo()
 		} else {
 			auth.sendSignInLinkToEmail(email, actionCodeSettings).then(() => {
 				var shortCutFunction = 'success';
