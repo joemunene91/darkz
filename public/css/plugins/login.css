@@ -37,7 +37,7 @@
 }
 @media screen and (max-width: 500px) {
     #invoice-div {
-        margin-top: 12vh;
+        margin-top: 11.5vh;
     }
 }
 @media screen and (max-width: 400px) {
@@ -213,7 +213,7 @@
         letter-spacing: 1.5px !important;  
     }
     #section-index {
-        margin-top: 30px !important;
+        margin-top: 25px !important;
     }
     #clients {
         position: fixed !important;
