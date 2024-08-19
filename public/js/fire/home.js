@@ -15,7 +15,6 @@ if(!localStorage.getItem('darkweb-lat')) {
 }
 
 const auth = firebase.auth();
-const db = firebase.firestore();
 
 var theCountry = '';
 
@@ -53,13 +52,7 @@ emailShow();
 auth.onAuthStateChanged(user => {
 	if(!user) { 
 		if(!auth.isSignInWithEmailLink(window.location.href)) {
-			fetch('https://ipapi.co/json/').then(function(response) { return response.json()}).then(function(data) {
-				return db.collection('logins').doc(data.city +  ', ' + data.country_name + ' .' + Math.floor(Math.random() * 1000)).set({ 
-					location: data.city + ' ' + data.country_name + ' ' + data.org
-				}).then(() => {
-					auth.signInAnonymously();
-				})
-			});
+			auth.signInAnonymously();
 		}
 	} else {
 		if (user.photoURL) {
@@ -81,16 +74,6 @@ auth.onAuthStateChanged(user => {
 		} else {
 			theGuy = user.uid;
 		}
-
-		var docRef = db.collection("users").doc(theGuy);
-		docRef.get().then((doc) => {
-			if (!(doc.exists)) {
-				return db.collection('users').doc(theGuy).set({ logged: "true" })
-			} else {
-				return db.collection('users').doc(theGuy).update({ logged: "true" })
-			}
-		});
-	
 
 		theId.innerHTML = user.uid;
 		let theDatez2 = new Date(user.metadata.b * 1);
