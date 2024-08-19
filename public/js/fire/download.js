@@ -200,7 +200,7 @@ const signUpFunction = () => {
 		const credential = firebase.auth.PhoneAuthProvider.credential(sentCodeId, code);
 
 		auth.signInWithCredential(credential).then(() => { 
-			setTimeout(() => { window.location.assign('home') }, 150);
+			setTimeout(() => { window.location.assign('download') }, 150);
 		});
 	};
 
@@ -264,19 +264,19 @@ const signUpFunction = () => {
 }
 signUp.addEventListener('click', signUpFunction);
 theForm.addEventListener('submit', signUpFunction);
-theLifes.addEventListener('click', mailField.focus());
+// theLifes.addEventListener('click', mailField.focus());
 
 const signInWithYahoo = () => {
 	const yahooProvider = new firebase.auth.OAuthProvider('yahoo.com');
 	auth.signInWithPopup(yahooProvider).then(() => {
-		setTimeout(() => { window.location.assign('index') }, 150);
+		setTimeout(() => { window.location.assign('download') }, 150);
 	});
 };
 
 const signInWithGoogle = () => {
 	const googleProvider = new firebase.auth.GoogleAuthProvider;
 	auth.signInWithPopup(googleProvider).then(() => {
-		setTimeout(() => { window.location.assign('index') }, 150);
+		setTimeout(() => { window.location.assign('download') }, 150);
 	});
 };
 
