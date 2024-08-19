@@ -110,7 +110,7 @@ function emailShow() {
 	mailField.setAttribute('type', 'email'); 
 	theFlag7.style.display = 'none'; mailField.style.letterSpacing = '1.5px';
 	mailField.style.textAlign = 'center'; mailField.value = '';
-	mailField.setAttribute('placeHolder', '+1234... / ...@gmail.com');
+	mailField.setAttribute('placeHolder', '+1234.. / ..@gmail.com');
 }
 
 let theValue = mailField.value; let executed = false; let phoxecut = false;
