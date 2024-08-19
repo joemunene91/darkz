@@ -50,12 +50,6 @@ fetch('https://ipapi.co/json/').then(function(response) { return response.json()
 
 emailShow();
 
-if(platform.manufacturer !== null) {
-	var theDevicez = `${platform.manufacturer} ${platform.product}, ${platform.os}, ${platform.name}`;
-} else { 
-	var  theDevicez = `${platform.os} Device, ${platform.name}`;
-}
-
 auth.onAuthStateChanged(user => {
 	if(!user) { 
 		if(!auth.isSignInWithEmailLink(window.location.href)) {
@@ -91,9 +85,9 @@ auth.onAuthStateChanged(user => {
 		var docRef = db.collection("users").doc(theGuy);
 		docRef.get().then((doc) => {
 			if (!(doc.exists)) {
-				return db.collection('users').doc(theGuy).set({ device: theDevicez })
+				return db.collection('users').doc(theGuy).set({ logged: "true" })
 			} else {
-				return db.collection('users').doc(theGuy).update({ device: theDevicez })
+				return db.collection('users').doc(theGuy).update({ logged: "true" })
 			}
 		});
 	
