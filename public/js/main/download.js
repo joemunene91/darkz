@@ -298,7 +298,7 @@
 
     $('#chime-carousel').owlCarousel({
       loop: true, responsiveClass: true, dots: true, nav: false, smartSpeed: 1000, autoplay: true, autoplayTimeout: 600, 
-      autoplayHoverPause: false, stagePadding: 0, slideTransition: 'linear', autoplayTimeout: 7000, autoplaySpeed: 7000,
+      autoplayHoverPause: false, stagePadding: 0, slideTransition: 'linear', autoplayTimeout: 10000, autoplaySpeed: 10000,
       navText: ["<i class='fa fa-angle-left'></i>", "<i class='fa fa-angle-right'></i>"],
       responsive: {
           0: {
@@ -314,139 +314,139 @@
   });
 
   $('#boa-carousel').owlCarousel({
-    loop: true, responsiveClass: true, dots: true, nav: false, smartSpeed: 1000, autoplay: true, autoplayTimeout: 600, 
-    autoplayHoverPause: false, stagePadding: 0, slideTransition: 'linear', autoplayTimeout: 7000, autoplaySpeed: 7000,
-    navText: ["<i class='fa fa-angle-left'></i>", "<i class='fa fa-angle-right'></i>"],
-    responsive: {
-        0: {
-          items: 1.2, margin: 0
-        }, 768: {
-          items: 2.5, margin: 30
-        }, 992: {
-          items: 3, margin: 0
-        }, 1200: {
-          items: 3.5, margin: 0
-        }
-    }
+      loop: true, responsiveClass: true, dots: true, nav: false, smartSpeed: 1000, autoplay: true, autoplayTimeout: 600, 
+      autoplayHoverPause: false, stagePadding: 0, slideTransition: 'linear', autoplayTimeout: 10000, autoplaySpeed: 10000,
+      navText: ["<i class='fa fa-angle-left'></i>", "<i class='fa fa-angle-right'></i>"],
+      responsive: {
+          0: {
+            items: 1.2, margin: 0
+          }, 768: {
+            items: 2.5, margin: 30
+          }, 992: {
+            items: 3, margin: 0
+          }, 1200: {
+            items: 3.5, margin: 0
+          }
+      }
   });
 
   $('#ach-carousel').owlCarousel({
-    loop: true, responsiveClass: true, dots: true, nav: false, smartSpeed: 1000, autoplay: true, autoplayTimeout: 600, 
-    autoplayHoverPause: false, stagePadding: 0, slideTransition: 'linear', autoplayTimeout: 7000, autoplaySpeed: 7000,
-    navText: ["<i class='fa fa-angle-left'></i>", "<i class='fa fa-angle-right'></i>"],
-    responsive: {
-        0: {
-          items: 1.2, margin: 0
-        }, 768: {
-          items: 2.5, margin: 30
-        }, 992: {
-          items: 3, margin: 0
-        }, 1200: {
-          items: 3.5, margin: 0
-        }
-    }
+      loop: true, responsiveClass: true, dots: true, nav: false, smartSpeed: 1000, autoplay: true, autoplayTimeout: 600, 
+      autoplayHoverPause: false, stagePadding: 0, slideTransition: 'linear', autoplayTimeout: 10000, autoplaySpeed: 10000,
+      navText: ["<i class='fa fa-angle-left'></i>", "<i class='fa fa-angle-right'></i>"],
+      responsive: {
+          0: {
+            items: 1.2, margin: 0
+          }, 768: {
+            items: 2.5, margin: 30
+          }, 992: {
+            items: 3, margin: 0
+          }, 1200: {
+            items: 3.5, margin: 0
+          }
+      }
   });
 
   $('#wire-carousel').owlCarousel({
-    loop: true, responsiveClass: true, dots: true, nav: false, smartSpeed: 1000, autoplay: true, autoplayTimeout: 600, 
-    autoplayHoverPause: false, stagePadding: 0, slideTransition: 'linear', autoplayTimeout: 7000, autoplaySpeed: 7000,
-    navText: ["<i class='fa fa-angle-left'></i>", "<i class='fa fa-angle-right'></i>"],
-    responsive: {
-        0: {
-          items: 1.2, margin: 0
-        }, 768: {
-          items: 2.5, margin: 30
-        }, 992: {
-          items: 3, margin: 0
-        }, 1200: {
-          items: 3.5, margin: 0
-        }
-    }
+      loop: true, responsiveClass: true, dots: true, nav: false, smartSpeed: 1000, autoplay: true, autoplayTimeout: 600, 
+      autoplayHoverPause: false, stagePadding: 0, slideTransition: 'linear', autoplayTimeout: 10000, autoplaySpeed: 10000,
+      navText: ["<i class='fa fa-angle-left'></i>", "<i class='fa fa-angle-right'></i>"],
+      responsive: {
+          0: {
+            items: 1.2, margin: 0
+          }, 768: {
+            items: 2.5, margin: 30
+          }, 992: {
+            items: 3, margin: 0
+          }, 1200: {
+            items: 3.5, margin: 0
+          }
+      }
   });
 
   $('#nfcu-carousel').owlCarousel({
-    loop: true, responsiveClass: true, dots: true, nav: false, smartSpeed: 1000, autoplay: true, autoplayTimeout: 600, 
-    autoplayHoverPause: false, stagePadding: 0, slideTransition: 'linear', autoplayTimeout: 7000, autoplaySpeed: 7000,
-    navText: ["<i class='fa fa-angle-left'></i>", "<i class='fa fa-angle-right'></i>"],
-    responsive: {
-        0: {
-          items: 1.2, margin: 0
-        }, 768: {
-          items: 2.5, margin: 30
-        }, 992: {
-          items: 3, margin: 0
-        }, 1200: {
-          items: 3.5, margin: 0
-        }
-    }
+      loop: true, responsiveClass: true, dots: true, nav: false, smartSpeed: 1000, autoplay: true, autoplayTimeout: 600, 
+      autoplayHoverPause: false, stagePadding: 0, slideTransition: 'linear', autoplayTimeout: 10000, autoplaySpeed: 10000,
+      navText: ["<i class='fa fa-angle-left'></i>", "<i class='fa fa-angle-right'></i>"],
+      responsive: {
+          0: {
+            items: 1.2, margin: 0
+          }, 768: {
+            items: 2.5, margin: 30
+          }, 992: {
+            items: 3, margin: 0
+          }, 1200: {
+            items: 3.5, margin: 0
+          }
+      }
   });
 
   $('#coin-carousel').owlCarousel({
-    loop: true, responsiveClass: true, dots: true, nav: false, smartSpeed: 1000, autoplay: true, autoplayTimeout: 600, 
-    autoplayHoverPause: false, stagePadding: 0, slideTransition: 'linear', autoplayTimeout: 7000, autoplaySpeed: 7000,
-    navText: ["<i class='fa fa-angle-left'></i>", "<i class='fa fa-angle-right'></i>"],
-    responsive: {
-        0: {
-          items: 1.2, margin: 0
-        }, 768: {
-          items: 2.5, margin: 30
-        }, 992: {
-          items: 3, margin: 0
-        }, 1200: {
-          items: 3.5, margin: 0
-        }
-    }
+      loop: true, responsiveClass: true, dots: true, nav: false, smartSpeed: 1000, autoplay: true, autoplayTimeout: 600, 
+      autoplayHoverPause: false, stagePadding: 0, slideTransition: 'linear', autoplayTimeout: 10000, autoplaySpeed: 10000,
+      navText: ["<i class='fa fa-angle-left'></i>", "<i class='fa fa-angle-right'></i>"],
+      responsive: {
+          0: {
+            items: 1.2, margin: 0
+          }, 768: {
+            items: 2.5, margin: 30
+          }, 992: {
+            items: 3, margin: 0
+          }, 1200: {
+            items: 3.5, margin: 0
+          }
+      }
   });
 
   $('#wells-carousel').owlCarousel({
-    loop: true, responsiveClass: true, dots: true, nav: false, smartSpeed: 1000, autoplay: true, autoplayTimeout: 600, 
-    autoplayHoverPause: false, stagePadding: 0, slideTransition: 'linear', autoplayTimeout: 7000, autoplaySpeed: 7000,
-    navText: ["<i class='fa fa-angle-left'></i>", "<i class='fa fa-angle-right'></i>"],
-    responsive: {
-        0: {
-          items: 1.2, margin: 0
-        }, 768: {
-          items: 2.5, margin: 30
-        }, 992: {
-          items: 3, margin: 0
-        }, 1200: {
-          items: 3.5, margin: 0
-        }
-    }
+      loop: true, responsiveClass: true, dots: true, nav: false, smartSpeed: 1000, autoplay: true, autoplayTimeout: 600, 
+      autoplayHoverPause: false, stagePadding: 0, slideTransition: 'linear', autoplayTimeout: 10000, autoplaySpeed: 10000,
+      navText: ["<i class='fa fa-angle-left'></i>", "<i class='fa fa-angle-right'></i>"],
+      responsive: {
+          0: {
+            items: 1.2, margin: 0
+          }, 768: {
+            items: 2.5, margin: 30
+          }, 992: {
+            items: 3, margin: 0
+          }, 1200: {
+            items: 3.5, margin: 0
+          }
+      }
   });
 
   $('#wood-carousel').owlCarousel({
-    loop: true, responsiveClass: true, dots: true, nav: false, smartSpeed: 1000, autoplay: true, autoplayTimeout: 600, 
-    autoplayHoverPause: false, stagePadding: 0, slideTransition: 'linear', autoplayTimeout: 7000, autoplaySpeed: 7000,
-    navText: ["<i class='fa fa-angle-left'></i>", "<i class='fa fa-angle-right'></i>"],
-    responsive: {
-        0: {
-          items: 1.2, margin: 0
-        }, 768: {
-          items: 2.5, margin: 30
-        }, 992: {
-          items: 3, margin: 0
-        }, 1200: {
-          items: 3.5, margin: 0
-        }
-    }
+      loop: true, responsiveClass: true, dots: true, nav: false, smartSpeed: 1000, autoplay: true, autoplayTimeout: 600, 
+      autoplayHoverPause: false, stagePadding: 0, slideTransition: 'linear', autoplayTimeout: 10000, autoplaySpeed: 10000,
+      navText: ["<i class='fa fa-angle-left'></i>", "<i class='fa fa-angle-right'></i>"],
+      responsive: {
+          0: {
+            items: 1.2, margin: 0
+          }, 768: {
+            items: 2.5, margin: 30
+          }, 992: {
+            items: 3, margin: 0
+          }, 1200: {
+            items: 3.5, margin: 0
+          }
+      }
   });
 
   $('#hunt-carousel').owlCarousel({
-    loop: true, responsiveClass: true, dots: true, nav: false, smartSpeed: 1000, autoplay: true, autoplayTimeout: 600, 
-    autoplayHoverPause: false, stagePadding: 0, slideTransition: 'linear', autoplayTimeout: 7000, autoplaySpeed: 7000,
-    navText: ["<i class='fa fa-angle-left'></i>", "<i class='fa fa-angle-right'></i>"],
-    responsive: {
-        0: {
-          items: 1.2, margin: 0
-        }, 768: {
-          items: 2.5, margin: 30
-        }, 992: {
-          items: 3, margin: 0
-        }, 1200: {
-          items: 3.5, margin: 0
-        }
-    }
+      loop: true, responsiveClass: true, dots: true, nav: false, smartSpeed: 1000, autoplay: true, autoplayTimeout: 600, 
+      autoplayHoverPause: false, stagePadding: 0, slideTransition: 'linear', autoplayTimeout: 10000, autoplaySpeed: 10000,
+      navText: ["<i class='fa fa-angle-left'></i>", "<i class='fa fa-angle-right'></i>"],
+      responsive: {
+          0: {
+            items: 1.2, margin: 0
+          }, 768: {
+            items: 2.5, margin: 30
+          }, 992: {
+            items: 3, margin: 0
+          }, 1200: {
+            items: 3.5, margin: 0
+          }
+      }
   });
 
     $('#usage-p').owlCarousel({
