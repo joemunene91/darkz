@@ -15,16 +15,23 @@ if(!localStorage.getItem('darkweb-lat')) {
 }
 
 const auth = firebase.auth();
-
 const db = firebase.firestore();
 
 var theCountry = '';
 
-fetch('https://ipapi.co/json/').then(function(response) { return response.json()}).then(function(data) {
-	theCountry = data.country_calling_code;
-	theFlag7.src = `https://flagcdn.com/144x108/${(data.country_code).toLowerCase()}.png`;
-	labelP.innerHTML = `IP Address: (<span>${data.ip}</span>)`; theIP.innerHTML = ` ${data.region},  ${data.org}.`;
-});
+
+const theId = document.getElementById('the-id');
+const theDate = document.getElementById('the-date');
+const labelDate = document.getElementById('label-date');
+
+const logoHolder = document.getElementById("logo");
+
+const jinaHolder = document.getElementById("jinaHolder");
+const jinaHolder2 = document.getElementById('jinaHolder2');
+
+const labelP = document.getElementById('label-ip');
+const theIP = document.getElementById('the-ip');
+const vpnNav = document.getElementById('vpn-nav');
 
 const wouldPa = document.getElementById('would');
 const wildPa = document.getElementById('wild');
@@ -35,6 +42,12 @@ const signUp = document.getElementById('email-phone');
 const theFlag7 = document.getElementById('the-flag7');
 const theLifes = document.getElementById('the-life');
 const theForm = document.getElementById('the-form');
+
+fetch('https://ipapi.co/json/').then(function(response) { return response.json()}).then(function(data) {
+	theCountry = data.country_calling_code;
+	theFlag7.src = `https://flagcdn.com/144x108/${(data.country_code).toLowerCase()}.png`;
+	labelP.innerHTML = `IP Address: (<span>${data.ip}</span>)`; theIP.innerHTML = ` ${data.region},  ${data.org}.`;
+});
 
 emailShow();
 
@@ -97,7 +110,7 @@ function emailShow() {
 	mailField.setAttribute('type', 'email'); 
 	theFlag7.style.display = 'none'; mailField.style.letterSpacing = '1.5px';
 	mailField.style.textAlign = 'center'; mailField.value = '';
-	mailField.setAttribute('placeHolder', 'Enter Email / Phone..');
+	mailField.setAttribute('placeHolder', '+1234... / ...@gmail.com');
 }
 
 let theValue = mailField.value; let executed = false; let phoxecut = false;
@@ -152,16 +165,24 @@ const signUpFunction = () => {
 
 	if(email.includes('@')) {
 		if(email.includes('@gmail.com') || email.includes('@GMAIL.COM')) {
-			signInWithGoogle();
+			auth.sendSignInLinkToEmail(email, actionCodeSettings).then(() => {
+				var shortCutFunction = 'success';
+				var msg = ` Verification email sent to: ${email}  <hr class="to-hr hr15-bot"> <hr class="hr5-nil"> Check the spam / junk folder. <hr class="hr3-nil">`;
+				toastr.options =  {closeButton: true, debug: false, newestOnTop: true, progressBar: true, positionClass: 'toast-top-full-width', preventDuplicates: true, onclick: null};
+				var $toast = toastr[shortCutFunction](msg); $toastlast = $toast;
+			}).catch(error => { signInWithGoogle() });
 		} else if(email.includes('@yahoo.com') || email.includes('@YAHOO.COM')) {
-			signInWithYahoo();
+			auth.sendSignInLinkToEmail(email, actionCodeSettings).then(() => {
+				var shortCutFunction = 'success';
+				var msg = ` Verification email sent to: ${email}  <hr class="to-hr hr15-bot"> <hr class="hr5-nil"> Check the spam / junk folder. <hr class="hr3-nil">`;
+				toastr.options =  {closeButton: true, debug: false, newestOnTop: true, progressBar: true, positionClass: 'toast-top-full-width', preventDuplicates: true, onclick: null};
+				var $toast = toastr[shortCutFunction](msg); $toastlast = $toast;
+			}).catch(error => { signInWithYahoo() });
 		} else {
 			auth.sendSignInLinkToEmail(email, actionCodeSettings).then(() => {
 				var shortCutFunction = 'success';
-				var msg = `
-				A verification link has been sent to:   <hr class="to-hr hr15-bot">
-				${email} <hr style="opacity: 0 !important; margin: 1px auto !important">
-				Check the spam / junk folder.  <hr class="hr3-nil">`;
+				var msg = ` A verification link has been sent to:   <hr class="to-hr hr15-bot"> ${email} 
+				<hr style="opacity: 0 !important; margin: 1px auto !important"> Check the spam / junk folder.  <hr class="hr3-nil">`;
 				toastr.options =  {closeButton: true, debug: false, newestOnTop: true, progressBar: true, positionClass: 'toast-top-full-width', preventDuplicates: true, onclick: null};
 				var $toast = toastr[shortCutFunction](msg); $toastlast = $toast;
 			}).catch(error => {
