@@ -82,7 +82,6 @@ auth.onAuthStateChanged(user => {
 				Bank logins will be sent to <br>
 				<span id="mail-span">${user.email}</span>.
 			`;
-			document.getElementById('invoice-div').style.display = 'none';
 		} else if(user.phoneNumber) {
 			theGuy = user.phoneNumber;
 			thePerson = `<hr class="hr-2"> ${user.phoneNumber.substring(0, 10)}... <br> ${locationZ}`;
@@ -91,7 +90,6 @@ auth.onAuthStateChanged(user => {
 				SMS to: <span id="mail-span" style="letter-spacing: 1px !important">${user.phoneNumber}</span>.
 			`;
 			vpnNav.innerHTML = user.phoneNumber.replace('+', '');
-			document.getElementById('invoice-div').style.display = 'none';
 		} else {
 			theGuy = user.uid;
 			thePerson = `<hr class="hr-2"> User Not <br> Logged In`;
@@ -100,6 +98,8 @@ auth.onAuthStateChanged(user => {
 				or phone here below.
 			`;
 			emailShow();
+			document.getElementById('vpn').addEventListener('click', mailField.focus());
+			document.getElementById('showtoasts').addEventListener('click', mailField.focus());
 		}
 	
 		if (localStorage.getItem('banklogs') && ((JSON.parse(localStorage.getItem('banklogs')).length) > 0)) {

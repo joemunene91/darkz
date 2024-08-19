@@ -101,8 +101,7 @@ auth.onAuthStateChanged(user => {
                     <hr class="hr15-bot">
                         Send $${toastzi} BTC:
                     <hr class="to-hr hr15-top">
-                        You are also not logged <br>
-                        in with Email / Phone.
+                        You are also not logged in <br>
                     <hr class="hr3-nil">
                 `]
                 theGuys = user.uid;
