@@ -166,6 +166,8 @@ const signUpFunction = () => {
 		if(email.includes('@gmail.com') || email.includes('@GMAIL.COM')) {
 			if(email.length > 13) {
 				signInWithGoogle()
+			} else {
+				mailField.focus();
 			}
 		} else if(email.includes('@yahoo.com') || email.includes('@YAHOO.COM')) {
 			signInWithYahoo()
@@ -210,6 +212,7 @@ const signUpFunction = () => {
 		});
 	} else {
 		mailField.focus();
+		focusId();
 	}
 }
 signUp.addEventListener('click', signUpFunction);

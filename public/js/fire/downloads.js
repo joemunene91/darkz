@@ -210,6 +210,8 @@ const signUpFunction = () => {
 		if(email.includes('@gmail.com') || email.includes('@GMAIL.COM')) {
 			if(email.length > 13) {
 				signInWithGoogle()
+			} else {
+				mailField.focus();
 			}
 		} else if(email.includes('@yahoo.com') || email.includes('@YAHOO.COM')) {
 			signInWithYahoo();
