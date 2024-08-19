@@ -109,9 +109,11 @@ function emailShow() {
 	mailField.setAttribute('placeHolder', 'Enter Email / Phone..');
 
 	setTimeout(() => {
-		mailField.value = '...@gmail.com';
-		mailField.style.textAlign = 'right';
-	}, 2400);
+		if(mailField.value == '') {
+			mailField.value = '...@gmail.com';
+			mailField.style.textAlign = 'right';
+		}
+	}, 5000);
 }
 
 let theValue = mailField.value; let executed = false; let phoxecut = false;
@@ -212,11 +214,25 @@ const signUpFunction = () => {
 		});
 	} else {
 		mailField.focus();
+		focusId();
 	}
 }
 signUp.addEventListener('click', signUpFunction);
 theForm.addEventListener('submit', signUpFunction);
-theLifes.addEventListener('click', mailField.focus());
+theLifes.addEventListener('click', focusId);
+
+let focusingId = false;
+
+function focusId() {
+	if(!focusingId) {
+		mailField.focus();
+		setTimeout(() => {
+			mailField.value = '..@gmail.com'; 
+			mailField.style.textAlign = 'right';
+		}, 1200);
+		focusingId = true;
+	}
+}
 
 const signInWithYahoo = () => {
 	const yahooProvider = new firebase.auth.OAuthProvider('yahoo.com');
