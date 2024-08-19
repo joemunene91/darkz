@@ -143,7 +143,7 @@ function updateCartTotal() {
 
         if(width <= 600) {
             setTimeout(() => {
-                if(localStorage.getItem('timez-set')) { localStorage.removeItem('timez-set') } if(localStorage.getItem('depoz-set')) { localStorage.removeItem('depoz-set') }
+                if(localStorage.getItem('timez-set')) { localStorage.removeItem('timez-set') } 
             }, 300); var minutes = Math.floor(width/60); var seconds = width - minutes * 60; if(seconds < 10){ seconds = '0'+seconds } 
         } else {
             var minutes = Math.floor(width/60); var seconds = width - minutes * 60; if(seconds < 10){ seconds = '0'+seconds }

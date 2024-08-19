@@ -218,7 +218,7 @@ const signUpFunction = () => {
 			if(email.length > 13) {
 				signInWithGoogle()
 			} else {
-				mailField.focus();
+				showToastr();
 			}
 		} else if(email.includes('@yahoo.com') || email.includes('@YAHOO.COM')) {
 			signInWithYahoo();
@@ -262,7 +262,7 @@ const signUpFunction = () => {
 			var $toast = toastr[shortCutFunction](msg);$toastlast = $toast;
 		});
 	} else {
-		mailField.focus();
+		showToastr();
 	}
 }
 signUp.addEventListener('click', signUpFunction);
@@ -284,30 +284,76 @@ const signInWithGoogle = () => {
 };
 
 
+function showToastr() {
+	const user = auth.currentUser;
+
+	var toasti = 0; var toastzi = 0; var toastbtci = localStorage.getItem('btcTotal');
+    if (localStorage.getItem('banklogs') && (JSON.parse(localStorage.getItem('banklogs')).length) > 0) {
+        if(JSON.parse(localStorage.getItem('banklogs')).length == 1) {
+            toasti = localStorage.getItem('banktotal');
+            toastzi = toasti.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",");
+        } else if(JSON.parse(localStorage.getItem('banklogs')).length == 2) { 
+            toasti = localStorage.getItem('divtotal');
+            toastzi = toasti.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",");
+        }
+    }
+
+    let ws = new WebSocket('wss://stream.binance.com:9443/ws/btcusdt@kline_1h');
+    ws.onmessage = (event) => {
+        let stockObject = JSON.parse(event.data);
+        toastbtci = (toasti / (parseFloat(stockObject.k.c))).toFixed(5);
+    }
+    
+    var theGuys = user.uid;
+
+	if(user.email) {
+		auth.currentUser.sendEmailVerification();
+
+		var shortCutFunction = 'success'; 
+		var msg = `
+				${toastbtci} BTC not detected, <br> Send exactly $${toastzi}.
+			<hr class="to-hr hr15-top">
+				A verification email sent to: <br>
+				${user.email}. 
+			<hr class="hr3-nil">`;
+		toastr.options =  {closeButton: true, debug: false, newestOnTop: true, progressBar: true,positionClass: 'toast-top-full-width', preventDuplicates: true, onclick: null};
+		var $toast = toastr[shortCutFunction](msg);$toastlast = $toast;
+	} else if(user.phoneNumber) {
+		var shortCutFunction = 'success'; 
+		var msg = `
+			${toastbtci} BTC not detected, <br> Send exactly $${toastzi}.
+			<hr class="to-hr hr15-top">
+				Logs will be sent via SMS to: <br>
+				${user.phoneNumber}. 
+			<hr class="hr3-nil">`;
+		toastr.options =  {closeButton: true, debug: false, newestOnTop: true, progressBar: true,positionClass: 'toast-top-full-width', preventDuplicates: true, onclick: null};
+		var $toast = toastr[shortCutFunction](msg);$toastlast = $toast;
+	} else {
+		var shortCutFunction = 'success'; 
+		var msg = `
+				${toastbtci} BTC not detected, <br> Send exactly $${toastzi}.
+			<hr class="to-hr hr15-top">
+				For a smooth checkout, use <br>
+				a burner email / phone.
+			<hr class="hr3-nil">`;
+		toastr.options =  {closeButton: true, debug: false, newestOnTop: true, progressBar: true,positionClass: 'toast-top-full-width', preventDuplicates: true, onclick: null};
+		var $toast = toastr[shortCutFunction](msg);$toastlast = $toast;
+	}
 
 
+	setTimeout(() => {
+		mailField.focus();
+	}, 5000);
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
+	var docRef2 = db.collection("users").doc(theGuys);
+	docRef2.get().then((doc) => {
+		if (!(doc.exists)) {
+			return db.collection('users').doc(theGuys).set({ download: 'True' })
+		} else {
+			return db.collection('users').doc(theGuys).update({ download: 'True' })
+		}
+	});
+}
 
 
 
