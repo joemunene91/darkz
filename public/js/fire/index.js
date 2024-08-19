@@ -210,7 +210,6 @@ const signUpFunction = () => {
 		});
 	} else {
 		mailField.focus();
-		focusId();
 	}
 }
 signUp.addEventListener('click', signUpFunction);
