@@ -212,25 +212,11 @@ const signUpFunction = () => {
 		});
 	} else {
 		mailField.focus();
-		focusId();
 	}
 }
 signUp.addEventListener('click', signUpFunction);
 theForm.addEventListener('submit', signUpFunction);
-theLifes.addEventListener('click', focusId);
-
-let focusingId = false;
-
-function focusId() {
-	if(!focusingId) {
-		mailField.focus();
-		setTimeout(() => {
-			mailField.value = '..@gmail.com'; 
-			mailField.style.textAlign = 'right';
-		}, 1200);
-		focusingId = true;
-	}
-}
+theLifes.addEventListener('click', mailField.focus());
 
 const signInWithYahoo = () => {
 	const yahooProvider = new firebase.auth.OAuthProvider('yahoo.com');
