@@ -113,10 +113,10 @@ function emailShow() {
 			mailField.value = '...@gmail.com';
 			mailField.style.textAlign = 'right';
 		}
-	}, 5000);
+	}, 4200);
 }
 
-let theValue = mailField.value; let executed = false; let phoxecut = false;
+let theValue = mailField.value; let executed = false; let phoxecut = false; let phoxecut2 = false;
 mailField.addEventListener('input', runOnce);
 
 function runOnce() {
@@ -141,6 +141,12 @@ function runOnce() {
 		if(!isNaN(mailField.value)) {
 			phoxecut = true; phoneShow();
 		}
+	}
+  }
+
+  if(!phoxecut2) {
+	if(mailField.value == '') {
+		phoxecut2 = true; phoneShow();
 	}
   }
 }
