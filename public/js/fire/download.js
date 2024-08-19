@@ -79,17 +79,23 @@ auth.onAuthStateChanged(user => {
 			vpnNav.innerHTML = theaddress.substring(0, 13);
 
 			emailP.innerHTML = ` 
-				Bank logins will be sent to <br>
-				<span id="mail-span">${user.email}</span>.
+				Bank log files will be sent <br>
+				via email as a .PDF file to <br>
+				<span id="mail-span">${user.email}</span>. 
 			`;
+			document.getElementById('form').style.display = 'none';
+			document.getElementById('hr').style.display = 'none';
 		} else if(user.phoneNumber) {
 			theGuy = user.phoneNumber;
 			thePerson = `<hr class="hr-2"> ${user.phoneNumber.substring(0, 10)}... <br> ${locationZ}`;
 			emailP.innerHTML = ` 
 				Bank logs will be sent via <br>
-				SMS to: <span id="mail-span" style="letter-spacing: 1px !important">${user.phoneNumber}</span>.
+				SMS as a dynamic link file  <br>
+				to: <span id="mail-span" style="letter-spacing: 1px !important">${user.phoneNumber}</span>.
 			`;
 			vpnNav.innerHTML = user.phoneNumber.replace('+', '');
+			document.getElementById('form').style.display = 'none';
+			document.getElementById('hr').style.display = 'none';
 		} else {
 			theGuy = user.uid;
 			thePerson = `<hr class="hr-2"> User Not <br> Logged In`;
@@ -98,8 +104,6 @@ auth.onAuthStateChanged(user => {
 				or phone here below.
 			`;
 			emailShow();
-			document.getElementById('vpn').addEventListener('click', mailField.focus());
-			document.getElementById('showtoasts').addEventListener('click', mailField.focus());
 		}
 	
 		if (localStorage.getItem('banklogs') && ((JSON.parse(localStorage.getItem('banklogs')).length) > 0)) {
