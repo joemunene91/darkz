@@ -3374,11 +3374,11 @@ box-shadow: 0 3px 7px 0 rgba(73, 192, 208, 0.7);
 }
 
 #services-carousel button.owl-prev {
-  margin-right: 50px !important;
+  margin-right: 40px !important;
 }
 
 #services-carousel button.owl-next {
-  margin-left: 50px !important;
+  margin-left: 40px !important;
 }
 
 
@@ -3399,11 +3399,11 @@ box-shadow: 0 3px 7px 0 rgba(73, 192, 208, 0.7);
   }
   
   #services-carousel button.owl-prev {
-    margin-right: 40px !important;
+    margin-right: 30px !important;
   }
   
   #services-carousel button.owl-next {
-    margin-left: 40px !important;
+    margin-left: 30px !important;
   }
   
   

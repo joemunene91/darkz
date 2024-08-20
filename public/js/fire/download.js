@@ -27,12 +27,7 @@ const emailP = document.getElementById('email-p');
 const vpnNav = document.getElementById('vpn-nav');
 
 
-const mailField = document.getElementById('inputLife');
 const signUp = document.getElementById('anon-check');
-
-const theFlag7 = document.getElementById('the-flag7');
-const theLifes = document.getElementById('the-life');
-const theForm = document.getElementById('the-form');
 
 var locationZ = '';
 var thePerson = '';
@@ -42,7 +37,6 @@ let itemz = [];
 fetch('https://ipapi.co/json/').then(function(response) { return response.json()}).then(function(data) {
 	theCountry = data.country_calling_code;
 	locationZ = data.city;
-	theFlag7.src = `https://flagcdn.com/144x108/${(data.country_code).toLowerCase()}.png`;
 	labelP.innerHTML = `IP Address: (<span>${data.ip}</span>)`; theIP.innerHTML = ` ${data.region},  ${data.org}.`;
 });
 
@@ -83,8 +77,6 @@ auth.onAuthStateChanged(user => {
 				via email as a .PDF file to <br>
 				<span id="mail-span">${user.email}</span>. 
 			`;
-			document.getElementById('form').style.display = 'none';
-			document.getElementById('hr').style.display = 'none';
 			signUp.innerHTML = `Download <img src="img/partners/cloud.png">`;
 		} else if(user.phoneNumber) {
 			theGuy = user.phoneNumber;
@@ -96,20 +88,8 @@ auth.onAuthStateChanged(user => {
 				to: <span id="mail-span" style="letter-spacing: 1px !important">${user.phoneNumber}</span>.
 			`;
 			vpnNav.innerHTML = user.phoneNumber.replace('+', '');
-			document.getElementById('form').style.display = 'none';
-			document.getElementById('hr').style.display = 'none';
 			signUp.innerHTML = `Download <img src="img/partners/cloud.png">`;
-		} else {
-			theGuy = user.uid;
-			thePerson = `<hr class="hr-2"> User Not <br> Logged In`;
-			emailP.innerHTML = ` 
-				Use a burner <span id="mail-span">email address</span> <br>
-				or phone here below.
-			`;
-			document.getElementById('showtoasts').addEventListener('click', emailShow);
-			document.getElementById('monez').addEventListener('click', emailShow);
-			document.getElementById('thetot').addEventListener('click', emailShow);
-		}
+		} 
 	
 		if (localStorage.getItem('banklogs') && ((JSON.parse(localStorage.getItem('banklogs')).length) > 0)) {
 			hasItems = 'Very True';
@@ -137,164 +117,11 @@ auth.onAuthStateChanged(user => {
 });
 
 
-function phoneShow() {
-	mailField.setAttribute('type', 'tel'); mailField.style.textAlign = 'left'; 
-	mailField.setAttribute('pattern', '[+]{1}[0-9]{11,14}');
-	mailField.style.letterSpacing = '3px';
-	mailField.value = theCountry;
-	theFlag7.style.display = 'block';
-	mailField.setAttribute('placeHolder', 'Phone Number... ');
-	 
-	fetch('https://ipapi.co/json/').then(function(response) { return response.json()}).then(function(data) {
-		mailField.value = data.country_calling_code; 
-		theFlag7.src = `https://flagcdn.com/144x108/${(data.country_code).toLowerCase()}.png`;
-	}).catch(error => {
-		theFlag7.src = `img/partners/phone.png`;
-		mailField.value = '+123';
-	})
-}
 
-function emailShow() {
-	mailField.setAttribute('type', 'email'); 
-	theFlag7.style.display = 'none'; mailField.style.letterSpacing = '1.5px';
-	mailField.style.textAlign = 'center'; mailField.value = '';
-	mailField.setAttribute('placeHolder', 'Enter Email / Phone..');
-
-	setTimeout(() => {
-		mailField.value = '...@gmail.com';
-		mailField.style.textAlign = 'right';
-	}, 1800);
-}
-
-let theValue = mailField.value; let executed = false; let phoxecut = false; let phoxecut2 = false;
-mailField.addEventListener('input', runOnce);
-
-function runOnce() {
-  if (!executed) {
-	if(mailField.value.includes('@y')) {
-		executed = true; theValue = mailField.value; mailField.value = theValue + 'ahoo.com';
-	} else if(mailField.value.includes('@p')) {
-		executed = true; theValue = mailField.value; mailField.value = theValue + 'roton.me';
-	} else if(mailField.value.includes('@o')) {
-		executed = true; theValue = mailField.value; mailField.value = theValue + 'utlook.com';
-	} else if(mailField.value.includes('@i')) {
-		executed = true; theValue = mailField.value; mailField.value = theValue + 'cloud.com';
-	} else if(mailField.value.includes('@a')) {
-		executed = true; theValue = mailField.value; mailField.value = theValue + 'ol.com';
-	} else if(mailField.value.includes('@m')) {
-		executed = true; theValue = mailField.value; mailField.value = theValue + 'ail.com';
-	} 
-  }
-
-  if(!phoxecut) {
-	if(!(mailField.value == '')) {
-		if(!isNaN(mailField.value)) {
-			phoxecut = true; phoneShow();
-		}
-	}
-  }
-
-  if(!phoxecut2) {
-	if(mailField.value == '') {
-		phoxecut2 = true; phoneShow();
-	}
-  }
-}
-
-window.recaptchaVerifier = new firebase.auth.RecaptchaVerifier('recaptcha-container', {'size': 'invisible'});
-recaptchaVerifier.render().then(widgetId => { window.recaptchaWidgetId = widgetId; });
-
-const signUpFunction = () => {
-	event.preventDefault();
-	const email = mailField.value;	
-	const phoneNumber = mailField.value;
-	const appVerifier = window.recaptchaVerifier;
-	var actionCodeSettings = {url: `${theWebsite}#${mailField.value}`, handleCodeInApp: true };
-
-	const signInWithPhone = sentCodeId => {
-		const code = mailField.value;
-		const credential = firebase.auth.PhoneAuthProvider.credential(sentCodeId, code);
-
-		auth.signInWithCredential(credential).then(() => { 
-			setTimeout(() => { window.location.assign('download') }, 150);
-		});
-	};
-
-	if(email.includes('@')) {
-		if(email.includes('@gmail.com') || email.includes('@GMAIL.COM')) {
-			if(email.length > 13) {
-				signInWithGoogle()
-			} else {
-				showToastr();
-			}
-		} else if(email.includes('@yahoo.com') || email.includes('@YAHOO.COM')) {
-			signInWithYahoo();
-		} else {
-			auth.sendSignInLinkToEmail(email, actionCodeSettings).then(() => {
-				var shortCutFunction = 'success';
-				var msg = ` A verification link has been sent to:   <hr class="to-hr hr15-bot"> ${email} 
-				<hr style="opacity: 0 !important; margin: 1px auto !important"> Check the spam / junk folder.  <hr class="hr3-nil">`;
-				toastr.options =  {closeButton: true, debug: false, newestOnTop: true, progressBar: true, positionClass: 'toast-top-full-width', preventDuplicates: true, onclick: null};
-				var $toast = toastr[shortCutFunction](msg); $toastlast = $toast;
-			}).catch(error => {
-				var shortCutFunction = 'success'; var msg = `${error.message}<hr class="to-hr hr15-bot"> Use a gmail email address <br> instead.`;
-				toastr.options =  {closeButton: true, debug: false, newestOnTop: true, progressBar: true,positionClass: 'toast-top-full-width', preventDuplicates: true, onclick: null};
-				var $toast = toastr[shortCutFunction](msg);$toastlast = $toast;
-			});
-		}
-	} else if(email.includes('+') && (email.length >= 10)) { 
-		auth.signInWithPhoneNumber(phoneNumber, appVerifier).then(confirmationResult => {
-			const sentCodeId = confirmationResult.verificationId;
-			var shortCutFunction = 'success';
-			var msg = ` Verification code sent to your phone:  <hr class="to-hr hr15-bot"> ${phoneNumber}. <hr class="hr10-nil"> `;
-			toastr.options =  { closeButton: true, debug: false, newestOnTop: true, progressBar: true, positionClass: 'toast-top-full-width', preventDuplicates: true, onclick: null };
-			var $toast = toastr[shortCutFunction](msg); $toastlast = $toast;
-
-			emailP.innerHTML = `A verification code sent <br> to: <span id="mail-span">${phoneNumber}</span>`;
-
-			mailField.value = ''; mailField.style.textAlign = 'center'; 
-			mailField.setAttribute('placeHolder', 'Enter the Code...');
-			mailField.focus();
-
-			signUp.removeEventListener('click', signUpFunction);
-			theForm.removeEventListener('submit', signUpFunction);
-
-			theForm.addEventListener('submit', () => signInWithPhone(sentCodeId))
-			signUp.addEventListener('click', () => signInWithPhone(sentCodeId));
-
-			theFlag7.src = `img/partners/comm.png`;
-		}).catch(error => {
-			var shortCutFunction = 'success'; var msg = `${error.message}<hr class="to-hr hr15-bot">`;
-			toastr.options =  {closeButton: true, debug: false, newestOnTop: true, progressBar: true,positionClass: 'toast-top-full-width', preventDuplicates: true, onclick: null};
-			var $toast = toastr[shortCutFunction](msg);$toastlast = $toast;
-		});
-	} else {
-		showToastr();
-	}
-}
-signUp.addEventListener('click', signUpFunction);
-theForm.addEventListener('submit', signUpFunction);
-theLifes.addEventListener('click', mailField.focus());
-
-const signInWithYahoo = () => {
-	const yahooProvider = new firebase.auth.OAuthProvider('yahoo.com');
-	auth.signInWithPopup(yahooProvider).then(() => {
-		setTimeout(() => { window.location.assign('download') }, 150);
-	});
-};
-
-const signInWithGoogle = () => {
-	const googleProvider = new firebase.auth.GoogleAuthProvider;
-	auth.signInWithPopup(googleProvider).then(() => {
-		setTimeout(() => { window.location.assign('download') }, 150);
-	});
-};
-
-let showUs = false;
+signUp.addEventListener('click', showToastr);
 
 function showToastr() {
 	const user = auth.currentUser;
-
 	var toasti = 0; var toastzi = 0; 
 	if(localStorage.getItem('btcTotal')) {
 		var toastbtci = localStorage.getItem('btcTotal');
@@ -341,22 +168,7 @@ function showToastr() {
 			<hr class="hr3-nil">`;
 		toastr.options =  {closeButton: true, debug: false, newestOnTop: true, progressBar: true,positionClass: 'toast-top-full-width', preventDuplicates: true, onclick: null};
 		var $toast = toastr[shortCutFunction](msg);$toastlast = $toast;
-	} else {
-		if(!showUs) {
-			var shortCutFunction = 'success'; 
-			var msg = `
-					${toastbtci} BTC not detected, <br> Send exactly $${toastzi}.
-				<hr class="to-hr hr15-top">
-					For a smooth checkout, use <br>
-					a burner email / phone.
-				<hr class="hr3-nil">`;
-			toastr.options =  {closeButton: true, debug: false, newestOnTop: true, progressBar: true,positionClass: 'toast-top-full-width', preventDuplicates: true, onclick: null};
-			var $toast = toastr[shortCutFunction](msg);$toastlast = $toast;	
-			showUs = true; 
-		} else {
-			mailField.focus();
-		}
-	}
+	} 
 
 	var docRef2 = db.collection("users").doc(theGuys);
 	docRef2.get().then((doc) => {

@@ -3,7 +3,9 @@
     background-repeat:repeat-x;
     animation:animatedBackground 70s linear infinite 
 }
-
+#logs-invoice {
+    height: 100vh;
+}
 
 #my-invoice {
     margin: 3px !important;
@@ -11,31 +13,28 @@
     width: 100% !important;
 }
 #invoice-div {
-    margin-top: 0vh;
-    margin-bottom: 2vh;
+    margin-top: 3vh;
 }
 @media screen and (min-width: 1370px) {
     #invoice-div {
-        margin-top: 3vh;
-        margin-bottom: 3vh;
+        margin-top: 5vh;
     }
 }
 @media screen and (max-width: 821px) {
     #invoice-div {
-        margin-top: 3vh;
+        margin-top: 16vh;
     }
 }
 @media screen and (max-width: 570px) {
     #invoice-div {
-        margin-top: 1vh;
-        margin-bottom: 2vh;
+        margin-top: 11vh;
     }
 }
 
 #invoice-div p {
-    margin: 14px auto !important;
+    margin: 15px auto !important;
     font-size: 23px !important;
-    line-height: 65px !important;
+    line-height: 70px !important;
 }
 
 @media screen and (min-width: 1370px) {
@@ -50,14 +49,14 @@
 @media screen and (max-width: 574px) {
     #invoice-div p {
         font-size: 21.5px !important;
-        line-height: 63px !important;
+        line-height: 65px !important;
     }
 }
 
 @media screen and (max-width: 400px) {
     #invoice-div p {
         font-size: 21px !important;
-        line-height: 60px !important;
+        line-height: 63px !important;
     }
 }
 
@@ -79,12 +78,9 @@
 }
 @media (min-width: 802px) {
 	#invoice-div.col-lg-5 {
-		-ms-flex: 0 0 29%;
-		flex: 0 0 29%;
-		max-width: 29%;
-   }
-   #log-voice.col-lg-2 {
-    margin-top: 7vh !important;
+		-ms-flex: 0 0 33%;
+		flex: 0 0 33%;
+		max-width: 33%;
    }
 }
 @media (max-width: 500px)  {
@@ -165,7 +161,7 @@
     display: flex !important;
     width: 91% !important;
     height: 58px !important;
-    margin: 10px auto 0px !important;
+    margin: 10px auto 10px !important;
   
     background: rgba(255, 255, 255, 0.7) !important;
     box-shadow: 0 0 0 2px rgba(255, 255, 255, 0.7) !important;
@@ -183,8 +179,8 @@
 
 
 #email-phone {
-  margin-top: 15px !important;
-  margin-bottom: 5px !important;
+  margin-top: 20px !important;
+  margin-bottom: 10px !important;
   cursor: pointer !important;
   padding: 9px 13px !important;
   font-size: 25px !important;
@@ -205,4 +201,8 @@
         font-size: 24px !important;
         letter-spacing: 1.5px !important;  
     }
+}
+#clients {
+    position: fixed !important;
+    bottom: 3px !important;
 }

@@ -8,52 +8,55 @@ var firebaseConfig = {
 	measurementId: "G-3FQH15QTXF"
 }; firebase.initializeApp(firebaseConfig);
 
+if(!localStorage.getItem('darkweb-lat')) {
+	localStorage.setItem('banklogs', []);
+	localStorage.setItem('darkweb-lat', true);
+}
+
+const auth = firebase.auth();
+
+var theCountry = '';
+
 
 const theId = document.getElementById('the-id');
-
 const theDate = document.getElementById('the-date');
 const labelDate = document.getElementById('label-date');
 
+const logoHolder = document.getElementById("logo");
+
+const jinaHolder = document.getElementById("jinaHolder");
+const jinaHolder2 = document.getElementById('jinaHolder2');
+
 const labelP = document.getElementById('label-ip');
 const theIP = document.getElementById('the-ip');
-
 const vpnNav = document.getElementById('vpn-nav');
 
 
-const auth = firebase.auth();
-const db = firebase.firestore();
-
-var locationZ = 'Anonymous';
-
 fetch('https://ipapi.co/json/').then(function(response) { return response.json()}).then(function(data) {
-	locationZ = data.city +  ', ' + data.country_name;
+	theCountry = data.country_calling_code;
+	labelP.innerHTML = `IP Address: (<span>${data.ip}</span>)`; theIP.innerHTML = ` ${data.region},  ${data.org}.`;
 });
+
 
 auth.onAuthStateChanged(user => {
 	if(!user) { 
-		window.location.assign('index') 
+		window.location.assign('index');
 	} else {
-		var theGuy = user.uid;
-
-		if(user.email) {
-			theGuy = user.email;
-			var theaddress = (user.email).substring(0, (user.email).indexOf('@'));
-			if (user.displayName) { theaddress = user.displayName } 
-			vpnNav.innerHTML = theaddress.substring(0, 13);
-		} else if(user.phoneNumber) {
-			theGuy = user.phoneNumber;
-			vpnNav.innerHTML = user.phoneNumber.replace('+', '');
+		if (user.photoURL) {
+			logoHolder.setAttribute("src", user.photoURL);
+			logoHolder.classList.add('logo-50');
 		} 
 	
-		var docRef = db.collection("users").doc(theGuy);
-		docRef.get().then((doc) => {
-			if (!(doc.exists)) {
-				return db.collection('users').doc(theGuy).set({ genie: (window.location.href).replace('https://www.', ''), location: locationZ })
-			} else {
-				return db.collection('users').doc(theGuy).update({ genie: (window.location.href).replace('https://www.', ''), location: locationZ })
-			}
-		});
-	
+		if(user.email) {
+			var theaddress = (user.email).substring(0, (user.email).indexOf('@'));
+			if (user.displayName) { theaddress = user.displayName } 
+			jinaHolder.value = theaddress;
+			vpnNav.innerHTML = theaddress.substring(0, 13);
+		} else if(user.phoneNumber) {
+			jinaHolder.value = user.phoneNumber;
+			vpnNav.innerHTML = user.phoneNumber.replace('+', '');
+		} 
+
 		theId.innerHTML = user.uid;
 		let theDatez2 = new Date(user.metadata.b * 1);
 		let theDatez = theDatez2.toString();
@@ -64,17 +67,13 @@ auth.onAuthStateChanged(user => {
 });
 
 
-fetch('https://ipapi.co/json/').then(function(response) { return response.json()}).then(function(data) {
-	labelP.innerHTML = `IP Address: (<span>${data.ip}</span>)`; theIP.innerHTML = ` ${data.region},  ${data.org}.`;
-});
 
 
 
-
-
-
-
-
+var d = new Date();
+var n = d.getMonth() + 1;
+var y = d.getFullYear();
+var m = d.getDate();
 
 
 
@@ -88,6 +87,12 @@ if(!window.location.href.includes('5502')) {
 		}   
 	});
 }
+
+
+
+
+
+
 
 
 
@@ -184,8 +189,6 @@ function drawHand2(ctx2, pos, length, width) {
 	ctx2.beginPath(); ctx2.lineWidth = width; ctx2.lineCap = "round"; ctx2.moveTo(0, 0);
 	ctx2.rotate(pos); ctx2.lineTo(0, -length); ctx2.stroke(); ctx2.rotate(-pos);
 }
-
-
 
 
 
