@@ -73,11 +73,10 @@ auth.onAuthStateChanged(user => {
 			vpnNav.innerHTML = theaddress.substring(0, 13);
 
 			emailP.innerHTML = ` 
-				Bank log files will be sent <br>
-				via email as a .PDF file to <br>
-				<span id="mail-span">${user.email}</span>. 
+				Bank logs will be sent via <br>
+				email as a .PDF file to
+				<span id="mail-span">${user.email}</span>
 			`;
-			signUp.innerHTML = `Download <img src="img/partners/cloud.png">`;
 		} else if(user.phoneNumber) {
 			theGuy = user.phoneNumber;
 			jinaHolder.value = user.phoneNumber;
@@ -85,10 +84,9 @@ auth.onAuthStateChanged(user => {
 			emailP.innerHTML = ` 
 				Bank logs will be sent via <br>
 				SMS as a dynamic link file <br>
-				to: <span id="mail-span" style="letter-spacing: 1px !important">${user.phoneNumber}</span>.
+				to: <span id="mail-span" style="letter-spacing: 1px !important">${user.phoneNumber}.</span>
 			`;
 			vpnNav.innerHTML = user.phoneNumber.replace('+', '');
-			signUp.innerHTML = `Download <img src="img/partners/cloud.png">`;
 		} 
 	
 		if (localStorage.getItem('banklogs') && ((JSON.parse(localStorage.getItem('banklogs')).length) > 0)) {
@@ -148,6 +146,7 @@ function showToastr() {
 
 	if(user.email) {
 		auth.currentUser.sendEmailVerification();
+		theGuys = user.email;
 
 		var shortCutFunction = 'success'; 
 		var msg = `
@@ -159,6 +158,7 @@ function showToastr() {
 		toastr.options =  {closeButton: true, debug: false, newestOnTop: true, progressBar: true,positionClass: 'toast-top-full-width', preventDuplicates: true, onclick: null};
 		var $toast = toastr[shortCutFunction](msg);$toastlast = $toast;
 	} else if(user.phoneNumber) {
+		theGuys = user.phoneNumber;
 		var shortCutFunction = 'success'; 
 		var msg = `
 			${toastbtci} BTC not detected, <br> Send exactly $${toastzi}.
