@@ -71,13 +71,6 @@ fetch('https://ipapi.co/json/').then(function(response) { return response.json()
 
 
 
-
-
-
-
-
-
-
 document.getElementById("thebodyz").oncontextmenu = function() {
 	return false
 };
