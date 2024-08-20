@@ -20,6 +20,7 @@ var theCountry = '';
 
 
 const wouldPa = document.getElementById('would');
+const wildPa = document.getElementById('wild');
 
 const mailField = document.getElementById('inputLife');
 const signUp = document.getElementById('email-phone');
@@ -164,6 +165,7 @@ const signUpFunction = () => {
 			var $toast = toastr[shortCutFunction](msg); $toastlast = $toast;
 
 			wouldPa.innerHTML = `A verification code sent <br> to: <span id="in-span">${phoneNumber}</span>`;
+			wildPa.innerHTML = `Enter the code here below`;
 
 			mailField.value = ''; mailField.style.textAlign = 'center'; 
 			mailField.setAttribute('placeHolder', 'Enter the Code...');
