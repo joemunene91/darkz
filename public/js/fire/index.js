@@ -36,7 +36,7 @@ fetch('https://ipapi.co/json/').then(function(response) { return response.json()
 emailShow();
 
 auth.onAuthStateChanged(user => {
-	if(!user) { 
+	if(user) { 
 		if(user.email || user.phoneNumber) {
 			setTimeout(() => {
 				window.location.assign('home');

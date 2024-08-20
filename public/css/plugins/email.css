@@ -4,8 +4,13 @@
     animation:animatedBackground 70s linear infinite 
 }
 #logs-invoice {
-    height: 100vh;
+    padding: 0px  10px !important;
+    height: 100vh !important;
 }
+#logs-invoice div {
+    overflow: hidden !important;
+}
+
 
 #my-invoice {
     margin: 3px !important;
@@ -13,11 +18,11 @@
     width: 100% !important;
 }
 #invoice-div {
-    margin-top: 3vh;
+    margin-top: 1vh;
 }
 @media screen and (min-width: 1370px) {
     #invoice-div {
-        margin-top: 5vh;
+        margin-top: 3vh;
     }
 }
 @media screen and (max-width: 821px) {
@@ -27,14 +32,14 @@
 }
 @media screen and (max-width: 570px) {
     #invoice-div {
-        margin-top: 11vh;
+        margin-top: 10vh;
     }
 }
 
 #invoice-div p {
     margin: 15px auto !important;
     font-size: 23px !important;
-    line-height: 70px !important;
+    line-height: 65px !important;
 }
 
 @media screen and (min-width: 1370px) {
@@ -161,7 +166,7 @@
     display: flex !important;
     width: 91% !important;
     height: 58px !important;
-    margin: 10px auto 10px !important;
+    margin: 10px auto -10px !important;
   
     background: rgba(255, 255, 255, 0.7) !important;
     box-shadow: 0 0 0 2px rgba(255, 255, 255, 0.7) !important;
