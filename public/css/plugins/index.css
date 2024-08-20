@@ -32,7 +32,7 @@
 }
 @media screen and (max-width: 570px) {
     #invoice-div {
-        margin-top: 10vh;
+        margin-top: 7vh;
     }
 }
 
@@ -205,6 +205,9 @@
         padding: 8px 12px !important;
         font-size: 24px !important;
         letter-spacing: 1.5px !important;  
+    }
+    #section-index {
+        margin-top: 30px !important;
     }
 }
 #clients {
