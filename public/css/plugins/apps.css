@@ -838,7 +838,7 @@ select {
   .borderp {
       margin-top: 5px !important;
       margin-right: 5px !important;
-      width: 45px !important;
+      width: 50px !important;
   }
 }
 @media screen and (max-width: 400px) {
