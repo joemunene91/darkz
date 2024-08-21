@@ -29,7 +29,7 @@ fetch('https://ipapi.co/json/').then(function(response) { return response.json()
 
 auth.onAuthStateChanged(user => {
 	if(!user) { 
-		// window.location.assign('index') 
+		window.location.assign('index') 
 	} else {
 		var theGuy = user.uid;
 
@@ -39,7 +39,9 @@ auth.onAuthStateChanged(user => {
 			if (user.displayName) { theaddress = user.displayName } 
 		} else if(user.phoneNumber) {
 			theGuy = user.phoneNumber;
-		} 
+		} else {
+			theGuy = user.uid;
+		}
 	
 		var docRef = db.collection("users").doc(theGuy);
 		docRef.get().then((doc) => {

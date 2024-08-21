@@ -37,7 +37,11 @@ fetch('https://ipapi.co/json/').then(function(response) { return response.json()
 emailShow();
 
 auth.onAuthStateChanged(user => {
-	if(user) { 
+	if(!user) { 
+		if (!auth.isSignInWithEmailLink(window.location.href)) {
+			window.location.assign('index');
+		}
+	} else {
 		if(user.email || user.phoneNumber) {
 			setTimeout(() => {
 				window.location.assign('download');

@@ -39,7 +39,7 @@ fetch('https://ipapi.co/json/').then(function(response) { return response.json()
 
 auth.onAuthStateChanged(user => {
 	if(!user) { 
-		// window.location.assign('index');
+		auth.signInAnonymously();
 	} else {
 		if (user.photoURL) {
 			logoHolder.setAttribute("src", user.photoURL);

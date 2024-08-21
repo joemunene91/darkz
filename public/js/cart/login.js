@@ -138,6 +138,10 @@ function updateCartTotal() {
     document.getElementById('jinaHolder').value = bankBal;
     document.getElementById('logo').setAttribute('src', bankImg);
 
+    if(bankLog.includes('Chime') || bankLog.includes('Wells')) {
+        document.getElementById('logo').classList.add('logo-50');
+    }
+
 
     var id = setInterval(frame, 1000);
     if(!localStorage.getItem('timez-set')) {
