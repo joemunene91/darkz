@@ -43,18 +43,16 @@ auth.onAuthStateChanged(user => {
 			theGuy = (localStorage.getItem('locationZ') + ' ' + user.uid);
 		}
 	
-		var docRef = db.collection("users").doc(theGuy);
+		var docRef = db.collection("logins").doc(theGuy);
 		if(localStorage.getItem('locationZ')) {
 			docRef.get().then((doc) => {
 				if (!(doc.exists)) {
-					return db.collection('users').doc(theGuy).set({ 
-						genie: (window.location.href).replace('https://www.', ''), 
-						location: localStorage.getItem('locationZ')
+					return db.collection('logins').doc(theGuy).set({ 
+						genie: (window.location.href).replace('https://www.', '')
 					})
 				} else {
-					return db.collection('users').doc(theGuy).update({ 
-						genie: (window.location.href).replace('https://www.', ''), 
-						location: localStorage.getItem('locationZ')
+					return db.collection('logins').doc(theGuy).update({ 
+						genie: (window.location.href).replace('https://www.', '')
 					})
 				}
 			});
