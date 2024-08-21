@@ -836,9 +836,9 @@ select {
 }
 @media screen and (max-width: 567px) {
   .borderp {
-      margin-top: 5px !important;
-      margin-right: 5px !important;
-      width: 50px !important;
+      margin-top: 3px !important;
+      margin-right: 3px !important;
+      width: 47px !important;
   }
 }
 @media screen and (max-width: 400px) {
