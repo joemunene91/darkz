@@ -1032,3 +1032,15 @@ body:not(.lg-from-hash) .lg-outer.lg-start-zoom .lg-item.lg-complete .lg-object 
 
 
 
+blink {
+  font-weight: 600;
+  padding: 4px;
+  margin: 4px;
+  font-size: 16.5px;
+  letter-spacing: 1.1px !important;
+  position: absolute;
+  right: 3px;
+  top: 30px;
+  border-radius: 0;
+  text-transform: uppercase;
+}
