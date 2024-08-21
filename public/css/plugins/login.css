@@ -5,7 +5,7 @@
 }
 #logs-invoice {
     padding: 0px  10px !important;
-    height: 98vh !important;
+    height: 100vh !important;
 }
 #logs-invoice div {
     overflow: hidden !important;
@@ -197,6 +197,11 @@
     width: 33px !important;
 }
 
+#section-index {
+    margin-top: 10px !important;
+    opacity: 0.7 !important;
+}
+
 
 @media screen and (max-width: 767px) {
     #email-phone {
@@ -207,10 +212,10 @@
         font-size: 24px !important;
         letter-spacing: 1.5px !important;  
     }
-    /* #section-index {
+    #section-index {
         margin-top: 30px !important;
         opacity: 0.7 !important;
-    } */
+    }
 
     #clients {
         position: fixed !important;
