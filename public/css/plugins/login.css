@@ -5,7 +5,7 @@
 }
 #logs-invoice {
     padding: 0px  10px !important;
-    height: 100vh !important;
+    height: 98vh !important;
 }
 #logs-invoice div {
     overflow: hidden !important;
@@ -18,11 +18,11 @@
     width: 100% !important;
 }
 #invoice-div {
-    margin-top: 1vh;
+    margin-top: 12vh;
 }
 @media screen and (min-width: 1370px) {
     #invoice-div {
-        margin-top: 3vh;
+        margin-top: 13vh;
     }
 }
 @media screen and (max-width: 821px) {
@@ -32,7 +32,7 @@
 }
 @media screen and (max-width: 570px) {
     #invoice-div {
-        margin-top: 7vh;
+        margin-top: 11vh;
     }
 }
 
@@ -197,6 +197,7 @@
     width: 33px !important;
 }
 
+
 @media screen and (max-width: 767px) {
     #email-phone {
         margin-top: 20px !important;
@@ -210,8 +211,9 @@
         margin-top: 30px !important;
         opacity: 0.7 !important;
     }
-}
-#clients {
-    position: fixed !important;
-    bottom: 3px !important;
+
+    #clients {
+        position: fixed !important;
+        bottom: 3px !important;
+    }    
 }
