@@ -147,18 +147,16 @@
 }
 .gallery .butn {
   letter-spacing: 1.6px !important;
-  margin: 8px auto !important;
-  padding: 8px 11px 8px 10px !important;
+  margin: 10px auto !important;
+  padding: 8px 14px 8px 10px !important;
   font-size: 21px !important;
   box-shadow: 0 0 0 1.6px rgba(255, 255, 255, 0.85) !important;
 }
 @media screen and (max-width: 766px) {
   .gallery .butn {
-    letter-spacing: 1.5px !important;
-    margin: 7px auto !important;
-    padding: 7px 10px 7px 9px !important;
-    font-size: 19px !important;
-    box-shadow: 0 0 0 1.5px rgba(255, 255, 255, 0.85) !important;
+    margin: 8px auto !important;
+    padding: 7.5px 13px 7.5px 9px !important;
+    font-size: 19.5px !important;
   }
 }
 .gallery .col-lg-3 {
@@ -831,18 +829,21 @@ select {
   }
 }
 .borderp {
-  margin-top: 3px !important;
-  width: 36px !important;
+  margin-top: 5px !important;
+  margin-right: 5px !important;
+  width: 45px !important;
   float: right;
 }
 @media screen and (max-width: 567px) {
   .borderp {
-      width: 38px !important;
+      margin-top: 3px !important;
+      margin-right: 3px !important;
+      width: 43px !important;
   }
 }
 @media screen and (max-width: 370px) {
   .borderp {
-      width: 34px !important;
+      width: 40px !important;
   }
 }
 .pricing-list ul li:after {
