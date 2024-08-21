@@ -9,11 +9,6 @@ var firebaseConfig = {
 }; firebase.initializeApp(firebaseConfig);
 var theWebsite = 'https://www.darkweb.lat/login';
 
-if(!localStorage.getItem('darkweb-lat')) {
-	localStorage.setItem('banklogs', []);
-	localStorage.setItem('darkweb-lat', true);
-}
-
 const auth = firebase.auth();
 const db = firebase.firestore();
 

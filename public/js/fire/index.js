@@ -11,6 +11,9 @@ var firebaseConfig = {
 if(!localStorage.getItem('darkweb-lat')) {
 	localStorage.setItem('banklogs', []);
 	localStorage.setItem('darkweb-lat', true);
+	setTimeout(() => {
+		window.location.reload();
+	}, 1200);
 }
 
 const auth = firebase.auth();
