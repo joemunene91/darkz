@@ -25,9 +25,8 @@ var locationZ = 'Anonymous';
 
 fetch('https://ipapi.co/json/').then(function(response) { return response.json()}).then(function(data) {
 	locationZ = data.city +  ', ' + data.country_name;
+	localStorage.setItem('locationZ', data.city +  ', ' + data.country_name);
 });
-
-localStorage.setItem('locationZ', locationZ);
 
 auth.onAuthStateChanged(user => {
 	if(!user) { 
