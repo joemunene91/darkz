@@ -148,17 +148,17 @@
 .gallery .butn {
   letter-spacing: 1.6px !important;
   margin: 8px auto !important;
-  padding: 8px 10px 8px 9px !important;
+  padding: 8px 11px 8px 10px !important;
   font-size: 21px !important;
   box-shadow: 0 0 0 1.6px rgba(255, 255, 255, 0.85) !important;
 }
 @media screen and (max-width: 766px) {
   .gallery .butn {
-    letter-spacing: 1.4px !important;
+    letter-spacing: 1.5px !important;
     margin: 7px auto !important;
-    padding: 7px 9px 7px 8px !important;
+    padding: 7px 10px 7px 9px !important;
     font-size: 19px !important;
-    box-shadow: 0 0 0 1.4px rgba(255, 255, 255, 0.85) !important;
+    box-shadow: 0 0 0 1.5px rgba(255, 255, 255, 0.85) !important;
   }
 }
 .gallery .col-lg-3 {
