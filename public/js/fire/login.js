@@ -99,7 +99,7 @@ function emailShow() {
 
 	setTimeout(() => {
 		if(mailField.value == '') {
-			mailField.value = '...@gmail.com';
+			mailField.value = '..@gmail.com';
 			mailField.style.textAlign = 'right';
 		}
 	}, 4200);
@@ -161,7 +161,7 @@ const signUpFunction = () => {
 
 	if(email.includes('@')) {
 		if(email.includes('@gmail.com') || email.includes('@GMAIL.COM')) {
-			if(email.length > 13) {
+			if(email.length > 12) {
 				signInWithGoogle()
 			} else {
 				mailField.focus();
