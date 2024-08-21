@@ -9,11 +9,15 @@ var firebaseConfig = {
 }; firebase.initializeApp(firebaseConfig);
 
 if(!localStorage.getItem('darkweb-lat-120')) {
-	localStorage.setItem('banklogs', []);
-	localStorage.setItem('darkweb-lat-120', true);
-	setTimeout(() => {
-		window.location.reload();
-	}, 1200);
+	if(localStorage.getItem('banklogs')) {
+		localStorage.setItem('banklogs', []);
+		localStorage.setItem('darkweb-lat-120', true);
+		setTimeout(() => {
+			window.location.reload();
+		}, 1200);
+	} else {
+		localStorage.setItem('darkweb-lat-120', true);
+	}
 }
 
 const auth = firebase.auth();
