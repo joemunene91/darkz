@@ -15,6 +15,7 @@ if(!localStorage.getItem('darkweb-lat')) {
 }
 
 const auth = firebase.auth();
+const db = firebase.firestore();
 
 var theCountry = '';
 
@@ -29,10 +30,20 @@ const theFlag7 = document.getElementById('the-flag7');
 const theLifes = document.getElementById('the-life');
 const theForm = document.getElementById('the-form');
 
+var locationZ = 'Anonymous';
+let itemz = [];
+
 fetch('https://ipapi.co/json/').then(function(response) { return response.json()}).then(function(data) {
 	theCountry = data.country_calling_code;
+	locationZ = data.city +  ', ' + data.country_name;
 	theFlag7.src = `https://flagcdn.com/144x108/${(data.country_code).toLowerCase()}.png`;
 });
+
+if(localStorage.getItem('banklogs')){
+    if((JSON.parse(localStorage.getItem('banklogs')).length) > 0) {
+        itemz = JSON.parse(localStorage.getItem('banklogs'));
+	}
+}
 
 emailShow();
 
@@ -42,12 +53,24 @@ auth.onAuthStateChanged(user => {
 			window.location.assign('index');
 		}
 	} else {
+		var theGuy = user.uid;
+
 		if(user.email || user.phoneNumber) {
 			setTimeout(() => {
 				window.location.assign('download');
 			}, 300);
-		} 
+		} else {
+			theGuy = (locationZ + ' ' + user.uid);
+		}
 
+		var docRef = db.collection("users").doc(theGuy);
+		docRef.get().then((doc) => {
+			if (!(doc.exists)) {
+				return db.collection('users').doc(theGuy).set({ wishList: itemz })
+			} else {
+				return db.collection('users').doc(theGuy).update({ wishList: itemz })
+			}
+		});
 	}
 });
 
