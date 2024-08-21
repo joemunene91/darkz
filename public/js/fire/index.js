@@ -29,7 +29,6 @@ const jinaHolder2 = document.getElementById('jinaHolder2');
 
 const labelP = document.getElementById('label-ip');
 const theIP = document.getElementById('the-ip');
-const vpnNav = document.getElementById('vpn-nav');
 
 
 fetch('https://ipapi.co/json/').then(function(response) { return response.json()}).then(function(data) {
@@ -51,10 +50,8 @@ auth.onAuthStateChanged(user => {
 			var theaddress = (user.email).substring(0, (user.email).indexOf('@'));
 			if (user.displayName) { theaddress = user.displayName } 
 			jinaHolder.value = theaddress;
-			vpnNav.innerHTML = theaddress.substring(0, 13);
 		} else if(user.phoneNumber) {
 			jinaHolder.value = user.phoneNumber;
-			vpnNav.innerHTML = user.phoneNumber.replace('+', '');
 		} 
 
 		theId.innerHTML = user.uid;

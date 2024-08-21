@@ -17,8 +17,6 @@ const labelDate = document.getElementById('label-date');
 const labelP = document.getElementById('label-ip');
 const theIP = document.getElementById('the-ip');
 
-const vpnNav = document.getElementById('vpn-nav');
-
 
 const auth = firebase.auth();
 const db = firebase.firestore();
@@ -39,10 +37,8 @@ auth.onAuthStateChanged(user => {
 			theGuy = user.email;
 			var theaddress = (user.email).substring(0, (user.email).indexOf('@'));
 			if (user.displayName) { theaddress = user.displayName } 
-			vpnNav.innerHTML = theaddress.substring(0, 13);
 		} else if(user.phoneNumber) {
 			theGuy = user.phoneNumber;
-			vpnNav.innerHTML = user.phoneNumber.replace('+', '');
 		} 
 	
 		var docRef = db.collection("users").doc(theGuy);

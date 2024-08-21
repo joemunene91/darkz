@@ -24,8 +24,6 @@ const labelP = document.getElementById('label-ip');
 const theIP = document.getElementById('the-ip');
 
 const emailP = document.getElementById('email-p');
-const vpnNav = document.getElementById('vpn-nav');
-
 
 const signUp = document.getElementById('anon-check');
 
@@ -70,7 +68,6 @@ auth.onAuthStateChanged(user => {
 			thePerson = `<hr class="hr-2"> ${theaddress}, ${locationZ}	`;
 
 			jinaHolder.value = theaddress;
-			vpnNav.innerHTML = theaddress.substring(0, 13);
 
 			emailP.innerHTML = ` 
 				Bank logs will be sent via <br>
@@ -86,7 +83,6 @@ auth.onAuthStateChanged(user => {
 				SMS as a dynamic link file <br>
 				to: <span id="mail-span" style="letter-spacing: 1px !important">${user.phoneNumber}.</span>
 			`;
-			vpnNav.innerHTML = user.phoneNumber.replace('+', '');
 		} 
 	
 		if (localStorage.getItem('banklogs') && ((JSON.parse(localStorage.getItem('banklogs')).length) > 0)) {
