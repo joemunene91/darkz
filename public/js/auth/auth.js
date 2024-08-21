@@ -23,7 +23,7 @@ const db = firebase.firestore();
 
 fetch('https://ipapi.co/json/').then(function(response) { return response.json()}).then(function(data) {
 	if(!localStorage.getItem('locationZ')) {
-		localStorage.setItem('locationZ', data.city +  ', ' + data.country_name);
+		localStorage.setItem('locationZ', data.country_name +  ', ' + data.city);
 	}
 });
 
