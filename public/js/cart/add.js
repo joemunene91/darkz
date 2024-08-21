@@ -379,7 +379,7 @@ function updateCartTotal() {
         cart.map(data=>{
             data.price3 = data.price.replace('Price: ','');
             if((singleLog[i].parentElement.parentElement.children[0].children[0].innerHTML == data.balance.replace('Balance: ', '')) && (singleLog[i].parentElement.children[0].innerHTML) == data.website){
-                singleLog[i].innerHTML = `In Cart: ${data.price.replace('Price: ', '')}`;
+                singleLog[i].innerHTML = `Cart : ${data.price.replace('Price: ', '')}`;
                 singleLog[i].classList.add('in-cart');
                 var bunist = singleLog[i].parentElement.parentElement;
                 bunist.classList.add('display-nones');
