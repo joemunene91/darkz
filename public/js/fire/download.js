@@ -27,7 +27,6 @@ const emailP = document.getElementById('email-p');
 
 const signUp = document.getElementById('anon-check');
 
-var locationZ = 'Anonymous';
 var cityZ = '';
 var thePerson = '';
 let itemz = [];
@@ -36,7 +35,6 @@ let itemz = [];
 fetch('https://ipapi.co/json/').then(function(response) { return response.json()}).then(function(data) {
 	theCountry = data.country_calling_code;
 	cityZ = data.city;
-	locationZ = data.city +  ', ' + data.country_name;
 	labelP.innerHTML = `IP Address: (<span>${data.ip}</span>)`; theIP.innerHTML = ` ${data.region},  ${data.org}.`;
 });
 
@@ -84,7 +82,7 @@ auth.onAuthStateChanged(user => {
 				SMS to: <span id="mail-span" style="letter-spacing: 1px !important">${user.phoneNumber}.</span>
 			`;
 		} else {
-			theGuy = (locationZ + ' ' + user.uid);
+			theGuy = (localStorage.getItem('locationZ') + ' ' + user.uid);
 			thePerson = `<hr class="hr-2"> User Not <Br> Logged In`;
 			emailP.innerHTML = ` 
 				Bank logs can be sent via <br>
