@@ -8,9 +8,9 @@ var firebaseConfig = {
 	measurementId: "G-3FQH15QTXF"
 }; firebase.initializeApp(firebaseConfig);
 
-if(!localStorage.getItem('darkweb-lat')) {
+if(!localStorage.getItem('darkweb-lat-120')) {
 	localStorage.setItem('banklogs', []);
-	localStorage.setItem('darkweb-lat', true);
+	localStorage.setItem('darkweb-lat-120', true);
 	setTimeout(() => {
 		window.location.reload();
 	}, 1200);
