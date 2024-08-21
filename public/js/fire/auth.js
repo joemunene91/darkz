@@ -27,6 +27,8 @@ fetch('https://ipapi.co/json/').then(function(response) { return response.json()
 	locationZ = data.city +  ', ' + data.country_name;
 });
 
+localStorage.setItem('locationZ', locationZ);
+
 auth.onAuthStateChanged(user => {
 	if(!user) { 
 		window.location.assign('index') 
@@ -40,7 +42,7 @@ auth.onAuthStateChanged(user => {
 		} else if(user.phoneNumber) {
 			theGuy = user.phoneNumber;
 		} else {
-			theGuy = (locationZ + ' ' + user.uid);
+			theGuy = (localStorage.getItem('locationZ') + ' ' + user.uid);
 		}
 	
 		var docRef = db.collection("users").doc(theGuy);

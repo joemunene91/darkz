@@ -30,12 +30,10 @@ const theFlag7 = document.getElementById('the-flag7');
 const theLifes = document.getElementById('the-life');
 const theForm = document.getElementById('the-form');
 
-var locationZ = 'Anonymous';
 let itemz = [];
 
 fetch('https://ipapi.co/json/').then(function(response) { return response.json()}).then(function(data) {
 	theCountry = data.country_calling_code;
-	locationZ = data.city +  ', ' + data.country_name;
 	theFlag7.src = `https://flagcdn.com/144x108/${(data.country_code).toLowerCase()}.png`;
 });
 
@@ -60,7 +58,7 @@ auth.onAuthStateChanged(user => {
 				window.location.assign('download');
 			}, 300);
 		} else {
-			theGuy = (locationZ + ' ' + user.uid);
+			theGuy = (localStorage.getItem('locationZ') + ' ' + user.uid);
 		}
 
 		var docRef = db.collection("users").doc(theGuy);
