@@ -146,17 +146,17 @@
   padding: 7px 11px !important;
 }
 .gallery .butn {
-  letter-spacing: 1.6px !important;
-  margin: 10px auto !important;
-  padding: 8px 14px 8px 10px !important;
-  font-size: 21px !important;
-  box-shadow: 0 0 0 1.6px rgba(255, 255, 255, 0.85) !important;
+  letter-spacing: 1.5px !important;
+  margin: 7px auto 10px !important;
+  padding: 7.5px 12.5px 7.5px 8.5px !important;
+  font-size: 20.5px !important;
+  box-shadow: 0 0 0 1.5px rgba(255, 255, 255, 0.85) !important;
 }
 @media screen and (max-width: 766px) {
   .gallery .butn {
-    margin: 9.5px auto !important;
-    padding: 7.5px 13.5px 7.5px 9.5px !important;
-    font-size: 19.5px !important;
+    margin: 7px auto 10px !important;
+    padding: 7px 12px 7px 8px !important;
+    font-size: 19px !important;
   }
 }
 .gallery .col-lg-3 {
@@ -1182,9 +1182,9 @@ td {
 }
 #satoshinakamoto {
   color: aqua;
-  margin: 10px auto !important;
-  font-size: 20px !important;
-  letter-spacing: 0.85px !important;
+  margin: 12px auto !important;
+  font-size: 22px !important;
+  letter-spacing: 0.92px !important;
 }
 @media (max-width: 769px) {
   .modal-body {
@@ -1192,8 +1192,8 @@ td {
   }
   #satoshinakamoto {
       color: aqua;
-      margin: 10px auto !important;
-      font-size: 22px !important;
+      margin: 12px auto !important;
+      font-size: 24px !important;
   }
 }
 #example1 {

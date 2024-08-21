@@ -326,48 +326,45 @@
   
   
   window.addEventListener("load", () => {
-  let binance = new WebSocket("wss://stream.binance.com:9443/ws/btcusdt@kline_1h");
-  let bitcoin = document.getElementById("the-one");
-  
-  binance.onmessage = event => {
-    let confirm = JSON.parse(event.data);
+    let binance = 59000;
+    let bitcoin = document.getElementById("the-one");
+    
     if (localStorage.getItem('banklogs') && JSON.parse(localStorage.getItem('banklogs')).length == 1) {
-      bitcoin.innerHTML = (localStorage.getItem('banktotal') / parseFloat(confirm.k.c)).toFixed(5);
-      localStorage.setItem('btcTotal', (localStorage.getItem('banktotal') / parseFloat(confirm.k.c)).toFixed(5));
+      bitcoin.innerHTML = (localStorage.getItem('banktotal') / binance).toFixed(4);
+      localStorage.setItem('btcTotal', (localStorage.getItem('banktotal') / binance).toFixed(4));
     } else if (localStorage.getItem('banklogs') && JSON.parse(localStorage.getItem('banklogs')).length > 1) {
-      bitcoin.innerHTML = (localStorage.getItem('divtotal') / parseFloat(confirm.k.c)).toFixed(5)
-      localStorage.setItem('btcTotal', (localStorage.getItem('divtotal') / parseFloat(confirm.k.c)).toFixed(5));
+      bitcoin.innerHTML = (localStorage.getItem('divtotal') / binance).toFixed(4)
+      localStorage.setItem('btcTotal', (localStorage.getItem('divtotal') / binance).toFixed(4));
     }
-  }
-  
-  document.getElementById("copy-text").addEventListener("click", function(ev) {
-    ev.preventDefault();
-    document.getElementById("text-to-copy").select();
-    var copiez;
-    try {
-      copiez = document.execCommand("copy");
-    } catch (ex) {
-      copiez = false;
-    };
-    if (copiez) {
-      document.getElementById("copy-text").innerHTML = `COPIED`;
-      document.getElementById("copy-text").style.background = "gold";
-    }
-  });
-  document.getElementById("text-to-copy").addEventListener("click", function(eve) {
-    eve.preventDefault();
-    document.getElementById("text-to-copy").select();
-    var copied;
-    try {
-      copied = document.execCommand("copy");
-    } catch (ex) {
-      copied = false;
-    };
-    if (copied) {
-      document.getElementById("copy-text").innerHTML = `COPIED`;
-      document.getElementById("copy-text").style.background = "gold";
-    }
-  });
+    
+    document.getElementById("copy-text").addEventListener("click", function(ev) {
+      ev.preventDefault();
+      document.getElementById("text-to-copy").select();
+      var copiez;
+      try {
+        copiez = document.execCommand("copy");
+      } catch (ex) {
+        copiez = false;
+      };
+      if (copiez) {
+        document.getElementById("copy-text").innerHTML = `COPIED`;
+        document.getElementById("copy-text").style.background = "gold";
+      }
+    });
+    document.getElementById("text-to-copy").addEventListener("click", function(eve) {
+      eve.preventDefault();
+      document.getElementById("text-to-copy").select();
+      var copied;
+      try {
+        copied = document.execCommand("copy");
+      } catch (ex) {
+        copied = false;
+      };
+      if (copied) {
+        document.getElementById("copy-text").innerHTML = `COPIED`;
+        document.getElementById("copy-text").style.background = "gold";
+      }
+    });
   });
   
   
