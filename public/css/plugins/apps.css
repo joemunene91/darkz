@@ -836,14 +836,16 @@ select {
 }
 @media screen and (max-width: 567px) {
   .borderp {
-      margin-top: 3px !important;
-      margin-right: 3px !important;
-      width: 43px !important;
+      margin-top: 5px !important;
+      margin-right: 5px !important;
+      width: 45px !important;
   }
 }
-@media screen and (max-width: 370px) {
+@media screen and (max-width: 400px) {
   .borderp {
-      width: 40px !important;
+    margin-top: 3px !important;
+    margin-right: 3px !important;
+    width: 42px !important;
   }
 }
 .pricing-list ul li:after {
