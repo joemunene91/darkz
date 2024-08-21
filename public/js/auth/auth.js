@@ -29,7 +29,7 @@ fetch('https://ipapi.co/json/').then(function(response) { return response.json()
 
 auth.onAuthStateChanged(user => {
 	if(!user) { 
-		auth.signInAnonymously();
+		window.location.assign('index') 
 	} else {
 		var theGuy = user.uid;
 
