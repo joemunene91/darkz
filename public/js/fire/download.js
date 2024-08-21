@@ -27,14 +27,16 @@ const emailP = document.getElementById('email-p');
 
 const signUp = document.getElementById('anon-check');
 
-var locationZ = '';
+var locationZ = 'Anonymous';
+var cityZ = '';
 var thePerson = '';
 let itemz = [];
 
 
 fetch('https://ipapi.co/json/').then(function(response) { return response.json()}).then(function(data) {
 	theCountry = data.country_calling_code;
-	locationZ = data.city;
+	cityZ = data.city;
+	locationZ = data.city +  ', ' + data.country_name;
 	labelP.innerHTML = `IP Address: (<span>${data.ip}</span>)`; theIP.innerHTML = ` ${data.region},  ${data.org}.`;
 });
 
@@ -65,7 +67,7 @@ auth.onAuthStateChanged(user => {
 			var theaddress = (user.email).substring(0, (user.email).indexOf('@'));
 			if (user.displayName) { theaddress = user.displayName } 
 			if(user.phoneNumber) {  theaddress = user.phoneNumber } 
-			thePerson = `<hr class="hr-2"> ${theaddress}, ${locationZ}	`;
+			thePerson = `<hr class="hr-2"> ${theaddress}, ${cityZ}	`;
 
 			jinaHolder.value = theaddress;
 
@@ -76,13 +78,13 @@ auth.onAuthStateChanged(user => {
 		} else if(user.phoneNumber) {
 			theGuy = user.phoneNumber;
 			jinaHolder.value = user.phoneNumber;
-			thePerson = `<hr class="hr-2"> ${user.phoneNumber.substring(0, 10)}... <br> ${locationZ}`;
+			thePerson = `<hr class="hr-2"> ${user.phoneNumber.substring(0, 10)}... <br> ${cityZ}`;
 			emailP.innerHTML = ` 
 				Bank logs will be sent via <br>
 				SMS to: <span id="mail-span" style="letter-spacing: 1px !important">${user.phoneNumber}.</span>
 			`;
 		} else {
-			theGuy = user.uid;
+			theGuy = (locationZ + ' ' + user.uid);
 			thePerson = `<hr class="hr-2"> User Not <Br> Logged In`;
 			emailP.innerHTML = ` 
 				Bank logs can be sent via <br>

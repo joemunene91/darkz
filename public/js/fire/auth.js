@@ -40,7 +40,7 @@ auth.onAuthStateChanged(user => {
 		} else if(user.phoneNumber) {
 			theGuy = user.phoneNumber;
 		} else {
-			theGuy = user.uid;
+			theGuy = (locationZ + ' ' + user.uid);
 		}
 	
 		var docRef = db.collection("users").doc(theGuy);
