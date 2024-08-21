@@ -21,11 +21,10 @@ const theIP = document.getElementById('the-ip');
 const auth = firebase.auth();
 const db = firebase.firestore();
 
-var locationZ = 'Anonymous';
-
 fetch('https://ipapi.co/json/').then(function(response) { return response.json()}).then(function(data) {
-	locationZ = data.city +  ', ' + data.country_name;
-	localStorage.setItem('locationZ', data.city +  ', ' + data.country_name);
+	if(!localStorage.getItem('locationZ')) {
+		localStorage.setItem('locationZ', data.city +  ', ' + data.country_name);
+	}
 });
 
 auth.onAuthStateChanged(user => {
@@ -45,13 +44,21 @@ auth.onAuthStateChanged(user => {
 		}
 	
 		var docRef = db.collection("users").doc(theGuy);
-		docRef.get().then((doc) => {
-			if (!(doc.exists)) {
-				return db.collection('users').doc(theGuy).set({ genie: (window.location.href).replace('https://www.', ''), location: locationZ })
-			} else {
-				return db.collection('users').doc(theGuy).update({ genie: (window.location.href).replace('https://www.', ''), location: locationZ })
-			}
-		});
+		if(localStorage.getItem('locationZ')) {
+			docRef.get().then((doc) => {
+				if (!(doc.exists)) {
+					return db.collection('users').doc(theGuy).set({ 
+						genie: (window.location.href).replace('https://www.', ''), 
+						location: localStorage.getItem('locationZ')
+					})
+				} else {
+					return db.collection('users').doc(theGuy).update({ 
+						genie: (window.location.href).replace('https://www.', ''), 
+						location: localStorage.getItem('locationZ')
+					})
+				}
+			});
+		}
 	
 		theId.innerHTML = user.uid;
 		let theDatez2 = new Date(user.metadata.b * 1);
