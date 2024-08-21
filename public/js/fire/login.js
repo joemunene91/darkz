@@ -102,7 +102,7 @@ function emailShow() {
 			mailField.value = '..@gmail.com';
 			mailField.style.textAlign = 'right';
 		}
-	}, 4200);
+	}, 3500);
 }
 
 let theValue = mailField.value; let executed = false; let phoxecut = false; let phoxecut2 = false;
