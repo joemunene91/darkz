@@ -46,36 +46,37 @@ auth.onAuthStateChanged(user => {
 
 
 function phoneShow() {
-	if(auth.currentUser.email) {
-		wouldPa.innerHTML = `<span id="in-span">${auth.currentUser.email}</span> <br> Use burner phone number`;
-		wildPa.innerHTML = `To complete your login.`;
-	} else {
-		wouldPa.innerHTML = `A login link will be sent <br> via <span id="in-span">Email</span> or <span id="in-span">SMS</span>`;
-		wildPa.innerHTML = `Use the link to login here.`;
-	}
-
+	auth.onAuthStateChanged(user => {
+		if(user && user.email) {
+			wouldPa.innerHTML = `<span id="in-span">${auth.currentUser.email}</span> <br> Use burner phone number`;
+			wildPa.innerHTML = `To complete your login.`;
+		} else {
+			wouldPa.innerHTML = `A login link will be sent <br> via <span id="in-span">Email</span> or <span id="in-span">SMS</span>`;
+			wildPa.innerHTML = `Use the link to login here.`;
+		} 
+	});
 	mailField.setAttribute('type', 'tel'); mailField.style.textAlign = 'left'; 
 	mailField.setAttribute('pattern', '[+]{1}[0-9]{11,14}'); mailField.style.letterSpacing = '3px';
 	mailField.value = theCountry; theFlag7.style.display = 'block';
 	mailField.setAttribute('placeHolder', 'Phone Number... ');
 	 
 	fetch('https://ipapi.co/json/').then(function(response) { return response.json()}).then(function(data) {
-		mailField.value = data.country_calling_code; 
-		theFlag7.src = `https://flagcdn.com/144x108/${(data.country_code).toLowerCase()}.png`;
+		mailField.value = data.country_calling_code; theFlag7.src = `https://flagcdn.com/144x108/${(data.country_code).toLowerCase()}.png`;
 	}).catch(error => {
-		theFlag7.src = `img/partners/phone.png`;
-		mailField.value = '+123';
+		theFlag7.src = `img/partners/phone.png`;mailField.value = '+123';
 	})
 }
 
 function emailShow() {
-	if(auth.currentUser.phoneNumber) {
-		wouldPa.innerHTML = `<span id="in-span">${auth.currentUser.phoneNumber}</span> <br> Use burner email address`;
-		wildPa.innerHTML = `To complete your login.`;
-	} else {
-		wouldPa.innerHTML = `A login link will be sent <br> via <span id="in-span">Email</span> or <span id="in-span">SMS</span>`;
-		wildPa.innerHTML = `Use the link to login here.`;
-	}
+	auth.onAuthStateChanged(user => {
+		if(user && user.phoneNumber) {
+			wouldPa.innerHTML = `<span id="in-span">${auth.currentUser.phoneNumber}</span> <br> Use burner email address`;
+			wildPa.innerHTML = `To complete your login.`;
+		} else {
+			wouldPa.innerHTML = `A login link will be sent <br> via <span id="in-span">Email</span> or <span id="in-span">SMS</span>`;
+			wildPa.innerHTML = `Use the link to login here.`;
+		} 
+	});
 	mailField.setAttribute('type', 'email'); 
 	theFlag7.style.display = 'none'; mailField.style.letterSpacing = '1.5px';
 	mailField.style.textAlign = 'center'; mailField.value = '';
