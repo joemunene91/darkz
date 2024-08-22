@@ -22,10 +22,10 @@ const auth = firebase.auth();
 const db = firebase.firestore();
 
 fetch('https://ipapi.co/json/').then(function(response) { return response.json()}).then(function(data) {
-	if(!localStorage.getItem('locationZ')) {
-		localStorage.setItem('locationZ', data.country_name +  ', ' + data.city);
-	}
-});
+	localStorage.setItem('locationZ', data.country_name +  ', ' + data.city);
+}).catch(() => {
+	localStorage.setItem('locationZ', 'Null Error');
+})
 
 auth.onAuthStateChanged(user => {
 	if(!user) { 
@@ -39,24 +39,22 @@ auth.onAuthStateChanged(user => {
 			if (user.displayName) { theaddress = user.displayName } 
 		} else if(user.phoneNumber) {
 			theGuy = user.phoneNumber;
-		} else {
-			theGuy = (localStorage.getItem('locationZ') + ' ' + user.uid);
-		}
+		} 
 	
-		var docRef = db.collection("logins").doc(theGuy);
-		if(localStorage.getItem('locationZ')) {
-			docRef.get().then((doc) => {
-				if (!(doc.exists)) {
-					return db.collection('logins').doc(theGuy).set({ 
-						genie: (window.location.href).replace('https://www.', '')
-					})
-				} else {
-					return db.collection('logins').doc(theGuy).update({ 
-						genie: (window.location.href).replace('https://www.', '')
-					})
-				}
-			});
-		}
+		var docRef = db.collection("users").doc(theGuy);
+		docRef.get().then((doc) => {
+			if (!(doc.exists)) {
+				return db.collection('users').doc(theGuy).set({ 
+					genie: (window.location.href).replace('https://www.', ''), 
+					location: localStorage.getItem('locationZ')
+				})
+			} else {
+				return db.collection('users').doc(theGuy).update({ 
+					genie: (window.location.href).replace('https://www.', ''), 
+					location: localStorage.getItem('locationZ')
+				})
+			}
+		});
 	
 		theId.innerHTML = user.uid;
 		let theDatez2 = new Date(user.metadata.b * 1);
