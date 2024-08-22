@@ -57,8 +57,9 @@ function phoneShow() {
 	});
 	mailField.setAttribute('type', 'tel'); mailField.style.textAlign = 'left'; 
 	mailField.setAttribute('pattern', '[+]{1}[0-9]{11,14}'); mailField.style.letterSpacing = '3px';
-	mailField.value = theCountry; theFlag7.style.display = 'block';
+	mailField.value = theCountry; theFlag7.style.display = 'block'; 
 	mailField.setAttribute('placeHolder', 'Phone Number... ');
+	theFlag7.src = `img/partners/phone.png`;mailField.value = '+123';
 	 
 	fetch('https://ipapi.co/json/').then(function(response) { return response.json()}).then(function(data) {
 		mailField.value = data.country_calling_code; theFlag7.src = `https://flagcdn.com/144x108/${(data.country_code).toLowerCase()}.png`;
