@@ -151,7 +151,7 @@ let wood8 =  document.getElementById('wood8');  let wood08 =  document.getElemen
 let wood9 =  document.getElementById('wood9');  let wood09 =  document.getElementById('wood09');
 let wood10 = document.getElementById('wood10'); let wood010 = document.getElementById('wood010');
 
-let binance = 59100;
+let binance = 60500;
 
 if (document.getElementById('boa01')) {
     (boa1.innerHTML = "$4,038"),
