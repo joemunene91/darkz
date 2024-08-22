@@ -91,6 +91,7 @@ function emailShow() {
 	mailField.setAttribute('type', 'email'); 
 	theFlag7.style.display = 'none'; mailField.style.letterSpacing = '1.5px';
 	mailField.style.textAlign = 'center'; mailField.value = '';
+	mailField.setAttribute('placeHolder', 'Enter Email / Phone..');
 
 	setTimeout(() => {
 		mailField.value = '..@gmail.com'; mailField.style.textAlign = 'right';
