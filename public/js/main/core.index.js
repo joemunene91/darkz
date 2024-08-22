@@ -38,3 +38,37 @@ padding:"inner"+a,content:b,"":"outer"+a},function(c,d){n.fn[d]=function(d,e){va
 
 
 
+
+
+
+
+
+(function($) {
+  "use strict"; 
+  $('#preloader').fadeOut('normall', function() { $(this).remove(); });
+
+  var pageSection = $(".parallax,.bg-img");
+  pageSection.each(function(indx) {
+      if ($(this).attr("data-background")) {
+          $(this).css("background-image", "url(" + $(this).data("background") + ")");
+      }
+  });
+
+  $(document).ready(function() {        
+      $('#clients').owlCarousel({
+    loop: true, nav: false, dots: false,
+          smartSpeed: 500, autoplay: true,
+    autoplayTimeout: 3000, responsiveClass: true,
+    autoplayHoverPause: false, stagePadding: 0,
+          slideTransition: 'linear',
+          autoplayTimeout: 1300, autoplaySpeed: 1300,
+    responsive: {
+              0: {items: 5, margin: 25}, 
+              768: {items: 10, margin: 15}, 
+              992: {items: 12, margin: 20}, 
+              1200: {items: 16, margin: 23},
+    }
+  });
+  });
+}
+)(jQuery);
