@@ -277,7 +277,7 @@ if (auth.isSignInWithEmailLink(window.location.href)) {
 				toastr.options =  {closeButton: true, debug: false, newestOnTop: true, progressBar: true,positionClass: 'toast-top-full-width', preventDuplicates: true, onclick: null, timeOut: 1200};
 				var $toast = toastr[shortCutFunction](msg); $toastlast = $toast;
 			}).then(() => {
-				phoneShow();
+				setTimeout(() => { if(window.location.href.includes('@')) { window.location.assign('index') } }, 150);
 			})
 		} 
 	});
