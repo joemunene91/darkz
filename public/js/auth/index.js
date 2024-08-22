@@ -70,21 +70,21 @@ function phoneShow() {
 function emailShow() {
 	auth.onAuthStateChanged(user => {
 		if(user && user.phoneNumber) {
-			wouldPa.innerHTML = `<span id="in-span">${auth.currentUser.phoneNumber}</span> <br> Use burner email address`;
+			wouldPa.innerHTML = `<span id="in-span" style="letter-spacing: 1.2px !important">${auth.currentUser.phoneNumber}</span> <br> Use burner email address`;
 			wildPa.innerHTML = `To complete your login.`;
+			mailField.setAttribute('placeHolder', 'Enter Email Address');
 		} else {
 			wouldPa.innerHTML = `A login link will be sent <br> via <span id="in-span">Email</span> or <span id="in-span">SMS</span>`;
 			wildPa.innerHTML = `Use the link to login here.`;
+			mailField.setAttribute('placeHolder', 'Enter Email / Phone..');
 		} 
 	});
 	mailField.setAttribute('type', 'email'); 
 	theFlag7.style.display = 'none'; mailField.style.letterSpacing = '1.5px';
 	mailField.style.textAlign = 'center'; mailField.value = '';
-	mailField.setAttribute('placeHolder', 'Enter Email / Phone..');
 
 	setTimeout(() => {
-		mailField.value = '..@gmail.com';
-		mailField.style.textAlign = 'right';
+		mailField.value = '..@gmail.com'; mailField.style.textAlign = 'right';
 	}, 3000);
 }
 
