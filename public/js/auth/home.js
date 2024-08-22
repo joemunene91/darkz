@@ -64,7 +64,8 @@ auth.onAuthStateChanged(user => {
 
 			jinaHolder2.innerHTML = user.email;
 		} else if(user.phoneNumber) {
-			jinaHolder.value = user.phoneNumber;
+			jinaHolder.value = 'Home Page'
+			jinaHolder2.innerHTML = 'Phone: ' + user.phoneNumber;
 		} 
 
 		theId.innerHTML = user.uid;
