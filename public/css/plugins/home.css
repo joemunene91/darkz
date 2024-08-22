@@ -28,6 +28,19 @@
     }
 }
 
+.nohr {
+    border: 0.7px solid rgb(164, 224, 232, 0.15);
+    padding: 0 !important;
+    margin: 0 !important;
+}
+
+@media screen and (min-width: 1370px) {
+    .nohr {
+        padding: 0 !important;
+        margin: 10px !important;
+    }
+}
+
   
 
 #bitcoin-logo2 {
