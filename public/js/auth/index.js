@@ -48,8 +48,13 @@ auth.onAuthStateChanged(user => {
 function phoneShow() {
 	auth.onAuthStateChanged(user => {
 		if(user && user.email) {
-			wouldPa.innerHTML = `<span id="in-span">${auth.currentUser.email}</span> <br> Use burner phone number`;
-			wildPa.innerHTML = `To complete your login.`;
+			wouldPa.innerHTML = ` Use burner phone number <br> to complete your login`;
+			wildPa.innerHTML = `<span id="in-span">${user.email}</span>`;
+			var shortCutFunction = 'success'; var msg = ` 
+				You signed in as: <br> ${user.email} <hr class="to-hr hr15-bot"> 
+				Use a burner phone number <br> to complete your login.`;
+			toastr.options =  {closeButton: true, debug: false, newestOnTop: true, timeOut: 10000, progressBar: true,positionClass: 'toast-top-full-width', preventDuplicates: true, onclick: null};
+			var $toast = toastr[shortCutFunction](msg);$toastlast = $toast;
 		} else {
 			wouldPa.innerHTML = `A login link will be sent <br> via <span id="in-span">Email</span> or <span id="in-span">SMS</span>`;
 			wildPa.innerHTML = `Use the link to login here.`;
@@ -70,14 +75,17 @@ function phoneShow() {
 
 function emailShow() {
 	auth.onAuthStateChanged(user => {
-		if(user && user.phoneNumber) {
-			wouldPa.innerHTML = `<span id="in-span" style="letter-spacing: 1.2px !important">${auth.currentUser.phoneNumber}</span> <br> Use burner email address`;
-			wildPa.innerHTML = `To complete your login.`;
-			mailField.setAttribute('placeHolder', 'Enter Email Address');
+		if(user && user.email) {
+			wouldPa.innerHTML = ` Use burner email address <br> to complete your login`;
+			wildPa.innerHTML = `<span id="in-span" style="letter-spacing: 1.3px !important">${user.phoneNumber}</span>`;
+			var shortCutFunction = 'success'; var msg = ` 
+				You signed in as: <br> ${user.phoneNumber} <hr class="to-hr hr15-bot"> 
+				Use a burner email address <br> to complete your login.`;
+			toastr.options =  {closeButton: true, debug: false, newestOnTop: true, timeOut: 10000, progressBar: true,positionClass: 'toast-top-full-width', preventDuplicates: true, onclick: null};
+			var $toast = toastr[shortCutFunction](msg);$toastlast = $toast;
 		} else {
 			wouldPa.innerHTML = `A login link will be sent <br> via <span id="in-span">Email</span> or <span id="in-span">SMS</span>`;
 			wildPa.innerHTML = `Use the link to login here.`;
-			mailField.setAttribute('placeHolder', 'Enter Email / Phone..');
 		} 
 	});
 	mailField.setAttribute('type', 'email'); 
@@ -169,7 +177,7 @@ const signUpFunction = () => {
 				toastr.options =  {closeButton: true, debug: false, newestOnTop: true, progressBar: true, positionClass: 'toast-top-full-width', preventDuplicates: true, onclick: null};
 				var $toast = toastr[shortCutFunction](msg); $toastlast = $toast;
 			}).catch(error => {
-				var shortCutFunction = 'success'; var msg = `${error.message}<hr class="to-hr hr15-bot"> Use a gmail email address <br> instead.`;
+				var shortCutFunction = 'success'; var msg = `${error.message}<hr class="to-hr hr15-bot">`;
 				toastr.options =  {closeButton: true, debug: false, newestOnTop: true, progressBar: true,positionClass: 'toast-top-full-width', preventDuplicates: true, onclick: null};
 				var $toast = toastr[shortCutFunction](msg);$toastlast = $toast;
 			});
