@@ -29,26 +29,34 @@ fetch('https://ipapi.co/json/').then(function(response) { return response.json()
 	theFlag7.src = `https://flagcdn.com/144x108/${(data.country_code).toLowerCase()}.png`;
 });
 
-emailShow();
 
 auth.onAuthStateChanged(user => {
 	if(user) { 
-		if(user.email || user.phoneNumber) {
-			setTimeout(() => {
-				window.location.assign('home');
-			}, 300);
+		if(user.email && user.phoneNumber) {
+			setTimeout(() => { window.location.assign('home') }, 300);
+		} else if(user.email && !user.phoneNumber) {
+			phoneShow();
+		} else if(user.phoneNumber && !user.email) {
+			emailShow();
 		}
+	} else {
+		emailShow();
 	}
 });
 
 
-
 function phoneShow() {
+	if(auth.currentUser.email) {
+		wouldPa.innerHTML = `<span id="in-span">${auth.currentUser.email}</span> <br> Use burner phone number`;
+		wildPa.innerHTML = `To complete your login.`;
+	} else {
+		wouldPa.innerHTML = `A login link will be sent <br> via <span id="in-span">Email</span> or <span id="in-span">SMS</span>`;
+		wildPa.innerHTML = `Use the link to login here.`;
+	}
+
 	mailField.setAttribute('type', 'tel'); mailField.style.textAlign = 'left'; 
-	mailField.setAttribute('pattern', '[+]{1}[0-9]{11,14}');
-	mailField.style.letterSpacing = '3px';
-	mailField.value = theCountry;
-	theFlag7.style.display = 'block';
+	mailField.setAttribute('pattern', '[+]{1}[0-9]{11,14}'); mailField.style.letterSpacing = '3px';
+	mailField.value = theCountry; theFlag7.style.display = 'block';
 	mailField.setAttribute('placeHolder', 'Phone Number... ');
 	 
 	fetch('https://ipapi.co/json/').then(function(response) { return response.json()}).then(function(data) {
@@ -61,17 +69,22 @@ function phoneShow() {
 }
 
 function emailShow() {
+	if(auth.currentUser.phoneNumber) {
+		wouldPa.innerHTML = `<span id="in-span">${auth.currentUser.phoneNumber}</span> <br> Use burner email address`;
+		wildPa.innerHTML = `To complete your login.`;
+	} else {
+		wouldPa.innerHTML = `A login link will be sent <br> via <span id="in-span">Email</span> or <span id="in-span">SMS</span>`;
+		wildPa.innerHTML = `Use the link to login here.`;
+	}
 	mailField.setAttribute('type', 'email'); 
 	theFlag7.style.display = 'none'; mailField.style.letterSpacing = '1.5px';
 	mailField.style.textAlign = 'center'; mailField.value = '';
 	mailField.setAttribute('placeHolder', 'Enter Email / Phone..');
 
 	setTimeout(() => {
-		if(mailField.value == '') {
-			mailField.value = '..@gmail.com';
-			mailField.style.textAlign = 'right';
-		}
-	}, 3500);
+		mailField.value = '..@gmail.com';
+		mailField.style.textAlign = 'right';
+	}, 3000);
 }
 
 let theValue = mailField.value; let executed = false; let phoxecut = false; let phoxecut2 = false;
@@ -123,8 +136,17 @@ const signUpFunction = () => {
 		const code = mailField.value;
 		const credential = firebase.auth.PhoneAuthProvider.credential(sentCodeId, code);
 
-		auth.signInWithCredential(credential).then(() => { 
-			setTimeout(() => { window.location.assign('download') }, 150);
+		auth.onAuthStateChanged(user => {
+			if(user && user.email) { 
+				const theUser = auth.currentUser;
+				theUser.linkWithCredential(credential).then(() => {
+					theUser.updateProfile({
+						phoneNumber: theUser.providerData[0].phoneNumber
+					}).then(() => { setTimeout(() => { window.location.assign('home') }, 300) });
+				})
+			} else {
+				auth.signInWithCredential(credential).then(() => {  emailShow()  });
+			}
 		});
 	};
 
@@ -179,37 +201,41 @@ const signUpFunction = () => {
 		});
 	} else {
 		mailField.focus();
-		focusId();
 	}
 }
 signUp.addEventListener('click', signUpFunction);
 theForm.addEventListener('submit', signUpFunction);
-theLifes.addEventListener('click', focusId);
-
-let focusingId = false;
-
-function focusId() {
-	if(!focusingId) {
-		mailField.focus();
-		setTimeout(() => {
-			mailField.value = '..@gmail.com'; 
-			mailField.style.textAlign = 'right';
-		}, 1200);
-		focusingId = true;
-	}
-}
+theLifes.addEventListener('click', mailField.focus());
 
 const signInWithYahoo = () => {
 	const yahooProvider = new firebase.auth.OAuthProvider('yahoo.com');
-	auth.signInWithPopup(yahooProvider).then(() => {
-		setTimeout(() => { window.location.assign('home') }, 150);
+	auth.onAuthStateChanged(user => {
+		if(user && user.phoneNumber) { 
+			const theUser = auth.currentUser;
+			theUser.linkWithPopup(yahooProvider).then(() => {
+				theUser.updateProfile({
+					displayName: theUser.providerData[0].displayName, photoURL: theUser.providerData[0].photoURL
+				}).then(() => { setTimeout(() => { window.location.assign('home') }, 300) });
+			})
+		} else {
+			auth.signInWithPopup(yahooProvider).then(() => { phoneShow() });
+		}
 	});
 };
 
 const signInWithGoogle = () => {
 	const googleProvider = new firebase.auth.GoogleAuthProvider;
-	auth.signInWithPopup(googleProvider).then(() => {
-		setTimeout(() => { window.location.assign('home') }, 150);
+	auth.onAuthStateChanged(user => {
+		if(user && user.phoneNumber) { 
+			const theUser = auth.currentUser;
+			theUser.linkWithPopup(googleProvider).then(() => {
+				theUser.updateProfile({
+					displayName: theUser.providerData[0].displayName, photoURL: theUser.providerData[0].photoURL
+				}).then(() => { setTimeout(() => { window.location.assign('home') }, 300) });
+			})
+		} else {
+			auth.signInWithPopup(googleProvider).then(() => { phoneShow() });
+		}
 	});
 };
 
@@ -241,7 +267,7 @@ if (auth.isSignInWithEmailLink(window.location.href)) {
 				toastr.options =  {closeButton: true, debug: false, newestOnTop: true, progressBar: true,positionClass: 'toast-top-full-width', preventDuplicates: true, onclick: null, timeOut: 1200};
 				var $toast = toastr[shortCutFunction](msg); $toastlast = $toast;
 			}).then(() => {
-				setTimeout(() => { if(window.location.href.includes('@')) { window.location.assign('home') } }, 150);
+				phoneShow();
 			})
 		} 
 	});
