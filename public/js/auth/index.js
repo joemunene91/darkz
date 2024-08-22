@@ -163,8 +163,8 @@ const signUpFunction = () => {
 		} else {
 			auth.sendSignInLinkToEmail(email, actionCodeSettings).then(() => {
 				var shortCutFunction = 'success';
-				var msg = ` A verification link has been sent to:   <hr class="to-hr hr15-bot"> ${email} 
-				<hr style="opacity: 0 !important; margin: 1px auto !important"> Check the spam / junk folder.  <hr class="hr3-nil">`;
+				var msg = `A verification email sent to: <br> ${email}   <hr class="to-hr hr15-bot">
+				Check the spam / junk folder.  <hr class="hr3-nil">`;
 				toastr.options =  {closeButton: true, debug: false, newestOnTop: true, progressBar: true, positionClass: 'toast-top-full-width', preventDuplicates: true, onclick: null};
 				var $toast = toastr[shortCutFunction](msg); $toastlast = $toast;
 			}).catch(error => {
