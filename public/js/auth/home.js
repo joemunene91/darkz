@@ -56,7 +56,13 @@ auth.onAuthStateChanged(user => {
 		if(user.email) {
 			var theaddress = (user.email).substring(0, (user.email).indexOf('@'));
 			if (user.displayName) { theaddress = user.displayName } 
-			jinaHolder.value = theaddress;
+			if(user.phoneNumber) {  
+				jinaHolder.value = user.phoneNumber;
+			} else {
+				jinaHolder.value = theaddress;
+			}
+
+			jinaHolder2.innerHTML = user.email;
 		} else if(user.phoneNumber) {
 			jinaHolder.value = user.phoneNumber;
 		} 

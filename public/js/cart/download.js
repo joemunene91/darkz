@@ -144,10 +144,10 @@ if(localStorage.getItem('banklogs')){
             button.addEventListener('click', removeCartItem)
         }
     } else {
-        window.location.assign('index');
+        window.location.assign('home');
     }
 } else {
-    window.location.assign('index');
+    window.location.assign('home');
 }
 
 
@@ -277,8 +277,6 @@ function updateCartTotal() {
 
         anonP.innerHTML = `<span id="uidy">Log ${bankBal}</span>`;
 
-        document.getElementById('jinaHolder2').innerHTML = bankLog;
-
         theLogo.src = `${bankImg}`;
 
         usaP.innerHTML = `
@@ -325,8 +323,6 @@ function updateCartTotal() {
         } 
 
         document.getElementById('disb').innerHTML = '10% Discount';
-
-        document.getElementById('jinaHolder2').innerHTML = (JSON.parse(localStorage.getItem('banklogs'))).length + ' Bank Logins';
 
         downFile.innerHTML = `Bank Logins`;
 
@@ -390,7 +386,7 @@ function frame(){
     width = 900 - timeDifference;
 
     if(width <= 10){
-        window.location.assign('index');
+        window.location.assign('home');
     } else if(width < 300) {
         elemj.classList.add("bg-danger");
         var minutes = Math.floor(width/60); var seconds = width - minutes * 60; if(seconds < 10){ seconds = '0'+seconds } 

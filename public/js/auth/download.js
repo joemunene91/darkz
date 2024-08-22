@@ -63,10 +63,15 @@ auth.onAuthStateChanged(user => {
 			theGuy = user.email;
 			var theaddress = (user.email).substring(0, (user.email).indexOf('@'));
 			if (user.displayName) { theaddress = user.displayName } 
-			if(user.phoneNumber) {  theaddress = user.phoneNumber } 
-			thePerson = `<hr class="hr-2"> ${theaddress}, ${cityZ}	`;
+			if(user.phoneNumber) {  
+				jinaHolder.value = user.phoneNumber;
+				thePerson = `<hr class="hr-2"> ${user.phoneNumber.substring(0, 10)}... <br> ${theaddress}`;
+			} else {
+				jinaHolder.value = theaddress;
+				thePerson = `<hr class="hr-2"> ${theaddress}, ${cityZ}`;
+			}
 
-			jinaHolder.value = theaddress;
+			jinaHolder2.innerHTML = user.email;
 
 			emailP.innerHTML = ` 
 				Bank logins will be sent to <br>
@@ -74,7 +79,8 @@ auth.onAuthStateChanged(user => {
 			`;
 		} else if(user.phoneNumber) {
 			theGuy = user.phoneNumber;
-			jinaHolder.value = user.phoneNumber;
+			jinaHolder.value = 'Download';
+			jinaHolder2.innerHTML = 'Phone: ' + user.phoneNumber;
 			thePerson = `<hr class="hr-2"> ${user.phoneNumber.substring(0, 10)}... <br> ${cityZ}`;
 			emailP.innerHTML = ` 
 				Bank logs will be sent via <br>
