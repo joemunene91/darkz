@@ -63,16 +63,11 @@ auth.onAuthStateChanged(user => {
 			theGuy = user.email;
 			var theaddress = (user.email).substring(0, (user.email).indexOf('@'));
 			if (user.displayName) { theaddress = user.displayName } 
-			if(user.phoneNumber) {  
-				jinaHolder.value = user.phoneNumber;
-				thePerson = `<hr class="hr-2"> ${user.phoneNumber.substring(0, 10)}... <br> ${theaddress}`;
-			} else {
-				jinaHolder.value = theaddress;
-				thePerson = `<hr class="hr-2"> ${theaddress}, ${cityZ}`;
-			}
+
+			jinaHolder.value = theaddress;
+			thePerson = `<hr class="hr-2"> ${theaddress}, ${cityZ}`;
 
 			jinaHolder2.innerHTML = user.email;
-
 			emailP.innerHTML = ` 
 				Bank logins will be sent to <br>
 				<span id="mail-span">${user.email}.</span>

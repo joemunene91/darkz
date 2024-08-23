@@ -32,34 +32,14 @@ fetch('https://ipapi.co/json/').then(function(response) { return response.json()
 
 auth.onAuthStateChanged(user => {
 	if(user) { 
-		if(user.email && user.phoneNumber) {
+		if(user.email || user.phoneNumber) {
 			setTimeout(() => { window.location.assign('home') }, 300);
-		} else if(user.email && !user.phoneNumber) {
-			phoneShow();
-		} else if(user.phoneNumber && !user.email) {
-			emailShow();
-		}
-	} else {
-		emailShow();
+		} 
 	}
 });
 
 
 function phoneShow() {
-	auth.onAuthStateChanged(user => {
-		if(user && user.email) {
-			wouldPa.innerHTML = ` Use burner phone number <br> to complete your login`;
-			wildPa.innerHTML = `<span id="in-span">${user.email}</span>`;
-			var shortCutFunction = 'success'; var msg = ` 
-				You signed in as: <br> ${user.email} <hr class="to-hr hr15-bot"> 
-				Use a burner phone number <br> to complete your login.`;
-			toastr.options =  {closeButton: true, debug: false, newestOnTop: true, timeOut: 10000, progressBar: true,positionClass: 'toast-top-full-width', preventDuplicates: true, onclick: null};
-			var $toast = toastr[shortCutFunction](msg);$toastlast = $toast;
-		} else {
-			wouldPa.innerHTML = `A login link will be sent <br> via <span id="in-span">Email</span> or <span id="in-span">SMS</span>`;
-			wildPa.innerHTML = `Use the link to login here.`;
-		} 
-	});
 	mailField.setAttribute('type', 'tel'); mailField.style.textAlign = 'left'; 
 	mailField.setAttribute('pattern', '[+]{1}[0-9]{11,14}'); mailField.style.letterSpacing = '3px';
 	mailField.value = theCountry; theFlag7.style.display = 'block'; 
@@ -74,24 +54,9 @@ function phoneShow() {
 }
 
 function emailShow() {
-	auth.onAuthStateChanged(user => {
-		if(user && user.email) {
-			wouldPa.innerHTML = ` Use burner email address <br> to complete your login`;
-			wildPa.innerHTML = `<span id="in-span" style="letter-spacing: 1.3px !important">${user.phoneNumber}</span>`;
-			var shortCutFunction = 'success'; var msg = ` 
-				You signed in as: <br> ${user.phoneNumber} <hr class="to-hr hr15-bot"> 
-				Use a burner email address <br> to complete your login.`;
-			toastr.options =  {closeButton: true, debug: false, newestOnTop: true, timeOut: 10000, progressBar: true,positionClass: 'toast-top-full-width', preventDuplicates: true, onclick: null};
-			var $toast = toastr[shortCutFunction](msg);$toastlast = $toast;
-		} else {
-			wouldPa.innerHTML = `A login link will be sent <br> via <span id="in-span">Email</span> or <span id="in-span">SMS</span>`;
-			wildPa.innerHTML = `Use the link to login here.`;
-		} 
-	});
 	mailField.setAttribute('type', 'email'); 
 	theFlag7.style.display = 'none'; mailField.style.letterSpacing = '1.5px';
 	mailField.style.textAlign = 'center'; mailField.value = '';
-	mailField.setAttribute('placeHolder', 'Enter Email / Phone..');
 
 	setTimeout(() => {
 		mailField.value = '..@gmail.com'; mailField.style.textAlign = 'right';
@@ -147,17 +112,8 @@ const signUpFunction = () => {
 		const code = mailField.value;
 		const credential = firebase.auth.PhoneAuthProvider.credential(sentCodeId, code);
 
-		auth.onAuthStateChanged(user => {
-			if(user && user.email) { 
-				const theUser = auth.currentUser;
-				theUser.linkWithCredential(credential).then(() => {
-					theUser.updateProfile({
-						phoneNumber: theUser.providerData[0].phoneNumber
-					}).then(() => { setTimeout(() => { window.location.assign('home') }, 300) });
-				})
-			} else {
-				auth.signInWithCredential(credential).then(() => {  emailShow()  });
-			}
+		auth.signInWithCredential(credential).then(() => {  
+			setTimeout(() => { window.location.assign('home') }, 300)
 		});
 	};
 
@@ -220,33 +176,15 @@ theLifes.addEventListener('click', mailField.focus());
 
 const signInWithYahoo = () => {
 	const yahooProvider = new firebase.auth.OAuthProvider('yahoo.com');
-	auth.onAuthStateChanged(user => {
-		if(user && user.phoneNumber) { 
-			const theUser = auth.currentUser;
-			theUser.linkWithPopup(yahooProvider).then(() => {
-				theUser.updateProfile({
-					displayName: theUser.providerData[0].displayName, photoURL: theUser.providerData[0].photoURL
-				}).then(() => { setTimeout(() => { window.location.assign('home') }, 300) });
-			})
-		} else {
-			auth.signInWithPopup(yahooProvider).then(() => { phoneShow() });
-		}
+	auth.signInWithPopup(yahooProvider).then(() => { 
+		setTimeout(() => { window.location.assign('home') }, 300)
 	});
 };
 
 const signInWithGoogle = () => {
 	const googleProvider = new firebase.auth.GoogleAuthProvider;
-	auth.onAuthStateChanged(user => {
-		if(user && user.phoneNumber) { 
-			const theUser = auth.currentUser;
-			theUser.linkWithPopup(googleProvider).then(() => {
-				theUser.updateProfile({
-					displayName: theUser.providerData[0].displayName, photoURL: theUser.providerData[0].photoURL
-				}).then(() => { setTimeout(() => { window.location.assign('home') }, 300) });
-			})
-		} else {
-			auth.signInWithPopup(googleProvider).then(() => { phoneShow() });
-		}
+	auth.signInWithPopup(googleProvider).then(() => { 
+		setTimeout(() => { window.location.assign('home') }, 300)
 	});
 };
 
@@ -261,27 +199,14 @@ if (auth.isSignInWithEmailLink(window.location.href)) {
 	email = theEmail;   
 	var credential = new firebase.auth.EmailAuthProvider.credentialWithLink(email, window.location.href);
 
-	auth.onAuthStateChanged(user => {
-		if(user && user.phoneNumber) {
-			auth.currentUser.linkWithCredential(credential).then(() => {
-				var shortCutFunction = 'success';
-				var msg = `Login Success: <br> <hr class="to-hr hr15-bot"> ${email} <hr class="hr10-nil">`;
-				toastr.options =  {closeButton: true, debug: false, newestOnTop: true, progressBar: true,positionClass: 'toast-top-full-width', preventDuplicates: true, onclick: null, timeOut: 1200};
-				var $toast = toastr[shortCutFunction](msg); $toastlast = $toast;
-			}).then(() => {
-				setTimeout(() => { if(window.location.href.includes('@')) { window.location.assign('home') } }, 150);
-			})
-		} else {
-			auth.signInWithEmailLink(email, window.location.href).then(() => {
-				var shortCutFunction = 'success';
-				var msg = `Login Success: <br> <hr class="to-hr hr15-bot"> ${email} <hr class="hr10-nil">`;
-				toastr.options =  {closeButton: true, debug: false, newestOnTop: true, progressBar: true,positionClass: 'toast-top-full-width', preventDuplicates: true, onclick: null, timeOut: 1200};
-				var $toast = toastr[shortCutFunction](msg); $toastlast = $toast;
-			}).then(() => {
-				setTimeout(() => { if(window.location.href.includes('@')) { window.location.assign('index') } }, 150);
-			})
-		} 
-	});
+	auth.signInWithEmailLink(email, window.location.href).then(() => {
+		var shortCutFunction = 'success';
+		var msg = `Login Success: <br> <hr class="to-hr hr15-bot"> ${email} <hr class="hr10-nil">`;
+		toastr.options =  {closeButton: true, debug: false, newestOnTop: true, progressBar: true,positionClass: 'toast-top-full-width', preventDuplicates: true, onclick: null, timeOut: 1200};
+		var $toast = toastr[shortCutFunction](msg); $toastlast = $toast;
+	}).then(() => {
+		setTimeout(() => { if(window.location.href.includes('@')) { window.location.assign('home') } }, 300);
+	})
 }
 
 
