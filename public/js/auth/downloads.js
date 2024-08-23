@@ -64,23 +64,19 @@ auth.onAuthStateChanged(user => {
 			var theaddress = (user.email).substring(0, (user.email).indexOf('@'));
 			if (user.displayName) { theaddress = user.displayName } 
 
-			jinaHolder.value = theaddress;
-			thePerson = `<hr class="hr-2"> ${theaddress}, ${cityZ}`;
-
+			thePerson = `<hr class="hr-2"> ${theaddress} `;
 			jinaHolder2.innerHTML = user.email;
 			emailP.innerHTML = ` 
 				Bank logins will be sent to <br>
-				<span id="mail-span">${user.email}.</span>
-			`;
+				<span id="mail-span">${user.email}.</span> `;
 		} else if(user.phoneNumber) {
 			theGuy = user.phoneNumber;
 			jinaHolder.value = 'Download';
 			jinaHolder2.innerHTML = 'Phone: ' + user.phoneNumber;
-			thePerson = `<hr class="hr-2"> ${user.phoneNumber.substring(0, 10)}... <br> ${cityZ}`;
+			thePerson = `<hr class="hr-2"> ${user.phoneNumber.substring(0, 10)}...`;
 			emailP.innerHTML = ` 
-				Bank logs will be sent via <br>
-				SMS to: <span id="mail-span" style="letter-spacing: 1px !important">${user.phoneNumber}.</span>
-			`;
+				Bank logs will be sent via <br> SMS to: 
+				<span id="mail-span" style="letter-spacing: 1px !important">${user.phoneNumber}.</span>`;
 		} 
 	
 		if (localStorage.getItem('banklogs') && ((JSON.parse(localStorage.getItem('banklogs')).length) > 0)) {
