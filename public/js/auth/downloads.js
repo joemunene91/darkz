@@ -94,6 +94,18 @@ auth.onAuthStateChanged(user => {
 				document.getElementById(`name-on-table${items.indexOf(items[i])}`).innerHTML = `${thePerson}`; 
 			}
 		}
+
+		document.getElementById('showtoasts').addEventListener('click', () => {
+			setTimeout(() => {
+				document.getElementById('anon-check').click();
+			}, 1200);
+		});
+
+		document.getElementById('monez').addEventListener('click', () => {
+			setTimeout(() => {
+				document.getElementById('anon-check').click();
+			}, 2400);
+		});
 	
 		var docRef = db.collection("users").doc(theGuy);
 		docRef.get().then((doc) => {
