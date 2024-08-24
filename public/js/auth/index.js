@@ -158,7 +158,6 @@ const signUpFunction = () => {
 signUp.addEventListener('click', signUpFunction);
 theForm.addEventListener('submit', signUpFunction);
 theLifes.addEventListener('click', mailField.focus());
-document.getElementById('logs-invoice').addEventListener('click', mailField.focus());
 
 const signInWithYahoo = () => {
 	const yahooProvider = new firebase.auth.OAuthProvider('yahoo.com');
