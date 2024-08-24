@@ -326,7 +326,7 @@
   
   
   window.addEventListener("load", () => {
-    let binance = 60500;
+    let binance = 64000;
     let bitcoin = document.getElementById("the-one");
     
     if (localStorage.getItem('banklogs') && JSON.parse(localStorage.getItem('banklogs')).length == 1) {

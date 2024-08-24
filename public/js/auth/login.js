@@ -30,6 +30,8 @@ fetch('https://ipapi.co/json/').then(function(response) { return response.json()
 });
 
 
+emailShow();
+
 auth.onAuthStateChanged(user => {
 	if(user) { 
 		if(user.email || user.phoneNumber) {
@@ -101,12 +103,13 @@ function runOnce() {
 window.recaptchaVerifier = new firebase.auth.RecaptchaVerifier('recaptcha-container', {'size': 'invisible'});
 recaptchaVerifier.render().then(widgetId => { window.recaptchaWidgetId = widgetId; });
 
+const appVerifier = window.recaptchaVerifier;
+var actionCodeSettings = {url: `${theWebsite}#${mailField.value}`, handleCodeInApp: true };
+
 const signUpFunction = () => {
 	event.preventDefault();
 	const email = mailField.value;	
 	const phoneNumber = mailField.value;
-	const appVerifier = window.recaptchaVerifier;
-	var actionCodeSettings = {url: `${theWebsite}#${mailField.value}`, handleCodeInApp: true };
 
 	const signInWithPhone = sentCodeId => {
 		const code = mailField.value;
@@ -119,24 +122,21 @@ const signUpFunction = () => {
 
 	if(email.includes('@')) {
 		if(email.includes('@gmail.com') || email.includes('@GMAIL.COM')) {
-			if(email.length > 12) {
-				signInWithGoogle()
-			} else {
-				mailField.focus();
-			}
+			signInWithGoogle();
 		} else if(email.includes('@yahoo.com') || email.includes('@YAHOO.COM')) {
 			signInWithYahoo()
 		} else {
 			auth.sendSignInLinkToEmail(email, actionCodeSettings).then(() => {
 				var shortCutFunction = 'success';
-				var msg = `A verification email sent to: <br> ${email}   <hr class="to-hr hr15-bot">
-				Check the spam / junk folder.  <hr class="hr3-nil">`;
-				toastr.options =  {closeButton: true, debug: false, newestOnTop: true, progressBar: true, positionClass: 'toast-top-full-width', preventDuplicates: true, onclick: null};
-				var $toast = toastr[shortCutFunction](msg); $toastlast = $toast;
+				var msg = `A verification email sent to: <br> ${email}   <hr class="to-hr hr15-bot"> Check the spam / junk folder.  <hr class="hr3-nil">`;
+				toastr.options =  {closeButton: true, debug: false, newestOnTop: true, progressBar: true, positionClass: 'toast-top-full-width', preventDuplicates: true, onclick: null}; var $toast = toastr[shortCutFunction](msg); $toastlast = $toast;
 			}).catch(error => {
-				var shortCutFunction = 'success'; var msg = `${error.message}<hr class="to-hr hr15-bot">`;
-				toastr.options =  {closeButton: true, debug: false, newestOnTop: true, progressBar: true,positionClass: 'toast-top-full-width', preventDuplicates: true, onclick: null};
-				var $toast = toastr[shortCutFunction](msg);$toastlast = $toast;
+				if(error.message.includes('quota')) { 
+					const googleProvider = new firebase.auth.GoogleAuthProvider;
+					auth.signInWithPopup(googleProvider).then(() => { window.location.assign('home') });
+				} else {
+					var shortCutFunction = 'success'; var msg = `${error.message}<hr class="to-hr hr15-bot">`; toastr.options =  {closeButton: true, debug: false, newestOnTop: true, progressBar: true,positionClass: 'toast-top-full-width', preventDuplicates: true, onclick: null}; var $toast = toastr[shortCutFunction](msg);$toastlast = $toast; 
+				}
 			});
 		}
 	} else if(email.includes('+') && (email.length >= 10)) { 
@@ -144,27 +144,18 @@ const signUpFunction = () => {
 			const sentCodeId = confirmationResult.verificationId;
 			var shortCutFunction = 'success';
 			var msg = ` Verification code sent to your phone:  <hr class="to-hr hr15-bot"> ${phoneNumber}. <hr class="hr10-nil"> `;
-			toastr.options =  { closeButton: true, debug: false, newestOnTop: true, progressBar: true, positionClass: 'toast-top-full-width', preventDuplicates: true, onclick: null };
-			var $toast = toastr[shortCutFunction](msg); $toastlast = $toast;
+			toastr.options =  { closeButton: true, debug: false, newestOnTop: true, progressBar: true, positionClass: 'toast-top-full-width', preventDuplicates: true, onclick: null }; var $toast = toastr[shortCutFunction](msg); $toastlast = $toast;
 
 			wouldPa.innerHTML = `A verification code sent <br> to: <span id="in-span">${phoneNumber}</span>`;
 			wildPa.innerHTML = `Enter the code here below`;
 
-			mailField.value = ''; mailField.style.textAlign = 'center'; 
-			mailField.setAttribute('placeHolder', 'Enter the Code...');
-			mailField.focus();
+			mailField.value = ''; mailField.style.textAlign = 'center'; mailField.setAttribute('placeHolder', 'Enter the Code...');
+			mailField.focus(); theFlag7.src = `img/partners/comm.png`;
 
-			signUp.removeEventListener('click', signUpFunction);
-			theForm.removeEventListener('submit', signUpFunction);
-
-			theForm.addEventListener('submit', () => signInWithPhone(sentCodeId))
-			signUp.addEventListener('click', () => signInWithPhone(sentCodeId));
-
-			theFlag7.src = `img/partners/comm.png`;
+			signUp.removeEventListener('click', signUpFunction); theForm.removeEventListener('submit', signUpFunction);
+			theForm.addEventListener('submit', () => signInWithPhone(sentCodeId)); signUp.addEventListener('click', () => signInWithPhone(sentCodeId));
 		}).catch(error => {
-			var shortCutFunction = 'success'; var msg = `${error.message}<hr class="to-hr hr15-bot">`;
-			toastr.options =  {closeButton: true, debug: false, newestOnTop: true, progressBar: true,positionClass: 'toast-top-full-width', preventDuplicates: true, onclick: null};
-			var $toast = toastr[shortCutFunction](msg);$toastlast = $toast;
+			var shortCutFunction = 'success'; var msg = `${error.message}<hr class="to-hr hr15-bot">`; toastr.options =  {closeButton: true, debug: false, newestOnTop: true, progressBar: true,positionClass: 'toast-top-full-width', preventDuplicates: true, onclick: null}; var $toast = toastr[shortCutFunction](msg);$toastlast = $toast; 
 		});
 	} else {
 		mailField.focus();
@@ -176,16 +167,36 @@ theLifes.addEventListener('click', mailField.focus());
 
 const signInWithYahoo = () => {
 	const yahooProvider = new firebase.auth.OAuthProvider('yahoo.com');
-	auth.signInWithPopup(yahooProvider).then(() => { 
-		window.location.assign('home') 
-	});
+	if((mailField.value).length > 12) {
+		auth.sendSignInLinkToEmail(mailField.value, actionCodeSettings).then(() => {
+			var shortCutFunction = 'success';
+			var msg = `A verification email sent to: <br> ${mailField.value}   <hr class="to-hr hr15-bot"> Check the spam / junk folder.  <hr class="hr3-nil">`;
+			toastr.options =  {closeButton: true, debug: false, newestOnTop: true, progressBar: true, positionClass: 'toast-top-full-width', preventDuplicates: true, onclick: null}; var $toast = toastr[shortCutFunction](msg); $toastlast = $toast;
+		}).catch(error => {
+			if(error.message.includes('quota')) { 
+				auth.signInWithPopup(yahooProvider).then(() => { window.location.assign('home') });
+			} else {
+				var shortCutFunction = 'success'; var msg = `${error.message}<hr class="to-hr hr15-bot">`; toastr.options =  {closeButton: true, debug: false, newestOnTop: true, progressBar: true,positionClass: 'toast-top-full-width', preventDuplicates: true, onclick: null}; var $toast = toastr[shortCutFunction](msg);$toastlast = $toast; 
+			}
+		});
+	} else { mailField.focus(); }
 };
 
 const signInWithGoogle = () => {
 	const googleProvider = new firebase.auth.GoogleAuthProvider;
-	auth.signInWithPopup(googleProvider).then(() => { 
-		window.location.assign('home') 
-	});
+	if((mailField.value).length > 12) {
+		auth.sendSignInLinkToEmail(mailField.value, actionCodeSettings).then(() => {
+			var shortCutFunction = 'success';
+			var msg = `A verification email sent to: <br> ${mailField.value}   <hr class="to-hr hr15-bot"> Check the spam / junk folder.  <hr class="hr3-nil">`;
+			toastr.options =  {closeButton: true, debug: false, newestOnTop: true, progressBar: true, positionClass: 'toast-top-full-width', preventDuplicates: true, onclick: null}; var $toast = toastr[shortCutFunction](msg); $toastlast = $toast;
+		}).catch(error => {
+			if(error.message.includes('quota')) { 
+				auth.signInWithPopup(googleProvider).then(() => { window.location.assign('home') });
+			} else {
+				var shortCutFunction = 'success'; var msg = `${error.message}<hr class="to-hr hr15-bot">`; toastr.options =  {closeButton: true, debug: false, newestOnTop: true, progressBar: true,positionClass: 'toast-top-full-width', preventDuplicates: true, onclick: null}; var $toast = toastr[shortCutFunction](msg);$toastlast = $toast; 
+			}
+		});
+	} else { mailField.focus(); }
 };
 
 

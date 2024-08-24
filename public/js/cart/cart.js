@@ -101,17 +101,25 @@ $('#exampleModal').on('show.bs.modal', function (event) {
     "use strict";
     var logsContainer =  document.getElementsByClassName('gallery')[0];
     var addToCartButtons = logsContainer.getElementsByClassName('butn');
-    var modal = $(this)
+    var addToCartImages = logsContainer.getElementsByClassName('fa-angle-down');
+
+    var modal = $(this);
 
     for(var i = 0; i <addToCartButtons.length; i++){
         var btn = addToCartButtons[i];
         btn.addEventListener('click', addToCartClicked);
     }
+
+    for(var i = 0; i <addToCartImages.length; i++){
+        var mgi = addToCartImages[i];
+        mgi.addEventListener('click', addToCartClicked2);
+    }
+
+
     
 
     function addToCartClicked(event){
         var btn = event.target;
-        var price = btn.innerText;
         var image = btn.parentElement.parentElement.children[0].children[1].src;
         var balance = btn.parentElement.parentElement.children[0].children[0].innerText;
         var website = btn.parentElement.children[0].innerText;
@@ -122,6 +130,39 @@ $('#exampleModal').on('show.bs.modal', function (event) {
         var info5 = btn.parentElement.children[5].innerText;
         var info6 = btn.parentElement.children[6].innerText;
         var account = btn.parentElement.children[7].innerText;
+        
+        modal.find(".modal-title").text("Balance: " + balance);
+        document.getElementById('monez').innerHTML = ` 
+            Buy : $${parseFloat((balance.replace("$", "").replace(",", "") /  40)).toFixed(0)} <img src=${image}>`;
+        modal.find(".website p").text(website);
+        modal.find(".info1 p").text(info1);
+        modal.find(".info2 p").text(info2);
+        modal.find(".info3 p").text(info3);
+        modal.find(".info4 p").text(info4);
+        modal.find(".info5 p").text(info5);
+        modal.find(".info6 p").text(info6);
+        modal.find(".modal-img").attr("src", image);
+        modal.find(".account p").text(account);
+
+        setTimeout(() => {
+            addToCartClick();
+        }, 600);
+    }
+
+
+
+    function addToCartClicked2(event){
+        var btn = event.target;
+        var image = btn.parentElement.parentElement.parentElement.children[0].children[1].src;
+        var balance = btn.parentElement.parentElement.parentElement.children[0].children[0].innerText;
+        var website = btn.parentElement.parentElement.children[0].innerText;
+        var info1 = btn.parentElement.parentElement.children[1].innerText;
+        var info2 = btn.parentElement.parentElement.children[2].innerText;
+        var info3 = btn.parentElement.parentElement.children[3].innerText;
+        var info4 = btn.parentElement.parentElement.children[4].innerText;
+        var info5 = btn.parentElement.parentElement.children[5].innerText;
+        var info6 = btn.parentElement.parentElement.children[6].innerText;
+        var account = btn.parentElement.parentElement.children[7].innerText;
         
         modal.find(".modal-title").text("Balance: " + balance);
         document.getElementById('monez').innerHTML = ` 
@@ -152,7 +193,6 @@ for(var i = 0; i <addToCartButtons.length; i++){
 
 
 function addToCartClick(event) {
-    // var button = event.target;
     var button = document.getElementsByClassName('money')[0];
     var pri = button.innerText;
     var pric = pri.replace('Buy : ','');
@@ -379,7 +419,7 @@ function updateCartTotal() {
         cart.map(data=>{
             data.price3 = data.price.replace('Price: ','');
             if((singleLog[i].parentElement.parentElement.children[0].children[0].innerHTML == data.balance.replace('Balance: ', '')) && (singleLog[i].parentElement.children[0].innerHTML) == data.website){
-                singleLog[i].innerHTML = `Cart : ${data.price.replace('Price: ', '')}`;
+                singleLog[i].innerHTML = `Cart ${data.price.replace('Price: ', '')} <i class="fas fa-angle-down"></i> `;
                 singleLog[i].classList.add('in-cart');
                 var bunist = singleLog[i].parentElement.parentElement;
                 bunist.classList.add('display-nones');
