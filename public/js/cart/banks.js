@@ -234,8 +234,8 @@ if (document.getElementById('boa01')) {
     (citi010.innerHTML = `Buy $${parseFloat(citi10.innerHTML.replace("$", "").replace(",", "") / 40).toFixed(0)} <i class="fas fa-angle-down"></i> `),
     (citi011.innerHTML = `Buy $${parseFloat(citi11.innerHTML.replace("$", "").replace(",", "") / 40).toFixed(0)} <i class="fas fa-angle-down"></i> `)
 } else if (document.getElementById('hunt01')) {
-    (hunt1.innerHTML = "$5,025"),
-    (hunt2.innerHTML = "$5,536"),
+    (hunt1.innerHTML = "$5,035"),
+    (hunt2.innerHTML = "$5,516"),
     (hunt3.innerHTML = "$6,327"),
     (hunt4.innerHTML = "$7,530"),
     (hunt5.innerHTML = "$8,249"),

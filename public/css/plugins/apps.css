@@ -172,6 +172,9 @@
   opacity: 0.7 !important;
   border-radius: 50% !important;
 }
+.gallery .butn i {
+  margin: auto 2px !important;
+}
 .butn:after {
   content: "";
   position: absolute;

@@ -69,6 +69,22 @@ if(localStorage.getItem('banklogs')){
             `;
             cartRow.innerHTML = cartRowContents;
             cartItems.prepend(cartRow);
+
+
+
+
+
+            var cartCol = document.createElement('div');
+            cartCol.classList.add('alert','alert-warning','alert-dismissible');
+            var cartColItems = document.getElementsByClassName('cart-alerts')[0];
+            var cartColContents = `
+                <i class="fas fa-spin fa-sync-alt spinner-bordez"></i> 
+                Pending Sale <strong>${items[i].account}</strong>, ${items[i].balance}
+                <button type="button" class="btn-close" data-bs-dismiss="alert">&times;</button>
+            `;
+            cartCol.innerHTML = cartColContents;
+            cartColItems.prepend(cartCol);
+
             
             if((items[i].account).includes('CHECKING') || (items[i].account).includes('SPENDING') || (items[i].account).includes('CHEQUING')){
                 var cartRow3 = document.createElement('div');

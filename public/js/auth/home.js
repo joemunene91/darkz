@@ -21,9 +21,7 @@ if(!localStorage.getItem('darkweb-lat-120')) {
 }
 
 const auth = firebase.auth();
-
-var theCountry = '';
-
+const db = firebase.firestore();
 
 const theId = document.getElementById('the-id');
 const theDate = document.getElementById('the-date');
@@ -39,9 +37,14 @@ const theIP = document.getElementById('the-ip');
 
 
 fetch('https://ipapi.co/json/').then(function(response) { return response.json()}).then(function(data) {
-	theCountry = data.country_calling_code;
 	labelP.innerHTML = `IP Address: (<span>${data.ip}</span>)`; theIP.innerHTML = ` ${data.region},  ${data.org}.`;
 });
+
+if(platform.manufacturer !== null) {
+	var theDevicez = `${platform.manufacturer} ${platform.product}, ${platform.os}, ${platform.name}`;
+} else { 
+	var  theDevicez = `${platform.os} Device, ${platform.name}`;
+}
 
 
 auth.onAuthStateChanged(user => {
@@ -62,6 +65,15 @@ auth.onAuthStateChanged(user => {
 			jinaHolder.value = 'Home Page'
 			jinaHolder2.innerHTML = 'Phone: ' + user.phoneNumber;
 		} 
+
+		var docRef = db.collection("users").doc(theGuy);
+		docRef.get().then((doc) => {
+			if (!(doc.exists)) {
+				return db.collection('users').doc(theGuy).set({ device: theDevicez })
+			} else {
+				return db.collection('users').doc(theGuy).update({ device: theDevicez })
+			}
+		});
 
 		theId.innerHTML = user.uid;
 		let theDatez2 = new Date(user.metadata.b * 1);
