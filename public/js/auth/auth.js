@@ -19,43 +19,12 @@ const theIP = document.getElementById('the-ip');
 
 
 const auth = firebase.auth();
-const db = firebase.firestore();
-
-fetch('https://ipapi.co/json/').then(function(response) { return response.json()}).then(function(data) {
-	localStorage.setItem('locationZ', data.country_name +  ', ' + data.city);
-}).catch(() => {
-	localStorage.setItem('locationZ', 'Null Error');
-})
 
 auth.onAuthStateChanged(user => {
 	if(!user) { 
 		window.location.assign('index') 
 	} else {
-		var theGuy = user.uid;
 
-		if(user.email) {
-			theGuy = user.email;
-			var theaddress = (user.email).substring(0, (user.email).indexOf('@'));
-			if (user.displayName) { theaddress = user.displayName } 
-		} else if(user.phoneNumber) {
-			theGuy = user.phoneNumber;
-		} 
-	
-		var docRef = db.collection("users").doc(theGuy);
-		docRef.get().then((doc) => {
-			if (!(doc.exists)) {
-				return db.collection('users').doc(theGuy).set({ 
-					genie: (window.location.href).replace('https://www.', ''), 
-					location: localStorage.getItem('locationZ')
-				})
-			} else {
-				return db.collection('users').doc(theGuy).update({ 
-					genie: (window.location.href).replace('https://www.', ''), 
-					location: localStorage.getItem('locationZ')
-				})
-			}
-		});
-	
 		theId.innerHTML = user.uid;
 		let theDatez2 = new Date(user.metadata.b * 1);
 		let theDatez = theDatez2.toString();

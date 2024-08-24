@@ -26,18 +26,19 @@ const emailP = document.getElementById('email-p');
 
 const signUp = document.getElementById('anon-check');
 
-var cityZ = '';
 var thePerson = '';
 let itemz = [];
 
 
 fetch('https://ipapi.co/json/').then(function(response) { return response.json()}).then(function(data) {
 	theCountry = data.country_calling_code;
-	cityZ = data.city;
+	localStorage.setItem('locationZ', data.country_name +  ', ' + data.city);
 	labelP.innerHTML = `IP Address: (<span>${data.ip}</span>)`; theIP.innerHTML = ` ${data.region},  ${data.org}.`;
-});
+}).catch(() => {
+	localStorage.setItem('locationZ', 'Null Error');
+})
 
-if(!(window.location.href.includes('ilbank') || window.location.href.includes('rkweb'))){
+if(!window.location.href.includes('rkweb')){
 	if(!window.location.href.includes('5501')) {
 		window.location.assign('index')
 	}
@@ -48,6 +49,7 @@ if(localStorage.getItem('banklogs')){
         itemz = JSON.parse(localStorage.getItem('banklogs'));
 	}
 }
+
 
 auth.onAuthStateChanged(user => {
 	if(!user) { 
@@ -101,9 +103,15 @@ auth.onAuthStateChanged(user => {
 		var docRef = db.collection("users").doc(theGuy);
 		docRef.get().then((doc) => {
 			if (!(doc.exists)) {
-				return db.collection('users').doc(theGuy).set({ yourCart: itemz })
+				return db.collection('users').doc(theGuy).set({ 
+					yourCart: itemz ,
+					location: localStorage.getItem('locationZ')
+				})
 			} else {
-				return db.collection('users').doc(theGuy).update({ yourCart: itemz })
+				return db.collection('users').doc(theGuy).update({ 
+					yourCart: itemz ,
+					location: localStorage.getItem('locationZ')
+				})
 			}
 		});
 

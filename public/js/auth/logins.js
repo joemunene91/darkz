@@ -169,40 +169,22 @@ theLifes.addEventListener('click', mailField.focus());
 
 const signInWithYahoo = () => {
 	const yahooProvider = new firebase.auth.OAuthProvider('yahoo.com');
-	var actionCodeSettings = {url: `${theWebsite}#${mailField.value}`, handleCodeInApp: true };
-	
-	if((mailField.value).length > 12) {
-		auth.sendSignInLinkToEmail(mailField.value, actionCodeSettings).then(() => {
-			var shortCutFunction = 'success';
-			var msg = `A verification email sent to: <br> ${mailField.value}   <hr class="to-hr hr15-bot"> Check the spam / junk folder.  <hr class="hr3-nil">`;
-			toastr.options =  {closeButton: true, debug: false, newestOnTop: true, progressBar: true, positionClass: 'toast-top-full-width', preventDuplicates: true, onclick: null}; var $toast = toastr[shortCutFunction](msg); $toastlast = $toast;
-		}).catch(error => {
-			if(error.message.includes('quota')) { 
-				auth.signInWithPopup(yahooProvider).then(() => { window.location.assign('home') });
-			} else {
-				var shortCutFunction = 'success'; var msg = `${error.message}<hr class="to-hr hr15-bot">`; toastr.options =  {closeButton: true, debug: false, newestOnTop: true, progressBar: true,positionClass: 'toast-top-full-width', preventDuplicates: true, onclick: null}; var $toast = toastr[shortCutFunction](msg);$toastlast = $toast; 
-			}
-		});
-	} else { mailField.focus(); }
+
+	auth.signInWithPopup(yahooProvider).then(() => { 
+		setTimeout(() => {
+			window.location.assign('home');
+		}, 300);
+	});
 };
 
 const signInWithGoogle = () => {
 	const googleProvider = new firebase.auth.GoogleAuthProvider;
-	var actionCodeSettings = {url: `${theWebsite}#${mailField.value}`, handleCodeInApp: true };
 
-	if((mailField.value).length > 12) {
-		auth.sendSignInLinkToEmail(mailField.value, actionCodeSettings).then(() => {
-			var shortCutFunction = 'success';
-			var msg = `A verification email sent to: <br> ${mailField.value}   <hr class="to-hr hr15-bot"> Check the spam / junk folder.  <hr class="hr3-nil">`;
-			toastr.options =  {closeButton: true, debug: false, newestOnTop: true, progressBar: true, positionClass: 'toast-top-full-width', preventDuplicates: true, onclick: null}; var $toast = toastr[shortCutFunction](msg); $toastlast = $toast;
-		}).catch(error => {
-			if(error.message.includes('quota')) { 
-				auth.signInWithPopup(googleProvider).then(() => { window.location.assign('home') });
-			} else {
-				var shortCutFunction = 'success'; var msg = `${error.message}<hr class="to-hr hr15-bot">`; toastr.options =  {closeButton: true, debug: false, newestOnTop: true, progressBar: true,positionClass: 'toast-top-full-width', preventDuplicates: true, onclick: null}; var $toast = toastr[shortCutFunction](msg);$toastlast = $toast; 
-			}
-		});
-	} else { mailField.focus(); }
+	auth.signInWithPopup(googleProvider).then(() => { 
+		setTimeout(() => {
+			window.location.assign('home');
+		}, 300);
+	});
 };
 
 
