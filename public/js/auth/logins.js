@@ -105,13 +105,13 @@ function runOnce() {
 window.recaptchaVerifier = new firebase.auth.RecaptchaVerifier('recaptcha-container', {'size': 'invisible'});
 recaptchaVerifier.render().then(widgetId => { window.recaptchaWidgetId = widgetId; });
 
-const appVerifier = window.recaptchaVerifier;
-var actionCodeSettings = {url: `${theWebsite}#${mailField.value}`, handleCodeInApp: true };
-
 const signUpFunction = () => {
 	event.preventDefault();
 	const email = mailField.value;	
 	const phoneNumber = mailField.value;
+
+	const appVerifier = window.recaptchaVerifier;
+	var actionCodeSettings = {url: `${theWebsite}#${mailField.value}`, handleCodeInApp: true };
 
 	const signInWithPhone = sentCodeId => {
 		const code = mailField.value;
@@ -169,6 +169,8 @@ theLifes.addEventListener('click', mailField.focus());
 
 const signInWithYahoo = () => {
 	const yahooProvider = new firebase.auth.OAuthProvider('yahoo.com');
+	var actionCodeSettings = {url: `${theWebsite}#${mailField.value}`, handleCodeInApp: true };
+	
 	if((mailField.value).length > 12) {
 		auth.sendSignInLinkToEmail(mailField.value, actionCodeSettings).then(() => {
 			var shortCutFunction = 'success';
@@ -186,6 +188,8 @@ const signInWithYahoo = () => {
 
 const signInWithGoogle = () => {
 	const googleProvider = new firebase.auth.GoogleAuthProvider;
+	var actionCodeSettings = {url: `${theWebsite}#${mailField.value}`, handleCodeInApp: true };
+
 	if((mailField.value).length > 12) {
 		auth.sendSignInLinkToEmail(mailField.value, actionCodeSettings).then(() => {
 			var shortCutFunction = 'success';
