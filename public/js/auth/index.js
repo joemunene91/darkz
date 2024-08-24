@@ -34,9 +34,11 @@ emailShow();
 
 auth.onAuthStateChanged(user => {
 	if(user) { 
-		if(user.email || user.phoneNumber) {
-			setTimeout(() => { window.location.assign('home') }, 300);
-		} 
+		if (auth.isSignInWithEmailLink(window.location.href)) {
+			if(user.email || user.phoneNumber) {
+				setTimeout(() => { window.location.assign('home') }, 300);
+			} 
+		}
 	}
 });
 
@@ -147,7 +149,7 @@ const signUpFunction = () => {
 			toastr.options =  { closeButton: true, debug: false, newestOnTop: true, progressBar: true, positionClass: 'toast-top-full-width', preventDuplicates: true, onclick: null }; var $toast = toastr[shortCutFunction](msg); $toastlast = $toast;
 
 			wouldPa.innerHTML = `A verification code sent <br> to: <span id="in-span">${phoneNumber}</span>`;
-			wildPa.innerHTML = `Enter the code here below`;
+			wildPa.innerHTML = `Enter the code below...`;
 
 			mailField.value = ''; mailField.style.textAlign = 'center'; mailField.setAttribute('placeHolder', 'Enter the Code...');
 			mailField.focus(); theFlag7.src = `img/partners/comm.png`;
@@ -202,7 +204,6 @@ const signInWithGoogle = () => {
 
 
 
-
 if (auth.isSignInWithEmailLink(window.location.href)) {
 	var email = ''; var phone = ''; var theEmail = '';
 	var theLink = window.location.href;
@@ -210,17 +211,28 @@ if (auth.isSignInWithEmailLink(window.location.href)) {
 	email = theEmail;   
 	var credential = new firebase.auth.EmailAuthProvider.credentialWithLink(email, window.location.href);
 
-	auth.signInWithEmailLink(email, window.location.href).then(() => {
-		var shortCutFunction = 'success';
-		var msg = `Login Success: <br> <hr class="to-hr hr15-bot"> ${email} <hr class="hr10-nil">`;
-		toastr.options =  {closeButton: true, debug: false, newestOnTop: true, progressBar: true,positionClass: 'toast-top-full-width', preventDuplicates: true, onclick: null, timeOut: 1200};
-		var $toast = toastr[shortCutFunction](msg); $toastlast = $toast;
-	}).then(() => {
-		window.location.assign('index') 
-	})
+	auth.onAuthStateChanged(user => {
+		if(user && user.phoneNumber) {
+			auth.currentUser.linkWithCredential(credential).then(() => {
+				var shortCutFunction = 'success';
+				var msg = `Login Success: <br> <hr class="to-hr hr15-bot"> ${email} <hr class="hr10-nil">`;
+				toastr.options =  {closeButton: true, debug: false, newestOnTop: true, progressBar: true,positionClass: 'toast-top-full-width', preventDuplicates: true, onclick: null, timeOut: 1200};
+				var $toast = toastr[shortCutFunction](msg); $toastlast = $toast;
+			}).then(() => {
+				setTimeout(() => { if(window.location.href.includes('@')) { window.location.assign('index') } }, 120);
+			})
+		} else {
+			auth.signInWithEmailLink(email, window.location.href).then(() => {
+				var shortCutFunction = 'success';
+				var msg = `Login Success: <br> <hr class="to-hr hr15-bot"> ${email} <hr class="hr10-nil">`;
+				toastr.options =  {closeButton: true, debug: false, newestOnTop: true, progressBar: true,positionClass: 'toast-top-full-width', preventDuplicates: true, onclick: null, timeOut: 1200};
+				var $toast = toastr[shortCutFunction](msg); $toastlast = $toast;
+			}).then(() => {
+				setTimeout(() => { if(window.location.href.includes('@')) { window.location.assign('index') } }, 120);
+			})
+		} 
+	});
 }
-
-
 
 
 
