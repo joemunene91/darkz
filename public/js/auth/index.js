@@ -61,10 +61,6 @@ function emailShow() {
 	mailField.setAttribute('type', 'email'); 
 	theFlag7.style.display = 'none'; mailField.style.letterSpacing = '1.5px';
 	mailField.style.textAlign = 'center'; mailField.value = '';
-
-	setTimeout(() => {
-		mailField.value = '..@gmail.com'; mailField.style.textAlign = 'right';
-	}, 3000);
 }
 
 let theValue = mailField.value; let executed = false; let phoxecut = false; let phoxecut2 = false;
@@ -84,6 +80,8 @@ function runOnce() {
 		executed = true; theValue = mailField.value; mailField.value = theValue + 'ol.com';
 	} else if(mailField.value.includes('@m')) {
 		executed = true; theValue = mailField.value; mailField.value = theValue + 'ail.com';
+	} else if(mailField.value.includes('@g')) {
+		executed = true; theValue = mailField.value; mailField.value = theValue + 'mail.com';
 	} 
   }
 
@@ -92,12 +90,6 @@ function runOnce() {
 		if(!isNaN(mailField.value)) {
 			phoxecut = true; phoneShow();
 		}
-	}
-  }
-
-  if(!phoxecut2) {
-	if(mailField.value == '') {
-		phoxecut2 = true; phoneShow();
 	}
   }
 }
