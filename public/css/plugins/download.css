@@ -961,3 +961,15 @@ hr.hr-2 {
 }
 
 
+
+#notifi {
+  margin-top: 10px !important;
+  margin-bottom: -10px !important;
+}
+
+@media screen and (max-width: 767px) {
+  #notifi {
+    margin-top: 20px !important;
+    margin-bottom: -10px !important;
+  }
+}
