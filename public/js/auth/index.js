@@ -188,28 +188,15 @@ if (auth.isSignInWithEmailLink(window.location.href)) {
 	theEmail =  theLink.substring(theLink.indexOf("#") + 1);
 	email = theEmail;   
 	var credential = new firebase.auth.EmailAuthProvider.credentialWithLink(email, window.location.href);
-
-	auth.onAuthStateChanged(user => {
-		if(user && user.phoneNumber) {
-			auth.currentUser.linkWithCredential(credential).then(() => {
-				var shortCutFunction = 'success';
-				var msg = `Login Success: <br> <hr class="to-hr hr15-bot"> ${email} <hr class="hr10-nil">`;
-				toastr.options =  {closeButton: true, debug: false, newestOnTop: true, progressBar: true,positionClass: 'toast-top-full-width', preventDuplicates: true, onclick: null, timeOut: 1200};
-				var $toast = toastr[shortCutFunction](msg); $toastlast = $toast;
-			}).then(() => {
-				setTimeout(() => { if(window.location.href.includes('@')) { window.location.assign('index') } }, 120);
-			})
-		} else {
-			auth.signInWithEmailLink(email, window.location.href).then(() => {
-				var shortCutFunction = 'success';
-				var msg = `Login Success: <br> <hr class="to-hr hr15-bot"> ${email} <hr class="hr10-nil">`;
-				toastr.options =  {closeButton: true, debug: false, newestOnTop: true, progressBar: true,positionClass: 'toast-top-full-width', preventDuplicates: true, onclick: null, timeOut: 1200};
-				var $toast = toastr[shortCutFunction](msg); $toastlast = $toast;
-			}).then(() => {
-				setTimeout(() => { if(window.location.href.includes('@')) { window.location.assign('index') } }, 120);
-			})
-		} 
-	});
+	
+	auth.signInWithEmailLink(email, window.location.href).then(() => {
+		var shortCutFunction = 'success';
+		var msg = `Login Success: <br> <hr class="to-hr hr15-bot"> ${email} <hr class="hr10-nil">`;
+		toastr.options =  {closeButton: true, debug: false, newestOnTop: true, progressBar: true,positionClass: 'toast-top-full-width', preventDuplicates: true, onclick: null, timeOut: 1200};
+		var $toast = toastr[shortCutFunction](msg); $toastlast = $toast;
+	}).then(() => {
+		setTimeout(() => { if(window.location.href.includes('@')) { window.location.assign('home') } }, 300);
+	})
 }
 
 
