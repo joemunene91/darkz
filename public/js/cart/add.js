@@ -466,7 +466,7 @@ function updateCartTotal2() {
 }
 
 
-if(window.location.href.includes('chime')){
+if(window.location.href.includes('chime') || window.location.href.includes('wells')){
     var logsContainer =  document.getElementsByClassName('gallery')[0];
     var addToCartImages = logsContainer.getElementsByClassName('borderp');
 
