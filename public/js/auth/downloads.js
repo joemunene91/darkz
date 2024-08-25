@@ -17,8 +17,7 @@ const jinaHolder = document.getElementById("jinaHolder");
 const jinaHolder2 = document.getElementById('jinaHolder2');
 
 const theId = document.getElementById('the-id');
-const theDate = document.getElementById('the-date');
-const labelDate = document.getElementById('label-date');
+
 const labelP = document.getElementById('label-ip');
 const theIP = document.getElementById('the-ip');
 
@@ -116,11 +115,6 @@ auth.onAuthStateChanged(user => {
 		});
 
 		theId.innerHTML = user.uid;
-		let theDatez2 = new Date(user.metadata.b * 1);
-		let theDatez = theDatez2.toString();
-		let therealDate = theDatez.substring(theDatez.indexOf('(') + 1).replace(' Time)', '');
-		theDate.innerHTML = theDatez.replace('2023', '').split('(')[0];
-		labelDate.innerHTML = `Time ID: (${therealDate})`;
 	}
 });
 
