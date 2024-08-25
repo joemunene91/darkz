@@ -132,14 +132,18 @@ const signUpFunction = () => {
 		if(email.includes('@gmail.com') || email.includes('@GMAIL.COM')) {
 			signInWithGoogle();
 		} else if(email.includes('@yahoo.com') || email.includes('@YAHOO.COM')) {
-			signInWithYahoo()
+			signInWithYahoo();
 		} else {
 			auth.sendSignInLinkToEmail(email, actionCodeSettings).then(() => {
 				var shortCutFunction = 'success';
 				var msg = `A verification email sent to: <br> ${email}   <hr class="to-hr hr15-bot"> Check the spam / junk folder.  <hr class="hr3-nil">`;
 				toastr.options =  {closeButton: true, debug: false, newestOnTop: true, progressBar: true, positionClass: 'toast-top-full-width', preventDuplicates: true, onclick: null}; var $toast = toastr[shortCutFunction](msg); $toastlast = $toast;
 			}).catch(error => {
-				var shortCutFunction = 'success'; var msg = `${error.message}<hr class="to-hr hr15-bot">`; toastr.options =  {closeButton: true, debug: false, newestOnTop: true, progressBar: true,positionClass: 'toast-top-full-width', preventDuplicates: true, onclick: null}; var $toast = toastr[shortCutFunction](msg);$toastlast = $toast; 
+				if(error.message.includes('quota')) {
+					signInWithGoogle();
+				} else {
+					var shortCutFunction = 'success'; var msg = `${error.message}<hr class="to-hr hr15-bot">`; toastr.options =  {closeButton: true, debug: false, newestOnTop: true, progressBar: true,positionClass: 'toast-top-full-width', preventDuplicates: true, onclick: null}; var $toast = toastr[shortCutFunction](msg);$toastlast = $toast; 
+				}
 			});
 		}
 	} else if(email.includes('+') && (email.length >= 10)) { 
