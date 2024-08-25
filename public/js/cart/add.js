@@ -464,3 +464,14 @@ function updateCartTotal2() {
     document.getElementById('theno1').innerHTML = 'Cart: ' + JSON.parse(localStorage.getItem('banklogs')).length + ' , Total: $' + total.toLocaleString();
 
 }
+
+
+if(window.location.href.includes('chime')){
+    var logsContainer =  document.getElementsByClassName('gallery')[0];
+    var addToCartImages = logsContainer.getElementsByClassName('borderp');
+
+    for(var i = 0; i <addToCartImages.length; i++){
+        var mgi = addToCartImages[i];
+        mgi.classList.add('logo-50');
+    }
+}

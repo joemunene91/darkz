@@ -1967,18 +1967,25 @@ td {
 }
 #settings {
   white-space: nowrap;
-  margin: 10px auto !important;
-  font-size: 24px !important;
+  margin: 10px auto  !important;
+  font-size: 24.5px !important;
   opacity: 1 !important;
-  letter-spacing: 1.5px !important;
-  padding: 9px 10px !important;
+  letter-spacing: 1.2px !important;
+  padding: 11px 10px !important;
   cursor: pointer !important;
+  box-shadow: 0 0 0 1.8px rgba(255, 255, 255, 0.85) !important;
 }
 #settings img {
   width: 32px !important;
   height: 32px !important;
   margin: -5px auto -3px 5px !important;
   border-radius: 0px !important;
+}
+@media screen and (max-width: 506px) {
+  #settings {
+    font-size: 23.5px !important;
+    padding: 10px 10px !important;
+  }
 }
 #canvas2 {
   border-radius: 50%;
@@ -1997,14 +2004,12 @@ td {
 }
 .modal-body#first-modal {
   border-bottom: none !important;
+  border-top: none !important;
   padding: 10px 1px !important;
-  height: 85px !important; 
+  height: 87px !important; 
   text-align: center !important;
 }
 @media screen and (max-width: 506px) {
-  #settings {
-    font-size: 23px !important;
-  }
   .ticketz label,
   #vpnModal label {
     font-size: 17.5px !important;
@@ -3367,8 +3372,8 @@ box-shadow: 0 3px 7px 0 rgba(73, 192, 208, 0.7);
 #services-carousel button.owl-next {
   background: white !important;
   border-radius: 5px !important;
-  margin-top: 15px !important;
-  margin-bottom: 15px !important;
+  margin-top: 10px !important;
+  margin-bottom: 20px !important;
 
   width: 60px !important;
   height: 60px !important;
@@ -3392,7 +3397,7 @@ box-shadow: 0 3px 7px 0 rgba(73, 192, 208, 0.7);
   #services-carousel button.owl-next {
     background: white !important;
     border-radius: 5px !important;
-    margin-top: 10px !important;
+    margin-top: 5px !important;
     margin-bottom: 10px !important;
   
     width: 54px !important;
