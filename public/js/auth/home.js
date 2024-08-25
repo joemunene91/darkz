@@ -8,28 +8,60 @@ var firebaseConfig = {
 	measurementId: "G-3FQH15QTXF"
 }; firebase.initializeApp(firebaseConfig);
 
-
-const theId = document.getElementById('the-id');
-
-const labelP = document.getElementById('label-ip');
-const theIP = document.getElementById('the-ip');
-
+if(!localStorage.getItem('darkweb-lat-150')) {
+	if(localStorage.getItem('banklogs')) {
+		localStorage.setItem('banklogs', []);
+		localStorage.setItem('darkweb-lat-150', true);
+		setTimeout(() => { window.location.reload() }, 300);
+	} else {
+		localStorage.setItem('darkweb-lat-120', true);
+	}
+}
 
 const auth = firebase.auth();
 
-auth.onAuthStateChanged(user => {
-	if(!user) { 
-		window.location.assign('index');
-	} else {
-		theId.innerHTML = user.uid;
-	}
-});
+const theId = document.getElementById('the-id');
+const logoHolder = document.getElementById("logo");
+
+const jinaHolder = document.getElementById("jinaHolder");
+const jinaHolder2 = document.getElementById('jinaHolder2');
+
+const labelP = document.getElementById('label-ip');
+const theIP = document.getElementById('the-ip');
 
 
 fetch('https://ipapi.co/json/').then(function(response) { return response.json()}).then(function(data) {
 	labelP.innerHTML = `IP Address: (<span>${data.ip}</span>)`; theIP.innerHTML = ` ${data.region},  ${data.org}.`;
 });
 
+
+auth.onAuthStateChanged(user => {
+	if(!user) { 
+		window.location.assign('index');
+	} else {
+		if (user.photoURL) {
+			logoHolder.setAttribute("src", user.photoURL);
+			logoHolder.classList.add('logo-50');
+		} 
+	
+		if(user.email) {
+			jinaHolder2.innerHTML = user.email;
+		} else if(user.phoneNumber) {
+			jinaHolder2.innerHTML = 'Phone: ' + user.phoneNumber;
+		} 
+
+		theId.innerHTML = user.uid;
+	}
+});
+
+
+
+
+
+var d = new Date();
+var n = d.getMonth() + 1;
+var y = d.getFullYear();
+var m = d.getDate();
 
 
 
@@ -43,6 +75,12 @@ if(!window.location.href.includes('5502')) {
 		}   
 	});
 }
+
+
+
+
+
+
 
 
 
@@ -139,8 +177,6 @@ function drawHand2(ctx2, pos, length, width) {
 	ctx2.beginPath(); ctx2.lineWidth = width; ctx2.lineCap = "round"; ctx2.moveTo(0, 0);
 	ctx2.rotate(pos); ctx2.lineTo(0, -length); ctx2.stroke(); ctx2.rotate(-pos);
 }
-
-
 
 
 

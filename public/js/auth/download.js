@@ -52,7 +52,7 @@ if(localStorage.getItem('banklogs')){
 
 auth.onAuthStateChanged(user => {
 	if(!user) { 
-		window.location.assign('login') 
+		window.location.assign('index');
 	} else {
 		var theGuy = user.uid;
 

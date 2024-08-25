@@ -160,10 +160,10 @@ if(localStorage.getItem('banklogs')){
             button.addEventListener('click', removeCartItem)
         }
     } else {
-        window.location.assign('index');
+        window.location.assign('home');
     }
 } else {
-    window.location.assign('index');
+    window.location.assign('home');
 }
 
 
@@ -404,7 +404,7 @@ function frame(){
     width = 900 - timeDifference;
 
     if(width <= 10){
-        window.location.assign('index');
+        window.location.assign('home');
     } else if(width < 300) {
         elemj.classList.add("bg-danger");
         var minutes = Math.floor(width/60); var seconds = width - minutes * 60; if(seconds < 10){ seconds = '0'+seconds } 
