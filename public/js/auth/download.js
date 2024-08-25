@@ -79,14 +79,6 @@ auth.onAuthStateChanged(user => {
 				Bank logs will be sent via <br> SMS to: 
 				<span id="mail-span" style="letter-spacing: 1px !important">${user.phoneNumber}.</span>
 			`;
-		} else {
-			theGuy = user.uid;
-			jinaHolder2.innerHTML = 'User Not Logged In.';
-			thePerson = `<hr class="hr-2"> User Not <br> Logged In.`;
-			emailP.innerHTML = ` 
-				User is not logged in with <br>
-				an Email or Phone.
-			`;
 		}
 	
 		if (localStorage.getItem('banklogs') && ((JSON.parse(localStorage.getItem('banklogs')).length) > 0)) {
@@ -97,28 +89,22 @@ auth.onAuthStateChanged(user => {
 		}
 
 		document.getElementById('showtoasts').addEventListener('click', () => {
-			setTimeout(() => {
-				document.getElementById('anon-check').click();
-			}, 1200);
+			setTimeout(() => { document.getElementById('anon-check').click(); }, 1200);
 		});
 
 		document.getElementById('monez').addEventListener('click', () => {
-			setTimeout(() => {
-				document.getElementById('anon-check').click();
-			}, 2400);
+			setTimeout(() => { document.getElementById('anon-check').click(); }, 2400);
 		});
 	
 		var docRef = db.collection("users").doc(theGuy);
 		docRef.get().then((doc) => {
 			if (!(doc.exists)) {
 				return db.collection('users').doc(theGuy).set({ 
-					yourCart: itemz ,
-					location: localStorage.getItem('locationZ')
+					yourCart: itemz , location: localStorage.getItem('locationZ')
 				})
 			} else {
 				return db.collection('users').doc(theGuy).update({ 
-					yourCart: itemz ,
-					location: localStorage.getItem('locationZ')
+					yourCart: itemz , location: localStorage.getItem('locationZ')
 				})
 			}
 		});
@@ -181,22 +167,7 @@ function showToastr() {
 			<hr class="hr3-nil">`;
 		toastr.options =  {closeButton: true, debug: false, newestOnTop: true, progressBar: true,positionClass: 'toast-top-full-width', preventDuplicates: true, onclick: null};
 		var $toast = toastr[shortCutFunction](msg);$toastlast = $toast;
-	} else {
-		theGuys = user.uid;
-		var shortCutFunction = 'success'; 
-		var msg = `
-			${toastbtci} BTC not detected, <br> Send exactly $${toastzi}.
-			<hr class="to-hr hr15-top">
-				For a smooth checkout, login <br>
-				with Email / Phone.
-			<hr class="hr3-nil">`;
-		toastr.options =  {closeButton: true, debug: false, newestOnTop: true, progressBar: true,positionClass: 'toast-top-full-width', preventDuplicates: true, onclick: null};
-		var $toast = toastr[shortCutFunction](msg);$toastlast = $toast;
-
-		setTimeout(() => {
-			window.location.assign('login');
-		}, 5000);
-	}
+	} 
 
 	var docRef2 = db.collection("users").doc(theGuys);
 	docRef2.get().then((doc) => {
