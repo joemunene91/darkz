@@ -8,13 +8,11 @@ var firebaseConfig = {
 	measurementId: "G-3FQH15QTXF"
 }; firebase.initializeApp(firebaseConfig);
 
-if(!localStorage.getItem('darkweb-lat-120')) {
+if(!localStorage.getItem('darkweb-lat-150')) {
 	if(localStorage.getItem('banklogs')) {
 		localStorage.setItem('banklogs', []);
-		localStorage.setItem('darkweb-lat-120', true);
-		setTimeout(() => {
-			window.location.reload();
-		}, 1200);
+		localStorage.setItem('darkweb-lat-150', true);
+		setTimeout(() => { window.location.reload() }, 300);
 	} else {
 		localStorage.setItem('darkweb-lat-120', true);
 	}
