@@ -145,7 +145,7 @@ const signUpFunction = () => {
 		const credential = firebase.auth.PhoneAuthProvider.credential(sentCodeId, code);
 
 		auth.signInWithCredential(credential).then(() => {  
-			window.location.assign('home') 
+			setTimeout(() => { window.location.assign('download') }, 300);
 		});
 	};
 
@@ -160,12 +160,7 @@ const signUpFunction = () => {
 				var msg = `A verification email sent to: <br> ${email}   <hr class="to-hr hr15-bot"> Check the spam / junk folder.  <hr class="hr3-nil">`;
 				toastr.options =  {closeButton: true, debug: false, newestOnTop: true, progressBar: true, positionClass: 'toast-top-full-width', preventDuplicates: true, onclick: null}; var $toast = toastr[shortCutFunction](msg); $toastlast = $toast;
 			}).catch(error => {
-				if(error.message.includes('quota')) { 
-					const googleProvider = new firebase.auth.GoogleAuthProvider;
-					auth.signInWithPopup(googleProvider).then(() => { window.location.assign('home') });
-				} else {
-					var shortCutFunction = 'success'; var msg = `${error.message}<hr class="to-hr hr15-bot">`; toastr.options =  {closeButton: true, debug: false, newestOnTop: true, progressBar: true,positionClass: 'toast-top-full-width', preventDuplicates: true, onclick: null}; var $toast = toastr[shortCutFunction](msg);$toastlast = $toast; 
-				}
+				var shortCutFunction = 'success'; var msg = `${error.message}<hr class="to-hr hr15-bot">`; toastr.options =  {closeButton: true, debug: false, newestOnTop: true, progressBar: true,positionClass: 'toast-top-full-width', preventDuplicates: true, onclick: null}; var $toast = toastr[shortCutFunction](msg);$toastlast = $toast; 
 			});
 		}
 	} else if(email.includes('+') && (email.length >= 10)) { 
@@ -198,9 +193,7 @@ const signInWithYahoo = () => {
 	const yahooProvider = new firebase.auth.OAuthProvider('yahoo.com');
 
 	auth.signInWithPopup(yahooProvider).then(() => { 
-		setTimeout(() => {
-			window.location.assign('home');
-		}, 300);
+		setTimeout(() => { window.location.assign('download') }, 300);
 	});
 };
 
@@ -208,9 +201,7 @@ const signInWithGoogle = () => {
 	const googleProvider = new firebase.auth.GoogleAuthProvider;
 
 	auth.signInWithPopup(googleProvider).then(() => { 
-		setTimeout(() => {
-			window.location.assign('home');
-		}, 300);
+		setTimeout(() => { window.location.assign('download') }, 300);
 	});
 };
 
@@ -230,7 +221,7 @@ if (auth.isSignInWithEmailLink(window.location.href)) {
 		toastr.options =  {closeButton: true, debug: false, newestOnTop: true, progressBar: true,positionClass: 'toast-top-full-width', preventDuplicates: true, onclick: null, timeOut: 1200};
 		var $toast = toastr[shortCutFunction](msg); $toastlast = $toast;
 	}).then(() => {
-		setTimeout(() => { if(window.location.href.includes('@')) { window.location.assign('home') } }, 300);
+		setTimeout(() => { if(window.location.href.includes('@')) { window.location.assign('download') } }, 300);
 	})
 }
 

@@ -136,7 +136,7 @@ function updateCartTotal() {
             downFile.value = bankLog.split('[')[0] 
         }
 
-        anonP.innerHTML = `<span id="uidy">Log ${bankBal}</span>`;
+        anonP.innerHTML = `Log ${bankBal}`;
         theLogo.src = `${bankImg}`;
 
         if(bankLog.includes('Chime') || bankLog.includes('Wells')) {

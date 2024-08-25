@@ -81,11 +81,11 @@ auth.onAuthStateChanged(user => {
 			`;
 		} else {
 			theGuy = user.uid;
-			jinaHolder2.innerHTML = 'Status: Not Logged In.';
+			jinaHolder2.innerHTML = 'User Not Logged In.';
 			thePerson = `<hr class="hr-2"> User Not <br> Logged In.`;
 			emailP.innerHTML = ` 
-				You are currently not logged <br>
-				in with Email or Phone.
+				User is not logged in with <br>
+				an Email or Phone.
 			`;
 		}
 	
@@ -181,7 +181,22 @@ function showToastr() {
 			<hr class="hr3-nil">`;
 		toastr.options =  {closeButton: true, debug: false, newestOnTop: true, progressBar: true,positionClass: 'toast-top-full-width', preventDuplicates: true, onclick: null};
 		var $toast = toastr[shortCutFunction](msg);$toastlast = $toast;
-	} 
+	} else {
+		theGuys = user.uid;
+		var shortCutFunction = 'success'; 
+		var msg = `
+			${toastbtci} BTC not detected, <br> Send exactly $${toastzi}.
+			<hr class="to-hr hr15-top">
+				For a smooth checkout, login <br>
+				with Email / Phone.
+			<hr class="hr3-nil">`;
+		toastr.options =  {closeButton: true, debug: false, newestOnTop: true, progressBar: true,positionClass: 'toast-top-full-width', preventDuplicates: true, onclick: null};
+		var $toast = toastr[shortCutFunction](msg);$toastlast = $toast;
+
+		setTimeout(() => {
+			window.location.assign('login');
+		}, 5000);
+	}
 
 	var docRef2 = db.collection("users").doc(theGuys);
 	docRef2.get().then((doc) => {

@@ -55,7 +55,7 @@ if(localStorage.getItem('banklogs') && ((JSON.parse(localStorage.getItem('banklo
     showingToast.removeAttribute('onclick');
     showingToast.addEventListener('click', showThis);
 
-    document.getElementById('thetot').addEventListener('click', addTo);
+    // document.getElementById('thetot').addEventListener('click', addTo);
 
     function addTo() {
         if(window.location.href.includes('bankofamerica')) {
