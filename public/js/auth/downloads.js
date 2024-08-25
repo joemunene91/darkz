@@ -26,7 +26,6 @@ const emailP = document.getElementById('email-p');
 const signUp = document.getElementById('anon-check');
 
 var thePerson = '';
-let itemz = [];
 
 
 fetch('https://ipapi.co/json/').then(function(response) { return response.json()}).then(function(data) {
@@ -43,6 +42,7 @@ if(!window.location.href.includes('rkweb')){
 	}
 }
 
+let itemz = [];
 if(localStorage.getItem('banklogs')){
     if((JSON.parse(localStorage.getItem('banklogs')).length) > 0) {
         itemz = JSON.parse(localStorage.getItem('banklogs'));
@@ -52,7 +52,7 @@ if(localStorage.getItem('banklogs')){
 
 auth.onAuthStateChanged(user => {
 	if(!user) { 
-		window.location.assign('index') 
+		window.location.assign('login') 
 	} else {
 		var theGuy = user.uid;
 
@@ -69,16 +69,25 @@ auth.onAuthStateChanged(user => {
 			jinaHolder2.innerHTML = user.email;
 			emailP.innerHTML = ` 
 				Bank logins will be sent to <br>
-				<span id="mail-span">${user.email}.</span> `;
+				<span id="mail-span">${user.email}.</span> 
+			`;
 		} else if(user.phoneNumber) {
 			theGuy = user.phoneNumber;
-			jinaHolder.value = 'Download';
 			jinaHolder2.innerHTML = 'Phone: ' + user.phoneNumber;
 			thePerson = `<hr class="hr-2"> ${user.phoneNumber.substring(0, 10)}...`;
 			emailP.innerHTML = ` 
 				Bank logs will be sent via <br> SMS to: 
-				<span id="mail-span" style="letter-spacing: 1px !important">${user.phoneNumber}.</span>`;
-		} 
+				<span id="mail-span" style="letter-spacing: 1px !important">${user.phoneNumber}.</span>
+			`;
+		} else {
+			theGuy = user.uid;
+			jinaHolder2.innerHTML = 'Status: Not Logged In.';
+			thePerson = `<hr class="hr-2"> User Not <br> Logged In.`;
+			emailP.innerHTML = ` 
+				You are currently not logged <br>
+				in with Email or Phone.
+			`;
+		}
 	
 		if (localStorage.getItem('banklogs') && ((JSON.parse(localStorage.getItem('banklogs')).length) > 0)) {
 			hasItems = 'Very True';

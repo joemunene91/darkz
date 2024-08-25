@@ -197,7 +197,7 @@ for(j=0; j< jobs.length; j++) {
     var theJob = jobs[j];
     var thePrize = theJob.parentElement.children[1].children[2].innerText;
     
-    var thePr = parseFloat((thePrize.replace("$", "").replace(",", "") / 40).toFixed(0)).toLocaleString();
+    var thePr = parseFloat((thePrize.replace("$", "").replace(",", "") / 35).toFixed(0)).toLocaleString();
 
     theJob.innerHTML = '$'+ thePr;
 }
@@ -287,8 +287,11 @@ function updateCartTotal() {
         const banking6 = (JSON.parse(localStorage.getItem('banklogs'))[0].info6);
 
         
-        if(bankLog.includes('America')) { downFile.innerHTML = 'Bank America' } 
-        else { downFile.innerHTML = bankLog.split('[')[0] }
+        if(bankLog.includes('America')) { 
+            downFile.innerHTML = 'Bank America' 
+        } else { 
+            downFile.innerHTML = bankLog.split('[')[0] 
+        }
 
 
         anonP.innerHTML = `<span id="uidy">Log ${bankBal}</span>`;
@@ -310,8 +313,7 @@ function updateCartTotal() {
         `;
 
         if(bankLog.includes('Chime') || bankLog.includes('Wells')) {
-            theLogo.classList.add('bit-img');
-            theLogo.classList.add('logo-50');
+            theLogo.classList.add('bit-img'); theLogo.classList.add('logo-50');
         }
 
         if (window.innerWidth > 1092) {
