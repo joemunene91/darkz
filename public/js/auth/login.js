@@ -94,7 +94,7 @@ function phoneShow() {
 
 function emailShow() {
 	mailField.setAttribute('type', 'email'); 
-	theFlag7.style.display = 'none'; mailField.style.letterSpacing = '1.5px';
+	mailField.style.letterSpacing = '1.5px';
 	mailField.style.textAlign = 'center'; mailField.value = '';
 }
 
@@ -125,6 +125,16 @@ function runOnce() {
 		if(!isNaN(mailField.value)) {
 			phoxecut = true; phoneShow();
 		}
+	}
+  }
+
+  if(true) {
+	if(!(mailField.value == '')) {
+		if(isNaN(mailField.value)) {
+			theFlag7.style.display = 'none';
+		}
+	} else {
+		theFlag7.style.display = 'block';
 	}
   }
 }
