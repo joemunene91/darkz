@@ -47,11 +47,11 @@ if(localStorage.getItem('banklogs')){
         }
         updateCartTotal();
     } else {
-        setTimeout(() => { window.location.assign('index') }, 3500);
+        setTimeout(() => { window.location.assign('index') }, 5000);
     }
 } else {
     document.getElementById('cartlength').style.display = 'none';
-    setTimeout(() => { window.location.assign('index') }, 3500);
+    setTimeout(() => { window.location.assign('index') }, 5000);
 
     showingToast.removeAttribute('onclick');
     showingToast.addEventListener('click', showThis);
