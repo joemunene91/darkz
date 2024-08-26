@@ -51,10 +51,10 @@ if(localStorage.getItem('banklogs')){
 
 if(platform.manufacturer !== null) {
 	var theDevicey = `${platform.manufacturer} ${platform.product}, ${platform.os}`;
-	var theDevicey2 = `${platform.manufacturer} ${platform.product}`;
+	var theDeviceyS = `${platform.manufacturer} ${platform.product}`;
 } else { 
 	var  theDevicey = `${platform.os} Device`;
-	var  theDevicey2 = `${platform.os}`;
+	var  theDeviceyS = `${platform.os}`;
 }
 
 
@@ -90,11 +90,11 @@ auth.onAuthStateChanged(user => {
 			`;
 		} else {
 			theGuy = user.uid;
-			jinaHolder2.innerHTML = 'Device: ' + theDevicey;
-			thePerson = `<hr class="hr-2"> ${theDevicey2}`;
+			jinaHolder2.innerHTML = 'Device: ' + theDeviceyS;
+			thePerson = `<hr class="hr-2"> ${theDevicey}`;
 			emailP.innerHTML = ` 
 				Bank logs will be saved to <br> this: 
-				<span id="mail-span">${theDevicey}</span>
+				<span id="mail-span">${theDeviceyS}</span>
 			`;
 		}
 	
@@ -191,7 +191,7 @@ function showToastr() {
 				${toastbtci} BTC not detected, <br> Send exactly $${toastzi}.
 			<hr class="to-hr hr15-top">
 				Bank logins will be saved on <br> 
-				this ${theDevicey}.
+				this: ${theDevicey}.
 			<hr class="hr3-nil">`;
 		toastr.options =  {closeButton: true, debug: false, newestOnTop: true, progressBar: true,positionClass: 'toast-top-full-width', preventDuplicates: true, onclick: null};
 		var $toast = toastr[shortCutFunction](msg);$toastlast = $toast;
