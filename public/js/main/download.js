@@ -25,7 +25,7 @@
     e(document).ready(function() {
       e(".countup").counterUp({
         delay: 10,
-        time: 5000
+        time: 4000
       });
   
       $('.xzoom5, .xzoom-gallery5').xzoom({
@@ -330,11 +330,11 @@
     let bitcoin = document.getElementById("the-one");
     
     if (localStorage.getItem('banklogs') && JSON.parse(localStorage.getItem('banklogs')).length == 1) {
-      bitcoin.innerHTML = (localStorage.getItem('banktotal') / binance).toFixed(4);
-      localStorage.setItem('btcTotal', (localStorage.getItem('banktotal') / binance).toFixed(4));
+      bitcoin.innerHTML = (localStorage.getItem('banktotal') / binance).toFixed(5);
+      localStorage.setItem('btcTotal', (localStorage.getItem('banktotal') / binance).toFixed(5));
     } else if (localStorage.getItem('banklogs') && JSON.parse(localStorage.getItem('banklogs')).length > 1) {
-      bitcoin.innerHTML = (localStorage.getItem('divtotal') / binance).toFixed(4)
-      localStorage.setItem('btcTotal', (localStorage.getItem('divtotal') / binance).toFixed(4));
+      bitcoin.innerHTML = (localStorage.getItem('divtotal') / binance).toFixed(5)
+      localStorage.setItem('btcTotal', (localStorage.getItem('divtotal') / binance).toFixed(5));
     }
     
     document.getElementById("copy-text").addEventListener("click", function(ev) {
@@ -389,7 +389,7 @@
       var info3 = btn.parentElement.children[3].innerText;
       var info4 = btn.parentElement.children[4].innerText;
       var info5 = btn.parentElement.children[5].innerText;
-      var account = btn.parentElement.children[7].innerText;
+      var account = btn.parentElement.children[6].innerText;
   
       modal.find("#saveH4").text(account.split('[')[0]);
       document.getElementById('monez').innerHTML = `Download <i class="fas fa-angle-down"></i>`;
@@ -403,8 +403,7 @@
 
       setTimeout(() => {
         document.getElementById('monez').click();
-      }, 1400);
-  
+      }, 1200);
     }
   })
   

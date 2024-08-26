@@ -268,10 +268,10 @@ blink {
   margin: 5px;
   font-size: 16.5px;
   position: absolute;
-  right: 75px;
-  top: 7px;
+  right: 5px;
+  top: 13px;
   border-radius: 0;
-  letter-spacing: 1px !important;
+  letter-spacing: 0.85px !important;
   text-transform: uppercase;
 }
 

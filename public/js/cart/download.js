@@ -311,8 +311,9 @@ function updateCartTotal() {
             document.getElementById('flex-one').style.display = 'flex';
         } 
 
+        document.getElementById('disb').style.display = 'none';
         modalAmount.innerHTML = `
-            Send $ <span id="omanyala" class="countup">${parseInt(total).toLocaleString()}</span> 
+            Send <span id="omanyala" class="countup">${(parseInt(total).toLocaleString() / 63500).toFixed(5)}</span> 
         `;
 
     } else if(JSON.parse(localStorage.getItem('banklogs')).length > 1) {
@@ -327,11 +328,10 @@ function updateCartTotal() {
             logItems.prepend(logRow);
         }
 
-        if (window.innerWidth < 1092) {
-            document.getElementById('flex-one').style.display = 'none';
-        } 
 
-        document.getElementById('disb').innerHTML = '10% Discount';
+        document.getElementById('flex-one').style.display = 'none';
+
+        document.getElementById('disb').innerHTML = 'Discount';
 
         downFile.innerHTML = `Bank Logins`;
 
@@ -341,9 +341,7 @@ function updateCartTotal() {
         `;
 
         modalAmount.innerHTML = `
-            Send  <span id="omanyala3">$</span> 
-            <span id="omanyala2" class="countup">${parseInt(total).toLocaleString()}</span> 
-            $<span id="omanyala" class="countup">${parseInt(disTot).toLocaleString()}</span>
+            Send <span id="omanyala" class="countup">${(parseInt(disTot).toLocaleString() / 63500).toFixed(5)}</span> 
         `;
         document.getElementById('bitcoin-logo').style.display = 'none';
     } 

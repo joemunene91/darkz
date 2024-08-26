@@ -631,7 +631,7 @@ select {
   }
 }
 .modal-body .form-group {
-  margin: 8px auto !important;
+  margin: 12px auto !important;
 }
 .modal-body div p {
   justify-content: center;
@@ -1136,32 +1136,14 @@ td {
   margin: 0;
 }
 #omanyala {
-  margin-left: 2px !important;
+  margin-left: 15px !important;
   font-size: 32px !important;
   font-weight: 700;
   display: flex;
   text-align: center;
   color: white !important;
 }
-#omanyala2 {
-  margin-left: 2px !important;
-  margin-right: 23px !important;
-  font-size: 32px !important;
-  font-weight: 700;
-  display: flex;
-  text-align: center;
-  color: rgba(255, 0, 0, 0.7) !important;
-  text-decoration: line-through !important;
-}
-#omanyala3 {
-  margin-left: 13px !important;
-  font-size: 32px !important;
-  font-weight: 700;
-  display: flex;
-  text-align: center;
-  color: rgba(255, 0, 0, 0.7) !important;
-  text-decoration: line-through !important;
-}
+
 @media (max-width: 576px) {
   #invoice-col-table {
       padding: 0;
@@ -1179,9 +1161,9 @@ td {
 }
 #satoshinakamoto {
   color: aqua;
-  margin: 12px auto !important;
-  font-size: 22px !important;
-  letter-spacing: 0.92px !important;
+  margin: 15px auto !important;
+  font-size: 24px !important;
+  letter-spacing: 0.85px !important;
 }
 @media (max-width: 769px) {
   .modal-body {
@@ -1189,8 +1171,8 @@ td {
   }
   #satoshinakamoto {
       color: aqua;
-      margin: 12px auto !important;
-      font-size: 24px !important;
+      margin: 13px auto !important;
+      font-size: 25px !important;
   }
 }
 #example1 {
