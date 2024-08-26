@@ -18,21 +18,21 @@
     width: 100% !important;
 }
 #invoice-div {
-    margin-top: 1vh;
+    margin-top: 12vh;
 }
 @media screen and (min-width: 1370px) {
     #invoice-div {
-        margin-top: 3vh;
+        margin-top: 14vh;
     }
 }
 @media screen and (max-width: 821px) {
     #invoice-div {
-        margin-top: 5vh;
+        margin-top: 16vh;
     }
 }
 @media screen and (max-width: 570px) {
     #invoice-div {
-        margin-top: 7vh;
+        margin-top: 12vh;
     }
 }
 
@@ -216,10 +216,10 @@
         margin-top: 25px !important;
         opacity: 0.7 !important;
     }
+    
+    #clients {
+        position: fixed !important;
+        bottom: 3px !important;
+    }    
+
 }
-
-
-#clients {
-    position: fixed !important;
-    bottom: 3px !important;
-}    
