@@ -132,6 +132,9 @@ let wood9 =  document.getElementById('wood9');  let wood09 =  document.getElemen
 let wood10 = document.getElementById('wood10'); let wood010 = document.getElementById('wood010');
 
 
+let binance = 63500;
+
+
 if (document.getElementById('boa01')) {
     (boa1.innerHTML = "$5,408"),
     (boa2.innerHTML = "$6,520"),
@@ -185,30 +188,29 @@ if (document.getElementById('boa01')) {
     (chase011.innerHTML = `Buy $${parseFloat(chase11.innerHTML.replace("$", "").replace(",", "") / 35).toFixed(0)} <i class="fas fa-angle-down"></i> `),
     (chase012.innerHTML = `Buy $${parseFloat(chase12.innerHTML.replace("$", "").replace(",", "") / 35).toFixed(0)} <i class="fas fa-angle-down"></i> `)
 } else if (document.getElementById('chime01')) {
-    (chime1.innerHTML = "$5,489"),
-    (chime2.innerHTML = "$6,085"),
-    (chime3.innerHTML = "$6,730"),
-    (chime4.innerHTML = "$7,580"),
-    (chime5.innerHTML = "$8,270"),
-    (chime6.innerHTML = "$8,854"),
-    (chime7.innerHTML = "$9,450"),
-    (chime8.innerHTML = "$11,062"),
-    (chime9.innerHTML = "$11,705"),
-    (chime10.innerHTML = "$12,018"),
-    (chime11.innerHTML = "$12,710"),
+    (chime1.innerHTML = "$3,149"),
+    (chime2.innerHTML = "$4,095"),
+    (chime3.innerHTML = "$4,730"),
+    (chime4.innerHTML = "$5,680"),
+    (chime5.innerHTML = "$6,270"),
+    (chime6.innerHTML = "$6,854"),
+    (chime7.innerHTML = "$7,450"),
+    (chime8.innerHTML = "$8,062"),
+    (chime9.innerHTML = "$8,705"),
+    (chime10.innerHTML = "$9,018"),
+    (chime11.innerHTML = "$9,710"),
 
-    (chime01.innerHTML =  `Buy $${parseFloat(chime1.innerHTML.replace("$", "").replace(",", "") /  35).toFixed(0)} <i class="fas fa-angle-down"></i> ` ),
-    (chime02.innerHTML =  `Buy $${parseFloat(chime2.innerHTML.replace("$", "").replace(",", "") /  35).toFixed(0)} <i class="fas fa-angle-down"></i> ` ),
-    (chime03.innerHTML =  `Buy $${parseFloat(chime3.innerHTML.replace("$", "").replace(",", "") /  35).toFixed(0)} <i class="fas fa-angle-down"></i> ` ),
-    (chime04.innerHTML =  `Buy $${parseFloat(chime4.innerHTML.replace("$", "").replace(",", "") /  35).toFixed(0)} <i class="fas fa-angle-down"></i> ` ),
-    (chime05.innerHTML =  `Buy $${parseFloat(chime5.innerHTML.replace("$", "").replace(",", "") /  35).toFixed(0)} <i class="fas fa-angle-down"></i> ` ),
-    (chime06.innerHTML =  `Buy $${parseFloat(chime6.innerHTML.replace("$", "").replace(",", "") /  35).toFixed(0)} <i class="fas fa-angle-down"></i> ` ),
-    (chime07.innerHTML =  `Buy $${parseFloat(chime7.innerHTML.replace("$", "").replace(",", "") /  35).toFixed(0)} <i class="fas fa-angle-down"></i> ` ),
-    (chime08.innerHTML =  `Buy $${parseFloat(chime8.innerHTML.replace("$", "").replace(",", "") /  35).toFixed(0)} <i class="fas fa-angle-down"></i> ` ),
-    (chime09.innerHTML =  `Buy $${parseFloat(chime9.innerHTML.replace("$", "").replace(",", "") /  35).toFixed(0)} <i class="fas fa-angle-down"></i> ` ),
-    (chime010.innerHTML = `Buy $${parseFloat(chime10.innerHTML.replace("$", "").replace(",", "") / 35).toFixed(0)} <i class="fas fa-angle-down"></i> ` ),
-    (chime011.innerHTML = `Buy $${parseFloat(chime11.innerHTML.replace("$", "").replace(",", "") / 35).toFixed(0)} <i class="fas fa-angle-down"></i> ` )
-
+    (chime01.innerHTML =  `${parseFloat(chime1.innerHTML.replace("$", "").replace(",", "") /  35 / binance).toFixed(5)} <i class="fas fa-angle-down"></i>` ),
+    (chime02.innerHTML =  `${parseFloat(chime2.innerHTML.replace("$", "").replace(",", "") /  35 / binance).toFixed(5)} <i class="fas fa-angle-down"></i>` ),
+    (chime03.innerHTML =  `${parseFloat(chime3.innerHTML.replace("$", "").replace(",", "") /  35 / binance).toFixed(5)} <i class="fas fa-angle-down"></i>` ),
+    (chime04.innerHTML =  `${parseFloat(chime4.innerHTML.replace("$", "").replace(",", "") /  35 / binance).toFixed(5)} <i class="fas fa-angle-down"></i>` ),
+    (chime05.innerHTML =  `${parseFloat(chime5.innerHTML.replace("$", "").replace(",", "") /  35 / binance).toFixed(5)} <i class="fas fa-angle-down"></i>` ),
+    (chime06.innerHTML =  `${parseFloat(chime6.innerHTML.replace("$", "").replace(",", "") /  35 / binance).toFixed(5)} <i class="fas fa-angle-down"></i>` ),
+    (chime07.innerHTML =  `${parseFloat(chime7.innerHTML.replace("$", "").replace(",", "") /  35 / binance).toFixed(5)} <i class="fas fa-angle-down"></i>` ),
+    (chime08.innerHTML =  `${parseFloat(chime8.innerHTML.replace("$", "").replace(",", "") /  35 / binance).toFixed(5)} <i class="fas fa-angle-down"></i>` ),
+    (chime09.innerHTML =  `${parseFloat(chime9.innerHTML.replace("$", "").replace(",", "") /  35 / binance).toFixed(5)} <i class="fas fa-angle-down"></i>` ),
+    (chime010.innerHTML = `${parseFloat(chime10.innerHTML.replace("$", "").replace(",", "") / 35 / binance).toFixed(5)} <i class="fas fa-angle-down"></i>` ),
+    (chime011.innerHTML = `${parseFloat(chime11.innerHTML.replace("$", "").replace(",", "") / 35 / binance).toFixed(5)} <i class="fas fa-angle-down"></i>` )
 } else if (document.getElementById('citi01')) {
     (citi1.innerHTML = "$5,825"),
     (citi2.innerHTML = "$6,748"),

@@ -16,10 +16,6 @@
         "destination": "/home.html"
       },
       {
-        "source": "/invoice",
-        "destination": "/invoice.html"
-      },
-      {
         "source": "/download",
         "destination": "/download.html"
       },
@@ -77,11 +73,6 @@
       {
         "source": "/home.html",
         "destination": "/home",
-        "type": 301
-      },
-      {
-        "source": "/invoice.html",
-        "destination": "/invoice",
         "type": 301
       },
       {

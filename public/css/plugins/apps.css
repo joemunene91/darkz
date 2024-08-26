@@ -146,9 +146,9 @@
   padding: 7px 11px !important;
 }
 .gallery .butn {
-  letter-spacing: 1.5px !important;
+  letter-spacing: 2px !important;
   margin: 7px auto 10px !important;
-  padding: 8px 13px 8px 9px !important;
+  padding: 8px 14px 8px 10px !important;
   font-size: 21px !important;
   box-shadow: 0 0 0 1.5px rgba(255, 255, 255, 0.85) !important;
 }
@@ -160,7 +160,7 @@
   }
 }
 .gallery .col-lg-3 {
-  margin-bottom: 21px !important;
+  margin-bottom: 20px !important;
 }
 
 .butn img {
@@ -173,8 +173,8 @@
   border-radius: 50% !important;
 }
 .gallery .butn i {
-  margin: auto 2px !important;
-  opacity: 0.85 !important;
+  margin: auto 2px auto 5px !important;
+  opacity: 1 !important;
 }
 .butn:after {
   content: "";
@@ -748,7 +748,7 @@ select {
 .pricing-list h2 {
   font-weight: 700;
   letter-spacing: 1px;
-  font-size: 37px;
+  font-size: 38px;
   float: left;
   margin: 0;
   padding: 0;
@@ -768,21 +768,22 @@ select {
   font-size: 17px;
 }
 .pricing-list ul li {
-  font-size: 16px;
+  font-size: 18px;
+  white-space: nowrap !important;
   font-weight: 500;
-  padding: 2px 0;
+  padding: 5px 0;
 }
 .pricing-list ul li:nth-child(8) {
-  font-size: 16px !important;
+  font-size: 18px !important;
 }
 .pricing-list ul li:nth-child(1) {
-  font-size: 14px !important;
+  font-size: 16px !important;
   white-space: nowrap !important;
   overflow-x: scroll !important;
 }
 .pricing-list ul li:nth-child(1)::-webkit-scrollbar {
   width: 10px;
-  height: 3px;
+  height: 5px;
 }
 .pricing-list ul li:nth-child(1)::-webkit-scrollbar-track {
   background: transparent;
@@ -798,44 +799,36 @@ select {
   .pricing-list {
       margin: 5px -4px;
   }
-  .pricing-list-price h2 {
-      font-size: 35px;
-  }
+  .pricing-list-price h2,
   .pricing-list-price h2.text-white {
-      font-size: 35px;
+      font-size: 36px;
+  }
+  .pricing-list ul li {
+      font-size: 16px;
+  }
+  .pricing-list ul li:nth-child(8) {
+      font-size: 16px !important;
+  }
+}
+@media (max-width: 380px) {
+  .pricing-list h2,
+  .pricing-list h2.text-white {
+      font-size: 32px;
   }
   .pricing-list ul li {
       font-size: 15px;
+      font-weight: 500;
+      padding: 2px 0;
   }
   .pricing-list ul li:nth-child(8) {
       font-size: 15px !important;
   }
 }
-@media (max-width: 380px) {
-  .pricing-list ul li {
-      font-size: 14px;
-      font-weight: 500;
-      padding: 2px 0;
-  }
-  .pricing-list ul li:nth-child(8) {
-      font-size: 14px !important;
-  }
-}
-@media (max-width: 370px) {
-  .pricing-list h2 {
-      font-size: 30px;
-  }
-  .pricing-list h2.text-white {
-      font-size: 30px;
-  }
-  .pricing-list ul li:nth-child(8) {
-      font-size: 13px !important;
-  }
-}
+
 .borderp {
   margin-top: 5px !important;
   margin-right: 5px !important;
-  width: 45px !important;
+  width: 47px !important;
   float: right;
 }
 @media screen and (max-width: 567px) {
