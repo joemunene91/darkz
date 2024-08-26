@@ -2884,29 +2884,6 @@ button.toast-close-button {
   opacity: 0.5 !important;
 }
 
-#invoice-type {
-  text-transform: uppercase !important;
-  letter-spacing: 1.25px;
-  margin-left: 1px !important;
-  white-space: nowrap !important;
-  overflow: hidden !important;
-}
-#invoice-type::after {
-  opacity: 0.7 !important;
-}
-
-#ver-code {
-  text-transform: uppercase !important;
-  letter-spacing: 0.85px;
-  margin-left: 1px !important;
-  white-space: nowrap !important;
-  overflow: hidden !important;
-}
-  
-#ver-code::after {
-    opacity: 0.7 !important;
-}
-
 
 
 blink.nav-blink {
