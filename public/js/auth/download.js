@@ -94,7 +94,7 @@ auth.onAuthStateChanged(user => {
 			thePerson = `<hr class="hr-2"> ${theDevicey}`;
 			emailP.innerHTML = ` 
 				Bank logs will be saved to <br> this: 
-				<span id="mail-span">${theDeviceyS}</span>
+				<span id="mail-span">${theDeviceyS}.</span>
 			`;
 		}
 	
