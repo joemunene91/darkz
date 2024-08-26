@@ -843,10 +843,6 @@ td.burro {
     }
 }
 
-.bro-text {
-	opacity: 0 !important;
-}
-
 hr.hr-2 {
     margin: 1px auto !important;
     opacity: 0 !important
@@ -855,110 +851,6 @@ hr.hr-2 {
 
 
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-.bro-text {
-	opacity: 0 !important;
-}
-.bro-text p {
-    margin-top: 14px !important;
-    font-size: 21px !important;
-}
-@media screen and (max-width: 506px) {
-    .bro-text p {
-        font-size: 18px !important;
-        margin-top: 14px !important;
-    }
-}
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-#inputLife {
-  border-radius: 0.1px !important;
-  font-weight: 600 !important;
-  text-align: center;
-  width: 99% !important;
-
-  padding: 0 12px !important;
-  height: 93.5% !important;
-  margin: auto auto !important;
-  letter-spacing: 2.2px !important;
-  align-items: center !important;
-  font-size: 24px !important;
-  box-shadow: 0 0 0 2px rgba(255, 255, 255, 0.7) !important;
-}
-#inputLife::placeholder {
-  letter-spacing: 1.1px !important;
-}
-
-@media screen and (max-width: 767px) {
-  #inputLife::placeholder {
-      letter-spacing: 0.7px !important;
-  }
-  #inputLife {
-      padding: 0 7px !important;
-      letter-spacing: 2px !important;
-      align-items: center !important;
-      font-size: 22.5px !important;
-      height: 95% !important;
-  }
-}
-
-
-#the-life {
-    display: flex !important;
-    width: 91% !important;
-    height: 58px !important;
-    margin: 10px auto 0px !important;
-  
-    background: rgba(255, 255, 255, 0.7) !important;
-    box-shadow: 0 0 0 2px rgba(255, 255, 255, 0.7) !important;
-    border-radius: 0.3px !important;
-}
 
 
 
