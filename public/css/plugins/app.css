@@ -805,10 +805,10 @@ select {
   }
   .pricing-list ul li {
       font-size: 17px;
-      padding: 4.5px 0;
+      padding: 5px 0;
   }
   .pricing-list ul li:nth-child(7) {
-      font-size: 16px !important;
+      font-size: 16.5px !important;
   }
 }
 @media (max-width: 400px) {
@@ -821,7 +821,7 @@ select {
       padding: 4.5px 0;
   }
   .pricing-list ul li:nth-child(7) {
-      font-size: 15px !important;
+      font-size: 15.5px !important;
   }
 }
 
