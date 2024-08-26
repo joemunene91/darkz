@@ -389,7 +389,6 @@
       var info3 = btn.parentElement.children[3].innerText;
       var info4 = btn.parentElement.children[4].innerText;
       var info5 = btn.parentElement.children[5].innerText;
-      var info6 = btn.parentElement.children[6].innerText;
       var account = btn.parentElement.children[7].innerText;
   
       modal.find("#saveH4").text(account.split('[')[0]);
@@ -400,7 +399,6 @@
       modal.find(".info3 p").text(info3);
       modal.find(".info4 p").text(info4);
       modal.find(".info5 p").text(info5);
-      modal.find(".info6 p").text(info6);
       modal.find(".account p").text(account);
 
       setTimeout(() => {

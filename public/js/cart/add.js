@@ -23,7 +23,6 @@ if(localStorage.getItem('banklogs') && ((JSON.parse(localStorage.getItem('banklo
         var info3 = `<td>${data.info3}</td>`
         var info4 = `<td>${data.info4}</td>`
         var info5 = `<td>${data.info5}</td>`
-        var info6 = `<td>${data.info6}</td>`
         
         table1.row.add([
             image,
@@ -36,7 +35,6 @@ if(localStorage.getItem('banklogs') && ((JSON.parse(localStorage.getItem('banklo
             info3,   
             info4,   
             info5,   
-            info6,   
             website,      
         ]).draw();
     });
@@ -128,7 +126,6 @@ $('#exampleModal').on('show.bs.modal', function (event) {
         var info3 = btn.parentElement.children[3].innerText;
         var info4 = btn.parentElement.children[4].innerText;
         var info5 = btn.parentElement.children[5].innerText;
-        var info6 = btn.parentElement.children[6].innerText;
         var account = btn.parentElement.children[7].innerText;
         
         modal.find(".modal-title").text("Balance: " + balance);
@@ -140,7 +137,6 @@ $('#exampleModal').on('show.bs.modal', function (event) {
         modal.find(".info3 p").text(info3);
         modal.find(".info4 p").text(info4);
         modal.find(".info5 p").text(info5);
-        modal.find(".info6 p").text(info6);
         modal.find(".modal-img").attr("src", image);
         modal.find(".account p").text(account);
 
@@ -161,7 +157,6 @@ $('#exampleModal').on('show.bs.modal', function (event) {
         var info3 = btn.parentElement.parentElement.children[3].innerText;
         var info4 = btn.parentElement.parentElement.children[4].innerText;
         var info5 = btn.parentElement.parentElement.children[5].innerText;
-        var info6 = btn.parentElement.parentElement.children[6].innerText;
         var account = btn.parentElement.parentElement.children[7].innerText;
         
         modal.find(".modal-title").text("Balance: " + balance);
@@ -173,7 +168,6 @@ $('#exampleModal').on('show.bs.modal', function (event) {
         modal.find(".info3 p").text(info3);
         modal.find(".info4 p").text(info4);
         modal.find(".info5 p").text(info5);
-        modal.find(".info6 p").text(info6);
         modal.find(".modal-img").attr("src", image);
         modal.find(".account p").text(account);
 
@@ -205,7 +199,6 @@ function addToCartClick(event) {
     var info3 = button.parentElement.parentElement.children[3].children[0].innerText;
     var info4 = button.parentElement.parentElement.children[4].children[0].innerText;
     var info5 = button.parentElement.parentElement.children[5].children[0].innerText;
-    var info6 = button.parentElement.parentElement.children[6].children[0].innerText;
 
     var image = button.parentElement.parentElement.parentElement.children[0].children[0].src;
     var accoun = button.parentElement.parentElement.children[7].children[0].innerText;
@@ -216,7 +209,7 @@ function addToCartClick(event) {
         var account = accoun.replace(' PACKAGE]',']');
     }
 
-    addItemToCart(price, balance, account,website,image,info1,info2,info3,info4,info5,info6);
+    addItemToCart(price, balance, account,website,image,info1,info2,info3,info4,info5);
 
     updateCartTotal();
 
@@ -242,10 +235,9 @@ function removeCartItem(event) {
     var info3 = cartItem.children[7].innerText;
     var info4 = cartItem.children[8].innerText;
     var info5 = cartItem.children[9].innerText;
-    var info6 = cartItem.children[10].innerText;
     var remove = `<td><button class="btn-cloze btn-remove"></button></td>`
 
-    removeItemFromCart(price, balance, account,website,image,info1,info2,info3,info4,info5,info6);
+    removeItemFromCart(price, balance, account,website,image,info1,info2,info3,info4,info5);
     buttonClicked.parentElement.parentElement.remove();
     
     updateCartTotal2();
@@ -260,8 +252,7 @@ function removeCartItem(event) {
         info2,   
         info3,   
         info4,   
-        info5,   
-        info6,   
+        info5,     
         website,      
     })).remove();
 
@@ -282,7 +273,7 @@ function removeCartItem(event) {
     window.location.reload();
 }
 
-function addItemToCart(price, balance, account,website, image,info1,info2,info3,info4,info5,info6){
+function addItemToCart(price, balance, account,website, image,info1,info2,info3,info4,info5){
 
     var image1 = `<td><img src=${image}></td>`
     var balance1 = `<td class="btn-balance">${balance}</td>`
@@ -295,7 +286,6 @@ function addItemToCart(price, balance, account,website, image,info1,info2,info3,
     var info31 = `<td>${info3}</td>`
     var info41 = `<td>${info4}</td>`
     var info51 = `<td>${info5}</td>`
-    var info61 = `<td>${info6}</td>`
 
     if(localStorage.getItem('banklogs') && ((JSON.parse(localStorage.getItem('banklogs')).length) > 0)){
         var cartItemNames = JSON.parse(localStorage.getItem('banklogs'));
@@ -331,7 +321,7 @@ function addItemToCart(price, balance, account,website, image,info1,info2,info3,
         window.location.assign('download');
     });
 
-    addToLocalStorage(price, balance, account,website,image,info1,info2,info3,info4,info5,info6);
+    addToLocalStorage(price, balance, account,website,image,info1,info2,info3,info4,info5);
 
     table1.row.add([
         image1,
@@ -344,7 +334,6 @@ function addItemToCart(price, balance, account,website, image,info1,info2,info3,
         info31,   
         info41,   
         info51,   
-        info61,   
         website1,      
     ]).draw();
 
@@ -358,7 +347,7 @@ function addItemToCart(price, balance, account,website, image,info1,info2,info3,
 }
 
 
-function addToLocalStorage(price, balance, account,website, image,info1,info2,info3,info4,info5,info6){
+function addToLocalStorage(price, balance, account,website, image,info1,info2,info3,info4,info5){
     let item = {
         price: price,
         balance: balance,
@@ -369,8 +358,7 @@ function addToLocalStorage(price, balance, account,website, image,info1,info2,in
         info2: info2,
         info3: info3,
         info4: info4,
-        info5: info5,
-        info6: info6
+        info5: info5
     }
     items.push(item);
     localStorage.setItem('banklogs', JSON.stringify(items));
@@ -380,7 +368,7 @@ function addToLocalStorage(price, balance, account,website, image,info1,info2,in
     }
 }
 
-function removeItemFromCart(price, balance,account,website,image,info1,info2,info3,info4,info5,info6){
+function removeItemFromCart(price, balance,account,website,image,info1,info2,info3,info4,info5){
     let item = {
         price: price,
         balance: balance,
@@ -391,8 +379,7 @@ function removeItemFromCart(price, balance,account,website,image,info1,info2,inf
         info2: info2,
         info3: info3,
         info4: info4,
-        info5: info5,
-        info6: info6
+        info5: info5
     }
     function checkAdult(items) {
         return JSON.stringify(items) !== JSON.stringify(item)

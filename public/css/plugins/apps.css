@@ -773,8 +773,8 @@ select {
   font-weight: 500;
   padding: 5px 0;
 }
-.pricing-list ul li:nth-child(8) {
-  font-size: 18px !important;
+.pricing-list ul li:nth-child(7) {
+  font-size: 17.2px !important;
 }
 .pricing-list ul li:nth-child(1) {
   font-size: 16px !important;
@@ -806,7 +806,7 @@ select {
   .pricing-list ul li {
       font-size: 16px;
   }
-  .pricing-list ul li:nth-child(8) {
+  .pricing-list ul li:nth-child(7) {
       font-size: 16px !important;
   }
 }
@@ -820,7 +820,7 @@ select {
       font-weight: 500;
       padding: 2px 0;
   }
-  .pricing-list ul li:nth-child(8) {
+  .pricing-list ul li:nth-child(7) {
       font-size: 15px !important;
   }
 }

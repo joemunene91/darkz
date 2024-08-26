@@ -22,7 +22,6 @@ if(localStorage.getItem('banklogs') && ((JSON.parse(localStorage.getItem('banklo
         var info3 = `<td>${data.info3}</td>`
         var info4 = `<td>${data.info4}</td>`
         var info5 = `<td>${data.info5}</td>`
-        var info6 = `<td>${data.info6}</td>`
         
         table1.row.add([
             image,
@@ -35,7 +34,6 @@ if(localStorage.getItem('banklogs') && ((JSON.parse(localStorage.getItem('banklo
             info3,   
             info4,   
             info5,   
-            info6,   
             website,      
         ]).draw();
     });
@@ -84,14 +82,13 @@ function removeCartItem(event) {
     var info3 = cartItem.children[7].innerText;
     var info4 = cartItem.children[8].innerText;
     var info5 = cartItem.children[9].innerText;
-    var info6 = cartItem.children[10].innerText;
 
-    removeItemFromCart(price, balance, account,website,image,info1,info2,info3,info4,info5,info6);
+    removeItemFromCart(price, balance, account,website,image,info1,info2,info3,info4,info5);
     buttonClicked.parentElement.parentElement.remove();
 }
 
 
-function removeItemFromCart(price, balance,account,website,image,info1,info2,info3,info4,info5,info6){
+function removeItemFromCart(price, balance,account,website,image,info1,info2,info3,info4,info5){
     let item = {
         price: price,
         balance: balance,
@@ -102,8 +99,7 @@ function removeItemFromCart(price, balance,account,website,image,info1,info2,inf
         info2: info2,
         info3: info3,
         info4: info4,
-        info5: info5,
-        info6: info6
+        info5: info5
     }
     function checkAdult(items) {
         return JSON.stringify(items) !== JSON.stringify(item)

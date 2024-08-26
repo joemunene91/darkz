@@ -22,7 +22,6 @@ if(localStorage.getItem('banklogs')){
             var info3 = `<td>${data.info3}</td>`
             var info4 = `<td>${data.info4}</td>`
             var info5 = `<td>${data.info5}</td>`
-            var info6 = `<td>${data.info6}</td>`
             
             table1.row.add([
                 image,
@@ -35,7 +34,6 @@ if(localStorage.getItem('banklogs')){
                 info3,   
                 info4,   
                 info5,   
-                info6,   
                 website,      
             ]).draw();
         });
@@ -64,7 +62,6 @@ if(localStorage.getItem('banklogs')){
                 <td>${items[i].info3}</td>
                 <td>${items[i].info4}</td>
                 <td>${items[i].info5}</td>
-                <td>${items[i].info6}</td>
                 <td>${items[i].website}</td>
             `;
             cartRow.innerHTML = cartRowContents;
@@ -107,7 +104,6 @@ if(localStorage.getItem('banklogs')){
                             <li class="text-white">${items[i].info3} </li>
                             <li class="text-white">${items[i].info4} </li>
                             <li class="text-white">${items[i].info5} </li>
-                            <li class="text-white">${items[i].info6} </li>
                             <li class="text-white">${(items[i].account).replace('[','<br>[').replace(']',' ACCOUNT]')}</li>
                             <button type="submit" class="butn white" style="letter-spacing: 2px !important; padding-right: 15px !important" data-bs-toggle="modal" data-bs-target="#profileModal">
                                 ${items[i].price}
@@ -138,7 +134,6 @@ if(localStorage.getItem('banklogs')){
                             <li>${items[i].info3} </li>
                             <li>${items[i].info4} </li>
                             <li>${items[i].info5} </li>
-                            <li>${items[i].info6} </li>
                             <li>${(items[i].account).replace('[','<br>[').replace(']',' ACCOUNT]')}</li>
                             <button type="submit" style="letter-spacing: 2px !important; padding-right: 15px !important" class="butn" data-bs-toggle="modal" data-bs-target="#profileModal">
                                 ${items[i].price}
@@ -216,14 +211,13 @@ function removeCartItem(event) {
     var info3 = cartItem.children[7].innerText;
     var info4 = cartItem.children[8].innerText;
     var info5 = cartItem.children[9].innerText;
-    var info6 = cartItem.children[10].innerText;
 
-    removeItemFromCart(price, balance, account,website,image,info1,info2,info3,info4,info5,info6);
+    removeItemFromCart(price, balance, account,website,image,info1,info2,info3,info4,info5);
     buttonClicked.parentElement.parentElement.remove();
 }
 
 
-function removeItemFromCart(price, balance,account,website,image,info1,info2,info3,info4,info5,info6){
+function removeItemFromCart(price, balance,account,website,image,info1,info2,info3,info4,info5){
     let item = {
         price: price,
         balance: balance,
@@ -234,8 +228,7 @@ function removeItemFromCart(price, balance,account,website,image,info1,info2,inf
         info2: info2,
         info3: info3,
         info4: info4,
-        info5: info5,
-        info6: info6
+        info5: info5
     }
     function checkAdult(items) {
         return JSON.stringify(items) !== JSON.stringify(item)
@@ -284,7 +277,6 @@ function updateCartTotal() {
 
         const banking4 = (JSON.parse(localStorage.getItem('banklogs'))[0].info4);
         const banking5 = (JSON.parse(localStorage.getItem('banklogs'))[0].info5);
-        const banking6 = (JSON.parse(localStorage.getItem('banklogs'))[0].info6);
 
         
         if(bankLog.includes('America')) { 
@@ -304,7 +296,6 @@ function updateCartTotal() {
             <div class="modal-body no-bord"> ${banking3} </div> 
             <div class="modal-body no-bord"> ${banking4} </div> 
             <div class="modal-body no-bord"> ${banking5} </div> 
-            <div class="modal-body no-bord"> ${banking6} </div> 
         `;
 
         titleLog2.innerHTML = `
