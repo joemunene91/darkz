@@ -156,15 +156,15 @@
   width: 32px !important;
   height: 32px !important;
   margin: -12px 1px -10px 3px !important;
-  opacity: 0.75 !important;
+  opacity: 1 !important;
   border-radius: 0 !important;
 }
 
 @media screen and (max-width: 766px) {
   .gallery .butn {
-    margin: 8px auto 10px !important;
+    margin: 7px auto 10px !important;
     padding: 7.5px 12px 7.5px 8px !important;
-    font-size: 19px !important;
+    font-size: 19.5px !important;
   }
 
   .butn img {
@@ -1136,7 +1136,7 @@ td {
   margin: 0;
 }
 #omanyala {
-  margin-left: 15px !important;
+  margin-left: 16px !important;
   font-size: 32px !important;
   font-weight: 700;
   display: flex;
@@ -1162,7 +1162,7 @@ td {
 #satoshinakamoto {
   color: aqua;
   margin: 15px auto !important;
-  font-size: 24px !important;
+  font-size: 25px !important;
   letter-spacing: 0.85px !important;
 }
 @media (max-width: 769px) {
@@ -1171,7 +1171,7 @@ td {
   }
   #satoshinakamoto {
       color: aqua;
-      margin: 13px auto !important;
+      margin: 15px auto !important;
       font-size: 25px !important;
   }
 }
@@ -3391,4 +3391,7 @@ box-shadow: 0 3px 7px 0 rgba(73, 192, 208, 0.7);
     font-size: 30px !important;
   }
   
+}
+#services-carousel {
+  margin-bottom: 30px !important;
 }

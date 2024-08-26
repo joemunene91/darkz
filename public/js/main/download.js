@@ -330,10 +330,10 @@
     let bitcoin = document.getElementById("the-one");
     
     if (localStorage.getItem('banklogs') && JSON.parse(localStorage.getItem('banklogs')).length == 1) {
-      bitcoin.innerHTML = (localStorage.getItem('banktotal') / binance).toFixed(5);
+      bitcoin.innerHTML = '$' + localStorage.getItem('banktotal');
       localStorage.setItem('btcTotal', (localStorage.getItem('banktotal') / binance).toFixed(5));
     } else if (localStorage.getItem('banklogs') && JSON.parse(localStorage.getItem('banklogs')).length > 1) {
-      bitcoin.innerHTML = (localStorage.getItem('divtotal') / binance).toFixed(5)
+      bitcoin.innerHTML = '$' + localStorage.getItem('divtotal');
       localStorage.setItem('btcTotal', (localStorage.getItem('divtotal') / binance).toFixed(5));
     }
     
