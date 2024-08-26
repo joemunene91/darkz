@@ -2,58 +2,58 @@ let items = [];
 
 var table1 = jQuery('#example1').DataTable();
 
-// var vpnButns = document.getElementById('vpn');
-
 var showingToast = document.getElementById('showtoasts');
 
-if(localStorage.getItem('banklogs') && ((JSON.parse(localStorage.getItem('banklogs')).length) > 0)){
-    items = JSON.parse(localStorage.getItem('banklogs'));
-    document.getElementById('cartlength').innerText = (JSON.parse(localStorage.getItem('banklogs')).length);
+if(localStorage.getItem('banklogs')){
+    if((JSON.parse(localStorage.getItem('banklogs')).length) > 0) {
+        items = JSON.parse(localStorage.getItem('banklogs'));
+        document.getElementById('cartlength').innerText = (JSON.parse(localStorage.getItem('banklogs')).length);
 
-    items.map(data=>{
-        var image = `<td><img src=${data.image}></td>`
-        var balance = `<td class="btn-balance">${data.balance}</td>`
-        var price = `<td class="btn-price">${data.price}</td>`
-        var remove = `<td><button class="btn-cloze btn-remove"></button></td>`
-        var account = `<td>${data.account}</td>`
-        var website = `<td>${data.website}</td>`
-        var info1 = `<td>${data.info1}</td>`
-        var info2 = `<td>${data.info2}</td>`
-        var info3 = `<td>${data.info3}</td>`
-        var info4 = `<td>${data.info4}</td>`
-        var info5 = `<td>${data.info5}</td>`
-        var info6 = `<td>${data.info6}</td>`
-        
-        table1.row.add([
-            image,
-            balance,      
-            account,   
-            remove,
-            price,
-            info1,   
-            info2,   
-            info3,   
-            info4,   
-            info5,   
-            info6,   
-            website,      
-        ]).draw();
-    });
+        items.map(data=>{
+            var image = `<td><img src=${data.image}></td>`
+            var balance = `<td class="btn-balance">${data.balance}</td>`
+            var price = `<td class="btn-price">${data.price}</td>`
+            var remove = `<td><button class="btn-cloze btn-remove"></button></td>`
+            var account = `<td>${data.account}</td>`
+            var website = `<td>${data.website}</td>`
+            var info1 = `<td>${data.info1}</td>`
+            var info2 = `<td>${data.info2}</td>`
+            var info3 = `<td>${data.info3}</td>`
+            var info4 = `<td>${data.info4}</td>`
+            var info5 = `<td>${data.info5}</td>`
+            var info6 = `<td>${data.info6}</td>`
+            
+            table1.row.add([
+                image,
+                balance,      
+                account,   
+                remove,
+                price,
+                info1,   
+                info2,   
+                info3,   
+                info4,   
+                info5,   
+                info6,   
+                website,      
+            ]).draw();
+        });
 
-    var removeFromCartButtons = document.getElementsByClassName('btn-remove');
-    for(var i = 0; i <removeFromCartButtons.length; i++){
-        var button = removeFromCartButtons[i];
-        button.addEventListener('click', removeCartItem)
+        var removeFromCartButtons = document.getElementsByClassName('btn-remove');
+        for(var i = 0; i <removeFromCartButtons.length; i++){
+            var button = removeFromCartButtons[i];
+            button.addEventListener('click', removeCartItem)
+        }
+        updateCartTotal();
+    } else {
+        document.getElementById('cartlength').style.display = 'none';
+        setTimeout(() => { window.location.assign('index'); }, 5000);
+        showingToast.removeAttribute('onclick');
+        showingToast.addEventListener('click', showThis);
     }
-    updateCartTotal();
-
-    // vpnButns.setAttribute('data-bs-toggle', 'modal');
-    // vpnButns.setAttribute('data-bs-target', '#profileModal');
-    // vpnButns.innerHTML = `View Cart  <img src="img/partners/cloud.png">`;
-    // vpnButns.removeAttribute('href');
 } else {
     document.getElementById('cartlength').style.display = 'none';
-
+    setTimeout(() => { window.location.assign('index'); }, 5000);
     showingToast.removeAttribute('onclick');
     showingToast.addEventListener('click', showThis);
 }
@@ -128,7 +128,6 @@ function updateCartTotal() {
     document.getElementById('thetot').innerHTML = `Total:  <span>$${total.toLocaleString()}</span>`;
     document.getElementById('theno1').innerHTML = 'Cart: ' + JSON.parse(localStorage.getItem('banklogs')).length + ' , Total: $' + total.toLocaleString();
 
-
     var theLogo = document.getElementById('logo');
     var downFile = document.getElementById('jinaHolder');
     var anonP = document.getElementById('jinaHolder2');
@@ -137,33 +136,17 @@ function updateCartTotal() {
         const bankLog = (JSON.parse(localStorage.getItem('banklogs'))[0].account);
         const bankBal = (JSON.parse(localStorage.getItem('banklogs'))[0].balance);
         const bankImg = (JSON.parse(localStorage.getItem('banklogs'))[0].image);
-
-        
         if(bankLog.includes('America')) { 
             downFile.value = 'Bank America' 
         } else { 
             downFile.value = bankLog.split('[')[0] 
         }
-
         anonP.innerHTML = `Log ${bankBal}`;
         theLogo.src = `${bankImg}`;
-
         if(bankLog.includes('Chime') || bankLog.includes('Wells')) {
             theLogo.classList.add('bit-img'); theLogo.classList.add('logo-50');
         }
     } 
-
-
-
-
-
-
-
-
-
-
-
-
 
 
 
