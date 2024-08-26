@@ -52,34 +52,6 @@ if(localStorage.getItem('banklogs') && ((JSON.parse(localStorage.getItem('banklo
 
     showingToast.removeAttribute('onclick');
     showingToast.addEventListener('click', showThis);
-
-    // document.getElementById('thetot').addEventListener('click', addTo);
-
-    function addTo() {
-        if(window.location.href.includes('bankofamerica')) {
-            document.getElementById('boa01').click();
-        } else if(window.location.href.includes('chase')) {
-            document.getElementById('chase01').click();
-        } else if(window.location.href.includes('chime')) {
-            document.getElementById('chime01').click();
-        } else if(window.location.href.includes('citi')) {
-            document.getElementById('citi01').click();
-        } else if(window.location.href.includes('huntington')) {
-            document.getElementById('hunt01').click();
-        } else if(window.location.href.includes('navyfederal')) {
-            document.getElementById('nfcu01').click();
-        } else if(window.location.href.includes('pnc')) {
-            document.getElementById('pnc01').click();
-        } else if(window.location.href.includes('rbc')) {
-            document.getElementById('rbc01').click();
-        } else if(window.location.href.includes('truist')) {
-            document.getElementById('truist01').click();
-        } else if(window.location.href.includes('wellsfargo')) {
-            document.getElementById('wells01').click();
-        } else if(window.location.href.includes('woodforest')) {
-            document.getElementById('wood01').click();
-        }
-    }
 }
 
 
@@ -99,7 +71,7 @@ $('#exampleModal').on('show.bs.modal', function (event) {
     "use strict";
     var logsContainer =  document.getElementsByClassName('gallery')[0];
     var addToCartButtons = logsContainer.getElementsByClassName('butn');
-    var addToCartImages = logsContainer.getElementsByClassName('fa-angle-down');
+    var addToCartImages = logsContainer.getElementsByClassName('bits');
 
     var modal = $(this);
 
@@ -112,10 +84,7 @@ $('#exampleModal').on('show.bs.modal', function (event) {
         var mgi = addToCartImages[i];
         mgi.addEventListener('click', addToCartClicked2);
     }
-
-
     
-
     function addToCartClicked(event){
         var btn = event.target;
         var image = btn.parentElement.parentElement.children[0].children[1].src;
@@ -126,7 +95,7 @@ $('#exampleModal').on('show.bs.modal', function (event) {
         var info3 = btn.parentElement.children[3].innerText;
         var info4 = btn.parentElement.children[4].innerText;
         var info5 = btn.parentElement.children[5].innerText;
-        var account = btn.parentElement.children[7].innerText;
+        var account = btn.parentElement.children[6].innerText;
         
         modal.find(".modal-title").text("Balance: " + balance);
         document.getElementById('monez').innerHTML = ` 
@@ -140,12 +109,8 @@ $('#exampleModal').on('show.bs.modal', function (event) {
         modal.find(".modal-img").attr("src", image);
         modal.find(".account p").text(account);
 
-        setTimeout(() => {
-            addToCartClick();
-        }, 600);
+        setTimeout(() => { addToCartClick() }, 600);
     }
-
-
 
     function addToCartClicked2(event){
         var btn = event.target;
@@ -157,7 +122,7 @@ $('#exampleModal').on('show.bs.modal', function (event) {
         var info3 = btn.parentElement.parentElement.children[3].innerText;
         var info4 = btn.parentElement.parentElement.children[4].innerText;
         var info5 = btn.parentElement.parentElement.children[5].innerText;
-        var account = btn.parentElement.parentElement.children[7].innerText;
+        var account = btn.parentElement.parentElement.children[6].innerText;
         
         modal.find(".modal-title").text("Balance: " + balance);
         document.getElementById('monez').innerHTML = ` 
@@ -171,9 +136,7 @@ $('#exampleModal').on('show.bs.modal', function (event) {
         modal.find(".modal-img").attr("src", image);
         modal.find(".account p").text(account);
 
-        setTimeout(() => {
-            addToCartClick();
-        }, 300);
+        setTimeout(() => { addToCartClick() }, 600);
     }
 })
 
@@ -201,7 +164,7 @@ function addToCartClick(event) {
     var info5 = button.parentElement.parentElement.children[5].children[0].innerText;
 
     var image = button.parentElement.parentElement.parentElement.children[0].children[0].src;
-    var accoun = button.parentElement.parentElement.children[7].children[0].innerText;
+    var accoun = button.parentElement.parentElement.children[6].children[0].innerText;
 
     if(accoun.includes('ACCOUNT')) {
         var account = accoun.replace(' ACCOUNT]',']');
@@ -221,14 +184,13 @@ function addToCartClick(event) {
 }
 
 
-
 function removeCartItem(event) {
     var buttonClicked = event.target
     var cartItem = buttonClicked.parentElement.parentElement;
     var price = cartItem.children[4].innerText;
     var balance = cartItem.children[1].innerText;
     var account = cartItem.children[2].innerText;
-    var website = cartItem.children[11].innerText;
+    var website = cartItem.children[10].innerText;
     var image = cartItem.children[0].children[0].src;
     var info1 = cartItem.children[5].innerText;
     var info2 = cartItem.children[6].innerText;

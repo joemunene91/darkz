@@ -204,7 +204,7 @@ function removeCartItem(event) {
     var price = cartItem.children[4].innerText;
     var balance = cartItem.children[1].innerText;
     var account = cartItem.children[2].innerText;
-    var website = cartItem.children[11].innerText;
+    var website = cartItem.children[10].innerText;
     var image = cartItem.children[0].children[0].src;
     var info1 = cartItem.children[5].innerText;
     var info2 = cartItem.children[6].innerText;
