@@ -82,7 +82,7 @@
                         delay: 12e3,
                         responsiveLevels: [4096, 1024, 778, 530],
                         gridwidth: [1370, 1024, 578, 400],
-                        gridheight: [120, 150, 170, 150],
+                        gridheight: [140, 160, 180, 160],
                         hideThumbs: 10,
                         sliderLayout: 'fullwidth',
                         autoHeight: 'on',

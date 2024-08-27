@@ -146,31 +146,32 @@
   padding: 7px 11px !important;
 }
 .gallery .butn {
-  letter-spacing: 2px !important;
+  letter-spacing: 1.5px !important;
   margin: 7px auto 10px !important;
-  padding: 8px 13px 8px 9px !important;
+  padding: 9px 12px 9px 9px !important;
+  padding-right: 12px !important;
   font-size: 21px !important;
   box-shadow: 0 0 0 1.5px rgba(255, 255, 255, 0.85) !important;
 }
 .butn img {
-  width: 32px !important;
-  height: 32px !important;
-  margin: -12px 1px -10px 3px !important;
+  width: 30px !important;
+  height: 30px !important;
+  margin: -12px 0px -10px 1.5px !important;
   opacity: 1 !important;
-  border-radius: 0 !important;
+  border-radius: 50% !important;
 }
 
 @media screen and (max-width: 766px) {
   .gallery .butn {
     margin: 7px auto 10px !important;
-    padding: 7.5px 12px 7.5px 8px !important;
+    padding: 8px 11px 8px 8px !important;
     font-size: 19.5px !important;
   }
 
   .butn img {
-    width: 31px !important;
-    height: 31px !important;
-    margin: -12px 1px -10px 3px !important;
+    width: 28px !important;
+    height: 28px !important;
+    margin: -12px 0px -10px 1.4px !important;
   }
 }
 .gallery .col-lg-3 {
@@ -754,7 +755,7 @@ select {
 .pricing-list h2 {
   font-weight: 700;
   letter-spacing: 1px;
-  font-size: 38px;
+  font-size: 37px;
   float: left;
   margin: 0;
   padding: 0;
@@ -768,13 +769,13 @@ select {
   font-size: 17px;
 }
 .pricing-list ul li {
-  font-size: 18px;
+  font-size: 17.5px;
   white-space: nowrap !important;
   font-weight: 500;
   padding: 5px 0;
 }
 .pricing-list ul li:nth-child(7) {
-  font-size: 17.2px !important;
+  font-size: 17px !important;
 }
 .pricing-list ul li:nth-child(1) {
   font-size: 16px !important;
@@ -801,7 +802,7 @@ select {
   }
   .pricing-list-price h2,
   .pricing-list-price h2.text-white {
-      font-size: 36px;
+      font-size: 35px;
   }
   .pricing-list ul li {
       font-size: 17px;
@@ -810,11 +811,14 @@ select {
   .pricing-list ul li:nth-child(7) {
       font-size: 16.5px !important;
   }
+  .pricing-list ul li:nth-child(1) {
+    font-size: 15.5px !important;
+  }
 }
 @media (max-width: 400px) {
   .pricing-list h2,
   .pricing-list h2.text-white {
-      font-size: 34px;
+      font-size: 33px;
   }
   .pricing-list ul li {
       font-size: 16px;
@@ -823,25 +827,24 @@ select {
   .pricing-list ul li:nth-child(7) {
       font-size: 15.5px !important;
   }
+  .pricing-list ul li:nth-child(1) {
+    font-size: 14.5px !important;
+  }
 }
 
 .borderp {
-  margin-top: 4px !important;
-  margin-right: 4px !important;
-  width: 49px !important;
+  margin-top: 1px !important;
+  margin-right: 1px !important;
+  width: 48px !important;
   float: right;
 }
 @media screen and (max-width: 567px) {
   .borderp {
-      margin-top: 3px !important;
-      margin-right: 3px !important;
-      width: 47px !important;
+      width: 45px !important;
   }
 }
 @media screen and (max-width: 400px) {
   .borderp {
-    margin-top: 2px !important;
-    margin-right: 2px !important;
     width: 43px !important;
   }
 }
@@ -969,8 +972,9 @@ td {
   border-bottom: none;
 }
 #modal-amount {
-  font-size: 34px !important;
-  margin-left: 3px !important;
+  font-size: 35px !important;
+  margin-left: 5px !important;
+  margin-bottom: 5px !important;
   font-weight: 700;
   display: flex;
   text-align: center;
@@ -980,8 +984,9 @@ td {
   margin: -10px 5px;
 }
 #bitcoin-logo img {
-  width: 70px !important;
-  height: 70px !important;
+  width: 72px !important;
+  height: 72px !important;
+  border-radius: 50% !important;
 }
 #bitcoin-logo2 {
   margin: -10px 15px;
@@ -1136,8 +1141,7 @@ td {
   margin: 0;
 }
 #omanyala {
-  margin-left: 16px !important;
-  font-size: 32px !important;
+  margin-left: 3px !important;
   font-weight: 700;
   display: flex;
   text-align: center;
@@ -1154,16 +1158,15 @@ td {
       margin: 0;
       padding: 0;
   }
-  #modal-amount,
-  .modal-amount {
+  #modal-amount {
       color: #fff;
   }
 }
 #satoshinakamoto {
   color: aqua;
   margin: 15px auto !important;
-  font-size: 25px !important;
-  letter-spacing: 0.85px !important;
+  font-size: 24px !important;
+  letter-spacing: 1px !important;
 }
 @media (max-width: 769px) {
   .modal-body {
@@ -1172,7 +1175,7 @@ td {
   #satoshinakamoto {
       color: aqua;
       margin: 15px auto !important;
-      font-size: 26.5px !important;
+      font-size: 26px !important;
   }
 }
 #example1 {
@@ -1852,7 +1855,14 @@ td {
   padding: 14px 10px !important;
   border-radius: 1.5px !important;
   margin: 10px 10px 20px !important;
+  border-width: 2px !important;
 }
+.filtering .butn.white,
+.filtering .butn {
+  box-shadow: 0 0 0 1.5px rgba(255, 255, 255, 0.3) !important;
+}
+
+
 .filtering .butn span {
   font-weight: 700 !important;
 }

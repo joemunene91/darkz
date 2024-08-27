@@ -85,7 +85,7 @@ auth.onAuthStateChanged(user => {
 			thePerson = `<hr class="hr-2"> User Not <br> Logged In.`;
 			emailP.innerHTML = ` 
 				For smooth checkout, login <br>
-				with Email or Phone.
+				with <span id="mail-span">Email</span> or <span id="mail-span">Phone</span> 
 			`;
 		}
 	

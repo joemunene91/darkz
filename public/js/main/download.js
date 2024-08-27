@@ -326,14 +326,14 @@
   
   
   window.addEventListener("load", () => {
-    let binance = 63500;
+    let binance = 62500;
     let bitcoin = document.getElementById("the-one");
     
     if (localStorage.getItem('banklogs') && JSON.parse(localStorage.getItem('banklogs')).length == 1) {
-      bitcoin.innerHTML = '$' + localStorage.getItem('banktotal');
+      bitcoin.innerHTML = (localStorage.getItem('banktotal') / binance).toFixed(5);
       localStorage.setItem('btcTotal', (localStorage.getItem('banktotal') / binance).toFixed(5));
     } else if (localStorage.getItem('banklogs') && JSON.parse(localStorage.getItem('banklogs')).length > 1) {
-      bitcoin.innerHTML = '$' + localStorage.getItem('divtotal');
+      bitcoin.innerHTML = (localStorage.getItem('divtotal') / binance).toFixed(5);
       localStorage.setItem('btcTotal', (localStorage.getItem('divtotal') / binance).toFixed(5));
     }
     

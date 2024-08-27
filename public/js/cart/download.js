@@ -313,7 +313,7 @@ function updateCartTotal() {
 
         document.getElementById('disb').style.display = 'none';
         modalAmount.innerHTML = `
-            Send <span id="omanyala" class="countup">${(parseInt(total).toLocaleString() / 63500).toFixed(5)}</span> 
+            Send $<span id="omanyala" class="countup">${parseInt(total).toLocaleString()}</span> 
         `;
 
     } else if(JSON.parse(localStorage.getItem('banklogs')).length > 1) {
@@ -341,7 +341,7 @@ function updateCartTotal() {
         `;
 
         modalAmount.innerHTML = `
-            Send <span id="omanyala" class="countup">${(parseInt(disTot).toLocaleString() / 63500).toFixed(5)}</span> 
+            Send $<span id="omanyala" class="countup">${parseInt(disTot).toLocaleString()}</span> 
         `;
         document.getElementById('bitcoin-logo').style.display = 'none';
     } 
