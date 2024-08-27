@@ -141,7 +141,7 @@ function updateCartTotal() {
         } else { 
             downFile.value = bankLog.split('[')[0] 
         }
-        anonP.innerHTML = `${bankBal}`;
+        anonP.innerHTML = `Log ${bankBal}`;
         theLogo.src = `${bankImg}`;
         if(bankLog.includes('Chime') || bankLog.includes('Wells')) {
             theLogo.classList.add('bit-img'); theLogo.classList.add('logo-50');
