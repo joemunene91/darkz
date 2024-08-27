@@ -18,9 +18,7 @@ const theIP = document.getElementById('the-ip');
 const auth = firebase.auth();
 
 auth.onAuthStateChanged(user => {
-	if(!user) { 
-		window.location.assign('index');
-	} else {
+	if(user) { 
 		theId.innerHTML = user.uid;
 	}
 });
