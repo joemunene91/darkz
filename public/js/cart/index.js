@@ -137,7 +137,7 @@ function updateCartTotal() {
         var timeDifference = parseFloat(p1knoDecimal) - parseFloat(theTime);
         width = 900 - timeDifference;
 
-        if(width <= 600) {
+        if(width <= 840) {
             setTimeout(() => {
                 if(localStorage.getItem('timez-set')) { localStorage.removeItem('timez-set') } 
             }, 300); var minutes = Math.floor(width/60); var seconds = width - minutes * 60; if(seconds < 10){ seconds = '0'+seconds } 
