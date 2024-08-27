@@ -1033,7 +1033,7 @@ td {
 @media (max-width: 576px) {
   #modal-amount,
   #modal-amount span {
-      font-size: 37px !important;
+      font-size: 38px !important;
   }
   #bitcoin-logo {
       margin: -8px 10px !important;
