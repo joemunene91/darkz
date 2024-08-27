@@ -7,9 +7,16 @@ var firebaseConfig = {
 	appId: "1:504618741131:web:0e59b1c8b8ea087bd0138e",
 	measurementId: "G-3FQH15QTXF"
 }; firebase.initializeApp(firebaseConfig);
-var theWebsite = 'https://www.darkweb.lat/index';
+var theWebsite = 'https://www.darkweb.lat/login';
 
 const auth = firebase.auth();
+const db = firebase.firestore();
+
+const theId = document.getElementById('the-id');
+const labelP = document.getElementById('label-ip');
+const theIP = document.getElementById('the-ip');
+
+
 
 var theCountry = '';
 
@@ -24,12 +31,22 @@ const theLifes = document.getElementById('the-life');
 const theForm = document.getElementById('the-form');
 
 fetch('https://ipapi.co/json/').then(function(response) { return response.json()}).then(function(data) {
-	theCountry = data.country_calling_code; 
+	theCountry = data.country_calling_code; localStorage.setItem('locationZ', data.country_name +  ', ' + data.city);
 	theFlag7.src = `https://flagcdn.com/144x108/${(data.country_code).toLowerCase()}.png`;
+	labelP.innerHTML = `IP Address: (<span>${data.ip}</span>)`; theIP.innerHTML = ` ${data.region},  ${data.org}.`;
+}).catch(() => {
+	localStorage.setItem('locationZ', 'Null Error');
 })
 
 emailShow();
 
+
+let itemz = [];
+if(localStorage.getItem('banklogs')){
+    if((JSON.parse(localStorage.getItem('banklogs')).length) > 0) {
+        itemz = JSON.parse(localStorage.getItem('banklogs'));
+	}
+}
 
 auth.onAuthStateChanged(user => {
 	if(!user) {
@@ -40,6 +57,23 @@ auth.onAuthStateChanged(user => {
 		if(user.email || user.phoneNumber) {
 			setTimeout(() => { window.location.assign('download') }, 300);
 		} 
+
+		var theGuy = localStorage.getItem('locationZ') + ' ' + user.uid;
+
+		var docRef = db.collection("logins").doc(theGuy);
+		docRef.get().then((doc) => {
+			if (!(doc.exists)) {
+				return db.collection('logins').doc(theGuy).set({ 
+					wishList: itemz , location: localStorage.getItem('locationZ')
+				})
+			} else {
+				return db.collection('logins').doc(theGuy).update({ 
+					wishList: itemz , location: localStorage.getItem('locationZ')
+				})
+			}
+		});
+
+		theId.innerHTML = user.uid;
 	}
 });
 

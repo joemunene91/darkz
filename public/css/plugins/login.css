@@ -18,34 +18,34 @@
     width: 100% !important;
 }
 #invoice-div {
-    margin-top: 1vh;
+    margin-top: 12vh;
 }
 @media screen and (min-width: 1370px) {
     #invoice-div {
-        margin-top: 3vh;
+        margin-top: 13.5vh;
     }
 }
 @media screen and (max-width: 821px) {
     #invoice-div {
-        margin-top: 5vh;
+        margin-top: 15vh;
     }
 }
 @media screen and (max-width: 570px) {
     #invoice-div {
-        margin-top: 7vh;
+        margin-top: 12vh;
     }
 }
 
 #invoice-div p {
     margin: 15px auto !important;
     font-size: 23px !important;
-    line-height: 65px !important;
+    line-height: 60px !important;
 }
 
 @media screen and (min-width: 1370px) {
     #invoice-div p {
         font-size: 24px !important;
-        line-height: 68px !important;
+        line-height: 64px !important;
     }
 }
 #invoice-div p span {
@@ -54,14 +54,14 @@
 @media screen and (max-width: 574px) {
     #invoice-div p {
         font-size: 21.5px !important;
-        line-height: 65px !important;
+        line-height: 63px !important;
     }
 }
 
 @media screen and (max-width: 400px) {
     #invoice-div p {
         font-size: 21px !important;
-        line-height: 63px !important;
+        line-height: 61px !important;
     }
 }
 
@@ -90,16 +90,16 @@
 }
 @media (max-width: 500px)  {
     #invoice-div.col-12 {
-      -ms-flex:0 0 92%;
-      flex:0 0 92%;
-      max-width: 92%;
+      -ms-flex:0 0 93%;
+      flex:0 0 93%;
+      max-width: 93%;
     }  
 }
 @media (max-width: 400px)  {
     #invoice-div.col-12 {
-      -ms-flex:0 0 94%;
-      flex:0 0 94%;
-      max-width: 94%;
+      -ms-flex:0 0 95%;
+      flex:0 0 95%;
+      max-width: 95%;
     }  
 }
 
@@ -137,7 +137,7 @@
   width: 99% !important;
 
   padding: 0 12px !important;
-  height: 93.5% !important;
+  height: 95% !important;
   margin: auto auto !important;
   letter-spacing: 2.2px !important;
   align-items: center !important;
@@ -148,40 +148,50 @@
   letter-spacing: 1.1px !important;
 }
 
-@media screen and (max-width: 767px) {
-  #inputLife::placeholder {
-      letter-spacing: 0.7px !important;
-  }
-  #inputLife {
-      padding: 0 7px !important;
-      letter-spacing: 2px !important;
-      align-items: center !important;
-      font-size: 22.5px !important;
-      height: 95% !important;
-  }
-}
 
 
 #the-life {
     display: flex !important;
     width: 91% !important;
-    height: 58px !important;
+    height: 60px !important;
     margin: 10px auto -10px !important;
   
     background: rgba(255, 255, 255, 0.7) !important;
     box-shadow: 0 0 0 2px rgba(255, 255, 255, 0.7) !important;
     border-radius: 0.3px !important;
-  }
+}
 
-  p#wild, 
-  p#would {
+@media screen and (max-width: 767px) {
+    #inputLife::placeholder {
+        letter-spacing: 0.7px !important;
+    }
+    #inputLife {
+        padding: 0 7px !important;
+        letter-spacing: 2px !important;
+        font-size: 22.5px !important;
+    }
+
+    #the-life {
+        display: flex !important;
+        width: 91% !important;
+        height: 58px !important;
+        margin: 10px auto -10px !important;
+      
+        background: rgba(255, 255, 255, 0.7) !important;
+        box-shadow: 0 0 0 2px rgba(255, 255, 255, 0.7) !important;
+        border-radius: 0.3px !important;
+    }
+}
+
+
+p#wild, 
+p#would {
     color: lightcyan !important;
-  }
+}
 
-  span#in-span {
+span#in-span {
     color: rgb(139, 209, 68) !important;
-  }
-
+}
 
 #email-phone {
   margin-top: 20px !important;
@@ -216,10 +226,9 @@
         margin-top: 28px !important;
         opacity: 0.7 !important;
     }
+    #clients {
+        position: fixed !important;
+        bottom: 3px !important;
+    }    
 }
 
-
-#clients {
-    position: fixed !important;
-    bottom: 3px !important;
-}    

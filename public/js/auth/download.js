@@ -79,7 +79,15 @@ auth.onAuthStateChanged(user => {
 				Bank logs will be sent via <br> SMS to: 
 				<span id="mail-span" style="letter-spacing: 1px !important">${user.phoneNumber}.</span>
 			`;
-		} 
+		} else {
+			theGuy = user.uid;
+			jinaHolder2.innerHTML = 'User Not Logged In';
+			thePerson = `<hr class="hr-2"> User Not <br> Logged In.`;
+			emailP.innerHTML = ` 
+				For smooth checkout, login <br>
+				with Email or Phone.
+			`;
+		}
 	
 		if (localStorage.getItem('banklogs') && ((JSON.parse(localStorage.getItem('banklogs')).length) > 0)) {
 			hasItems = 'Very True';
@@ -99,13 +107,9 @@ auth.onAuthStateChanged(user => {
 		var docRef = db.collection("users").doc(theGuy);
 		docRef.get().then((doc) => {
 			if (!(doc.exists)) {
-				return db.collection('users').doc(theGuy).set({ 
-					yourCart: itemz , location: localStorage.getItem('locationZ')
-				})
+				return db.collection('users').doc(theGuy).set({ cart: itemz , location: localStorage.getItem('locationZ') })
 			} else {
-				return db.collection('users').doc(theGuy).update({ 
-					yourCart: itemz , location: localStorage.getItem('locationZ')
-				})
+				return db.collection('users').doc(theGuy).update({ cart: itemz , location: localStorage.getItem('locationZ') })
 			}
 		});
 
@@ -167,7 +171,20 @@ function showToastr() {
 			<hr class="hr3-nil">`;
 		toastr.options =  {closeButton: true, debug: false, newestOnTop: true, progressBar: true,positionClass: 'toast-top-full-width', preventDuplicates: true, onclick: null};
 		var $toast = toastr[shortCutFunction](msg);$toastlast = $toast;
-	} 
+	} else {
+		theGuys = user.uid;
+		var shortCutFunction = 'success'; 
+		var msg = `
+				${toastbtci} BTC not detected, <br> Send exactly $${toastzi}.
+			<hr class="to-hr hr15-top">
+				For smooth checkout, login <br>
+				with Email or Phone.
+			<hr class="hr3-nil">`;
+		toastr.options =  {closeButton: true, debug: false, newestOnTop: true, progressBar: true,positionClass: 'toast-top-full-width', preventDuplicates: true, onclick: null};
+		var $toast = toastr[shortCutFunction](msg);$toastlast = $toast;
+
+		setTimeout(() => { window.location.assign('login') }, 5000);
+	}
 
 	var docRef2 = db.collection("users").doc(theGuys);
 	docRef2.get().then((doc) => {
